@@ -1,19 +1,23 @@
-public class ArrayList<T> implements List<T> {
 
+public class MyArrayList<T> implements List<T> {
 	private static final int DEFAULT_INITIAL_CAPACITY = 11;
 	private T[] data;
 	private int size;
+	private int capacity;
+	
+
 
 	/**
 	 * Constructs an ArrayList using the default capacity
 	 */
-	@SuppressWarnings("unchecked")
-	public ArrayList() {
+
+	public MyArrayList() {
 		// TODO Complete Constructor
 		size = 0;
-		data = (T[]) new Object[DEFAULT_INITIAL_CAPACITY];
+		capacity = DEFAULT_INITIAL_CAPACITY;
+		data = (T[]) new Object[capacity];
 	}
-
+	
 	/**
 	 * Constructs an ArrayList with an 'initialCapacity'
 	 * 
@@ -21,94 +25,91 @@ public class ArrayList<T> implements List<T> {
 	 * 
 	 * @param initialCapacity
 	 */
-	@SuppressWarnings("unchecked")
-	public ArrayList(int initialCapacity) {
+	public MyArrayList(int initialCapacity) {
 		// TODO Complete Constructor
-		if(initialCapacity > 0) {
-		
-			data = (T[]) new Object[initialCapacity];
-		
-		}
-		
+		size = 0;
 		if(initialCapacity < 0) {
-			
-			data = (T[]) new Object[DEFAULT_INITIAL_CAPACITY];		}
-		
+			capacity = DEFAULT_INITIAL_CAPACITY;
+			data = (T[]) new Object[capacity];
+		} else {
+			capacity = initialCapacity;
+			data = (T[]) new Object[capacity];
+		}
 
 	}
+	
 
 	@Override
 	public void add(T item, int index) {
 		// TODO Auto-generated method stub
-		data[index] = item;
-		size += 1;
+		
+		if(index >= 0 && index <= capacity) {
+			data[index] = item;
+			size++;
+		} 
 
 	}
+	
 
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		data.length = 0;
-
+		size = 0;
+		data = (T[]) new Object[DEFAULT_INITIAL_CAPACITY];
 	}
+	
+	
 
+	
 	@Override
 	public boolean contains(Object item) {
 		// TODO Auto-generated method stub
-		for(int i = 0; i < data.length; i++) {
-			if(data[i] == item) {
-				return true;
-			}
-			else {
-				return false;
-			}
+		int itemSpot = this.indexOf(item);
+		if(itemSpot == -1) {
+			return false;
+		} else {
+			return true;
 		}
-		
 	}
 
 	@Override
 	public T get(int index) {
 		// TODO Auto-generated method stub
-		if(index > 0 && index <= data.length) {
-			return data[index];
-		}
-		if(index < 0 || index > data.length) {
+		if(index < 0 || index > capacity) {
 			return null;
+		} else {
+ 			return data[index];
 		}
 	}
 
 	@Override
 	public int indexOf(Object item) {
-		// TODO Auto-generated method stub
-		int x;
-		for(x = 0; x < data.length; x++) {
+		int index = -1;
+		for(int x = 0; x < size; x++) {
 			if(data[x] == item) {
-				return x;
-			}
-			else {
-				x = -1;
-			}
+				index = x;
+			} 
 		}
-		if(x == -1) {
-			return x;
-		}
+		return index;
 	}
-
+	
+	
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		if(data.length == 0) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		if(size == 0) {
+ 			return true;
+ 		}
+ 		else {
+ 			return false;
+ 		}
 	}
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return data.length;
+		return size;
 	}
-	
 }
+	
+
