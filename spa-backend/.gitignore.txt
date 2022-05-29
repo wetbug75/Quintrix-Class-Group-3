@@ -1,4 +1,5 @@
 HELP.md
+/target/
 test-output/
 target/
 !.mvn/wrapper/maven-wrapper.jar
