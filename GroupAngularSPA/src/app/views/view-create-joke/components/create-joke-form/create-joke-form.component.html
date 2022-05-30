@@ -1,0 +1,11 @@
+<form [formGroup]="newJokeForm" (ngSubmit)="onSubmit()">
+<label>
+    Joke:
+</label>
+<input type="text" formControlName="joke" placeholder="required">
+<label>
+    Answer:
+</label>
+<input type="text" formControlName="answer" placeholder="required">
+<button id="btn-submit-joke">Submit</button>
+</form>
