@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-view-create-joke',
@@ -12,4 +13,8 @@ export class ViewCreateJokeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmitCreateJoke(formControlObj : FormGroup){
+    console.log(formControlObj);
+    
+  }
 }
