@@ -5,7 +5,6 @@
 {"question": "Why did the security conscious engineer refuse to pay their dinner bill?", "answer": "Because they could not verify the checksum."},
 {"question": "What do you call a busy waiter?", "answer": "A server."},
 {"question": "What do you call an idle server?", "answer": "A waiter."},
-{"question": "[Please Enter New Password:] fortnight**Q:** [Error: Password is Two Week]"},
 {"question": "How many Prolog programmers does it take to change a lightbulb?", "answer": "Yes."},
 {"question": "What diet did the ghost developer go on?", "answer": "Boolean"},
 {"question": "Why was the developer unhappy at their job?", "answer": "They wanted arrays."},
