@@ -13,7 +13,6 @@ export class CreateJokeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    
   }
 
   initializeForm(): void{
@@ -24,9 +23,9 @@ export class CreateJokeFormComponent implements OnInit {
   }
 
   onSubmit():void{
-    console.log(this.newJokeForm);
-    console.log(this.newJokeForm.value);
+    
     this.onFormGroupSubmit.emit(this.newJokeForm);
+
   }
 
 }
