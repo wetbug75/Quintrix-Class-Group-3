@@ -1,0 +1,28 @@
+{
+  "jokes": [
+    {
+      "question": "hello there",
+      "answer": "no"
+    },
+    {
+      "answer": "aa",
+      "question": "sss",
+      "id": 1
+    },
+    {
+      "answer": "asdfs",
+      "question": "dfsdf",
+      "id": 0.257075674224444
+    },
+    {
+      "answer": "asdfsnsdkfs",
+      "question": "knfnsdf",
+      "id": 0.6462000549146814
+    },
+    {
+      "answer": "asdfsnsdkfs",
+      "question": "kmkkj",
+      "id": 0.015927362924622046
+    }
+  ]
+}

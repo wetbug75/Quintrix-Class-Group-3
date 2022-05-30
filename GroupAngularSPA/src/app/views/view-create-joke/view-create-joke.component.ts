@@ -19,7 +19,15 @@ export class ViewCreateJokeComponent implements OnInit {
      
     console.log(newJokeForm.value);
 
-    this.jokeService.postJoke(newJokeForm.value).subscribe((response)=>{
+    //temporary code because the json server won't accept anything that doesn't have an id
+    const newJoke = {
+      answer : newJokeForm.value.answer,
+      question: newJokeForm.value.question,
+      id: Math.random()
+    }
+    //above is place holder code. 
+   
+    this.jokeService.postJoke(newJoke).subscribe((response)=>{
       console.log(response);
     })
   }

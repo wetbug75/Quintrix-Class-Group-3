@@ -12,12 +12,12 @@ const httpOptions = {
 })
 export class JokeDataService {
   //private apiUrl = environment.backendurl;
-  private apiUrl = "http://localhost:8080" //subject to change
+  private apiUrl = "http://localhost:5000/jokes" //subject to change
   constructor(private myHttpRequest:HttpClient) { }
 
   postJoke(newJoke: any): Observable<any>{
     console.log('send to backend');
-    return this.myHttpRequest.post<any>(`${this.apiUrl}/post`, newJoke, httpOptions);
+    return this.myHttpRequest.post<any>(`${this.apiUrl}`, newJoke, httpOptions);
   }
 
   }

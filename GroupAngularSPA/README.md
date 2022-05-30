@@ -2,6 +2,37 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
+## JSON server
+
+Run `json-server --watch db.json --port 5000`. Send API calls to `http://localhost:5000/jokes` 
+Post requests require id
+
+db.json is located in the root directory. 
+Below is an example how the db is formatted in db.json
+"jokes" represent the route directory. "items" represents another route directory. For this project
+use /jokes route. 
+
+{
+  "items": [
+      {
+        "name": "bread",
+        "id": 1
+        }
+  ], 
+  "jokes": [
+    {
+      "question": "hello there",
+      "answer": "no",
+      "id": 1
+    },
+    {
+      "answer": "aa",
+      "question": "sss",
+      "id": 2
+    }
+  ]
+}
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
