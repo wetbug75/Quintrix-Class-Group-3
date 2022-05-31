@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './components/button/button.component';
-import { JokeboxComponent } from './components/jokebox/jokebox.component';
-import { JokeQuestionComponent } from './components/joke-question/joke-question.component';
-import { JokeAnswerComponent } from './components/joke-answer/joke-answer.component';
+import { JokeComponent } from './components/joke/joke.component';
+import { JokeItemComponent } from './components/joke-item/joke-item.component';
+
+/*Will come back!*/
+const appRoutes: Routes = [
+ 
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
-    JokeboxComponent,
-    JokeQuestionComponent,
-    JokeAnswerComponent
+    JokeComponent,
+    JokeItemComponent
   ],
   imports: [
     BrowserModule
