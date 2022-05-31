@@ -62,8 +62,12 @@ body{
 	margin: 0 auto;
 	justify-content: center;
 	display:flex;
-	
 }
+
+#jokeText{
+	display: none;
+}
+
 
 button{
 	border-radius: 25px;
