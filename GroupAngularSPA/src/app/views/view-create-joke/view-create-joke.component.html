@@ -1,6 +1,9 @@
-<p>view-create-joke works!</p>
 
 <app-create-joke-form
-(onFormGroupSubmit)="onSubmitCreateJoke($event)">
-
+(onFormGroupSubmit)="onSubmitCreateJoke($event)"
+(createButtonClicked)="isFormSubmitted($event)"
+>
 </app-create-joke-form>
+
+<app-create-joke-result [backendResponse]="backEndResponse"
+></app-create-joke-result>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, SimpleChange, OnChanges, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-create-joke-form',
@@ -7,14 +7,18 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class CreateJokeFormComponent implements OnInit {
   @Output() private onFormGroupSubmit = new EventEmitter<FormGroup>();
+  @Output() private createButtonClicked = new EventEmitter<boolean>();
+  @Input() checkChange!: boolean;
   newJokeForm!: FormGroup;
-
+  isFormSubmitted!: boolean;;
+  
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.initializeForm();
+    this.isFormSubmitted = false;
   }
-
+  
   initializeForm(): void{
     this.newJokeForm = this.fb.group({
       question: '',
@@ -24,9 +28,11 @@ export class CreateJokeFormComponent implements OnInit {
   }
 
   onSubmit():void{
-    
+    this.isFormSubmitted= true;
+    this.createButtonClicked.emit(this.isFormSubmitted);
     this.onFormGroupSubmit.emit(this.newJokeForm);
 
   }
+  
 
 }
