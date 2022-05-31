@@ -15,6 +15,6 @@ export class RandomizerComponent implements OnInit {
   }
 
   getRandomJoke(){
-
+    
   }
 }
