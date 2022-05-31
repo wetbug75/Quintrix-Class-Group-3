@@ -4,8 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## JSON server
 
-Run `json-server --watch db.json --port 5000`. Send API calls to `http://localhost:5000/jokes` 
-Post requests require id
+Run `npm run server` on terminal. 
+Send API calls to `http://localhost:5000/jokes` 
+Post requests require id in the object being sent. 
 
 db.json is located in the root directory. 
 Below is an example how the db is formatted in db.json

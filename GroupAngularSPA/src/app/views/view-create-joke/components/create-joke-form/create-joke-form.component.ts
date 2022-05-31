@@ -18,7 +18,8 @@ export class CreateJokeFormComponent implements OnInit {
   initializeForm(): void{
     this.newJokeForm = this.fb.group({
       question: '',
-      answer: ''
+      answer: '',
+      createdBy: ''
     });
   }
 

@@ -23,6 +23,7 @@ export class ViewCreateJokeComponent implements OnInit {
     const newJoke = {
       answer : newJokeForm.value.answer,
       question: newJokeForm.value.question,
+      createdBy: newJokeForm.value.createdBy,
       id: Math.random()
     }
     //above is place holder code. 
