@@ -1,4 +1,3 @@
-
 .navigationBar{
 	overflow:  hidden;
 	background-color: #9ADCFF;
@@ -31,39 +30,3 @@
 .navigationBar a.title:hover{
 	background-color: #9ADCFF;
 }
-
-
-#jokeBox{
-	border-radius: 25px;
-	width: 50%;
-	border: 1px solid black;
-	padding: 50px;
-	margin: 20px;
-	text-align: center;
-	background-color: purple;
-	background-image: linear-gradient(-20deg, purple, #bb6eff);
-
-	}
-	
-.jokeText{
-	color:white;
-	font-size: 30px;
-	font-family:Comic Sans MS;
-	font-style:bold;
-	text-align:center;
-	margin: auto;
-	
-}
-
-#jokeScreen{
-	margin: 0 auto;
-	justify-content: center;
-	display:flex;
-}
-
-#jokeText{
-	display: none;
-}
-
-
-

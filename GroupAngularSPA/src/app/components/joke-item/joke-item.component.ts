@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import {Joke} from '../../Joke';
+
 
 @Component({
   selector: 'app-joke-item',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./joke-item.component.css']
 })
 export class JokeItemComponent implements OnInit {
+  @Input() joke: Joke;
+  @Output() getRandomJoke: EventEmitter<Joke> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getRandom(joke){
+    this.getRandomJoke.emit(joke);
+  }
 }
