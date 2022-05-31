@@ -17,17 +17,11 @@ export class ViewCreateJokeComponent implements OnInit {
     this.backEndResponse = Status.None;
     this.SubmittedForm = false;
   }
-  isFormSubmitted(createButtonClicked : boolean ){
-    this.SubmittedForm = createButtonClicked;
-  }
 
 
   onSubmitCreateJoke(newJokeForm : FormGroup){
     //we can use a model here to send to backend
      //TODO
-     
-    console.log(newJokeForm.value);
-
     //temporary code because the json server won't accept anything that doesn't have an id
     const newJoke = {
       answer : newJokeForm.value.answer,

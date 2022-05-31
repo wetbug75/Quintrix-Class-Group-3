@@ -8,15 +8,14 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class CreateJokeFormComponent implements OnInit {
   @Output() private onFormGroupSubmit = new EventEmitter<FormGroup>();
   @Output() private createButtonClicked = new EventEmitter<boolean>();
-  @Input() checkChange!: boolean;
   newJokeForm!: FormGroup;
-  isFormSubmitted!: boolean;;
+ 
   
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.initializeForm();
-    this.isFormSubmitted = false;
+    
   }
   
   initializeForm(): void{
@@ -28,8 +27,6 @@ export class CreateJokeFormComponent implements OnInit {
   }
 
   onSubmit():void{
-    this.isFormSubmitted= true;
-    this.createButtonClicked.emit(this.isFormSubmitted);
     this.onFormGroupSubmit.emit(this.newJokeForm);
 
   }
