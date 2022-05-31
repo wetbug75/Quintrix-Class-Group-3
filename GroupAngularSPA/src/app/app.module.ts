@@ -10,7 +10,7 @@ import { RandomizerComponent } from './views/view-randomizer/components/randomiz
 
 /*Will come back!*/
 const appRoutes: Routes = [
- 
+ {path: '', component:RandomizerComponent}
 ]
 
 @NgModule({
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     RandomizerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
