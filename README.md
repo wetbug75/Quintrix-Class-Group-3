@@ -1,6 +1,9 @@
 # Quintrix-Class-Group-3
 
-Variable Names:
+Variable Names Naming Conventions:
+
 question
+
 answer
-createdBy
+
+userID
