@@ -1,43 +1,21 @@
 {
   "jokes": [
     {
-      "question": "hello there",
-      "answer": "no"
+
+      "question": "What is a skeleton favorite snack?",
+      "answer": "Spare rib",
+      "id": 0
     },
     {
-      "answer": "aa",
-      "question": "sss",
+      "question": "What did the blanket say to the bed?",
+      "answer": "Don't worry, I've got you covered.",
       "id": 1
     },
     {
-      "answer": "sdfsdf",
-      "question": "sdf",
-      "createdBy": "sdf",
-      "id": 0.5207044164835264
-    },
-    {
-      "answer": "sdfsdf",
-      "question": "sdfsd",
-      "createdBy": "sdfsdf",
-      "id": 0.7574618909791484
-    },
-    {
-      "answer": "sdf",
-      "question": "sdf",
-      "createdBy": "sdf",
-      "id": 0.48537324854412844
-    },
-    {
-      "answer": "dsfdsf",
-      "question": "dsfsd",
-      "createdBy": "sdffsd",
-      "id": 0.5376147542406724
-    },
-    {
-      "answer": "dfgdfg",
-      "question": "rgfdg",
-      "createdBy": "dfg",
-      "id": 0.8744952781561308
+      "question": "Why did the picture go to jail?",
+      "answer": "Because it was framed",
+      "id": 2
+
     }
   ]
 }
