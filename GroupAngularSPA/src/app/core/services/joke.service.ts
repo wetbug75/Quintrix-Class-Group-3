@@ -13,7 +13,7 @@ const httpOptions = {
 })
 
 export class JokeService {
-  private apiURL = 'http://localhost:5000/jokes';
+  private apiURL = 'http://localhost:8080/newjoke';
 
   constructor(private http:HttpClient, private jokeItem: JokeItemComponent) { }
   
