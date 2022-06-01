@@ -13,14 +13,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
+@CrossOrigin
 @RestController
 public class ApiControllers {
-	@CrossOrigin
+	
 	@PostMapping("/newjoke" )
 	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
 		try
 		{
+			System.out.println("HELLO DEVIN , here's the info from the front end");
+			System.out.println(question);
+			System.out.println(answer);
 			Path filePath = Path.of("/programming_jokes.txt");
 			Files.writeString(filePath, question);
 			Files.writeString(filePath, answer);
