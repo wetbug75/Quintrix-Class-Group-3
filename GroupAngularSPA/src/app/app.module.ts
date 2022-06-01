@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './components/button/button.component';
@@ -22,9 +23,11 @@ const appRoutes: Routes = [
     RandomizerComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes, {enableTracing: true})
+    BrowserModule, 
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
-  providers: [],
+  providers: [JokeItemComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { JokeService } from '../../services/joke.service';
 import {Joke} from '../../Joke';
 import {JOKES} from '../../mock-joke';
 
@@ -12,16 +12,12 @@ export class JokeComponent implements OnInit {
   @Output() onGetRandom: EventEmitter<Joke> = new EventEmitter();
 
 
-  jokes: Joke[] = JOKES;
+  jokes: Joke[] = [];
 
 
-  constructor() { }
+  constructor(private jokeService: JokeService) { }
 
   ngOnInit(): void {
-  }
-
-  getRandomJoke(){
-    this.onGetRandom.emit()
   }
 
 }

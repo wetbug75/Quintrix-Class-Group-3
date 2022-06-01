@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import {Joke} from '../../Joke';
-
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-joke-item',
@@ -9,14 +9,23 @@ import {Joke} from '../../Joke';
 })
 export class JokeItemComponent implements OnInit {
   @Input() joke: Joke;
-  @Output() getRandomJoke: EventEmitter<Joke> = new EventEmitter();
+
+
+  question: string;
+  answer: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getRandom(joke){
-    this.getRandomJoke.emit(joke);
+  setQuestion(question2: string){
+    this.question = question2;
+    document.getElementById("jokeQuestion").innerHTML = this.question;
+  }
+
+  setAnswer(answer2: string){
+    this.answer = answer2;
+    document.getElementById("jokeAnswer").innerHTML = this.answer;
   }
 }
