@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import {Joke} from '../../Joke';
-import {HttpClient} from '@angular/common/http';
+import {Joke} from '../../../../models/Joke';
+
 
 @Component({
   selector: 'app-joke-item',

@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import { JokeItemComponent } from '../components/joke-item/joke-item.component';
-import { Joke } from '../Joke';
-import {JOKES} from '../mock-joke';
-
+import { JokeItemComponent } from '../../views/view-randomizer/components/joke-item/joke-item.component';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  })
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +27,11 @@ export class JokeService {
 
   SendAnswer(answer: string){
     this.jokeItem.setAnswer(answer);
+  }
+
+  postJoke(newJoke: any): Observable<any>{
+    console.log('send to backend');
+    return this.http.post<any>(`${this.apiURL}`, newJoke, httpOptions);
   }
 
 }

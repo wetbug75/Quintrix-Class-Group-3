@@ -1,4 +1,4 @@
-import {Joke} from './Joke';
+import {Joke} from './models/Joke';
 
 export const JOKES: Joke[] = [
     {

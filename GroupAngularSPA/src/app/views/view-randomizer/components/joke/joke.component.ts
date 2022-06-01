@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { JokeService } from '../../services/joke.service';
-import {Joke} from '../../Joke';
-import {JOKES} from '../../mock-joke';
+import { JokeService } from '../../../../core/services/joke.service';
+import { Joke } from 'src/app/models/Joke';
+
 
 @Component({
   selector: 'app-joke',

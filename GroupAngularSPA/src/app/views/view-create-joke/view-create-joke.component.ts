@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { JokeDataService } from 'src/app/core/services/joke-data.service';
+import { JokeService } from 'src/app/core/services/joke.service';
 import { Status } from 'src/app/shared/status';
 @Component({
   selector: 'app-view-create-joke',
@@ -11,7 +11,7 @@ import { Status } from 'src/app/shared/status';
 export class ViewCreateJokeComponent implements OnInit {
   backEndResponse!:Status;
   SubmittedForm!: boolean;
-  constructor(private jokeService : JokeDataService) { }
+  constructor(private jokeService : JokeService) { }
 
   ngOnInit(): void {
     this.backEndResponse = Status.None;

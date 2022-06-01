@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Joke } from 'src/app/models/Joke';
 
-import {Joke} from '../../../../Joke';
-import {JOKES} from '../../../../mock-joke';
-import { JokeService } from 'src/app/services/joke.service';
+import { JOKES } from '../../mock-joke';
+import { JokeService } from 'src/app/core/services/joke.service';
 
 
 

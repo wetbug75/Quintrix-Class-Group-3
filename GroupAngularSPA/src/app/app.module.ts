@@ -5,10 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ButtonComponent } from './components/button/button.component';
-import { JokeComponent } from './components/joke/joke.component';
-import { JokeItemComponent } from './components/joke-item/joke-item.component';
-import { RandomizerComponent } from './views/view-randomizer/components/randomizer/randomizer.component';
+import { ButtonComponent } from './views/view-randomizer/components/button/button.component';
+import { JokeComponent } from './views/view-randomizer/components/joke/joke.component';
+import { JokeItemComponent } from './views/view-randomizer/components/joke-item/joke-item.component';
+import { RandomizerComponent } from './views/view-randomizer/randomizer.component';
 import { ViewCreateJokeComponent } from './views/view-create-joke/view-create-joke.component';
 import { CreateJokeFormComponent } from './views/view-create-joke/components/create-joke-form/create-joke-form.component';
 import { CreateJokeResultComponent } from './views/view-create-joke/components/create-joke-result/create-joke-result.component';
