@@ -1,0 +1,32 @@
+.navigationBar{
+	overflow:  hidden;
+	background-color: #9ADCFF;
+	width:fixed;
+}	
+
+
+.navigationBar a{
+	float: right;
+	text-align: center;
+	padding: 25px;
+	font-size: 17px;
+	font-family: Arial;
+	line-height: 50px;
+}
+
+.navigationBar a:hover{
+	background-color: #FFF89A;
+	color: black;
+	font-weight: bold;
+}
+
+.navigationBar a.title{
+	font-weight: bold;
+	float:left;
+	font-size: 20px;
+
+}
+
+.navigationBar a.title:hover{
+	background-color: #9ADCFF;
+}

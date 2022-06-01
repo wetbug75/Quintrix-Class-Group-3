@@ -12,6 +12,7 @@ import { RandomizerComponent } from './views/view-randomizer/randomizer.componen
 import { ViewCreateJokeComponent } from './views/view-create-joke/view-create-joke.component';
 import { CreateJokeFormComponent } from './views/view-create-joke/components/create-joke-form/create-joke-form.component';
 import { CreateJokeResultComponent } from './views/view-create-joke/components/create-joke-result/create-joke-result.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 /*Will come back!*/
 const appRoutes: Routes = [
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     RandomizerComponent,
        ViewCreateJokeComponent,
     CreateJokeFormComponent,
-    CreateJokeResultComponent
+    CreateJokeResultComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule, 
