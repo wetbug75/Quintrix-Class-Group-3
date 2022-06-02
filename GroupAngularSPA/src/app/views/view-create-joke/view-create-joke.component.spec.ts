@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ViewCreateJokeComponent } from './view-create-joke.component';
 
 describe('ViewCreateJokeComponent', () => {

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-@CrossOrigin(origins = "")
+@CrossOrigin(origins = "*")
 @RestController
 public class ApiControllers {
 	
@@ -34,6 +34,7 @@ public class ApiControllers {
 		{
 		    System.err.println("IOException: " + ioe.getMessage());
 		}
+		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
