@@ -13,17 +13,12 @@ import java.util.Scanner; // Import the Scanner class to read text files
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-@CrossOrigin
+
+@CrossOrigin(origins = "")
 @RestController
-@CrossOrigin
 public class ApiControllers {
-<<<<<<< HEAD
-	@CrossOrigin(origins = "localhost:4200/create")
-	@PostMapping("/newjoke")
-=======
 	
 	@PostMapping("/newjoke" )
->>>>>>> 0c57eecb6ca4851f26bfdfa52619006322bf2302
 	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
 		try
 		{

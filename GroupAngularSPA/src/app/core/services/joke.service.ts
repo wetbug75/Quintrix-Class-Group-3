@@ -14,13 +14,10 @@ const httpOptions = {
 })
 
 export class JokeService {
-<<<<<<< HEAD
-  private apiURL = 'http://localhost:8080/newjoke';
 
-=======
   private apiURL = 'http://localhost:5000/jokes';
   private springUrl = 'http://localhost:8080';
->>>>>>> 0c57eecb6ca4851f26bfdfa52619006322bf2302
+
   constructor(private http:HttpClient, private jokeItem: JokeItemComponent) { }
   
   getJoke(id: number): Observable<any>{
