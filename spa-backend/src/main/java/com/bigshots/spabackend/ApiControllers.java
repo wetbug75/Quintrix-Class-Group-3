@@ -11,12 +11,19 @@ import java.util.Random; // Random number generator
 import java.util.Scanner; // Import the Scanner class to read text files
 
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*")
 @RestController
 public class ApiControllers {
+	
+	Logger logger = LoggerFactory.getLogger(LoggingController.class);
 	
 	@PostMapping("/newjoke" )
 	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
@@ -54,6 +61,7 @@ public class ApiControllers {
 		
 		Random random = new Random();
 		int randomIndex = random.nextInt(jokeArray.length);
+		logger.info("get request a random joke");
 		return "Q: " + jokeArray[randomIndex][0] + "</n>A: " + jokeArray[randomIndex][1];
 	}
 	
@@ -65,6 +73,15 @@ public class ApiControllers {
 	@GetMapping(value = "/joke-question/{index}")
 	public String getJokeQuestion(@PathVariable int index)
 	{
+		try {
+			getJokeArray();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			logger.error("An ERROR Message");
+			e.printStackTrace();
+		}
+		
+		logger.info("get request for question: " + index);
 		return jokeArray[index][0];
 	}
 	
@@ -76,6 +93,14 @@ public class ApiControllers {
 	@GetMapping(value = "/joke-answer/{index}")
 	public String getJokeAnswer(@PathVariable int index)
 	{
+		try {
+			getJokeArray();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		logger.info("get request for answer: " + index);
 		return jokeArray[index][1];
 	}
 	
