@@ -10,7 +10,7 @@ import { CreateJokeFormComponent } from '../create-joke-form/create-joke-form.co
 })
 export class CreateJokeResultComponent implements OnChanges {
   statusResult!: String;
-  @Input() backendResponse!: Status;
+  @Input() backendResponse= Status.None;
   constructor(public createForm: CreateStateServiceService) { }
 
   ngOnChanges(changes: SimpleChanges): void {

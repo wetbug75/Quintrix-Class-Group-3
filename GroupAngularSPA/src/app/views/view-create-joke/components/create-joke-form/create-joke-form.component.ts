@@ -7,7 +7,7 @@ import { newJoke } from 'src/app/models/newJoke';
   styleUrls: ['./create-joke-form.component.css']
 })
 export class CreateJokeFormComponent implements OnInit {
-  @Output() private onFormGroupSubmit = new EventEmitter<newJoke>();
+  @Output() public onFormGroupSubmit = new EventEmitter<newJoke>();
   newJokeForm!: FormGroup;
  
   
