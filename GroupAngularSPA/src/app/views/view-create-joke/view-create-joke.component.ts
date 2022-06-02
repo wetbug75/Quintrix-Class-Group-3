@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { CreateStateServiceService } from 'src/app/core/services/create-state-service.service';
+import { CreateStateServiceService } from 'src/app/views/view-create-joke/services/create-state-service.service';
 import { JokeService } from 'src/app/core/services/joke.service';
 import { Status } from 'src/app/shared/status';
 import { newJoke } from 'src/app/models/newJoke';

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { CreateStateServiceService } from 'src/app/core/services/create-state-service.service';
+import { CreateStateServiceService } from 'src/app/views/view-create-joke/services/create-state-service.service';
 import { Status } from 'src/app/shared/status';
-import { CreateJokeFormComponent } from '../create-joke-form/create-joke-form.component';
 
 @Component({
   selector: 'app-create-joke-result',
