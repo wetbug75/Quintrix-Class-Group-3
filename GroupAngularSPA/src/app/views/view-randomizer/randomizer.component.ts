@@ -32,10 +32,11 @@ export class RandomizerComponent implements OnInit {
 
     this.jokeService
     .getJoke(this.id)
-    .subscribe((Response) => {console.log(Response), this.question = Response.question, this.answer = Response.answer});
-
-    this.jokeService.SendQuestion(this.question);
-    this.jokeService.SendAnswer(this.answer);
+    .subscribe(Response => {
+      console.log(Response);
+      this.jokeService.SendQuestion(Response.question); 
+      this.jokeService.SendAnswer(Response.answer);
+      document.getElementById("jokeBox").style.visibility = "visible";});
   }
 
 }

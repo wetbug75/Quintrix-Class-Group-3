@@ -20,4 +20,5 @@ export class JokeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }
