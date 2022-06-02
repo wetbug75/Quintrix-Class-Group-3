@@ -20,9 +20,17 @@ export class JokeService {
 
   constructor(private http:HttpClient, private jokeItem: JokeItemComponent) { }
   
+  /*
   getJoke(id: number): Observable<any>{
     return this.http.get<any>(`${this.apiURL}/${id}`);
   }
+  */
+
+  // Backend GET method
+  getJoke(id: number): Observable<any>{
+    return this.http.get<any>(`${this.springUrl}/${id}`);
+  }
+
 
   SendQuestion(question: string){
     this.jokeItem.setQuestion(question);

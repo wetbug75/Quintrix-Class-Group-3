@@ -1,6 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Joke } from 'src/app/models/Joke';
-
 import { JOKES } from '../../mock-joke';
 import { JokeService } from 'src/app/core/services/joke.service';
 
@@ -14,11 +12,8 @@ import { JokeService } from 'src/app/core/services/joke.service';
 
 export class RandomizerComponent implements OnInit {
   @Output() randomNumberEvent = new EventEmitter<number>();
-    
-  joke: Joke[];
+  
   id: number;
-  question: string;
-  answer: string;
 
   constructor(private jokeService: JokeService) {
 
@@ -36,7 +31,10 @@ export class RandomizerComponent implements OnInit {
       console.log(Response);
       this.jokeService.SendQuestion(Response.question); 
       this.jokeService.SendAnswer(Response.answer);
-      document.getElementById("jokeBox").style.visibility = "visible";});
+      /*
+      document.getElementById("jokeBox").style.visibility = "visible";
+      */
+    });
   }
 
 }
