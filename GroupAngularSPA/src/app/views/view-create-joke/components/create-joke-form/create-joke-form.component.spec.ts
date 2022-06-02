@@ -23,3 +23,12 @@ describe('CreateJokeFormComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+describe('onSubmit', ()=>{
+  it('should save form data in newJoke object and emit joke', ()=>{
+      const fixture = TestBed.createComponent(CreateJokeFormComponent);
+      const component = fixture.componentInstance;
+      const spy = spyOnProperty(newJoke, 'answer').returnValue('sup');
+      component.onSubmit();
+  })
+});

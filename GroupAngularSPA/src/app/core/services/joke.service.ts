@@ -3,7 +3,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import { JokeItemComponent } from '../../views/view-randomizer/components/joke-item/joke-item.component';
-import { CreateJoke } from 'src/app/models/CreateJoke';
+import { newJoke } from 'src/app/models/newJoke';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export class JokeService {
     this.jokeItem.setAnswer(answer);
   }
 
-  postJoke(newJoke: CreateJoke): Observable<CreateJoke>{
+  postJoke(newJoke: newJoke): Observable<newJoke>{
     console.log('send to backend');
     return this.http.post<any>(`${this.springUrl}/newjoke`, newJoke, httpOptions);
   }
