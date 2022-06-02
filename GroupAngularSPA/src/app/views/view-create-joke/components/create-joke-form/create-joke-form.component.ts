@@ -9,7 +9,7 @@ import { newJoke } from 'src/app/models/newJoke';
 export class CreateJokeFormComponent implements OnInit {
   @Output() public onFormGroupSubmit = new EventEmitter<newJoke>();
   newJokeForm!: FormGroup;
- 
+  newJokeData: newJoke;
   
   constructor(private fb: FormBuilder) { }
 
@@ -32,8 +32,8 @@ export class CreateJokeFormComponent implements OnInit {
     //  question: this.newJokeForm.value.question
     
 
-    let newJokeData = new newJoke(this.newJokeForm.value.answer, this.newJokeForm.value.question);
-    this.onFormGroupSubmit.emit(newJokeData);
+    this.newJokeData = new newJoke(this.newJokeForm.value.answer, this.newJokeForm.value.question);
+    this.onFormGroupSubmit.emit(this.newJokeData);
 
   }
   

@@ -37,8 +37,8 @@ describe('onSubmit', ()=>{
   it('should save form data in newJoke object and emit joke', ()=>{
       const fixture = TestBed.createComponent(CreateJokeFormComponent);
       const component = fixture.componentInstance;
-     
-      let newJoker = new newJoke("HELLO", "NO");
+      const btn = fixture.debugElement.nativeElement.querySelector("label");
+      expect(btn.innerHTML).toBe('Joke:');
     //  expect(component.newJokeForm.value.answer).toBe(newJoker._answer);
      // expect(component.newJokeForm.value.question).toBe(newJoker._question);
 
