@@ -7,3 +7,7 @@ question
 answer
 
 userID
+
+How to run front end -
+cd to GroupAngularSpa 
+Type ng serve 

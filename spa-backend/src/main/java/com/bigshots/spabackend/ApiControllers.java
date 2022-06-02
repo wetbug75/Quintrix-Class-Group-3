@@ -1,6 +1,7 @@
 package com.bigshots.spabackend;
 
 import java.io.File;  // Import the File class
+
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,17 +11,20 @@ import java.util.Random; // Random number generator
 import java.util.Scanner; // Import the Scanner class to read text files
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.boot.SpringApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+@CrossOrigin(origins = "")
 @RestController
 public class ApiControllers {
-	@CrossOrigin
+	
 	@PostMapping("/newjoke" )
 	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
 		try
 		{
+			System.out.println("HELLO DEVIN , here's the info from the front end");
+			System.out.println(question);
+			System.out.println(answer);
 			Path filePath = Path.of("/programming_jokes.txt");
 			Files.writeString(filePath, question);
 			Files.writeString(filePath, answer);
