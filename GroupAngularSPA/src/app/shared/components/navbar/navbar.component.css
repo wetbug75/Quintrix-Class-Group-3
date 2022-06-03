@@ -1,6 +1,4 @@
-.navbar{
-	padding: 0;
-}
+
 
 .nav-item{
 	font-weight: 600;
@@ -11,13 +9,14 @@
 	overflow:  hidden;
 	background-color: #9ADCFF;
 	width:fixed;
+	padding: 0;
 }	
 
 .navigationBar a{
 	float: right;
 	text-align: center;
-	padding: 25px;
-	font-size: 17px;
+	padding: 22px;
+	font-size: 20px;
 	font-family: Arial;
 	line-height: 50px;
 	letter-spacing: 1.5px;
@@ -38,7 +37,7 @@
 .navigationBar a.title{
 	font-weight: bold;
 	float:left;
-	font-size: 25px;
+	font-size: 30px;
 	pointer-events: none;
 	text-decoration: none;
 }
@@ -54,3 +53,36 @@
 	background-color: black;
 	margin: 6px 0;
   }
+
+
+  @media (min-width: 1310px){
+    .navbar-expand-custom {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .navbar-expand-custom .navbar-nav {
+        flex-direction: row;
+    }
+    .navbar-expand-custom .dropdown-menu {
+        position: absolute;
+    }
+    .navbar-expand-custom .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+    .navbar-expand-custom > .container {
+        flex-wrap: nowrap;
+    }
+    .navbar-expand-custom .navbar-collapse {
+        display: flex!important;
+        flex-basis: auto;
+    }
+    .navbar-expand-custom .navbar-toggler {
+        display: none;
+    }
+	.navigationBar a.title{
+		font-size: 48px;
+	}
+	
+}

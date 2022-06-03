@@ -1,9 +1,19 @@
-<form  [formGroup]="newJokeForm" (ngSubmit)="onSubmit()">
-<label>Joke:</label>
-<input type="text" formControlName="question" placeholder="required">
-<label>
-    Answer:
-</label>
-<input type="text" formControlName="answer" placeholder="required">
+<form   [formGroup]="newJokeForm" (ngSubmit)="onSubmit()">
+<div class="mb-4 row">
+    <label class="col-sm-2 col-form-label">Question:</label>
+    <div class="col-sm-10">
+        <input type="text " formControlName="question" placeholder="required" class="form-control ">
+    </div>
+    
+</div>
+<div class="mb-3 row">
+    <label class="col-sm-2 col-form-label">
+        Answer:
+    </label>
+    <div class="col-sm-10">
+        <input type="text" formControlName="answer" placeholder="required" class="form-control">
+    </div>
+    
+</div>
 <button id="btn-submit-joke">Submit</button>
 </form>
