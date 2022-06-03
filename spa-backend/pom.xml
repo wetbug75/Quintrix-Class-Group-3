@@ -33,7 +33,17 @@
     	<artifactId>spring-boot-starter-web</artifactId>
     	
 	</dependency>
-
+	<dependency>
+              <groupId>io.rest-assured</groupId>
+              <artifactId>rest-assured</artifactId>
+        </dependency>
+        
+        <dependency>
+   <groupId>javax.persistence</groupId>
+   <artifactId>persistence-api</artifactId>
+   <version>1.0.2</version>
+   <scope>provided</scope>
+</dependency>
 
 		
 		<dependency>

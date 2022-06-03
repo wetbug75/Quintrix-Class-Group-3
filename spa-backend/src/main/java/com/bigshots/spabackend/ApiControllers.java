@@ -38,6 +38,13 @@ public class ApiControllers {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	/*@PostMapping
+	public ResponseEntity<?> newUser(@RequestBody(required=true) String userName, @RequestBody(required=true) String email, 
+			@RequestBody(required=true) String password) {
+		//save to repo/database
+		 * return new ResponseEntity(HttpStatus.CREATED);
+	}*/
+	
 	private String[][] jokeArray; // jokeArray[...][0] is the Question, jokeArray[...][1] is the Answer
 	
 	@GetMapping(value = "/")
