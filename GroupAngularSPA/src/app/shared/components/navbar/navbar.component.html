@@ -1,8 +1,19 @@
-<div class="navigationBar">
-    <a routerLink="/" class="title"> TELL JOKE LAUGH</a>
-    <a routerLink="login">LOGIN</a>
-    <a routerLink="/create">CREATE JOKES</a>
-    <a routerLink="/find">FIND JOKES</a>
-    <a routerLink="/">RANDOM JOKES</a>
-    
-</div>
+<!--<div class="navigationBar">-->
+
+<nav class=" navigationBar navbar navbar-expand-lg  ">
+    <a class="navbar-brand" routerLink="/" class="title">TELL JOKE LAUGH</a>
+    <div class="hamburger navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="meat"></div>
+        <div class="meat"></div>
+        <div class="meat"></div>
+    </div>
+     
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item" routerLink="/">RANDOM JOKES</a>
+        <a class="nav-item" routerLink="/find">FIND JOKES</a>
+            <a class="nav-item" routerLink="/create">CREATE JOKES</a>
+            <a class="nav-item" routerLink="login">LOGIN</a>          
+      </div>
+    </div>
+  </nav>

@@ -1,3 +1,12 @@
+.navbar{
+	padding: 0;
+}
+
+.nav-item{
+	font-weight: 600;
+	text-decoration: none;
+	
+}
 .navigationBar{
 	overflow:  hidden;
 	background-color: #9ADCFF;
@@ -11,16 +20,19 @@
 	font-size: 17px;
 	font-family: Arial;
 	line-height: 50px;
+	letter-spacing: 1.5px;
 }
 
 .navigationBar a:visited{
 	color: black;
+	text-decoration: none;
 }
 
 .navigationBar a:hover{
 	background-color: #FFF89A;
 	color: black;
-	font-weight: bold;
+	
+	
 }
 
 .navigationBar a.title{
@@ -30,3 +42,15 @@
 	pointer-events: none;
 	text-decoration: none;
 }
+
+
+  .hamburger{
+	  margin-right: 1rem;
+  }
+  .meat {
+	
+	width: 35px;
+	height: 5px;
+	background-color: black;
+	margin: 6px 0;
+  }

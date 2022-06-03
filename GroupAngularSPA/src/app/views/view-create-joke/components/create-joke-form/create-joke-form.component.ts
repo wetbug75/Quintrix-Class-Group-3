@@ -27,11 +27,6 @@ export class CreateJokeFormComponent implements OnInit {
   }
 
   onSubmit():void{
-    
-     // answer: this.newJokeForm.value.answer,
-    //  question: this.newJokeForm.value.question
-    
-
     this.newJokeData = new newJoke(this.newJokeForm.value.answer, this.newJokeForm.value.question);
     this.onFormGroupSubmit.emit(this.newJokeData);
 
