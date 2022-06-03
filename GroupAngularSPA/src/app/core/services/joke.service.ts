@@ -16,7 +16,7 @@ const httpOptions = {
 export class JokeService {
 
   private apiURL = 'http://localhost:5000/jokes';
-  private springUrl = 'http://localhost:8080';
+  springUrl = 'http://localhost:8080';
 
   constructor(private http:HttpClient, private jokeItem: JokeItemComponent) { }
   
