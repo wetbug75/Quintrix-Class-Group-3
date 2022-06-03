@@ -8,7 +8,7 @@ body{
 button{
 	border-radius: 25px;
 	width: 20%;
-	border: 1px solid black;
+	border: 2px solid black;
 	padding: 15px;
 	margin: 20px;
 	text-align: center;
@@ -24,15 +24,9 @@ button{
 	
 .jokeText{
 	color:white;
-	font-size: 30px;
+	font-size: 40px;
 	font-family:Comic Sans MS;
-	font-style:bold;
 	text-align:center;
-	margin: auto;
-	
-}
-
-#jokeText{
-	display: none;
-	text-align: center;
+	justify-content: center;
+	text-shadow: 3px 3px black;
 }

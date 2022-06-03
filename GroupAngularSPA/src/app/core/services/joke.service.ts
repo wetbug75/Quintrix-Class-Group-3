@@ -20,17 +20,26 @@ export class JokeService {
 
   constructor(private http:HttpClient, private jokeItem: JokeItemComponent) { }
   
-  /*
+  
   getJoke(id: number): Observable<any>{
     return this.http.get<any>(`${this.apiURL}/${id}`);
   }
-  */
+  
 
+  /*
   // Backend GET method
   getJoke(id: number): Observable<any>{
-    return this.http.get<any>(`${this.springUrl}/${id}`);
+    return this.http.get<any>(`${this.springUrl}/random-joke`);
+  }
+  */
+
+  getJokeQuestion(index: number): Observable<any>{
+    return this.http.get<any>('${this.springUrl}/joke-question/{index}');
   }
 
+  getJokeAnswer(index: number): Observable<any>{
+    return this.http.get<any>('${this.springUrl}/joke-answer/{index}');
+  }
 
   SendQuestion(question: string){
     this.jokeItem.setQuestion(question);

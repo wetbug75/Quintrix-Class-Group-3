@@ -24,17 +24,31 @@ export class RandomizerComponent implements OnInit {
 
   getRandomJoke(){
     this.id = Math.floor(Math.random() * JOKES.length);
+    //Need a check to prevent same index from being used
 
+
+    /*
+    this.jokeService.getJokeQuestion(this.id).subscribe(Response => {
+      console.log(Response);
+      this.jokeService.SendQuestion(Response);
+    })
+
+    this.jokeService.getJokeAnswer(this.id).subscribe(Response => {
+      this.jokeService.SendAnswer(Response);
+    });
+    */
+    
     this.jokeService
     .getJoke(this.id)
     .subscribe(Response => {
       console.log(Response);
       this.jokeService.SendQuestion(Response.question); 
       this.jokeService.SendAnswer(Response.answer);
-      /*
-      document.getElementById("jokeBox").style.visibility = "visible";
-      */
+      
+      //document.getElementById("jokeBox").style.visibility = "visible";
+      
     });
+    
   }
 
 }

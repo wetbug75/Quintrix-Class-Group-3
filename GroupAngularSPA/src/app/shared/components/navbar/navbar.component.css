@@ -4,7 +4,6 @@
 	width:fixed;
 }	
 
-
 .navigationBar a{
 	float: right;
 	text-align: center;
@@ -12,6 +11,10 @@
 	font-size: 17px;
 	font-family: Arial;
 	line-height: 50px;
+}
+
+.navigationBar a:visited{
+	color: black;
 }
 
 .navigationBar a:hover{
@@ -23,10 +26,7 @@
 .navigationBar a.title{
 	font-weight: bold;
 	float:left;
-	font-size: 20px;
-
-}
-
-.navigationBar a.title:hover{
-	background-color: #9ADCFF;
+	font-size: 25px;
+	pointer-events: none;
+	text-decoration: none;
 }
