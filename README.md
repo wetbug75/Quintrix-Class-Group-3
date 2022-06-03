@@ -8,6 +8,10 @@ answer
 
 userID
 
+email
+
+password
+
 How to run front end -
 cd to GroupAngularSpa 
 Type ng serve 
