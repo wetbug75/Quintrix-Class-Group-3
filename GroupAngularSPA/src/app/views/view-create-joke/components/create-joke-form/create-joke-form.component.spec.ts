@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { newJoke } from 'src/app/models/newJoke';
 import { CreateJokeFormComponent } from './create-joke-form.component';
 
 describe('CreateJokeFormComponent', () => {
@@ -8,7 +9,9 @@ describe('CreateJokeFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateJokeFormComponent ]
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [ CreateJokeFormComponent ],
+      providers: [FormBuilder]
     })
     .compileComponents();
   });
@@ -22,4 +25,22 @@ describe('CreateJokeFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+});
+
+describe('onSubmit', ()=>{
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      providers: [FormBuilder]
+    })
+    .compileComponents();
+  });
+  it('should save form data in newJoke object and emit joke', ()=>{
+      const fixture = TestBed.createComponent(CreateJokeFormComponent);
+      const component = fixture.componentInstance;
+      const btn = fixture.debugElement.nativeElement.querySelector("label");
+      expect(btn.innerHTML).toBe('Joke:');
+    //  expect(component.newJokeForm.value.answer).toBe(newJoker._answer);
+     // expect(component.newJokeForm.value.question).toBe(newJoker._question);
+
+  })
 });
