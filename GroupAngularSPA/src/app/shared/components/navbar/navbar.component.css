@@ -86,7 +86,10 @@
         display: none;
     }
 	.navigationBar a.title{
-		font-size: 48px;
+		font-size: 43px;
+        font-weight: 700;
 	}
-	
+	.hamburger{
+        display:none;
+    }
 }
