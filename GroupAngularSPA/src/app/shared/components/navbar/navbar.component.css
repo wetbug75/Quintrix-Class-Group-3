@@ -1,13 +1,12 @@
-
-
 .nav-item{
 	font-weight: 600;
-	text-decoration: none;
-	
+	text-decoration: none;	
 }
+
 .navigationBar{
 	overflow:  hidden;
 	background-color: #9ADCFF;
+    background-image: linear-gradient(0deg, #38b8fd, #b6e5ff);
 	width:fixed;
 	padding: 0;
 }	
@@ -30,6 +29,7 @@
 
 .active{
     background-color:#FFF89A;
+    background-image: linear-gradient(0deg, #ffee00, #fffbc8);
 }
 .navigationBar a.title{
 	font-weight: bold;
