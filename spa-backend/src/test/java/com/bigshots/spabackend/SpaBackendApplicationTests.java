@@ -8,8 +8,8 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 
 import io.restassured.*;
 import io.restassured.http.ContentType;
-import io.restassured.response.ValidatableResponse;
-import static io.restassured.RestAssured.given;
+//import io.restassured.response.ValidatableResponse;
+//import static io.restassured.RestAssured.given;
 
 import static org.hamcrest.Matchers.equalTo;
 
@@ -40,7 +40,7 @@ class SpaBackendApplicationTests {
     }
     
     @Test
-    public void testGetJokeQuestion() {
+    public void testGetJokeAnswer() {
     	//TODO Andrew can probably finish this when the get request works properly
     	//RestAssured.given().contentType(ContentType.HTML).get("/joke-answer/0").then().assertThat().body("answer", equalTo("ARM"));
     	RestAssured.given().contentType(ContentType.HTML).get("/joke-answer/0").then().log().body();//could do this easily if get returned with a JS file
