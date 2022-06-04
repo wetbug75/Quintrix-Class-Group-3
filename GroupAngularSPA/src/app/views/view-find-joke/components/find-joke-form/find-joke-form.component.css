@@ -1,0 +1,35 @@
+input[type="text"]{
+    text-align: center;
+}
+
+input{
+    max-width: 100%;
+}
+
+.search{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height:3rem;
+    padding:5px;
+    width:5rem;
+    border-left:none;
+    color: black;
+}
+
+@media(min-width:768px){
+    .search{
+        width:5rem;
+    }
+    .container{
+        padding:0;
+    }
+}
+
+@media(min-width:992px){
+    .search{
+        width:8rem;
+    }
+    .container{
+        padding: 0 8rem;
+    }
+}

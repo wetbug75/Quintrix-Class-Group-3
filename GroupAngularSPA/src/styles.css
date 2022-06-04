@@ -4,6 +4,7 @@
 
 *{
 	margin: 0;
+	font-size:16px;
 }
 body{
 	background-color: #FFFDE1;
@@ -12,7 +13,7 @@ body{
 
 button{
 	border-radius: 25px;
-	width: 20%;
+	width: 15rem;
 	border: 2px solid black;
 	padding: 15px;
 	margin: 20px;
@@ -47,4 +48,15 @@ table{
 
 h3{
 	text-align: center;
+}
+
+.cartoonbox{
+	border:2px solid black;
+	height:3rem;
+	font-weight: 700;
+}
+
+.cartoonletter{
+	font-size:1.5rem;
+	font-weight:700;
 }
