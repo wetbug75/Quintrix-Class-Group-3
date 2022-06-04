@@ -34,7 +34,7 @@
 .navigationBar a.title{
 	font-weight: bold;
 	float:left;
-	font-size: 30px;
+	font-size: 20px;
 	pointer-events: none;
 	text-decoration: none;
 }
@@ -54,6 +54,12 @@
   .hamburger:hover{
     cursor:pointer;
   }
+@media(min-width:576px){
+    .navigationBar a.title{
+		font-size: 30px;
+        font-weight: 700;
+	}
+}
 
 
   @media (min-width: 1310px){
