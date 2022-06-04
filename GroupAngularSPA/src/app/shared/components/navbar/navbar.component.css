@@ -27,13 +27,10 @@
 	text-decoration: none;
 }
 
-.navigationBar a:hover{
-	background-color: #FFF89A;
-	color: black;
-	
-	
-}
 
+.active{
+    background-color:#FFF89A;
+}
 .navigationBar a.title{
 	font-weight: bold;
 	float:left;
