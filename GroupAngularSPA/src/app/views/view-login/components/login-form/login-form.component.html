@@ -1,12 +1,25 @@
-<form >
-    <label>
-        Username:
-    </label>
-    <input type="text" formControlName="question" placeholder="required">
-    <label>
-        Password
-    </label>
-    <input type="password" formControlName="answer" placeholder="required">
-   
+<h3>Login to create and save your own jokes!</h3>
+<form>
+    <table>
+        <tr>
+            <td class="labelHolder">
+                <label>Username:</label>
+            </td>
+            <input type="text" formControlName="question" placeholder="required">
+            <td>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td class="labelHolder">
+                <label>Password: </label>
+            </td>
+            
+            <td>
+                <input type="password" formControlName="answer" placeholder="required">
+            </td>
+        </tr>
+    </table>
     <button id="btn-submit-joke">Login</button>
-    </form>
+</form>

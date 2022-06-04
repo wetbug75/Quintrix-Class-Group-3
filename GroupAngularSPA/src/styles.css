@@ -38,3 +38,13 @@ button{
 	padding-right: auto;
 	text-shadow: 3px 3px black;
 }
+
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3{
+	text-align: center;
+}
