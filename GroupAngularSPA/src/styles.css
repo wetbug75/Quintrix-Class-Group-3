@@ -33,5 +33,7 @@ button{
 	font-family:Comic Sans MS;
 	text-align:center;
 	justify-content: center;
+	padding-left: auto%;
+	padding-right: auto%;
 	text-shadow: 3px 3px black;
 }
