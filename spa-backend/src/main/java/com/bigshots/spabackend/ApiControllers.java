@@ -14,6 +14,7 @@ import java.util.Scanner; // Import the Scanner class to read text files
 
 import org.springframework.web.bind.annotation.*;
 
+import Model.Joke;
 import Service.UserService;
 
 import org.springframework.http.HttpStatus;
@@ -35,7 +36,8 @@ public class ApiControllers {
 	 * just in case the user wants to submit one line jokes 
 	 */
 	@PostMapping("/newJoke" )
-	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
+	public ResponseEntity<Joke> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
+		Joke newJoke = new Joke(question, answer);
 		try
 		{
 			
@@ -49,7 +51,7 @@ public class ApiControllers {
 		    System.err.println("IOException: " + ioe.getMessage());
 		}
 		
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(newJoke, HttpStatus.OK);
 	}
 	
 	/**
