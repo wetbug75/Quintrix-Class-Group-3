@@ -2,6 +2,8 @@ package com.bigshots.spabackend;
 
 import java.io.File;  // Import the File class
 
+
+
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,20 +13,32 @@ import java.util.Random; // Random number generator
 import java.util.Scanner; // Import the Scanner class to read text files
 
 import org.springframework.web.bind.annotation.*;
+
+import Service.UserService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @CrossOrigin(origins = "*")
 @RestController
 public class ApiControllers {
+	private UserService userService;
 	
-	@PostMapping("/newjoke" )
+	/**
+	 * 
+	 * @param question
+	 * @param answer
+	 * @return
+	 * @throws IOException
+	 * 
+	 * post method adds a new joke to the repository with optional question and answer strings 
+	 * just in case the user wants to submit one line jokes 
+	 */
+	@PostMapping("/newJoke" )
 	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
 		try
 		{
-			System.out.println("HELLO DEVIN , here's the info from the front end");
-			System.out.println(question);
-			System.out.println(answer);
+			
 			Path filePath = Path.of("/programming_jokes.txt");
 			Files.writeString(filePath, question);
 			Files.writeString(filePath, answer);
@@ -38,12 +52,19 @@ public class ApiControllers {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	/*@PostMapping
-	public ResponseEntity<?> newUser(@RequestBody(required=true) String userName, @RequestBody(required=true) String email, 
-			@RequestBody(required=true) String password) {
-		//save to repo/database
-		 * return new ResponseEntity(HttpStatus.CREATED);
-	}*/
+	/**
+	 * user registration post method 
+	 * every user will be registered with userName, email & password 
+	 * 
+	 * and then saved to the user repository for verification with other functions of
+	 * the app
+	 */
+	@PostMapping("/newUser")
+	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody(required=false) String email, 
+			@RequestBody(required=false) String password) {
+		userService.addUser(userName, email, password);
+		 return new ResponseEntity<>(HttpStatus.CREATED);
+	}
 	
 	private String[][] jokeArray; // jokeArray[...][0] is the Question, jokeArray[...][1] is the Answer
 	
