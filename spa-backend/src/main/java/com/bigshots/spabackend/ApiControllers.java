@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -69,12 +69,6 @@ public class ApiControllers {
 	public ResponseEntity<Optional<User>> getUser(@PathVariable long user_id) {
 		return new ResponseEntity<>(userRepo.findById(user_id), HttpStatus.OK);
 	}
-
-	/*@PostMapping(value = "/users/save-new")
-	public String saveUser(User user) {
-		userRepo.save(user);
-		return  "Saved: " + user.getUsername() + " as new user";
-	}*/
 	
 	@GetMapping(value = "/")
 	public String getPage() {
@@ -110,19 +104,17 @@ public class ApiControllers {
 		
 		return new ResponseEntity<>(newJoke, HttpStatus.OK);
 	}
-	
-	/**
-	 * user registration post method 
-	 * every user will be registered with userName, email & password 
-	 * 
-	 * and then saved to the user repository for verification with other functions of
-	 * the app
-	 */
+
+	@PostMapping(value = "/users/save-new")
+	public String saveUser(User user) {
+		userRepo.save(user);
+		return  "Saved: " + user.getUsername() + " as new user";
+	}
+
 	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody(required=false) String email, 
-			@RequestBody(required=false) String password) {
+	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody(required=false) String email, @RequestBody(required=false) String password) {
 		userService.addUser(userName, email, password);
-		 return new ResponseEntity<>(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 }

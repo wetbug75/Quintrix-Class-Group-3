@@ -1,7 +1,5 @@
 package com.bigshots.spabackend;
 
-
-
 import org.junit.Before;
 
 import org.junit.jupiter.api.Test;
@@ -81,7 +79,7 @@ class SpaBackendApplicationTests {
     }
     
     @Test
-    public void testGetJokeQuestion() {
+    public void testGetJokeAnswer() {
     	//TODO Andrew can probably finish this when the get request works properly
     	//RestAssured.given().contentType(ContentType.HTML).get("/joke-answer/0").then().assertThat().body("answer", equalTo("ARM"));
     	RestAssured.given().contentType(ContentType.HTML).get("/joke-answer/0").then().log().body();//could do this easily if get returned with a JS file
