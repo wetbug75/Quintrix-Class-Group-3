@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { JokeItemComponent } from '../view-randomizer/components/joke-item/joke-item.component';
 import { ViewCreateJokeComponent } from './view-create-joke.component';
 
 describe('ViewCreateJokeComponent', () => {
@@ -7,7 +9,9 @@ describe('ViewCreateJokeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewCreateJokeComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ ViewCreateJokeComponent],
+      providers: [JokeItemComponent ]
     })
     .compileComponents();
   });

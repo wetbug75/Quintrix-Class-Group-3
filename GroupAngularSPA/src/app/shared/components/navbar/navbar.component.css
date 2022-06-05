@@ -1,32 +1,98 @@
+.nav-item{
+	font-weight: 600;
+	text-decoration: none;	
+}
+
 .navigationBar{
 	overflow:  hidden;
 	background-color: #9ADCFF;
+    background-image: linear-gradient(0deg, #38b8fd, #b6e5ff);
 	width:fixed;
+	padding: 0;
 }	
-
 
 .navigationBar a{
 	float: right;
 	text-align: center;
-	padding: 25px;
-	font-size: 17px;
+	padding: 22px;
+	font-size: 20px;
 	font-family: Arial;
 	line-height: 50px;
+	letter-spacing: 1.5px;
 }
 
-.navigationBar a:hover{
-	background-color: #FFF89A;
+.navigationBar a:visited{
 	color: black;
-	font-weight: bold;
+	text-decoration: none;
 }
 
+
+.active{
+    background-color:#FFF89A;
+    background-image: linear-gradient(0deg, #ffee00, #fffbc8);
+}
 .navigationBar a.title{
 	font-weight: bold;
 	float:left;
 	font-size: 20px;
-
+	pointer-events: none;
+	text-decoration: none;
 }
 
-.navigationBar a.title:hover{
-	background-color: #9ADCFF;
+
+  .hamburger{
+	  margin-right: 1.5rem;
+  }
+  .meat {
+	
+	width: 35px;
+	height: 5px;
+	background-color: black;
+	margin: 6px 0;
+  }
+
+  .hamburger:hover{
+    cursor:pointer;
+  }
+@media(min-width:576px){
+    .navigationBar a.title{
+		font-size: 30px;
+        font-weight: 700;
+	}
+}
+
+
+  @media (min-width: 1310px){
+    .navbar-expand-custom {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .navbar-expand-custom .navbar-nav {
+        flex-direction: row;
+    }
+    .navbar-expand-custom .dropdown-menu {
+        position: absolute;
+    }
+    .navbar-expand-custom .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+    .navbar-expand-custom > .container {
+        flex-wrap: nowrap;
+    }
+    .navbar-expand-custom .navbar-collapse {
+        display: flex!important;
+        flex-basis: auto;
+    }
+    .navbar-expand-custom .navbar-toggler {
+        display: none;
+    }
+	.navigationBar a.title{
+		font-size: 43px;
+        font-weight: 700;
+	}
+	.hamburger{
+        display:none;
+    }
 }

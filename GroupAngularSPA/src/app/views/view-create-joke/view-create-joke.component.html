@@ -1,9 +1,10 @@
+<div>
+    <app-create-joke-form *ngIf = "createFormService.state"
+    (onFormGroupSubmit)="onSubmitCreateJoke($event)"
+    >
+    </app-create-joke-form>
 
-<app-create-joke-form *ngIf = "createForm.state"
-(onFormGroupSubmit)="onSubmitCreateJoke($event)"
->
-</app-create-joke-form>
-
-<app-create-joke-result *ngIf = "!createForm.state" 
-[backendResponse]="backEndResponse"
-></app-create-joke-result>
+    <app-create-joke-result *ngIf = "!createFormService.state" 
+    [backendResponse]="backEndResponse"
+    ></app-create-joke-result>
+</div>

@@ -1,12 +1,43 @@
-<form >
-    <label>
-        Username:
-    </label>
-    <input type="text" formControlName="question" placeholder="required">
-    <label>
-        Password
-    </label>
-    <input type="password" formControlName="answer" placeholder="required">
-   
-    <button id="btn-submit-joke">Login</button>
+<h2 class="mb-4">Login to create and save your own jokes!</h2>
+<form   >
+    <div class="container">
+        <label class="cartoonletter">Username:</label>
+        <input class="form-control mb-3 cartoonbox"type="text " formControlName="question" placeholder="Do you remember your username?">
+    
+        <label class="cartoonletter"> Password: </label>
+       
+        <input class="form-control cartoonbox" type="password" formControlName="answer" placeholder="Your password must be 1234" >
+        <button class="mt-5"id="btn-submit-joke">Login</button>
+        
+    </div>
+    
     </form>
+
+<!-- Leon's form
+<form>
+    <table>
+        <tr>
+            <td class="labelHolder">
+                <label>Username:</label>
+            </td>
+            <input type="text" formControlName="question" placeholder="required">
+            <td>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td class="labelHolder">
+                <label>Password: </label>
+            </td>
+            
+            <td>
+                <input type="password" formControlName="answer" placeholder="required">
+            </td>
+        </tr>
+    </table>
+    <button id="btn-submit-joke">Login</button>
+</form>
+
+
+-->

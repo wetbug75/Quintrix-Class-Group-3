@@ -1,11 +1,13 @@
-<form  [formGroup]="newJokeForm" (ngSubmit)="onSubmit()">
-<label>
-    Joke:
-</label>
-<input type="text" formControlName="question" placeholder="required">
-<label>
-    Answer:
-</label>
-<input type="text" formControlName="answer" placeholder="required">
-<button id="btn-submit-joke">Submit</button>
+<form   [formGroup]="newJokeForm" (ngSubmit)="onSubmit()">
+<div class="container">
+    <label class="cartoonletter">Question:</label>
+    <input class="form-control mb-3 cartoonbox"type="text " formControlName="question" placeholder="This joke isn't going to write itself">
+
+    <label class="cartoonletter"> Answer: </label>
+   
+    <input class="form-control cartoonbox" type="text" formControlName="answer" placeholder="Type your answer to your joke" >
+    <button class="mt-5"id="btn-submit-joke">Submit</button>
+    
+</div>
+
 </form>
