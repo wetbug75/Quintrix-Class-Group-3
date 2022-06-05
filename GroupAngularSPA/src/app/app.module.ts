@@ -21,6 +21,7 @@ import { FindJokeFormComponent } from './views/view-find-joke/components/find-jo
 import { LoginFormComponent } from './views/view-login/components/login-form/login-form.component';
 import { JokeListComponent } from './views/view-find-joke/components/joke-list/joke-list.component';
 import { FindAllJokesButtonComponent } from './views/view-find-joke/components/find-all-jokes-button/find-all-jokes-button.component';
+import { RatingsComponent } from './shared/components/ratings/ratings.component';
 
 /*Will come back!*/
 const appRoutes: Routes = [
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     FindJokeFormComponent,
     LoginFormComponent,
     JokeListComponent,
-    FindAllJokesButtonComponent
+    FindAllJokesButtonComponent,
+    RatingsComponent
   ],
   imports: [
     BrowserModule, 

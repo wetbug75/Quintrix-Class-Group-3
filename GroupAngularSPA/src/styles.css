@@ -1,20 +1,27 @@
+
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+
 *{
 	margin: 0;
+	font-size:16px;
 }
 body{
 	background-color: #FFFDE1;
+	background-image:linear-gradient(to right, #fff677, #FFFDE1, #FFFDE1, #FFFDE1, #fff677);
 }
 
 button{
 	border-radius: 25px;
-	width: 20%;
-	border: 1px solid black;
+	width: 15rem;
+	border: 2px solid black;
 	padding: 15px;
 	margin: 20px;
 	text-align: center;
 	font-size: 20px;
     font-weight: bold;
 	background-color: #9ADCFF;
+	background-image: linear-gradient(180deg, rgb(190, 245, 255), #4dc1ff);
 	text-align:center;
 	margin: 0 auto;
 	justify-content: center;
@@ -24,15 +31,32 @@ button{
 	
 .jokeText{
 	color:white;
-	font-size: 30px;
+	font-size: 40px;
 	font-family:Comic Sans MS;
-	font-style:bold;
 	text-align:center;
-	margin: auto;
-	
+	justify-content: center;
+	padding-left: auto;
+	padding-right: auto;
+	text-shadow: 3px 3px black;
 }
 
-#jokeText{
-	display: none;
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3{
 	text-align: center;
+}
+
+.cartoonbox{
+	border:2px solid black;
+	height:3rem;
+	font-weight: 700;
+}
+
+.cartoonletter{
+	font-size:1.5rem;
+	font-weight:700;
 }
