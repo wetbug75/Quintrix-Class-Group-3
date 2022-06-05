@@ -13,15 +13,19 @@ import java.util.Random; // Random number generator
 import java.util.Scanner; // Import the Scanner class to read text files
 
 import org.springframework.web.bind.annotation.*;
-<<<<<<< HEAD
+
+
 
 import Model.Joke;
 import Service.UserService;
 
-=======
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
->>>>>>> 2f8b95b60261f2ff248ac256281c282cc47547a1
+
+
+
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -32,8 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApiControllers {
 	private UserService userService;
-	
-<<<<<<< HEAD
+
 	/**
 	 * 
 	 * @param question
@@ -47,12 +50,8 @@ public class ApiControllers {
 	@PostMapping("/newJoke" )
 	public ResponseEntity<Joke> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
 		Joke newJoke = new Joke(question, answer);
-=======
-	Logger logger = LoggerFactory.getLogger(LoggingController.class);
 	
-	@PostMapping("/newjoke" )
-	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
->>>>>>> 2f8b95b60261f2ff248ac256281c282cc47547a1
+	
 		try
 		{
 			
@@ -81,120 +80,6 @@ public class ApiControllers {
 			@RequestBody(required=false) String password) {
 		userService.addUser(userName, email, password);
 		 return new ResponseEntity<>(HttpStatus.CREATED);
-	}
-	
-	private String[][] jokeArray; // jokeArray[...][0] is the Question, jokeArray[...][1] is the Answer
-	
-	@GetMapping(value = "/")
-	public String getPage() {
-		return "Welcome";
-	}
-	
-	@GetMapping(value = "/random-joke")
-	public String getRandomJoke() throws FileNotFoundException{
-		getJokeArray();
-
-		if(jokeArray.length == 0)
-			return "Sorry, something went wrong";
-		
-		Random random = new Random();
-		int randomIndex = random.nextInt(jokeArray.length);
-		logger.info("get request a random joke");
-		return "Q: " + jokeArray[randomIndex][0] + "</n>A: " + jokeArray[randomIndex][1];
-	}
-	
-	/**
-	 * Gets the joke question at the specified index
-	 * @param index location in the joke array you want to access
-	 * @return
-	 */
-	@GetMapping(value = "/joke-question/{index}")
-	public String getJokeQuestion(@PathVariable int index)
-	{
-		try {
-			getJokeArray();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			logger.error("An ERROR Message");
-			e.printStackTrace();
-		}
-		
-		logger.info("get request for question: " + index);
-		return jokeArray[index][0];
-	}
-	
-	/**
-	 * Gets the joke answer at the specified index
-	 * @param index location in the joke array you want to access
-	 * @return
-	 */
-	@GetMapping(value = "/joke-answer/{index}")
-	public String getJokeAnswer(@PathVariable int index)
-	{
-		try {
-			getJokeArray();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		logger.info("get request for answer: " + index);
-		return jokeArray[index][1];
-	}
-	
-	/**
-	 * Turn the joke .txt file into a 2d array of strings, necessary for the other functions to work
-	 * @throws FileNotFoundException
-	 */
-	public void getJokeArray() throws FileNotFoundException
-	{
-		ArrayList<String> list = new ArrayList<String>();
-		int count = 0;
-		String jokeQuestion = "";
-		String jokeAnswer = "";
-		File text = new File("src/main/resources/programming_jokes.txt");
-		Scanner myReader = new Scanner(text);
-		while (myReader.hasNextLine()) {
-			String data = myReader.nextLine();
-			if(data.contains("**Q:**"))
-			{
-				jokeQuestion = data;
-				//jokeQuestion.replaceFirst("\\*\\*Q:\\*\\*", ""); IDK why this doesn't work
-				jokeQuestion = jokeQuestion.substring(6);
-				jokeQuestion.trim();
-			}
-			else if(data.contains("**A:**"))
-			{
-				jokeAnswer = data;
-				//jokeAnswer.replaceFirst("\\*\\*A:\\*\\*", "");
-				jokeAnswer = jokeAnswer.substring(6);
-				jokeAnswer.trim();
-			}
-			else if(data.equals("---"))//this bit is unnecessary if the .txt file is formatted correctly
-			{
-				jokeQuestion = "";
-				jokeAnswer = "";
-			}
-			
-			if(jokeQuestion != "" && jokeAnswer != "")
-			{
-				count++;
-				list.add(jokeQuestion);
-				list.add(jokeAnswer);
-				jokeQuestion = "";
-				jokeAnswer = "";
-			}
-	  	}
-	  	myReader.close();
-		
-	  	String[][] jokeArr = new String[count][2];
-	  	for(int i = 0; i < count; i++)
-	  	{
-	  		jokeArr[i][0] = list.get(i*2);
-	  		jokeArr[i][1] = list.get((i*2) + 1);
-	  	}
-	  	
-	  	jokeArray = jokeArr;
 	}
 	
 }

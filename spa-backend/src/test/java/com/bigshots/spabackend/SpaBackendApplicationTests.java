@@ -1,9 +1,9 @@
 package com.bigshots.spabackend;
-<<<<<<< HEAD
-=======
+
 
 import org.junit.Before;
->>>>>>> 2f8b95b60261f2ff248ac256281c282cc47547a1
+
+
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,15 +11,21 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 
 import io.restassured.*;
 import io.restassured.http.ContentType;
-<<<<<<< HEAD
+
 
 import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.equalTo;
 
+import org.springframework.test.context.junit4.SpringRunner;
+
+import io.restassured.response.ValidatableResponse;
+
+
+
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-
+@RunWith(SpringRunner.class)
 class SpaBackendApplicationTests {
 	final static String rootUrl = "localhost:8080";
 
@@ -60,17 +66,10 @@ class SpaBackendApplicationTests {
 	 */
 	
 	
-=======
-import io.restassured.response.ValidatableResponse;
-import static io.restassured.RestAssured.given;
 
-import static org.hamcrest.Matchers.equalTo;
 
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class SpaBackendApplicationTests {
+
 	
 	private final static String BASE_URI = "http://localhost";
     
@@ -89,7 +88,6 @@ class SpaBackendApplicationTests {
     	//TODO Can't figure out how to confirm HTML content
     	RestAssured.given().contentType(ContentType.HTML).get("/").then().assertThat().body("", equalTo("Welcome"));
     	//RestAssured.given().contentType(ContentType.HTML).get("/").then().log().body();
->>>>>>> 2f8b95b60261f2ff248ac256281c282cc47547a1
 
     }
     
