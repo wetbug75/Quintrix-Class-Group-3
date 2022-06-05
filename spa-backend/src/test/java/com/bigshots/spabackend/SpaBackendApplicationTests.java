@@ -1,7 +1,5 @@
 package com.bigshots.spabackend;
 
-
-
 import org.junit.Before;
 
 import org.junit.jupiter.api.Test;
@@ -17,10 +15,10 @@ import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.equalTo;
 
-
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-
+//@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SpaBackendApplicationTests {
+	
 	final static String rootUrl = "localhost:8080";
 
 	/*@Test
@@ -59,19 +57,6 @@ class SpaBackendApplicationTests {
 	 * that was added 
 	 */
 	
-	
-
-import io.restassured.response.ValidatableResponse;
-import static io.restassured.RestAssured.given;
-
-import static org.hamcrest.Matchers.equalTo;
-
-import org.springframework.test.context.junit4.SpringRunner;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class SpaBackendApplicationTests {
-	
 	private final static String BASE_URI = "http://localhost";
     
     @LocalServerPort
@@ -94,7 +79,7 @@ class SpaBackendApplicationTests {
     }
     
     @Test
-    public void testGetJokeQuestion() {
+    public void testGetJokeAnswer() {
     	//TODO Andrew can probably finish this when the get request works properly
     	//RestAssured.given().contentType(ContentType.HTML).get("/joke-answer/0").then().assertThat().body("answer", equalTo("ARM"));
     	RestAssured.given().contentType(ContentType.HTML).get("/joke-answer/0").then().log().body();//could do this easily if get returned with a JS file

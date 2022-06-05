@@ -1,8 +1,11 @@
 package Service;
 
+import org.springframework.stereotype.Service;
+
 import Model.User;
 import Repo.UserRepo;
 
+@Service
 public class UserService {
 	private UserRepo userRepo;
 	
