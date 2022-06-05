@@ -17,10 +17,10 @@ import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.equalTo;
 
-
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-
+//@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SpaBackendApplicationTests {
+	
 	final static String rootUrl = "localhost:8080";
 
 	/*@Test
@@ -58,19 +58,6 @@ class SpaBackendApplicationTests {
 	 * Test to make sure the user that is logged in is the one registered to the joke 
 	 * that was added 
 	 */
-	
-	
-
-import io.restassured.response.ValidatableResponse;
-import static io.restassured.RestAssured.given;
-
-import static org.hamcrest.Matchers.equalTo;
-
-import org.springframework.test.context.junit4.SpringRunner;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class SpaBackendApplicationTests {
 	
 	private final static String BASE_URI = "http://localhost";
     

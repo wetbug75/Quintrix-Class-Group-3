@@ -230,3 +230,518 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2022-06-02 17:36:59,168 WARN com.bigshots.spabackend.LoggingController [http-nio-8080-exec-2] A WARN Message
 2022-06-02 17:36:59,168 ERROR com.bigshots.spabackend.LoggingController [http-nio-8080-exec-2] An ERROR Message
 2022-06-02 17:37:09,057 INFO com.bigshots.spabackend.ApiControllers [http-nio-8080-exec-3] get request a random joke
+2022-06-04 22:08:31,666 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 18504 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:08:31,670 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:08:32,276 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:08:32,296 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2022-06-04 22:08:32,904 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:08:32,905 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:08:32,905 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:08:32,905 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:08:32,908 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:08:32,917 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:08:32,918 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:08:32,918 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:08:33,037 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:08:33,037 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1308 ms
+2022-06-04 22:08:33,265 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:08:33,313 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:08:33,485 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:08:33,590 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:08:33,743 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:08:33,770 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:08:34,034 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:08:34,044 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:08:34,054 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'Repo.UserRepo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-04 22:08:34,054 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:08:34,057 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:08:34,065 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:08:34,067 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:08:34,077 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:08:34,102 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userRepo in com.bigshots.spabackend.ApiControllers required a bean of type 'Repo.UserRepo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'Repo.UserRepo' in your configuration.
+
+2022-06-04 22:09:58,340 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 15836 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:09:58,343 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:09:58,925 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:09:58,945 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2022-06-04 22:09:59,533 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:09:59,534 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:09:59,534 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:09:59,534 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:09:59,537 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:09:59,550 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:09:59,550 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:09:59,550 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:09:59,653 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:09:59,653 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1255 ms
+2022-06-04 22:09:59,903 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:09:59,959 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:10:00,158 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:10:00,269 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:10:00,432 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:10:00,462 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:10:00,712 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:10:00,721 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:10:00,731 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'Repo.UserRepo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-04 22:10:00,731 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:10:00,735 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:10:00,744 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:10:00,747 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:10:00,758 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:10:00,785 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userRepo in com.bigshots.spabackend.ApiControllers required a bean of type 'Repo.UserRepo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'Repo.UserRepo' in your configuration.
+
+2022-06-04 22:11:18,719 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 3640 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:11:18,722 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:11:19,326 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:11:19,347 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 7 ms. Found 0 JPA repository interfaces.
+2022-06-04 22:11:19,964 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:11:19,965 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:11:19,966 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:11:19,966 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:11:19,968 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:11:19,977 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:11:19,977 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:11:19,977 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:11:20,085 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:11:20,085 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1308 ms
+2022-06-04 22:11:20,304 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:11:20,347 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:11:20,514 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:11:20,645 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:11:20,812 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:11:20,841 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:11:21,112 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:11:21,125 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:11:21,137 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'Repo.UserRepo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-04 22:11:21,138 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:11:21,143 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:11:21,153 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:11:21,155 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:11:21,168 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:11:21,201 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userRepo in com.bigshots.spabackend.ApiControllers required a bean of type 'Repo.UserRepo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'Repo.UserRepo' in your configuration.
+
+2022-06-04 22:16:22,418 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 3712 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:16:22,421 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:16:23,009 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:16:23,030 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2022-06-04 22:16:23,636 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:16:23,637 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:16:23,638 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:16:23,638 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:16:23,642 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:16:23,653 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:16:23,654 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:16:23,654 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:16:23,764 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:16:23,764 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1289 ms
+2022-06-04 22:16:24,021 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:16:24,071 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:16:24,245 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:16:24,356 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:16:24,506 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:16:24,535 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:16:24,782 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:16:24,791 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:16:24,801 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'Repo.UserRepo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-04 22:16:24,801 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:16:24,804 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:16:24,813 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:16:24,815 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:16:24,824 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:16:24,849 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userRepo in com.bigshots.spabackend.ApiControllers required a bean of type 'Repo.UserRepo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'Repo.UserRepo' in your configuration.
+
+2022-06-04 22:17:15,620 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 9836 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:17:15,623 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:17:16,199 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:17:16,220 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2022-06-04 22:17:16,810 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:17:16,811 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:17:16,812 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:17:16,812 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:17:16,815 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:17:16,824 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:17:16,824 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:17:16,824 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:17:16,927 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:17:16,927 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1247 ms
+2022-06-04 22:17:17,154 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:17:17,201 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:17:17,384 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:17:17,495 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:17:17,649 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:17:17,680 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:17:17,949 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:17:17,958 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:17:17,970 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'Repo.UserRepo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-04 22:17:17,970 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:17:17,973 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:17:17,981 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:17:17,984 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:17:17,994 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:17:18,019 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userRepo in com.bigshots.spabackend.ApiControllers required a bean of type 'Repo.UserRepo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'Repo.UserRepo' in your configuration.
+
+2022-06-04 22:18:28,531 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 1172 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:18:28,535 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:18:29,134 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:18:29,153 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2022-06-04 22:18:29,754 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:18:29,756 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:18:29,756 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:18:29,756 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:18:29,759 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:18:29,767 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:18:29,768 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:18:29,768 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:18:29,883 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:18:29,883 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1290 ms
+2022-06-04 22:18:30,126 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:18:30,179 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:18:30,361 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:18:30,485 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:18:30,649 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:18:30,679 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:18:30,948 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:18:30,958 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:18:30,973 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'Repo.UserRepo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-04 22:18:30,974 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:18:30,977 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:18:30,984 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:18:30,987 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:18:30,997 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:18:31,019 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userRepo in com.bigshots.spabackend.ApiControllers required a bean of type 'Repo.UserRepo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'Repo.UserRepo' in your configuration.
+
+2022-06-04 22:19:59,176 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 6060 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:19:59,179 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:19:59,920 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:19:59,940 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2022-06-04 22:20:00,706 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:20:00,708 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:20:00,708 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:20:00,709 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:20:00,712 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:20:00,725 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:20:00,725 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:20:00,725 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:20:00,867 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:20:00,867 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1623 ms
+2022-06-04 22:20:01,167 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:20:01,227 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:20:01,468 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:20:01,615 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:20:01,825 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:20:01,864 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:20:02,161 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:20:02,173 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:20:02,184 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'Repo.UserRepo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-04 22:20:02,185 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:20:02,190 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:20:02,200 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:20:02,203 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:20:02,216 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:20:02,254 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userRepo in com.bigshots.spabackend.ApiControllers required a bean of type 'Repo.UserRepo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'Repo.UserRepo' in your configuration.
+
+2022-06-04 22:24:22,803 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 13892 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:24:22,807 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:24:23,237 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:24:23,286 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+2022-06-04 22:24:24,056 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:24:24,058 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:24:24,058 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:24:24,058 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:24:24,061 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:24:24,069 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:24:24,070 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:24:24,070 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:24:24,186 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:24:24,187 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1315 ms
+2022-06-04 22:24:24,421 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:24:24,478 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:24:24,664 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:24:24,775 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:24:24,936 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:24:24,968 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:24:25,264 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: Model.Joke (class must be instantiated by Interceptor)
+2022-06-04 22:24:25,424 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: Model.User (class must be instantiated by Interceptor)
+2022-06-04 22:24:25,605 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:24:25,612 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:24:25,629 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepo' defined in Repo.UserRepo defined in @EnableJpaRepositories declared on SpaBackendApplication: Post-processing of merged bean definition failed; nested exception is java.lang.NoSuchMethodError: 'javax.persistence.SynchronizationType javax.persistence.PersistenceContext.synchronization()'
+2022-06-04 22:24:25,629 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:24:25,632 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:24:25,641 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:24:25,643 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:24:25,654 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:24:25,680 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement.<init>(PersistenceAnnotationBeanPostProcessor.java:650)
+
+The following method did not exist:
+
+    'javax.persistence.SynchronizationType javax.persistence.PersistenceContext.synchronization()'
+
+The calling method's class, org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement, was loaded from the following location:
+
+    jar:file:/C:/Users/andre/.m2/repository/org/springframework/spring-orm/5.3.20/spring-orm-5.3.20.jar!/org/springframework/orm/jpa/support/PersistenceAnnotationBeanPostProcessor$PersistenceElement.class
+
+The called method's class, javax.persistence.PersistenceContext, is available from the following locations:
+
+    jar:file:/C:/Users/andre/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar!/javax/persistence/PersistenceContext.class
+    jar:file:/C:/Users/andre/.m2/repository/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar!/javax/persistence/PersistenceContext.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    javax.persistence.PersistenceContext: file:/C:/Users/andre/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor$PersistenceElement and javax.persistence.PersistenceContext
+
+2022-06-04 22:25:17,372 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 6952 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:25:17,376 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:25:19,265 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to read candidate component class: URL [jar:file:C:\Users\andre\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.7.0\spring-boot-autoconfigure-2.7.0.jar!/org/springframework/boot/autoconfigure/r2dbc/ConnectionFactoryConfigurations$PoolConfiguration.class]; nested exception is java.lang.IllegalStateException: Could not evaluate condition on org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryConfigurations$PoolConfiguration due to io/r2dbc/spi/ValidationDepth not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+2022-06-04 22:25:19,272 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:25:19,299 ERROR org.springframework.boot.SpringApplication [main] Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to read candidate component class: URL [jar:file:C:\Users\andre\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.7.0\spring-boot-autoconfigure-2.7.0.jar!/org/springframework/boot/autoconfigure/r2dbc/ConnectionFactoryConfigurations$PoolConfiguration.class]; nested exception is java.lang.IllegalStateException: Could not evaluate condition on org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryConfigurations$PoolConfiguration due to io/r2dbc/spi/ValidationDepth not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:457)
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:316)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:276)
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:296)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:250)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:207)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:175)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.bigshots.spabackend.SpaBackendApplication.main(SpaBackendApplication.java:25)
+Caused by: java.lang.IllegalStateException: Could not evaluate condition on org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryConfigurations$PoolConfiguration due to io/r2dbc/spi/ValidationDepth not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:54)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:88)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:71)
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.isConditionMatch(ClassPathScanningCandidateComponentProvider.java:512)
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.isCandidateComponent(ClassPathScanningCandidateComponentProvider.java:495)
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:430)
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: io/r2dbc/spi/ValidationDepth
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3402)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2504)
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.getSorted(JavaBeanBinder.java:140)
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.addProperties(JavaBeanBinder.java:132)
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.<init>(JavaBeanBinder.java:127)
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.get(JavaBeanBinder.java:226)
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(JavaBeanBinder.java:54)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindDataObject$5(Binder.java:473)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Binder.java:587)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withDataObject(Binder.java:573)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$300(Binder.java:534)
+	at org.springframework.boot.context.properties.bind.Binder.bindDataObject(Binder.java:471)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:411)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:340)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:329)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:259)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:220)
+	at org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryConfigurations$PooledConnectionFactoryCondition.getMatchOutcome(ConnectionFactoryConfigurations.java:138)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)
+	... 26 common frames omitted
+Caused by: java.lang.ClassNotFoundException: io.r2dbc.spi.ValidationDepth
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	... 46 common frames omitted
+2022-06-04 22:25:35,914 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpaBackendApplication using Java 17.0.2 on DESKTOP-7RDIST4 with PID 13160 (C:\Users\andre\eclipse-group-workspace\spa-backend\target\classes started by andre in C:\Users\andre\eclipse-group-workspace\spa-backend)
+2022-06-04 22:25:35,918 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-04 22:25:36,513 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-04 22:25:36,533 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2022-06-04 22:25:37,151 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-04 22:25:37,152 INFO org.apache.juli.logging.DirectJDKLog [main] Loaded Apache Tomcat Native library [1.2.32] using APR version [1.7.0].
+2022-06-04 22:25:37,152 INFO org.apache.juli.logging.DirectJDKLog [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-04 22:25:37,153 INFO org.apache.juli.logging.DirectJDKLog [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-04 22:25:37,155 INFO org.apache.juli.logging.DirectJDKLog [main] OpenSSL successfully initialized [OpenSSL 1.1.1n  15 Mar 2022]
+2022-06-04 22:25:37,164 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-04 22:25:37,164 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-04 22:25:37,164 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-04 22:25:37,267 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-04 22:25:37,268 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1296 ms
+2022-06-04 22:25:37,513 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-04 22:25:37,562 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-06-04 22:25:37,728 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-04 22:25:37,832 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-04 22:25:38,004 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-04 22:25:38,031 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-06-04 22:25:38,295 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-04 22:25:38,305 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:25:38,315 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'apiControllers': Unsatisfied dependency expressed through field 'userRepo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'Repo.UserRepo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-06-04 22:25:38,315 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-04 22:25:38,319 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2022-06-04 22:25:38,327 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2022-06-04 22:25:38,330 INFO org.apache.juli.logging.DirectJDKLog [main] Stopping service [Tomcat]
+2022-06-04 22:25:38,342 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-04 22:25:38,363 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userRepo in com.bigshots.spabackend.ApiControllers required a bean of type 'Repo.UserRepo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'Repo.UserRepo' in your configuration.
+
