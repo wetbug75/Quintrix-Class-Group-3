@@ -1,4 +1,4 @@
 <p class="message mb-5">{{statusResult}}</p>
-<button (click)="onSubmit()" *ngIf="this.backendResponse.valueOf() === 0 || 
- this.backendResponse.valueOf() === 1  ">
+<button (click)="onSubmit()" *ngIf="this.backEndResponseStatus.valueOf() === 0 || 
+ this.backEndResponseStatus.valueOf() === 1  ">
     Create New Joke</button>

@@ -9,13 +9,15 @@ import { Status } from 'src/app/shared/status';
 })
 export class CreateJokeResultComponent implements OnChanges {
   statusResult!: String;
-  @Input() backendResponse= Status.None;
+  @Input() backEndResponseStatus= Status.None;
   constructor(public createForm: CreateStateServiceService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.backendResponse.valueOf() === Status.Success){
+    if(this.backEndResponseStatus.valueOf() === Status.Success){
       this.statusResult="Congrats! The new Joke was added to our vault of jokes";
-    }else if(this.backendResponse.valueOf()===Status.Fail){
+      console.log("response")
+      console.log(this.backEndResponseStatus);
+    }else if(this.backEndResponseStatus.valueOf()===Status.Fail){
       this.statusResult="Unfortunately, the joke was not added. There was an error. Try again next time";
     }
 

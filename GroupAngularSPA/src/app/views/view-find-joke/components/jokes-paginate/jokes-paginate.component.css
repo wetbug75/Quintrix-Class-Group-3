@@ -1,0 +1,24 @@
+.borderless td, .borderless th {
+    border: none;
+}
+
+.page-control{
+    text-align: center;
+}
+
+.like{
+    color: rgb(0, 136, 7);
+}
+
+.dislike{
+    color: red;
+}
+
+table{
+    font-weight: 600;
+    
+}
+
+th{
+    font-weight: 1000;
+}

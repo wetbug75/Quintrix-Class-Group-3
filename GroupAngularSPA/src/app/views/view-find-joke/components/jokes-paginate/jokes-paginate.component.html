@@ -1,1 +1,7 @@
-<p>jokes-paginate works!</p>
+<ul>
+    <li *ngFor="let joke of JOKES 
+        | paginate: { itemsPerPage: pageSize, 
+                      currentPage: p }"> ... </li>
+  </ul>
+             
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
