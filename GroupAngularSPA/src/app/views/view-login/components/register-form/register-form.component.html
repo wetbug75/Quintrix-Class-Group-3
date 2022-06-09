@@ -1,0 +1,16 @@
+<form  [formGroup]="userRegisterForm" (ngSubmit)="onSubmit()" >
+    <div class="container">
+        <label class="cartoonletter"> Email: </label>
+        <input class="form-control mb-3 cartoonbox" type="email" formControlName="email" placeholder="Your email" >
+
+        <label class="cartoonletter">Username:</label>
+        <input class="form-control mb-3 cartoonbox"type="text " formControlName="userName" placeholder="Your new user name?">
+    
+        <label class="cartoonletter"> Password: </label>
+        <input class="form-control mb-5 cartoonbox" type="password" formControlName="password" placeholder="Your password must be 1234" >
+
+        <button class=""id="btn-submit-joke">Register</button>
+        
+    </div>
+    
+    </form>

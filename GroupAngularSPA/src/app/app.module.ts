@@ -17,20 +17,20 @@ import { CreateJokeResultComponent } from './views/view-create-joke/components/c
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { ViewFindJokeComponent } from './views/view-find-joke/view-find-joke.component';
 import { ViewLoginComponent } from './views/view-login/view-login.component';
-import { ViewRegisterUserComponent } from './views/view-register-user/view-register-user.component';
 import { FindJokeFormComponent } from './views/view-find-joke/components/find-joke-form/find-joke-form.component';
 import { LoginFormComponent } from './views/view-login/components/login-form/login-form.component';
 import { JokeListComponent } from './views/view-find-joke/components/joke-list/joke-list.component';
 import { RatingsComponent } from './shared/components/ratings/ratings.component';
 import { JokesPaginateComponent } from './views/view-find-joke/components/jokes-paginate/jokes-paginate.component';
+import { RegisterFormComponent } from './views/view-login/components/register-form/register-form.component';
+import { RegisterBtnComponent } from './views/view-login/components/register-btn/register-btn.component';
 
 /*Will come back!*/
 const appRoutes: Routes = [
  {path: '', component:RandomizerComponent},
  {path: 'create', component:ViewCreateJokeComponent},
  {path: 'find', component: ViewFindJokeComponent},
- {path: 'login', component: ViewLoginComponent},
- {path: 'register', component: ViewRegisterUserComponent}
+ {path: 'login', component: ViewLoginComponent}
 ]
 
 @NgModule({
@@ -46,12 +46,13 @@ const appRoutes: Routes = [
     NavbarComponent,
     ViewFindJokeComponent,
     ViewLoginComponent,
-    ViewRegisterUserComponent,
     FindJokeFormComponent,
     LoginFormComponent,
     JokeListComponent,
     RatingsComponent,
-    JokesPaginateComponent
+    JokesPaginateComponent,
+    RegisterFormComponent,
+    RegisterBtnComponent
   ],
   imports: [
     BrowserModule, 

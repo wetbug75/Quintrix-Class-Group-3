@@ -7,8 +7,10 @@ import { userLogin } from 'src/app/models/UserLogin';
   styleUrls: ['./view-login.component.css']
 })
 export class ViewLoginComponent implements OnInit {
-
-  constructor() { }
+  onCreateAccountForm:boolean;
+  constructor() { 
+    this.onCreateAccountForm = false;
+  }
 
   ngOnInit(): void {
   }
@@ -20,4 +22,8 @@ export class ViewLoginComponent implements OnInit {
     //TODO
 
   }
+  onWantsNewAccount(userWantsNewAccount: boolean){
+    this.onCreateAccountForm = true;
+  }
+  
 }
