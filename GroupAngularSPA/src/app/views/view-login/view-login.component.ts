@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { userLogin } from 'src/app/models/UserLogin';
 
 @Component({
   selector: 'app-view-login',
@@ -12,4 +13,11 @@ export class ViewLoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //submit login credentials to backend
+  onUserFormGroupSubmit(userLogin : userLogin){
+    console.log(userLogin);
+    //this is where we will use service to send the user and password
+    //TODO
+
+  }
 }
