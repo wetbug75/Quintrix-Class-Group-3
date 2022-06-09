@@ -1,0 +1,23 @@
+<app-find-joke-form (keyWord)="onSubmitSearch($event)"></app-find-joke-form>
+
+<div class="container page-joke-container">
+    <table class="table table-borderless ">
+        <thead class="wow">
+            <th>JOKE</th>
+            <th class="like">LIKES</th>
+            <th class="dislike">DISLIKES</th>
+        </thead>
+        <tr *ngFor="let joke of JOKES | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalJokesDB }">
+           <td><span class="bold">Question:  </span>{{joke.question}} <br>
+               <span class="bold">Answer:</span> {{joke.answer}}
+           <td class="like bold">{{joke.upvotes}}</td>
+           <td class="dislike bold">{{joke.downvotes}}</td>
+        </tr>
+    </table>  
+    <div class="page-control">
+      <pagination-controls 
+         (pageChange)="pageChanged($event)"
+         >
+      </pagination-controls>
+    </div>
+</div>

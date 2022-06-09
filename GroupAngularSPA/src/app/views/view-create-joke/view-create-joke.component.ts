@@ -10,12 +10,13 @@ import { newJoke } from 'src/app/models/newJoke';
   styleUrls: ['./view-create-joke.component.css']
 })
 export class ViewCreateJokeComponent implements OnInit {
-  backEndResponse!:Status;
+  backEndResponseStatus!:Status;
+  
   SubmittedForm!: boolean;
   constructor(private jokeService : JokeService, public createFormService: CreateStateServiceService) { }
 
   ngOnInit(): void {
-    this.backEndResponse = Status.None;
+    this.backEndResponseStatus = Status.None;
     this.createFormService.needForm= true;
   
   }
@@ -23,10 +24,12 @@ export class ViewCreateJokeComponent implements OnInit {
   onSubmitCreateJoke(newJokeData : newJoke ){
     this.createFormService.needForm = false;
     this.jokeService.postJoke(newJokeData).subscribe((response)=>{
-      this.backEndResponse = Status.Success;
+      console.log("insisde response");
+      console.log(response);
+      this.backEndResponseStatus = Status.Success;
     },
     (error: HttpErrorResponse)=>{
-      this.backEndResponse = Status.Fail;
+      this.backEndResponseStatus = Status.Fail;
     }
     )
   }

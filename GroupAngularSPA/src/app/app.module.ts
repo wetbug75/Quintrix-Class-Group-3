@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './views/view-randomizer/components/button/button.component';
@@ -20,8 +21,8 @@ import { ViewRegisterUserComponent } from './views/view-register-user/view-regis
 import { FindJokeFormComponent } from './views/view-find-joke/components/find-joke-form/find-joke-form.component';
 import { LoginFormComponent } from './views/view-login/components/login-form/login-form.component';
 import { JokeListComponent } from './views/view-find-joke/components/joke-list/joke-list.component';
-import { FindAllJokesButtonComponent } from './views/view-find-joke/components/find-all-jokes-button/find-all-jokes-button.component';
 import { RatingsComponent } from './shared/components/ratings/ratings.component';
+import { JokesPaginateComponent } from './views/view-find-joke/components/jokes-paginate/jokes-paginate.component';
 
 /*Will come back!*/
 const appRoutes: Routes = [
@@ -35,12 +36,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-
     ButtonComponent,
     JokeComponent,
     JokeItemComponent,
     RandomizerComponent,
-       ViewCreateJokeComponent,
+    ViewCreateJokeComponent,
     CreateJokeFormComponent,
     CreateJokeResultComponent,
     NavbarComponent,
@@ -50,13 +50,15 @@ const appRoutes: Routes = [
     FindJokeFormComponent,
     LoginFormComponent,
     JokeListComponent,
-    FindAllJokesButtonComponent,
-    RatingsComponent
+    RatingsComponent,
+    JokesPaginateComponent
   ],
   imports: [
     BrowserModule, 
-       ReactiveFormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: false})
 
 

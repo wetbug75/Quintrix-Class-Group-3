@@ -1,11 +1,10 @@
-<div class="container">
-    <form>
+<div class="container" >
+    
         <div class="mb-3 row input-group">
-            <input class="form-control cartoonbox form-control-lg" type="text" formControlName="search" placeholder="Input keyword or all to list jokes">
+            <input [(ngModel)]="inputKeyword" class="form-control cartoonbox form-control-lg" type="text" placeholder="Input keyword to find jokes">
             <div class="input-group-append">
-                <button class="search">Search</button>
+                <button (click)="onSubmit()"type="button" class="search">Search</button>
             </div>
-
         </div>
-    </form>
+    
 </div>
