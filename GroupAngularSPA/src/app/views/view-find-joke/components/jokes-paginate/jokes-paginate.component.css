@@ -2,6 +2,7 @@
     border: none;
 }
 
+
 .page-control{
     text-align: center;
 }
@@ -20,5 +21,9 @@ table{
 }
 
 th{
+    font-weight: 1000;
+}
+
+.bold{
     font-weight: 1000;
 }
