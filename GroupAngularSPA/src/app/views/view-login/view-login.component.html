@@ -6,5 +6,6 @@
         *ngIf="!onCreateAccountForm"
         (onUserWantsNewAccount)="onWantsNewAccount($event)"></app-register-btn>
     <app-register-form
-        *ngIf="onCreateAccountForm"></app-register-form>
+        *ngIf="onCreateAccountForm"
+        (onRegisterFormGroupSubmit)="onRegisterFormGroupSubmit($event)"></app-register-form>
 </div>

@@ -1,4 +1,6 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { RegisterUser } from 'src/app/models/Register';
 import { userLogin } from 'src/app/models/UserLogin';
 
 @Component({
@@ -22,8 +24,17 @@ export class ViewLoginComponent implements OnInit {
     //TODO
 
   }
+
+  //determines whether login form or register form displays
   onWantsNewAccount(userWantsNewAccount: boolean){
     this.onCreateAccountForm = true;
+  }
+
+  onRegisterFormGroupSubmit(userRegisterInfo: RegisterUser){
+    console.log(userRegisterInfo)
+   
+    //this is where we will use service to send to backend
+    //for registration
   }
   
 }
