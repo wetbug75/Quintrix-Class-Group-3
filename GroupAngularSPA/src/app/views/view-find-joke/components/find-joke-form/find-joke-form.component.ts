@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-find-joke-form',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./find-joke-form.component.css']
 })
 export class FindJokeFormComponent implements OnInit {
-
+  @Output() keyWord = new EventEmitter<string>();
+  inputKeyword: string;
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+  onSubmit(){
+    this.keyWord.emit(this.inputKeyword);
+    this.inputKeyword="";
   }
 
 }

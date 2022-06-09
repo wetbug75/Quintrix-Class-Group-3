@@ -23,7 +23,7 @@
     },
     {
       "question": "How did the developer announce their engagement?",
-      "answer": "They `return`ed `true`!",
+      "answer": "They returned true!",
       "upvotes": 133,
       "downvotes": 168,
       "id": 4
@@ -968,6 +968,21 @@
       "answer": "dsfsdf",
       "question": "dfsdf",
       "id": 831127.5738113998
+    },
+    {
+      "answer": "Not funny at all",
+      "question": "Not Funny Joke",
+      "id": 248116.9253873059
+    },
+    {
+      "answer": "",
+      "question": "",
+      "id": 105010.70028085982
+    },
+    {
+      "answer": "sdf",
+      "question": "sdf",
+      "id": 17175.120981710836
     }
   ]
 }

@@ -1,4 +1,4 @@
-<app-find-joke-form></app-find-joke-form>
+<app-find-joke-form (keyWord)="onSubmitSearch($event)"></app-find-joke-form>
 
 <div class="container page-joke-container">
     <table class="table table-borderless ">
@@ -16,8 +16,8 @@
     </table>  
     <div class="page-control">
       <pagination-controls 
-        
-         (pageChange)="pageChanged($event)">
+         (pageChange)="pageChanged($event)"
+         >
       </pagination-controls>
     </div>
 </div>
