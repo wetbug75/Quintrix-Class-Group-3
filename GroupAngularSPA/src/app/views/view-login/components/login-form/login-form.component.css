@@ -8,22 +8,22 @@ input{
 
 @media(min-width:576px){
     .container{
-        padding:3rem;
-        padding-top:0rem;
+        padding: 0 3rem;
+       
     }
 
 }
 
 @media (min-width:768px){
     .container{
-        padding:5rem;
-        padding-top:0rem;
+        padding: 0 5rem;
+        
     }
 }
 @media(min-width:992px){
     .container{
-        padding:10rem;
-        padding-top:0rem;
+        padding: 0 10rem;
+        
     }
 
 }

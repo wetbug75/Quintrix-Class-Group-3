@@ -5,6 +5,6 @@
     </app-create-joke-form>
 
     <app-create-joke-result *ngIf = "!createFormService.state" 
-    [backendResponse]="backEndResponse"
+    [backEndResponseStatus]="backEndResponseStatus"
     ></app-create-joke-result>
 </div>

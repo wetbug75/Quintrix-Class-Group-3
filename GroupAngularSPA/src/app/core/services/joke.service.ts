@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import { JokeItemComponent } from '../../views/view-randomizer/components/joke-item/joke-item.component';
 import { newJoke } from 'src/app/models/newJoke';
+import { pageJoke } from 'src/app/models/pageJoke';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -49,9 +50,25 @@ export class JokeService {
     this.jokeItem.setAnswer(answer);
   }
 
+  //post a new joke , sends {answer, question}
   postJoke(newJoke: newJoke): Observable<newJoke>{
     console.log('send to backend');
-    return this.http.post<any>(`${this.springUrl}/newjoke`, newJoke, httpOptions);
+    console.log(newJoke);
+    //Spring Boot
+    //return this.http.post<any>(`${this.springUrl}/newjoke`, newJoke, httpOptions);
+
+    //JSON server
+    return this.http.post<any>(`${this.apiURL}`, {"answer": newJoke.answer, "question": newJoke.question, "id": (Math.random()*1000000)+ 200}, httpOptions)
+  }
+
+  getJokesPage(page: number, limit: number):Observable<any>{
+
+    /*
+      GET /posts?_page=7
+      GET /posts?_page=7&_limit=20
+    */
+    //json server
+    return this.http.get<pageJoke>(`${this.apiURL}?_page=${page}&_limit=${limit}`)
   }
 
 }

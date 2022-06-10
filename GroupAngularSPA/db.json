@@ -1,49 +1,998 @@
 {
   "jokes": [
     {
-      "question": "What is a skeleton favorite snack?",
-      "answer": "Spare rib",
-      "id": 0
-    },
-    {
-      "question": "What did the blanket say to the bed?",
-      "answer": "Don't worry, I've got you covered.",
+      "question": "Which body part does a programmer know best?",
+      "answer": "ARM",
+      "upvotes": 172,
+      "downvotes": 52,
       "id": 1
     },
     {
-      "question": "Why did the picture go to jail?",
-      "answer": "Because it was framed",
+      "question": "Relationship status?",
+      "answer": "I'll leave the relations to the database.",
+      "upvotes": 15,
+      "downvotes": 107,
       "id": 2
     },
     {
-      "answer": "sdfdsf",
+      "question": "How do you get the code for the bank vault?",
+      "answer": "You checkout their branch.",
+      "upvotes": 151,
+      "downvotes": 25,
+      "id": 3
+    },
+    {
+      "question": "How did the developer announce their engagement?",
+      "answer": "They returned true!",
+      "upvotes": 133,
+      "downvotes": 168,
+      "id": 4
+    },
+    {
+      "question": "Why did the security conscious engineer refuse to pay their dinner bill?",
+      "answer": "Because they could not verify the checksum.",
+      "upvotes": 137,
+      "downvotes": 32,
+      "id": 5
+    },
+    {
+      "question": "What do you call a busy waiter?",
+      "answer": "A server.",
+      "upvotes": 39,
+      "downvotes": 163,
+      "id": 6
+    },
+    {
+      "question": "What do you call an idle server?",
+      "answer": "A waiter.",
+      "upvotes": 183,
+      "downvotes": 55,
+      "id": 7
+    },
+    {
+      "question": "How many Prolog programmers does it take to change a lightbulb?",
+      "answer": "Yes.",
+      "upvotes": 7,
+      "downvotes": 14,
+      "id": 8
+    },
+    {
+      "question": "What diet did the ghost developer go on?",
+      "answer": "Boolean",
+      "upvotes": 54,
+      "downvotes": 120,
+      "id": 9
+    },
+    {
+      "question": "Why was the developer unhappy at their job?",
+      "answer": "They wanted arrays.",
+      "upvotes": 163,
+      "downvotes": 52,
+      "id": 10
+    },
+    {
+      "question": "Why was the function sad after a successful first call?",
+      "answer": "It didn’t get a callback.",
+      "upvotes": 7,
+      "downvotes": 183,
+      "id": 11
+    },
+    {
+      "question": "Why did the angry function exceed the callstack size?",
+      "answer": "It got into an Argument with itself",
+      "upvotes": 80,
+      "downvotes": 78,
+      "id": 12
+    },
+    {
+      "question": "Whats the object-oriented way to become wealthy?",
+      "answer": "Inheritance",
+      "upvotes": 92,
+      "downvotes": 137,
+      "id": 13
+    },
+    {
+      "question": "Why did the developer ground their kid?",
+      "answer": "They weren't telling the truthy",
+      "upvotes": 127,
+      "downvotes": 12,
+      "id": 14
+    },
+    {
+      "question": "What did the array say after it was extended?",
+      "answer": "Stop objectifying me.",
+      "upvotes": 40,
+      "downvotes": 29,
+      "id": 15
+    },
+    {
+      "question": "Where did the parallel function wash its hands?",
+      "answer": "Async",
+      "upvotes": 183,
+      "downvotes": 18,
+      "id": 16
+    },
+    {
+      "question": "Why did the functions stop calling each other?",
+      "answer": "Because they had constant arguments.",
+      "upvotes": 153,
+      "downvotes": 134,
+      "id": 17
+    },
+    {
+      "question": "What's the second movie about a database engineer called?",
+      "answer": "The SQL.",
+      "upvotes": 103,
+      "downvotes": 45,
+      "id": 18
+    },
+    {
+      "question": "Why doesn't Hollywood make more Big Data movies?",
+      "answer": "NoSQL.",
+      "upvotes": 95,
+      "downvotes": 62,
+      "id": 19
+    },
+    {
+      "question": "What did the spider do on the computer?",
+      "answer": "Made a website!",
+      "upvotes": 46,
+      "downvotes": 144,
+      "id": 20
+    },
+    {
+      "question": "What did the computer do at lunchtime?",
+      "answer": "Had a byte!",
+      "upvotes": 167,
+      "downvotes": 89,
+      "id": 21
+    },
+    {
+      "question": "What does a baby computer call his father?",
+      "answer": "Data!",
+      "upvotes": 82,
+      "downvotes": 12,
+      "id": 22
+    },
+    {
+      "question": "Why did the computer keep sneezing?",
+      "answer": "It had a virus!",
+      "upvotes": 116,
+      "downvotes": 11,
+      "id": 23
+    },
+    {
+      "question": "What is a computer virus?",
+      "answer": "A terminal illness!",
+      "upvotes": 138,
+      "downvotes": 135,
+      "id": 24
+    },
+    {
+      "question": "Why was the computer freezing?",
+      "answer": "It left its Windows open!",
+      "upvotes": 119,
+      "downvotes": 97,
+      "id": 25
+    },
+    {
+      "question": "Why was there a bug in the computer?",
+      "answer": "Because it was looking for a byte to eat?",
+      "upvotes": 172,
+      "downvotes": 143,
+      "id": 26
+    },
+    {
+      "question": "Why did the computer squeak?",
+      "answer": "Because someone stepped on its mouse!",
+      "upvotes": 58,
+      "downvotes": 127,
+      "id": 27
+    },
+    {
+      "question": "What do you get when you cross a computer and a life guard?",
+      "answer": "A screensaver!",
+      "upvotes": 131,
+      "downvotes": 18,
+      "id": 28
+    },
+    {
+      "question": "Where do all the cool mice live?",
+      "answer": "In their mousepads!",
+      "upvotes": 199,
+      "downvotes": 52,
+      "id": 29
+    },
+    {
+      "question": "What do you get when you cross a computer with an elephant?",
+      "answer": "Lots of memory!",
+      "upvotes": 67,
+      "downvotes": 77,
+      "id": 30
+    },
+    {
+      "question": "How do programming pirates pass method parameters?",
+      "answer": "Varrrrarrrgs.",
+      "upvotes": 133,
+      "downvotes": 40,
+      "id": 31
+    },
+    {
+      "question": "How do programming shepherds count their flock?",
+      "answer": "With lambda functions",
+      "upvotes": 51,
+      "downvotes": 157,
+      "id": 32
+    },
+    {
+      "question": "What airline do developers prefer when they're in a rush?",
+      "answer": "Delta.",
+      "upvotes": 2,
+      "downvotes": 155,
+      "id": 33
+    },
+    {
+      "question": "How did pirates collaborate before computers ?",
+      "answer": "Pier to pier networking.",
+      "upvotes": 36,
+      "downvotes": 181,
+      "id": 34
+    },
+    {
+      "question": "Why don't bachelors like Git?",
+      "answer": "Because they are afraid to commit.",
+      "upvotes": 62,
+      "downvotes": 132,
+      "id": 35
+    },
+    {
+      "question": "Why was the developer's family upset with them at dinner?",
+      "answer": "They forgot to git squash before going home",
+      "upvotes": 105,
+      "downvotes": 48,
+      "id": 36
+    },
+    {
+      "question": "What did JavaScript call his son?",
+      "answer": "JSON!",
+      "upvotes": 184,
+      "downvotes": 121,
+      "id": 37
+    },
+    {
+      "question": "What did the proud React component say to its child?",
+      "answer": "I've got to give you props",
+      "upvotes": 54,
+      "downvotes": 9,
+      "id": 38
+    },
+    {
+      "question": "What did the server say to his client who was having a bad day?",
+      "answer": "Everything's going to be 200",
+      "upvotes": 79,
+      "downvotes": 43,
+      "id": 39
+    },
+    {
+      "question": "Why did the developer go broke?",
+      "answer": "Because they used up all their cache",
+      "upvotes": 183,
+      "downvotes": 97,
+      "id": 40
+    },
+    {
+      "question": "Are computers dangerous?",
+      "answer": "Nah, they don't byte. They just nibble a bit.",
+      "upvotes": 142,
+      "downvotes": 40,
+      "id": 41
+    },
+    {
+      "question": "How did the mafioso kill the Node server?",
+      "answer": "Tie await to it and let it async.",
+      "upvotes": 14,
+      "downvotes": 10,
+      "id": 42
+    },
+    {
+      "question": "You know what the best thing about booleans is?",
+      "answer": "Even if you are wrong, you are only off by a bit.",
+      "upvotes": 111,
+      "downvotes": 182,
+      "id": 43
+    },
+    {
+      "question": "Why do UPS drivers get nervous when their internet is unstable?",
+      "answer": "Because they might lose packets.",
+      "upvotes": 107,
+      "downvotes": 54,
+      "id": 44
+    },
+    {
+      "question": "Why couldn’t the user update a file on a shared server?",
+      "answer": "They didn’t have the write permissions",
+      "upvotes": 101,
+      "downvotes": 66,
+      "id": 45
+    },
+    {
+      "question": "What do you do when you can't understand your husband's behavior?",
+      "answer": "man man",
+      "upvotes": 107,
+      "downvotes": 88,
+      "id": 46
+    },
+    {
+      "question": "What do you call a doctor who fixes websites?",
+      "answer": "A URLogist",
+      "upvotes": 12,
+      "downvotes": 125,
+      "id": 47
+    },
+    {
+      "question": "How many developers does it take to change a light bulb?",
+      "answer": "None. It's a hardware issue",
+      "upvotes": 14,
+      "downvotes": 189,
+      "id": 48
+    },
+    {
+      "question": "Why do programmers always mix up Halloween and Christmas?",
+      "answer": "Because 31 OCT == 25 DEC",
+      "upvotes": 102,
+      "downvotes": 96,
+      "id": 49
+    },
+    {
+      "question": "Why do kayakers make bad programmers?",
+      "answer": "Because they're afraid of waterfall.",
+      "upvotes": 33,
+      "downvotes": 49,
+      "id": 50
+    },
+    {
+      "question": "What are computers' favorite snacks?",
+      "answer": "Microchips, phish sticks, and cookies. But just a few bytes of each.",
+      "upvotes": 31,
+      "downvotes": 161,
+      "id": 51
+    },
+    {
+      "question": "What do computers love to do at the beach?",
+      "answer": "Put on some spam block for protection so they can safely surf the net while catching some .WAVs!",
+      "upvotes": 16,
+      "downvotes": 173,
+      "id": 52
+    },
+    {
+      "question": "What do you call a computer that sings?",
+      "answer": "A-dell.",
+      "upvotes": 78,
+      "downvotes": 5,
+      "id": 53
+    },
+    {
+      "question": "What's a compiler developer's favorite spice?",
+      "answer": "Parsley.",
+      "upvotes": 135,
+      "downvotes": 15,
+      "id": 54
+    },
+    {
+      "question": "When do front end developers go out to eat?",
+      "answer": "On their lunch `<br>`.",
+      "upvotes": 27,
+      "downvotes": 161,
+      "id": 55
+    },
+    {
+      "question": "How do you help JS errors?",
+      "answer": "You `console` them!",
+      "upvotes": 6,
+      "downvotes": 16,
+      "id": 56
+    },
+    {
+      "question": "Why don't parents teach their kids about regular expressions?",
+      "answer": "Because they don't want them playing with matches",
+      "upvotes": 54,
+      "downvotes": 85,
+      "id": 57
+    },
+    {
+      "question": "Why didn't the `<div />` get invited to the dinner party?",
+      "answer": "Because it had no class!",
+      "upvotes": 148,
+      "downvotes": 83,
+      "id": 58
+    },
+    {
+      "question": "Why aren't cryptocurrency engineers allowed to vote?",
+      "answer": "Because they're miners!",
+      "upvotes": 134,
+      "downvotes": 94,
+      "id": 59
+    },
+    {
+      "question": "Why did the constant break up with the variable?",
+      "answer": "Because they changed.",
+      "upvotes": 137,
+      "downvotes": 53,
+      "id": 60
+    },
+    {
+      "question": "Why did the database administrator leave his wife?",
+      "answer": "She had one-to-many relationships.",
+      "upvotes": 141,
+      "downvotes": 23,
+      "id": 61
+    },
+    {
+      "question": "What did the Class say in court when put on trial?",
+      "answer": "I strongly object!",
+      "upvotes": 126,
+      "downvotes": 115,
+      "id": 62
+    },
+    {
+      "question": "Why do Java developers wear glasses?",
+      "answer": "Because they don't C#!",
+      "upvotes": 182,
+      "downvotes": 154,
+      "id": 63
+    },
+    {
+      "question": "What are the three hardest problems in computer science?",
+      "answer": "Naming things and off-by-one errors",
+      "upvotes": 17,
+      "downvotes": 47,
+      "id": 64
+    },
+    {
+      "question": "What did the fruit basket say to the developer?",
+      "answer": "I hope you're ready for some pear programming!",
+      "upvotes": 196,
+      "downvotes": 173,
+      "id": 65
+    },
+    {
+      "question": "How does a sysadmin keep a fire going?",
+      "answer": "They rotate the logs.",
+      "upvotes": 47,
+      "downvotes": 94,
+      "id": 66
+    },
+    {
+      "question": "I love you and I only love you. Does that turn you on?",
+      "answer": "AND GATE: No.",
+      "upvotes": 40,
+      "downvotes": 168,
+      "id": 67
+    },
+    {
+      "question": "Why do all HTML emails get blocked?",
+      "answer": "Because they are all `<span />`.",
+      "upvotes": 12,
+      "downvotes": 53,
+      "id": 68
+    },
+    {
+      "question": "What did the process say after working in an infinite loop all day?",
+      "answer": "I need a break.",
+      "upvotes": 5,
+      "downvotes": 34,
+      "id": 69
+    },
+    {
+      "question": "An Agent died unexpectedly. How was the crime solved?",
+      "answer": "By looking at the Stack Trace.",
+      "upvotes": 93,
+      "downvotes": 191,
+      "id": 70
+    },
+    {
+      "question": "Why did the document store go out of business?",
+      "answer": "It had NoSQL.",
+      "upvotes": 151,
+      "downvotes": 108,
+      "id": 71
+    },
+    {
+      "question": "Why can't SQL and NoSQL Developers date one other?",
+      "answer": "Because they don't agree on relationships.",
+      "upvotes": 109,
+      "downvotes": 115,
+      "id": 72
+    },
+    {
+      "question": "Why is Python like the Soviet Union?",
+      "answer": "Because it has no private fields",
+      "upvotes": 194,
+      "downvotes": 90,
+      "id": 73
+    },
+    {
+      "question": "Where did the API go to eat?",
+      "answer": "To the RESTaurant",
+      "upvotes": 135,
+      "downvotes": 88,
+      "id": 74
+    },
+    {
+      "question": "Why shouldn't you trust Matlab developers?",
+      "answer": "Because they're always plotting something.",
+      "upvotes": 131,
+      "downvotes": 73,
+      "id": 75
+    },
+    {
+      "question": "Why did the developer have to quit smoking?",
+      "answer": "Because they couldn't afford to pay the new syntax.",
+      "upvotes": 170,
+      "downvotes": 146,
+      "id": 76
+    },
+    {
+      "question": "How does a programmer open a jar for their significant other?",
+      "answer": "They install Java",
+      "upvotes": 53,
+      "downvotes": 51,
+      "id": 77
+    },
+    {
+      "question": "What did the psychic say to the developers?",
+      "answer": "I see dev people.",
+      "upvotes": 40,
+      "downvotes": 189,
+      "id": 78
+    },
+    {
+      "question": "Where does the pirate stash all of their digital treasures?",
+      "answer": "RAR",
+      "upvotes": 188,
+      "downvotes": 10,
+      "id": 79
+    },
+    {
+      "question": "What is React's favorite movie genre?",
+      "answer": "Suspense",
+      "upvotes": 178,
+      "downvotes": 188,
+      "id": 80
+    },
+    {
+      "question": "Why couldn't the React component understand the joke?",
+      "answer": "Because it didn't get the context.",
+      "upvotes": 93,
+      "downvotes": 147,
+      "id": 81
+    },
+    {
+      "question": "What did XHR say to AJAX when it thought it was being a Mean Girl?",
+      "answer": "Stop trying to make fetch happen!",
+      "upvotes": 13,
+      "downvotes": 73,
+      "id": 82
+    },
+    {
+      "question": "What was Grace Hopper's favorite car?",
+      "answer": "VW Bug",
+      "upvotes": 160,
+      "downvotes": 197,
+      "id": 83
+    },
+    {
+      "question": "What is a pirate's favorite programming language?",
+      "answer": "You'd think it was R, but a pirate's first love is Objectively C.",
+      "upvotes": 9,
+      "downvotes": 57,
+      "id": 84
+    },
+    {
+      "question": "Why did the programmer come home crying?",
+      "answer": "His friends were always boolean him.",
+      "upvotes": 146,
+      "downvotes": 74,
+      "id": 85
+    },
+    {
+      "question": "What PostgreSQL library should Python developers use for adult-oriented code?",
+      "answer": "psycoPG13",
+      "upvotes": 44,
+      "downvotes": 159,
+      "id": 86
+    },
+    {
+      "question": "What do you call a beverage that is 75% Root Beer, and 75% Ice Cream?",
+      "answer": "A Float",
+      "upvotes": 132,
+      "downvotes": 87,
+      "id": 87
+    },
+    {
+      "question": "What accommodations did the JavaScript developer request at the hotel?",
+      "answer": "A room with a Vue.",
+      "upvotes": 165,
+      "downvotes": 96,
+      "id": 88
+    },
+    {
+      "question": "Where do developers drink?",
+      "answer": "The Foo bar",
+      "upvotes": 188,
+      "downvotes": 46,
+      "id": 89
+    },
+    {
+      "question": "Why was the engineer upset when the bartender served them `1` shot of whiskey?",
+      "answer": "Because they thought they ordered a double.",
+      "upvotes": 88,
+      "downvotes": 18,
+      "id": 90
+    },
+    {
+      "question": "Why do assembly programmers need to know how to swim?",
+      "answer": "Because they work below C level.",
+      "upvotes": 122,
+      "downvotes": 128,
+      "id": 91
+    },
+    {
+      "question": "Who used the internet before it was cool?",
+      "answer": "Httpsters",
+      "upvotes": 111,
+      "downvotes": 153,
+      "id": 92
+    },
+    {
+      "question": "What kind of computer can hold a musical note?",
+      "answer": "A Dell.",
+      "upvotes": 125,
+      "downvotes": 154,
+      "id": 93
+    },
+    {
+      "question": "Why did the web developer always go to the wrong hotel room?",
+      "answer": "They were in room 301.",
+      "upvotes": 177,
+      "downvotes": 37,
+      "id": 94
+    },
+    {
+      "question": "How do you stop a web developer stealing your stuff?",
+      "answer": "Write 403 on it.",
+      "upvotes": 38,
+      "downvotes": 109,
+      "id": 95
+    },
+    {
+      "question": "Why are machine learning models so fit?",
+      "answer": "Because they do weight training.",
+      "upvotes": 18,
+      "downvotes": 197,
+      "id": 96
+    },
+    {
+      "question": "Why did Gargamel shut down the internet?",
+      "answer": "Because he didn't want people **SMURFING** the web!",
+      "upvotes": 33,
+      "downvotes": 40,
+      "id": 97
+    },
+    {
+      "question": "What did the command line die of?",
+      "answer": "A Terminal illness.",
+      "upvotes": 32,
+      "downvotes": 164,
+      "id": 98
+    },
+    {
+      "question": "Did you hear what the clumsy cryptographer did to their password?",
+      "answer": "Made a hash of it.",
+      "upvotes": 36,
+      "downvotes": 168,
+      "id": 99
+    },
+    {
+      "question": "Why are keyboards always working so hard?",
+      "answer": "Cause they have two shifts!",
+      "upvotes": 81,
+      "downvotes": 51,
+      "id": 100
+    },
+    {
+      "question": "What are clouds made of?",
+      "answer": "Mostly linux servers.",
+      "upvotes": 56,
+      "downvotes": 196,
+      "id": 101
+    },
+    {
+      "question": "Why did Tom Selleck never git commit anything?",
+      "answer": "Because he thought he mustache his work.",
+      "upvotes": 133,
+      "downvotes": 194,
+      "id": 102
+    },
+    {
+      "question": "How does Mr. Potato Head (dev edition 0.0.1) remove his mustache?",
+      "answer": "git stache pop",
+      "upvotes": 53,
+      "downvotes": 126,
+      "id": 103
+    },
+    {
+      "question": "Why can't you use 'Soup' as your password?",
+      "answer": "Because it isn't `stroganoff`",
+      "upvotes": 153,
+      "downvotes": 58,
+      "id": 104
+    },
+    {
+      "question": "Why do developers use mechanical keyboards?",
+      "answer": "To strongly type their code.",
+      "upvotes": 93,
+      "downvotes": 172,
+      "id": 105
+    },
+    {
+      "question": "What is a developer's favorite country song?",
+      "answer": "Hello World - by Lady Antebellum",
+      "upvotes": 138,
+      "downvotes": 2,
+      "id": 106
+    },
+    {
+      "question": "Why was nobody given food at the developer conference?",
+      "answer": "It was a serverless function!",
+      "upvotes": 138,
+      "downvotes": 64,
+      "id": 107
+    },
+    {
+      "question": "Why did the developer cancel their dinner plans?",
+      "answer": "They were unable to fulfil peer dependencies",
+      "upvotes": 0,
+      "downvotes": 100,
+      "id": 108
+    },
+    {
+      "question": "Why did the functional programmer finally move out of their house?",
+      "answer": "For(e) closure",
+      "upvotes": 116,
+      "downvotes": 168,
+      "id": 109
+    },
+    {
+      "question": "How do JavaScript developers break up?",
+      "answer": "They always promise to callback",
+      "upvotes": 75,
+      "downvotes": 17,
+      "id": 110
+    },
+    {
+      "question": "Why do developers mixup Terminals and Polygraphs?",
+      "answer": "Because they both can see a lie (CLI)",
+      "upvotes": 29,
+      "downvotes": 174,
+      "id": 111
+    },
+    {
+      "question": "Did you hear about the programmer that was scared of IDEs?",
+      "answer": "They retreated back into their shell",
+      "upvotes": 132,
+      "downvotes": 175,
+      "id": 112
+    },
+    {
+      "question": "What do you call optimistic front-end developers?",
+      "answer": "Stack half-full developers.",
+      "upvotes": 146,
+      "downvotes": 93,
+      "id": 113
+    },
+    {
+      "question": "Have you heard the one about the Corduroy pillow?",
+      "answer": "It's making HEADLINES!",
+      "upvotes": 135,
+      "downvotes": 61,
+      "id": 114
+    },
+    {
+      "question": "Hey officer! How did the hackers escape?",
+      "answer": "No idea. They just ransomware.",
+      "upvotes": 199,
+      "downvotes": 66,
+      "id": 115
+    },
+    {
+      "question": "Why can’t data engineers become hat makers?",
+      "answer": "They can only guarantee two thirds of a CAP!",
+      "upvotes": 46,
+      "downvotes": 125,
+      "id": 116
+    },
+    {
+      "question": "How did the hippie learn about database transactions?",
+      "answer": "By taking ACID",
+      "upvotes": 174,
+      "downvotes": 165,
+      "id": 117
+    },
+    {
+      "question": "Why is it called the Dark Ages?",
+      "answer": "There were a lot of KNIGHTS!",
+      "upvotes": 51,
+      "downvotes": 186,
+      "id": 118
+    },
+    {
+      "question": "What did the Network Administrator say when they caught a nasty virus?",
+      "answer": "It hurts when IP",
+      "upvotes": 184,
+      "downvotes": 134,
+      "id": 119
+    },
+    {
+      "question": "Which programming language is the shortest?",
+      "answer": "HTML. Because it doesn't have a neck between its `<head>` and `<body>`.",
+      "upvotes": 182,
+      "downvotes": 117,
+      "id": 120
+    },
+    {
+      "question": "What good can come of 2989 witches casting a hex?",
+      "answer": "None, it is always 0xBAD",
+      "upvotes": 71,
+      "downvotes": 55,
+      "id": 121
+    },
+    {
+      "question": "Did you hear about the witch who was off by two when casting a hex?",
+      "answer": "They failed to make the target DEAD and made them DEAF instead!",
+      "upvotes": 195,
+      "downvotes": 193,
+      "id": 122
+    },
+    {
+      "question": "Why do Front-End Developers eat lunch alone?",
+      "answer": "Because, they don't know how to join tables.",
+      "upvotes": 119,
+      "downvotes": 54,
+      "id": 123
+    },
+    {
+      "question": "What advice do you give to a JS developer who has never played baseball?",
+      "answer": "Try catch.",
+      "upvotes": 84,
+      "downvotes": 101,
+      "id": 124
+    },
+    {
+      "question": "Got any funny DNS jokes?",
+      "answer": "Yeah, but it may take 24 hours to get it.",
+      "upvotes": 109,
+      "downvotes": 5,
+      "id": 125
+    },
+    {
+      "question": "Why were A & B so frustrated?",
+      "answer": "Because they couldn’t cd…",
+      "upvotes": 13,
+      "downvotes": 7,
+      "id": 126
+    },
+    {
+      "question": "Where do programmer dad's store their jokes?",
+      "answer": "In a dad-a-base.",
+      "upvotes": 197,
+      "downvotes": 154,
+      "id": 127
+    },
+    {
+      "question": "Why do Websockets make the best therapists?",
+      "answer": "They are always listening.",
+      "upvotes": 87,
+      "downvotes": 136,
+      "id": 128
+    },
+    {
+      "question": "What kind of image saved the day?",
+      "answer": "The HERO image!",
+      "upvotes": 6,
+      "downvotes": 1,
+      "id": 129
+    },
+    {
+      "question": "Why do programmers prefer dark mode?",
+      "answer": "Because light attracts bugs!",
+      "upvotes": 22,
+      "downvotes": 6,
+      "id": 130
+    },
+    {
+      "question": "Does this vaccine contain a microchip?",
+      "answer": "I don't know for sure, but it must be ARM based.",
+      "upvotes": 166,
+      "downvotes": 195,
+      "id": 131
+    },
+    {
+      "question": "How do you make a 4D Printer?",
+      "answer": "Take a 3D printer and give it some time",
+      "upvotes": 72,
+      "downvotes": 148,
+      "id": 132
+    },
+    {
+      "question": "How do front end devs like their brownies?",
+      "answer": "GUI",
+      "upvotes": 162,
+      "downvotes": 73,
+      "id": 133
+    },
+    {
+      "question": "What do hackers do on a boat?",
+      "answer": "Phishing.",
+      "upvotes": 152,
+      "downvotes": 52,
+      "id": 134
+    },
+    {
+      "question": "What is the most used language in programming?",
+      "answer": "Profanity",
+      "upvotes": 34,
+      "downvotes": 136,
+      "id": 135
+    },
+    {
+      "question": "Why couldn't the HTML list be trusted?",
+      "answer": "There were LI's everywhere",
+      "upvotes": 37,
+      "downvotes": 50,
+      "id": 136
+    },
+    {
+      "question": "What do you call a bee that lives in America?",
+      "answer": "A USB",
+      "upvotes": 158,
+      "downvotes": 181,
+      "id": 137
+    },
+    {
+      "answer": "bahaba",
+      "question": "dumb",
+      "id": 435932.7396290691
+    },
+    {
+      "answer": "dsfsdf",
+      "question": "dfsdf",
+      "id": 831127.5738113998
+    },
+    {
+      "answer": "Not funny at all",
+      "question": "Not Funny Joke",
+      "id": 248116.9253873059
+    },
+    {
+      "answer": "",
+      "question": "",
+      "id": 105010.70028085982
+    },
+    {
+      "answer": "sdf",
+      "question": "sdf",
+      "id": 17175.120981710836
+    },
+    {
+      "answer": "sdfsdf",
       "question": "sdfsdf",
-      "createdBy": "sdfsdf",
-      "id": 0.5545122819897637
+      "id": 131242.12523790015
     },
     {
-      "answer": "",
-      "question": "",
-      "createdBy": "",
-      "id": 0.1783923223325541
-    },
-    {
-      "answer": "",
-      "question": "",
-      "createdBy": "",
-      "id": 0.1512307996487685
-    },
-    {
-      "answer": "",
-      "question": "",
-      "createdBy": "",
-      "id": 0.8478220487427948
-    },
-    {
-      "answer": "",
-      "question": "",
-      "createdBy": "",
-      "id": 0.31541117234772886
+      "answer": "dsfsdf",
+      "question": "dfsdf",
+      "id": 145819.56039987112
     }
   ]
 }

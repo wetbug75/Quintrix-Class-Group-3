@@ -1,1 +1,11 @@
-<app-login-form></app-login-form>
+<div class="container">
+    <app-login-form 
+        *ngIf="!onCreateAccountForm"
+        (onUserFormGroupSubmit)="onUserFormGroupSubmit($event)"></app-login-form>
+    <app-register-btn 
+        *ngIf="!onCreateAccountForm"
+        (onUserWantsNewAccount)="onWantsNewAccount($event)"></app-register-btn>
+    <app-register-form
+        *ngIf="onCreateAccountForm"
+        (onRegisterFormGroupSubmit)="onRegisterFormGroupSubmit($event)"></app-register-form>
+</div>

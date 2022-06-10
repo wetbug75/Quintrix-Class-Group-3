@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewRegisterUserComponent } from './view-register-user.component';
+import { JokesPaginateComponent } from './jokes-paginate.component';
 
-describe('ViewRegisterUserComponent', () => {
-  let component: ViewRegisterUserComponent;
-  let fixture: ComponentFixture<ViewRegisterUserComponent>;
+describe('JokesPaginateComponent', () => {
+  let component: JokesPaginateComponent;
+  let fixture: ComponentFixture<JokesPaginateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewRegisterUserComponent ]
+      declarations: [ JokesPaginateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewRegisterUserComponent);
+    fixture = TestBed.createComponent(JokesPaginateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
