@@ -107,24 +107,10 @@ public class ApiControllers {
 	 * just in case the user wants to submit one line jokes 
 	 */
 	@PostMapping("/newJoke" )
-	public ResponseEntity<Joke> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
-		Joke newJoke = new Joke(question, answer);
-	
-	
-		try
-		{
-			
-			Path filePath = Path.of("/programming_jokes.txt");
-			Files.writeString(filePath, question);
-			Files.writeString(filePath, answer);
+	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
+		jokeService.addJoke(question, answer);
 		
-		}
-		catch(IOException ioe)
-		{
-		    System.err.println("IOException: " + ioe.getMessage());
-		}
-		
-		return new ResponseEntity<>(newJoke, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 /*
 	@PostMapping(value = "/users/save-new")
@@ -138,5 +124,10 @@ public class ApiControllers {
 		userService.addUser(userName, email, password);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
+	
+	/*
+	 * @PutMapping
+	 * public ResponseEntity<Joke
+	 */
 	
 }
