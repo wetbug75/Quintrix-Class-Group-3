@@ -1,38 +1,44 @@
-package com.bigshots.model;
+package com.bigshots.spabackend.model;
 
  import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@Column
-	private String userName;
+	private String username;
 	@Column
 	private String email;
 	@Column
 	private String password;
 	@Column
-	private long created_at; //time stamp
+	private String created_at; //time stamp   "yyyy.MM.dd hh:mm:ss"
+	// https://www.youtube.com/watch?v=CyWQVYLiupc
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 
 	public void setUsername(String username) {
-		this.userName = username;
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -51,11 +57,11 @@ public class User {
 		this.password = password;
 	}
 
-	public long getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 	
-	public void setCreated_at(long created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 	
@@ -66,10 +72,11 @@ public class User {
 	//may have to add an instance to (eventual) joke model that verifies if a specific user 
 	//liked the joke already? (maybe)
 	
-	/*public User(String userName, String email, String password) {
-		this.userName = userName;
+	public User(String userName, String email, String password) {
+		this.username = userName;
 		this.email = email;
 		this.password = password;
-	}*/
+	}
+	
 	
 }
