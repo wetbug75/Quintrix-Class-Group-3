@@ -66,10 +66,6 @@ class SpaBackendApplicationTests {
 	 */
 	
 	
-
-
-
-
 	
 	private final static String BASE_URI = "http://localhost";
     
