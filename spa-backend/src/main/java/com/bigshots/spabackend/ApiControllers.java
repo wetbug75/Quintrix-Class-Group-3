@@ -16,17 +16,16 @@ import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bigshots.model.Joke;
-import com.bigshots.model.User;
-import com.bigshots.repo.JokeRepo;
-import com.bigshots.repo.UserRepo;
-import com.bigshots.service.UserService;
+import com.bigshots.spabackend.model.Joke;
+import com.bigshots.spabackend.model.User;
+import com.bigshots.spabackend.repo.JokeRepo;
+import com.bigshots.spabackend.repo.UserRepo;
+import com.bigshots.spabackend.service.JokeService;
+import com.bigshots.spabackend.service.UserService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -34,34 +33,45 @@ public class ApiControllers {
 	
 	private Logger logger = LoggerFactory.getLogger(LoggingController.class);
 	
-	private UserService userService;
-  
 	@Autowired
-	private UserRepo userRepo;
+	private UserService userService;
 	
 	@Autowired
-	private JokeRepo jokeRepo;
+	private JokeService jokeService;
+	
+	@GetMapping("/test")
+	public String hi() {
+		return "All fixed";
+	}
+	//Please refactor code . 
+	//
+	
 	
 	@GetMapping(value = "/jokes")
 	public ResponseEntity<List<Joke>> getJokes() {
-		return new ResponseEntity<>(jokeRepo.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);
+		//return new ResponseEntity<>(jokeRepo.findAll(), HttpStatus.OK);
+		
 	}
 	
 	@GetMapping(value = "/users")
 	public ResponseEntity<List<User>> getUsers() {
-		return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
+		//return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
 	}
-	
+	/*
 	@GetMapping(value = "/jokes/{joke_id}")
 	public ResponseEntity<Optional<Joke>> getJoke(@PathVariable long joke_id) {
-		return new ResponseEntity<>(jokeRepo.findById(joke_id), HttpStatus.OK);
+		//return new ResponseEntity<>(jokeRepo.findById(joke_id), HttpStatus.OK);
 	}
-	
+	*/
 	/**
 	 * return User of specified id
 	 * @param user_id
 	 * @return null if no such User id
 	 */
+	
+	/*
 	@GetMapping(value = "/users/{user_id}")
 	public ResponseEntity<Optional<User>> getUser(@PathVariable long user_id) {
 		return new ResponseEntity<>(userRepo.findById(user_id), HttpStatus.OK);
@@ -71,6 +81,8 @@ public class ApiControllers {
 	public String getPage() {
 		return "Welcome the the backend, try localhost:4200 if you'd like a UI";
 	}
+	
+	*/
 
 	/**
 	 * 
@@ -101,17 +113,17 @@ public class ApiControllers {
 		
 		return new ResponseEntity<>(newJoke, HttpStatus.OK);
 	}*/
-
+/*
 	@PostMapping(value = "/users/save-new")
 	public String saveUser(User user) {
-		userRepo.save(user);
-		return  "Saved: " + user.getUsername() + " as new user";
+		//userRepo.save(user);
+		//return  "Saved: " + user.getUsername() + " as new user";
 	}
 
 	@PostMapping("/newUser")
 	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody(required=false) String email, @RequestBody(required=false) String password) {
-		userService.addUser(userName, email, password);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		//userService.addUser(userName, email, password);
+		//return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	
+	*/
 }
