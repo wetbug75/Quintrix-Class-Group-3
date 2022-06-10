@@ -13,23 +13,20 @@ import java.util.Random; // Random number generator
 import java.util.Scanner; // Import the Scanner class to read text files
 
 import org.springframework.web.bind.annotation.*;
-
-
-import Model.Joke;
-import Model.User;
-import Repo.JokeRepo;
-import Repo.UserRepo;
-import Service.UserService;
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.bigshots.model.Joke;
+import com.bigshots.model.User;
+import com.bigshots.repo.JokeRepo;
+import com.bigshots.repo.UserRepo;
+import com.bigshots.service.UserService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -85,7 +82,7 @@ public class ApiControllers {
 	 * post method adds a new joke to the repository with optional question and answer strings 
 	 * just in case the user wants to submit one line jokes 
 	 */
-	@PostMapping("/newJoke" )
+	/*@PostMapping("/newJoke" )
 	public ResponseEntity<Joke> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
 		Joke newJoke = new Joke(question, answer);
 
@@ -103,7 +100,7 @@ public class ApiControllers {
 		}
 		
 		return new ResponseEntity<>(newJoke, HttpStatus.OK);
-	}
+	}*/
 
 	@PostMapping(value = "/users/save-new")
 	public String saveUser(User user) {

@@ -9,12 +9,19 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.filter.CorsFilter;
 
+import com.bigshots.repo.JokeRepo;
+import com.bigshots.repo.UserRepo;
+
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 
-@SpringBootApplication(scanBasePackages={"com.bigshots.spabackend", "Model"})
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.bigshots.repo", "com.bigshots.model", "com.bigshots.service", "com.bigshots.spabackend"})
+@ComponentScan(basePackageClasses = JokeRepo.class)
+@ComponentScan(basePackageClasses = UserRepo.class)
+@EnableJpaRepositories(basePackages="com.bigshots.repo") 
 public class SpaBackendApplication {
 
 	public static void main(String[] args) {
@@ -23,7 +30,7 @@ public class SpaBackendApplication {
 	}
 	
 	//from https://github.com/sosoriki/ChickenDuck/blob/main/weatherApp/src/main/java/com/chickenducks/weatherApplication/WeatherApplication.java
-	@Bean
+	/*@Bean
 	public CorsFilter corsFilter(){
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
@@ -35,5 +42,5 @@ public class SpaBackendApplication {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(source);
-	}
+	}*/
 }
