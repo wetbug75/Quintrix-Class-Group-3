@@ -1,10 +1,11 @@
-package Model;
+package com.bigshots.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+//import javax.persistence.GenerationType;
+//import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Joke {
@@ -24,14 +25,14 @@ public class Joke {
 	@Column
 	private long created_at;
 	
-	public Joke(String question, String answer) {
+	/*public Joke(String question, String answer) {
 		this.question = question;
 		this.answer = answer;
 		this.likes = 0;
 		this. dislikes = 0;
 		this.author_id = 0;
 		created_at = 0;
-	}
+	}*/
 	
 	public int getId() {
 		return id;
