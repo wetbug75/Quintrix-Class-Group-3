@@ -1,16 +1,15 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { RegisterUser } from 'src/app/models/Register';
-
+import { User } from 'src/app/models/User';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
-  @Output() public onRegisterFormGroupSubmit = new EventEmitter<RegisterUser>();
+  @Output() public onRegisterFormGroupSubmit = new EventEmitter<User>();
   userRegisterForm?: FormGroup;
-  userRegisterData: RegisterUser;
+  userRegisterData: User;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {

@@ -1,5 +1,9 @@
 export interface Joke {
     id?: number;
-    question: string;
-    answer: string;
+    question?: string;
+    answer?: string;
+    upvotes?: number;
+    downvotes?: number;
+    author_id?: number;
+    created_by?: string;
 }

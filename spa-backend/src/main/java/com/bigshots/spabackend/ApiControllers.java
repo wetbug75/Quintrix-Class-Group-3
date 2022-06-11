@@ -22,12 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bigshots.spabackend.model.Joke;
 import com.bigshots.spabackend.model.User;
-import com.bigshots.spabackend.repo.JokeRepo;
-import com.bigshots.spabackend.repo.UserRepo;
 import com.bigshots.spabackend.service.JokeService;
 import com.bigshots.spabackend.service.UserService;
 
-@CrossOrigin(origins = "*")
 @RestController
 public class ApiControllers {
 	
@@ -94,26 +91,19 @@ public class ApiControllers {
 	 * post method adds a new joke to the repository with optional question and answer strings 
 	 * just in case the user wants to submit one line jokes 
 	 */
-	/*@PostMapping("/newJoke" )
-	public ResponseEntity<Joke> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
-		Joke newJoke = new Joke(question, answer);
-
-		try
-		{
-			
-			Path filePath = Path.of("/programming_jokes.txt");
-			Files.writeString(filePath, question);
-			Files.writeString(filePath, answer);
+	
+	
+	//connected with backend. check front end src/app/core/services folder for the post method. 
+	@PostMapping("/newJoke" )
+	public ResponseEntity<Joke> newJoke( @RequestBody Joke newJoke) throws IOException {
 		
-		}
-		catch(IOException ioe)
-		{
-		    System.err.println("IOException: " + ioe.getMessage());
-		}
+		System.out.println(newJoke.getAnswer());
+		System.out.println(newJoke.getQuestion());
+		System.out.println(newJoke.getDownvotes());
 		
 		return new ResponseEntity<>(newJoke, HttpStatus.OK);
-	}*/
-/*
+	}
+	/*
 	@PostMapping(value = "/users/save-new")
 	public String saveUser(User user) {
 		//userRepo.save(user);

@@ -1,15 +1,15 @@
 import { Component, OnInit, Output, EventEmitter, SimpleChange, OnChanges, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { newJoke } from 'src/app/models/newJoke';
+import { Joke } from 'src/app/models/Joke';
 @Component({
   selector: 'app-create-joke-form',
   templateUrl: './create-joke-form.component.html',
   styleUrls: ['./create-joke-form.component.css']
 })
 export class CreateJokeFormComponent implements OnInit {
-  @Output() public onFormGroupSubmit = new EventEmitter<newJoke>();
+  @Output() public onFormGroupSubmit = new EventEmitter<Joke>();
   newJokeForm!: FormGroup;
-  newJokeData: newJoke;
+  newJokeData: Joke;
   
   constructor(private fb: FormBuilder) { }
 
@@ -21,8 +21,7 @@ export class CreateJokeFormComponent implements OnInit {
   initializeForm(): void{
     this.newJokeForm = this.fb.group({
       question: '',
-      answer: '',
-      createdBy: ''
+      answer: ''
     });
   }
 
