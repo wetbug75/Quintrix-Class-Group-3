@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.bigshots.spabackend.model.Joke;
 
 @Repository
-public interface JokeRepo extends JpaRepository<Joke, Integer>{
+public interface JokeRepo extends JpaRepository<Joke, Long>{
 
 }
 
