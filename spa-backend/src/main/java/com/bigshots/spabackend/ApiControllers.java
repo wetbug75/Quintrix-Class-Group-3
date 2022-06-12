@@ -128,8 +128,10 @@ public class ApiControllers {
 	}*/
 
 	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {
-		userService.addUser(userName, email, password);
+	public ResponseEntity<?> newUser(@RequestBody User user) {
+		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
+		// userService.addUser(userName, email, password);  <--------- previous implementation
+		userService.addUser(user);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	

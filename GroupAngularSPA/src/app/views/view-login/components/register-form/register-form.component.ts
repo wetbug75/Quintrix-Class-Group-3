@@ -17,16 +17,17 @@ export class RegisterFormComponent implements OnInit {
   }
   initializeForm():void{
     this.userRegisterForm = this.fb.group({
-      userName: '',
+      username: '',
       password:'',
-      email:''
+      email:'',
     });
   }
 
   onSubmit():void{
-    this.userRegisterData = {userName: this.userRegisterForm.value.userName,
+    this.userRegisterData = {username: this.userRegisterForm.value.username,
                           password: this.userRegisterForm.value.password,
-                          email: this.userRegisterForm.value.email }
+                          email: this.userRegisterForm.value.email,
+                           id: 0 } //set id to 0 because backend will auto generate new key. constructor hasn't been implemented yet to handle null
     this.onRegisterFormGroupSubmit.emit(this.userRegisterData);
   }
 }
