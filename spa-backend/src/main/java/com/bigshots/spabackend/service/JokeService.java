@@ -1,6 +1,8 @@
 package com.bigshots.spabackend.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,20 @@ public class JokeService {
 		// TODO Auto-generated method stub
 		jokeRepo.saveAll(jokes);
 		
+	}
+	
+	public long jokeCount() {
+		return jokeRepo.count();
+	}
+	
+	public List<Optional<Joke>> getPaginatedJokes(int pageNum, int jokesDisplayed) {
+		List<Optional<Joke>> jokeList = new ArrayList<Optional<Joke>>();
+		for(int i = 0; i < jokesDisplayed; i++)
+		{
+			jokeList.add(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i)));
+			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i)).toString());
+		}
+		return jokeList; 
 	}
 	
 	public void addJoke(Joke joke) {

@@ -68,12 +68,22 @@ public class ApiControllers {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 		//return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
 	}
-	/*
-	@GetMapping(value = "/jokes/{joke_id}")
-	public ResponseEntity<Optional<Joke>> getJoke(@PathVariable long joke_id) {
-		//return new ResponseEntity<>(jokeRepo.findById(joke_id), HttpStatus.OK);
+	
+	@GetMapping(value = "/jokes/pagination/{page_size}/{page_num}")
+	public ResponseEntity<List<Optional<Joke>>> getPaginatedJokes(@PathVariable int page_num, @PathVariable int page_size) {
+		return new ResponseEntity<>(jokeService.getPaginatedJokes(page_num, page_size), HttpStatus.OK);
 	}
-	*/
+	
+	@GetMapping(value = "/jokeCount")
+	public long getJokeCount() {
+		return jokeService.jokeCount();
+	}
+	
+	/*@GetMapping(value = "/jokes/{joke_id}")
+	public ResponseEntity<Optional<Joke>> getJoke(@PathVariable long joke_id) {
+		return new ResponseEntity<>(jokeRepo.findById(joke_id), HttpStatus.OK);
+	}*/
+	
 	/**
 	 * return User of specified id
 	 * @param user_id
@@ -111,7 +121,7 @@ public class ApiControllers {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/users/save-new")
+	/*@PostMapping(value = "/users/save-new")
 	public String saveUser(User user) {
 		//userRepo.save(user);
 		//return  "Saved: " + user.getUsername() + " as new user";

@@ -20,7 +20,7 @@ import javax.persistence.*;
 public class Joke {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	@Column
 	@PartitionKey
 	private String question;
@@ -46,10 +46,10 @@ public class Joke {
 	}
 
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getQuestion() {
