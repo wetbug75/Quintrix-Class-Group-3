@@ -10,7 +10,8 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserPostService {
+
   springUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
