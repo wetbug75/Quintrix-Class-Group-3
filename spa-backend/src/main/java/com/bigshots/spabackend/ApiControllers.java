@@ -107,8 +107,8 @@ public class ApiControllers {
 	 * just in case the user wants to submit one line jokes 
 	 */
 	@PostMapping("/newJoke" )
-	public ResponseEntity<?> newJoke(@RequestBody(required = false) String question, @RequestBody(required = false) String answer) throws IOException {
-		jokeService.addJoke(question, answer);
+	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
+		jokeService.addJoke(joke);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
@@ -120,7 +120,7 @@ public class ApiControllers {
 	}*/
 
 	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody(required=false) String email, @RequestBody(required=false) String password) {
+	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {
 		userService.addUser(userName, email, password);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
