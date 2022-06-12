@@ -71,7 +71,7 @@ public class ApiControllers {
 	
 
 	@GetMapping(value = "/jokes/find/{joke_id}")
-	public ResponseEntity<Joke> getJoke(@PathVariable("joke_id") Integer joke_id) {
+	public ResponseEntity<Joke> getJoke(@PathVariable("joke_id") Long joke_id) {
 		Joke foundJoke = jokeService.getOneJoke(joke_id);
 		if(foundJoke == null)
 		{

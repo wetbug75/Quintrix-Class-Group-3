@@ -31,7 +31,7 @@ public class JokeService {
 	}
 
 
-	public Joke getOneJoke(Integer indexID){
+	public Joke getOneJoke(Long indexID){
 		System.out.println("Finding joke by ID:" + indexID);
 
 		return jokeRepo.findById(indexID).get();
@@ -39,7 +39,7 @@ public class JokeService {
 
 	public Integer jokeCount() {
 		return (int) jokeRepo.count();
-
+	}
 	
 
 	public List<Optional<Joke>> getPaginatedJokes(int pageNum, int jokesDisplayed) {
