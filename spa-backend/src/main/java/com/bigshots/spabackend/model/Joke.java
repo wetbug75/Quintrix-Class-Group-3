@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 
+import com.azure.spring.data.cosmos.core.mapping.Container;
+import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -13,11 +16,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Container(containerName = "jokeKeywords")
 public class Joke {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	@Column
+	@PartitionKey
 	private String question;
 	@Column
 	private String answer;
@@ -41,10 +46,10 @@ public class Joke {
 	}
 
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getQuestion() {

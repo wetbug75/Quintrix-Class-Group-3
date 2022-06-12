@@ -10,3 +10,4 @@ import com.bigshots.spabackend.model.Joke;
 public interface JokeRepo extends JpaRepository<Joke, Integer>{
 
 }
+

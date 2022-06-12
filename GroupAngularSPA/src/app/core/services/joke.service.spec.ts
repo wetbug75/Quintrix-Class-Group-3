@@ -2,7 +2,6 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { doesNotReject } from 'assert';
-
 import { JokeItemComponent } from 'src/app/views/view-randomizer/components/joke-item/joke-item.component';
 
 import { JokeService } from './joke.service';

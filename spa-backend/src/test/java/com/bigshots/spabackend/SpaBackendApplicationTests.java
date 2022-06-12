@@ -1,6 +1,8 @@
 package com.bigshots.spabackend;
 
+
 import org.junit.Before;
+
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +16,14 @@ import io.restassured.http.ContentType;
 import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.equalTo;
+
+
+import org.springframework.test.context.junit4.SpringRunner;
+
+import io.restassured.response.ValidatableResponse;
+
+
+
 
 //@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -57,6 +67,7 @@ class SpaBackendApplicationTests {
 	 * that was added 
 	 */
 	
+
 	private final static String BASE_URI = "http://localhost";
     
     @LocalServerPort
@@ -74,7 +85,6 @@ class SpaBackendApplicationTests {
     	//TODO Can't figure out how to confirm HTML content
     	RestAssured.given().contentType(ContentType.HTML).get("/").then().assertThat().body("", equalTo("Welcome"));
     	//RestAssured.given().contentType(ContentType.HTML).get("/").then().log().body();
-
 
     }
     

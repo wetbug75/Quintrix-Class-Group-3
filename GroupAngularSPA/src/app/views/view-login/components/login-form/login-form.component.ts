@@ -27,7 +27,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit():void{
-    this.userLoginData = {userName: this.userLoginForm.value.userName,
+    this.userLoginData = {username: this.userLoginForm.value.userName,
                           password: this.userLoginForm.value.password }
     this.onUserFormGroupSubmit.emit(this.userLoginData);
   }

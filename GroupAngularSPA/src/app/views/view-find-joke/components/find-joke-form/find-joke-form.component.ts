@@ -15,7 +15,7 @@ export class FindJokeFormComponent implements OnInit {
   }
   onSubmit(){
     this.keyWord.emit(this.inputKeyword);
-    this.inputKeyword="";
+
   }
 
 }

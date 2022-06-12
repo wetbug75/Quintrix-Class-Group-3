@@ -1,9 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CreateStateServiceService } from 'src/app/views/view-create-joke/services/create-state-service.service';
-import { JokeService } from 'src/app/core/services/joke.service';
 import { Status } from 'src/app/shared/status';
 import { Joke } from 'src/app/models/Joke';
+import { JokePostService } from 'src/app/core/services/JokePOST/joke-post.service';
 @Component({
   selector: 'app-view-create-joke',
   templateUrl: './view-create-joke.component.html',
@@ -13,7 +13,7 @@ export class ViewCreateJokeComponent implements OnInit {
   backEndResponseStatus!:Status;
   
   SubmittedForm!: boolean;
-  constructor(private jokeService : JokeService, public createFormService: CreateStateServiceService) { }
+  constructor(private jokePostService : JokePostService, public createFormService: CreateStateServiceService) { }
 
   ngOnInit(): void {
     this.backEndResponseStatus = Status.None;
@@ -23,7 +23,7 @@ export class ViewCreateJokeComponent implements OnInit {
 
   onSubmitCreateJoke(newJokeData : Joke ){
     this.createFormService.needForm = false;
-    this.jokeService.postJoke(newJokeData).subscribe((response)=>{
+    this.jokePostService.postJoke(newJokeData).subscribe((response)=>{
       console.log("insisde response");
       console.log(response);
       this.backEndResponseStatus = Status.Success;

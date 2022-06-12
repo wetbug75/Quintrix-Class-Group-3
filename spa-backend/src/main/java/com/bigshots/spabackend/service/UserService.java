@@ -21,11 +21,12 @@ public class UserService {
 	public List<User> getAllUsers(){
 		return userRepo.findAll();
 	}
-	/*
-	public void addUser(String userName, String email, String password) {
-		User newUser = new User(userName, email, password);
-		userRepo.save(newUser);
-	}*/
+	
+	public void addUser(User user) {
+		//public void addUser(String userName, String email, String password) {  <--- previous implementation
+		//	User newUser = new User(userName, email, password);  <--- previous implmenetation
+		userRepo.save(user);
+	}
 
 	public void saveJson(List<User> users) {
 		// TODO Auto-generated method stub
