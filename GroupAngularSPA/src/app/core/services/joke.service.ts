@@ -16,30 +16,13 @@ const httpOptions = {
 
 export class JokeService {
 
-  private apiURL = 'http://localhost:5000/jokes';
-  springUrl = 'http://localhost:8080';
+  private apiURL = `http://127.0.0.1:3306`;
+  springUrl = `http://localhost:8080`;
 
   constructor(private http:HttpClient, private jokeItem: JokeItemComponent) { }
-  
-  
-  getJoke(id: number): Observable<any>{
-    return this.http.get<any>(`${this.apiURL}/${id}`);
-  }
-  
 
-  /*
-  // Backend GET method
-  getJoke(id: number): Observable<any>{
-    return this.http.get<any>(`${this.springUrl}/random-joke`);
-  }
-  */
-
-  getJokeQuestion(index: number): Observable<any>{
-    return this.http.get<any>('${this.springUrl}/joke-question/{index}');
-  }
-
-  getJokeAnswer(index: number): Observable<any>{
-    return this.http.get<any>('${this.springUrl}/joke-answer/{index}');
+  getJokeById(index: number): Observable<Joke>{
+    return this.http.get<Joke>(`${this.springUrl}/jokes/find/${index}`);
   }
 
   SendQuestion(question: string){
@@ -48,6 +31,10 @@ export class JokeService {
 
   SendAnswer(answer: string){
     this.jokeItem.setAnswer(answer);
+  }
+
+  getJokeSize(): Observable<number>{
+    return this.http.get<number>(`${this.springUrl}/jokeCount`);
   }
 
   //post a new joke , sends {answer, question}

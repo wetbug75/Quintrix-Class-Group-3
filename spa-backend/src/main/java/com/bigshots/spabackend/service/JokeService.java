@@ -27,4 +27,14 @@ public class JokeService {
 		jokeRepo.saveAll(jokes);
 		
 	}
+
+	public Joke getOneJoke(Integer indexID){
+		System.out.println("Finding joke by ID:" + indexID);
+
+		return jokeRepo.findById(indexID).get();
+	}
+
+	public Integer jokeCount() {
+		return (int) jokeRepo.count();
+	}
 }

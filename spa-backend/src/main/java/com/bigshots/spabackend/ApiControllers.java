@@ -56,12 +56,22 @@ public class ApiControllers {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 		//return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
 	}
-	/*
-	@GetMapping(value = "/jokes/{joke_id}")
-	public ResponseEntity<Optional<Joke>> getJoke(@PathVariable long joke_id) {
-		//return new ResponseEntity<>(jokeRepo.findById(joke_id), HttpStatus.OK);
+	
+	@GetMapping(value = "/jokes/find/{joke_id}")
+	public ResponseEntity<Joke> getJoke(@PathVariable("joke_id") Integer joke_id) {
+		Joke foundJoke = jokeService.getOneJoke(joke_id);
+		if(foundJoke == null)
+		{
+			System.out.println(foundJoke);
+		}
+		return new ResponseEntity<>(foundJoke, HttpStatus.OK);
 	}
-	*/
+	
+	@GetMapping(value = "/jokeCount")
+	public Integer getJokeCount() {
+		return jokeService.jokeCount();
+	}
+
 	/**
 	 * return User of specified id
 	 * @param user_id

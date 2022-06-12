@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { doesNotReject } from 'assert';
-import { newJoke } from 'src/app/models/newJoke';
+
 import { JokeItemComponent } from 'src/app/views/view-randomizer/components/joke-item/joke-item.component';
 
 import { JokeService } from './joke.service';
@@ -19,14 +19,14 @@ describe('JokeService', () => {
     TestBed.configureTestingModule({
       imports:[HttpClientTestingModule], //provides fake implemntation of HTTP client
       //it doesn't actually send out http request, it merely intercepts them and records them
-      //internally. 
+      //internally.
       providers: [JokeItemComponent]
     });
     // inject the http service and test controller for each test
-   
-   
+
+
   });
 
- 
+
 
 });
