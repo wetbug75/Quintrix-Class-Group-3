@@ -15,9 +15,9 @@ export class JokesPaginateComponent implements OnInit {
    totalJokesDB: number;//need this from backend. 
    keyword: string; //user keyword
    constructor(public jokeService: JokeService){
-      this.jokeService.getJokesPage(this.currentPage,this.pageSize).subscribe(result=>{
-        this.totalJokesDB = 100; //need this from backend. 
-        this.JOKES = result; //need joke array from backend. 
+      this.jokeService.getJokesPage(this.currentPage,this.pageSize).subscribe(jokes=>{
+        this.totalJokesDB = 150; //need this from backend. 
+        this.JOKES = jokes.filter(index => index !== null); //need joke array from backend. 
       })
    }
 
@@ -27,10 +27,10 @@ export class JokesPaginateComponent implements OnInit {
    pageChanged(updatedPageNumber){ 
      this.currentPage = updatedPageNumber;
      //find and retrieve all jokes. 
-     this.jokeService.getJokesPage(this.currentPage,this.pageSize).subscribe(result=>{
-        console.log(result);
-        this.totalJokesDB = 100;
-        this.JOKES = result;
+     this.jokeService.getJokesPage(this.currentPage,this.pageSize).subscribe(jokes=>{
+        console.log(jokes);
+        this.totalJokesDB =150;
+        this.JOKES =jokes.filter(joke=> joke !== null);
       })
    }
 

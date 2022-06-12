@@ -52,8 +52,6 @@ export class JokeService {
 
   //post a new joke , sends {answer, question}
   postJoke(newJoke: Joke): Observable<Joke>{
-    console.log('send to backend');
-    newJoke.created_by="klsdf;j";
 
     console.log(newJoke);
     //Spring Boot
@@ -64,13 +62,10 @@ export class JokeService {
   }
 
   getJokesPage(page: number, limit: number):Observable<any>{
-
-    /*
-      GET /posts?_page=7
-      GET /posts?_page=7&_limit=20
-    */
+    //Spring booot
+    return this.http.get<any>(`${this.springUrl}/jokes/pagination/${limit}/${page}`);
     //json server
-    return this.http.get<pageJoke>(`${this.apiURL}?_page=${page}&_limit=${limit}`)
+    //return this.http.get<pageJoke>(`${this.apiURL}?_page=${page}&_limit=${limit}`)
   }
 
 }
