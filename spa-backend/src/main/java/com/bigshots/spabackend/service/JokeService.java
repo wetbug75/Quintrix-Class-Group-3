@@ -29,11 +29,19 @@ public class JokeService {
 		jokeRepo.saveAll(jokes);
 		
 	}
-	
-	public long jokeCount() {
-		return jokeRepo.count();
+
+
+	public Joke getOneJoke(Integer indexID){
+		System.out.println("Finding joke by ID:" + indexID);
+
+		return jokeRepo.findById(indexID).get();
 	}
+
+	public Integer jokeCount() {
+		return (int) jokeRepo.count();
+
 	
+
 	public List<Optional<Joke>> getPaginatedJokes(int pageNum, int jokesDisplayed) {
 		List<Optional<Joke>> jokeList = new ArrayList<Optional<Joke>>();
 		for(int i = 0; i < jokesDisplayed; i++)
@@ -45,7 +53,6 @@ public class JokeService {
 	}
 	
 	public void addJoke(Joke joke) {
-		
 		jokeRepo.save(joke);
 	}
 }

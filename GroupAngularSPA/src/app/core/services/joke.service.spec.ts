@@ -18,14 +18,14 @@ describe('JokeService', () => {
     TestBed.configureTestingModule({
       imports:[HttpClientTestingModule], //provides fake implemntation of HTTP client
       //it doesn't actually send out http request, it merely intercepts them and records them
-      //internally. 
+      //internally.
       providers: [JokeItemComponent]
     });
     // inject the http service and test controller for each test
-   
-   
+
+
   });
 
- 
+
 
 });
