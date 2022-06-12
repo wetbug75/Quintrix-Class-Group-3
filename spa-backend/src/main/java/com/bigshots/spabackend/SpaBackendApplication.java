@@ -1,6 +1,7 @@
 package com.bigshots.spabackend;
 
 import org.springframework.boot.CommandLineRunner;
+
 import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -40,7 +41,7 @@ public class SpaBackendApplication {
 	//JSON files located in resources folder. 
 	//comment this function out if you do not need. 
 	//JAVA 1.8 
-	@Bean
+	/*@Bean
 	CommandLineRunner runner(UserService userService, JokeService jokeService) {
 		  return args -> {ObjectMapper mapper = new ObjectMapper();
 		TypeReference<List<User>> typeReferenceUser = new TypeReference<List<User>>() {};
@@ -61,5 +62,5 @@ public class SpaBackendApplication {
 			System.out.println("Unable to save jokes: " + e.getMessage());
 		}
 		  };
-	}
+	}*/
 }

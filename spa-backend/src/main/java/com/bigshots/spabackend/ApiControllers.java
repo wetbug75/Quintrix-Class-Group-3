@@ -13,6 +13,18 @@ import java.util.Random; // Random number generator
 import java.util.Scanner; // Import the Scanner class to read text files
 
 import org.springframework.web.bind.annotation.*;
+
+
+import com.bigshots.spabackend.model.*;
+import com.bigshots.spabackend.service.*;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,29 +103,29 @@ public class ApiControllers {
 	 * post method adds a new joke to the repository with optional question and answer strings 
 	 * just in case the user wants to submit one line jokes 
 	 */
-	
-	
-	//connected with backend. check front end src/app/core/services folder for the post method. 
+
 	@PostMapping("/newJoke" )
-	public ResponseEntity<Joke> newJoke( @RequestBody Joke newJoke) throws IOException {
+	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
+		jokeService.addJoke(joke);
 		
-		System.out.println(newJoke.getAnswer());
-		System.out.println(newJoke.getQuestion());
-		System.out.println(newJoke.getDownvotes());
-		
-		return new ResponseEntity<>(newJoke, HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	/*
+
 	@PostMapping(value = "/users/save-new")
 	public String saveUser(User user) {
 		//userRepo.save(user);
 		//return  "Saved: " + user.getUsername() + " as new user";
-	}
+	}*/
 
 	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody(required=false) String email, @RequestBody(required=false) String password) {
-		//userService.addUser(userName, email, password);
-		//return new ResponseEntity<>(HttpStatus.CREATED);
+	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {
+		userService.addUser(userName, email, password);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	*/
+	
+	/*
+	 * @PutMapping
+	 * public ResponseEntity<Joke
+	 */
+	
 }

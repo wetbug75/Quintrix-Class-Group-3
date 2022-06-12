@@ -27,4 +27,9 @@ public class JokeService {
 		jokeRepo.saveAll(jokes);
 		
 	}
+	
+	public void addJoke(Joke joke) {
+		
+		jokeRepo.save(joke);
+	}
 }
