@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { newJoke } from 'src/app/models/newJoke';
 import { CreateJokeFormComponent } from './create-joke-form.component';
 
 describe('CreateJokeFormComponent', () => {

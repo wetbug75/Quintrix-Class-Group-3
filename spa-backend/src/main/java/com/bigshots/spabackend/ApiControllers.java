@@ -34,12 +34,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bigshots.spabackend.model.Joke;
 import com.bigshots.spabackend.model.User;
-import com.bigshots.spabackend.repo.JokeRepo;
-import com.bigshots.spabackend.repo.UserRepo;
 import com.bigshots.spabackend.service.JokeService;
 import com.bigshots.spabackend.service.UserService;
 
-@CrossOrigin(origins = "*")
 @RestController
 public class ApiControllers {
 	
@@ -106,13 +103,14 @@ public class ApiControllers {
 	 * post method adds a new joke to the repository with optional question and answer strings 
 	 * just in case the user wants to submit one line jokes 
 	 */
+
 	@PostMapping("/newJoke" )
 	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
 		jokeService.addJoke(joke);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-/*
+
 	@PostMapping(value = "/users/save-new")
 	public String saveUser(User user) {
 		//userRepo.save(user);
