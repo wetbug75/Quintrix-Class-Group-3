@@ -2,6 +2,7 @@ package com.bigshots.spabackend;
 
 import org.springframework.boot.CommandLineRunner;
 
+
 import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,13 +29,41 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
+import java.sql.*;
+
 @SpringBootApplication
 public class SpaBackendApplication {
 
 	public static void main(String[] args) {
 		
 		SpringApplication.run(SpaBackendApplication.class, args);
+		
+		System.out.println("starting build");
+		try {
+		//connect to mysql
+		//String myDriver = "org.gjt.mm.mysql.Driver";
+		String myUrl = "jdbc:mysql://127.0.0.1:3306/jokes?useSSL=false&serverTimezone=UTC";
+		
+		//Class.forName(myDriver);
+		Connection conn = DriverManager.getConnection(myUrl, "root", "kevinwall5");
+		
+		String query = "SELECT question FROM joke LIMIT 10";
+		
+		Statement st = conn.createStatement();
+		
+		ResultSet rs = st.executeQuery(query);
+		
+		while(rs.next()) {
+			System.out.println(rs.getString("question"));
+		}
+		
+		st.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
+	
+	
 	
 	//function that will insert all the data from JSON files to Database.
 	//JSON files located in resources folder. 
@@ -62,4 +91,8 @@ public class SpaBackendApplication {
 		}
 		  };
 	}*/
+	
+	
+	
+	
 }

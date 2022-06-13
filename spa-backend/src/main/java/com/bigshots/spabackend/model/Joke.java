@@ -16,13 +16,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Container(containerName = "jokeKeywords")
 public class Joke {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column
-	@PartitionKey
+	//@PartitionKey
 	private String question;
 	@Column
 	private String answer;
@@ -88,5 +87,39 @@ public class Joke {
 	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
+	
+	
+	/*@Entity
+	@AllArgsConstructor
+	@NoArgsConstructor
+	@Container(containerName = "jokeKeywords")
+	public class jokeKeyword {
+		@Id
+		private Integer id;
+		@PartitionKey
+		private String word;
+		private Integer[] jokeId;
+		
+		public jokeKeyword(String word, Integer[] jokeId) {
+			this.word = word;
+			this.jokeId = jokeId;
+		}
+		
+		public void setWord(String word) {
+			this.word = word;
+		}
+
+		public Integer[] getJokeId() {
+			return jokeId;
+		}
+
+		public void setJokeId(Integer[] jokeId) {
+			this.jokeId = jokeId;
+		}
+		
+		public String getWord() {
+			return word;
+		}
+	}*/
 
 }

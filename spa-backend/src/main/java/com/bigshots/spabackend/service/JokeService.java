@@ -7,15 +7,20 @@ import org.springframework.stereotype.Service;
 
 import com.bigshots.spabackend.model.Joke;
 import com.bigshots.spabackend.model.User;
+//import com.bigshots.spabackend.repo.JokeKeywordRepo;
 import com.bigshots.spabackend.repo.JokeRepo;
 
 @Service
 public class JokeService {
 	
 	private JokeRepo jokeRepo;
+	
+	//private JokeKeywordRepo jkRepo;
+	
 	@Autowired
 	public JokeService(JokeRepo jokeRepo) {
 		this.jokeRepo = jokeRepo;
+		
 	}
 	
 	public List<Joke> getAllJokes(){
@@ -32,4 +37,8 @@ public class JokeService {
 		
 		jokeRepo.save(joke);
 	}
+	
+ 
+	
+	
 }
