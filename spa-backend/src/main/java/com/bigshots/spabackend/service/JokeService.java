@@ -46,8 +46,8 @@ public class JokeService {
 		List<Optional<Joke>> jokeList = new ArrayList<Optional<Joke>>();
 		for(int i = 0; i < jokesDisplayed; i++)
 		{
-			jokeList.add(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i)));
-			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i)).toString());
+			jokeList.add(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)));
+			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)).toString());
 		}
 		return jokeList; 
 	}
