@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RatingsComponent implements OnInit {
 
+  likeCount: number;
+  dislikeCount: number;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+  SetLikeCount(jokeLike: number)
+  {
+    this.likeCount = jokeLike;
+    document.getElementById("thumbUpCount").innerHTML = this.likeCount.toString();
+  }
 
+  SetDislikeCount(jokeDislike: number)
+  {
+    this.dislikeCount = jokeDislike;
+    document.getElementById("thumbDownCount").innerHTML = this.dislikeCount.toString();
+  }
 }

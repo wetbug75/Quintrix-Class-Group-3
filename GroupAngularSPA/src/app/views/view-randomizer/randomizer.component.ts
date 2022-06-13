@@ -49,23 +49,11 @@ export class RandomizerComponent implements OnInit {
       this.jokeService.SendQuestion(Response.question);
       console.log("Answer: " + Response.answer);
       this.jokeService.SendAnswer(Response.answer);
+      console.log("Upvotes: " + Response.upvotes);
+      this.jokeService.SendLike(Response.upvotes);
+      console.log("Downvotes: " + Response.downvotes);
+      this.jokeService.SendDislike(Response.downvotes);
     })
-
-    /*
-    this.jokeService.getJokeAnswer(this.id).subscribe(Response => {
-      this.jokeService.SendAnswer(Response);
-    });
-    */
-
-    /*
-    this.jokeService
-    .getJoke(this.id)
-    .subscribe(Response => {
-      console.log(Response);
-      this.jokeService.SendQuestion(Response.question);
-      this.jokeService.SendAnswer(Response.answer);
-    });
-    */
   }
 
 }
