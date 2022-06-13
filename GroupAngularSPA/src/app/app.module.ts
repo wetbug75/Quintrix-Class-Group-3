@@ -55,7 +55,7 @@ const appRoutes: Routes = [
     RegisterBtnComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
@@ -65,11 +65,11 @@ const appRoutes: Routes = [
 
   ],
 
-  providers: [JokeItemComponent, RatingsComponent],
+  providers: [JokeItemComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
+	
 
 }
 
