@@ -11,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
+public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -76,7 +76,7 @@ public class User {
 	//may have to add an instance to (eventual) joke model that verifies if a specific user 
 	//liked the joke already? (maybe)
 	
-	public User(String userName, String email, String password) {
+	public Users(String userName, String email, String password) {
 		this.username = userName;
 		this.email = email;
 		this.password = password;

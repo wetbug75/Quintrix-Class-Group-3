@@ -21,7 +21,7 @@ export class JokeService {
   constructor(private http:HttpClient, private jokeItem: JokeItemComponent) { }
 
   getJokeById(index: number): Observable<Joke>{
-    return this.http.get<Joke>(`${this.springUrl}/jokes/find/${index}`);
+    return this.http.get<Joke>(`${this.springUrl}/jokes/find/${index}`, httpOptions);
   }
 
   SendQuestion(question: string){
@@ -33,7 +33,7 @@ export class JokeService {
   }
 
   getJokeSize(): Observable<number>{
-    return this.http.get<number>(`${this.springUrl}/jokeCount`);
+    return this.http.get<number>(`${this.springUrl}/jokeCount`, httpOptions);
   }
 
 

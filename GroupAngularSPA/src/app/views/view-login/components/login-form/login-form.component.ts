@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { User } from 'src/app/models/User';
+import { Users } from 'src/app/models/User';
 
 
 @Component({
@@ -9,10 +9,10 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  @Output() public onUserFormGroupSubmit = new EventEmitter<User>();
+  @Output() public onUserFormGroupSubmit = new EventEmitter<Users>();
 
   userLoginForm?: FormGroup;
-  userLoginData: User;
+  userLoginData: Users;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {

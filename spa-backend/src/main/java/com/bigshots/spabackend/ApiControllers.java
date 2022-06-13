@@ -4,6 +4,7 @@ import java.io.File;  // Import the File class
 
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -32,10 +33,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bigshots.spabackend.model.Joke;
-import com.bigshots.spabackend.model.User;
 import com.bigshots.spabackend.service.JokeService;
 import com.bigshots.spabackend.service.UserService;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class ApiControllers {
@@ -55,7 +56,6 @@ public class ApiControllers {
 	//Please refactor code . 
 	//
 	
-	
 	@GetMapping(value = "/jokes")
 	public ResponseEntity<List<Joke>> getJokes() {
 		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);
@@ -64,7 +64,7 @@ public class ApiControllers {
 	}
 	
 	@GetMapping(value = "/users")
-	public ResponseEntity<List<User>> getUsers() {
+	public ResponseEntity<List<Users>> getUsers() {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 		//return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
 	}
@@ -136,13 +136,19 @@ public class ApiControllers {
 	}*/
 
 	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@RequestBody User user) {
+	public ResponseEntity<?> newUser(@RequestBody Users user) {
 		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
 		// userService.addUser(userName, email, password);  <--------- previous implementation
 		userService.addUser(user);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	
+	@PostMapping("/loginUser")
+	public ResponseEntity<?> loginUser(@RequestBody Users user) {
+		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
+		// userService.addUser(userName, email, password);  <--------- previous implementation
+		System.out.println("hi there");
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
 	/*
 	 * @PutMapping
 	 * public ResponseEntity<Joke

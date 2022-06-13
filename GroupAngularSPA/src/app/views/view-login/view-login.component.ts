@@ -1,7 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { UserPostService } from 'src/app/core/services/UserPOST/user-post.service';
-import { User } from 'src/app/models/User';
+import { Users } from 'src/app/models/User';
 
 @Component({
   selector: 'app-view-login',
@@ -18,7 +18,7 @@ export class ViewLoginComponent implements OnInit {
   }
 
   //submit login credentials to backend
-  onUserFormGroupSubmit(userLogin : User){
+  onUserFormGroupSubmit(userLogin : Users){
     console.log(userLogin);
     //this is where we will use service to send the user and password
     //TODO
@@ -31,7 +31,7 @@ export class ViewLoginComponent implements OnInit {
   }
 
   //create new user 
-  onRegisterFormGroupSubmit(userRegisterInfo: User){
+  onRegisterFormGroupSubmit(userRegisterInfo: Users){
     console.log(userRegisterInfo)
      console.log("INSIDE NEW USER");
     //this is where we will use service to send to backend

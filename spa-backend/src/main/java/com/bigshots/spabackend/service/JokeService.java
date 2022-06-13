@@ -1,5 +1,6 @@
 package com.bigshots.spabackend.service;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -8,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bigshots.spabackend.model.Joke;
-import com.bigshots.spabackend.model.User;
+import com.bigshots.spabackend.model.Users;
 import com.bigshots.spabackend.repo.JokeRepo;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 @Service
 public class JokeService {
@@ -55,4 +57,10 @@ public class JokeService {
 	public void addJoke(Joke joke) {
 		jokeRepo.save(joke);
 	}
+	
+	public Optional<Joke> findJokeById(Long id){
+		return jokeRepo.findById(id);
+	}
+	
+	
 }
