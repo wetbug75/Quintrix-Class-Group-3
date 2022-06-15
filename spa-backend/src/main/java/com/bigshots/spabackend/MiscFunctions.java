@@ -56,7 +56,7 @@ public class MiscFunctions {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String rawPassword = "tommy";
 		String encodedPassword = encoder.encode(rawPassword);
-		Users user = new Users();
+		Users user = new Users("tommy", "email", encodedPassword);
 		user.setPassword(encodedPassword);
 		user.setUsername("tommy");
 		user.setId((long) 1);

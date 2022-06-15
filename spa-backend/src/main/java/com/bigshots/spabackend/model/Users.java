@@ -8,9 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +29,15 @@ public class Users {
 	@Column
 	private String created_at; //time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
-	
+	public Users(){
+		
+	}
+	public Users(String userName, String email, String password) {
+		this.username = userName;
+		this.email = email;
+		this.password = password;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -76,12 +85,6 @@ public class Users {
 	//may have to add an instance to (eventual) joke model that verifies if a specific user 
 	//liked the joke already? (maybe)
 	
-	public Users(String userName, String email, String password) {
-		this.username = userName;
-		this.email = email;
-		this.password = password;
-	}
-
 	public String getRole() {
 		return role;
 	}

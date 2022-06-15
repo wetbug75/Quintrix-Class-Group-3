@@ -35,7 +35,9 @@ public class Joke {
 	@Column
 	private String created_at;//time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
-	
+	public Joke() {
+		
+	}
 	public Joke(String question, String answer) {
 		this.question = question;
 		this.answer = answer;
