@@ -5,6 +5,8 @@ The application's purpose is to let users view, create, and search for programmi
 
 This application was created and worked on by Andrew, Devin, Leon, and Simon
 
+The purpose for the project was to allow us to learn and grow our skills in team work. 
+
 ## Technologies
 
 <p align="left"> 
