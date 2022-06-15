@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfiguration implements WebMvcConfigurer{
 	  // this is enabled in WebSecurity Config under configure method .cor
-	  @Override
+	  /*@Override
 	  public void addCorsMappings(CorsRegistry registry) {
 	    registry.addMapping("/**")
 	        .allowedMethods("*")
@@ -15,6 +15,6 @@ public class CorsConfiguration implements WebMvcConfigurer{
 	        .allowedOrigins("*") //.allowedOrigins("http://localhost:4200")
 	        .allowCredentials(false) //this will be investigated later. 
 	        .maxAge(-1);
-	  }
+	  }*/
 }
 

@@ -21,7 +21,7 @@ import com.azure.cosmos.implementation.guava25.collect.ImmutableList;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
-    @Autowired
+    /*@Autowired
     private DataSource dataSource;
      
     @Autowired
@@ -34,9 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authoritiesByUsernameQuery("select username, role from users where username=?")
         ;
         System.out.println("this working?");
-    }
+    }*/
  
-    @Override
+    /*@Override
     protected void configure(HttpSecurity http) throws Exception {
     	//antiMatchers for the route you would like to protect
         http.cors()
@@ -52,7 +52,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             	.permitAll()
             	.and()
             .csrf().disable(); //csrf protects from PUT requests
-    }
+    }*/
   
+	@Override
+    protected void configure(HttpSecurity http) throws Exception {
+		http./*cors().and().*/authorizeRequests()
+            .anyRequest().authenticated()
+            .and()
+            .oauth2Login();
+            //.and().csrf().disable(); //csrf protects from PUT requests
+    }
 
 } 
