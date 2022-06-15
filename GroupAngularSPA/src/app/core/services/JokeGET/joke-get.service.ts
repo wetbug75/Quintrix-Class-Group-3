@@ -21,5 +21,9 @@ export class JokeGetService {
     //json server
     //return this.http.get<pageJoke>(`${this.apiURL}?_page=${page}&_limit=${limit}`)
   }
+  getJokeSize(): Observable<number>{
+    return this.http.get<number>(`${this.springUrl}/jokeCount`, httpOptions);
+  }
+
 
 }
