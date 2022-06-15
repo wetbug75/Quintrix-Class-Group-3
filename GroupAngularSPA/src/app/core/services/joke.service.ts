@@ -18,32 +18,25 @@ export class JokeService {
 
   private apiURL = `http://127.0.0.1:3306`;
   springUrl = `http://localhost:8080`;
+  currentJoke: Joke;
 
-  constructor(private http:HttpClient, private jokeItem: JokeItemComponent,private jokeRating: RatingsComponent) { }
+  constructor(private http:HttpClient, private jokeItem: JokeItemComponent, private jokeRate: RatingsComponent) { }
 
-  getJokeById(index: number): Observable<Joke>{
-    return this.http.get<Joke>(`${this.springUrl}/jokes/find/${index}`);
+
+  // If a joke is displayed, have a variable to store the joke id to reference
+  SendJokeID(jokeID: number){
+    this.jokeItem.SetJokeID(jokeID);
   }
 
-  SendQuestion(question: string){
-    this.jokeItem.setQuestion(question);
+  SetCurrentJoke(newJoke: Joke){
+    this.currentJoke = newJoke;
   }
 
-  SendAnswer(answer: string){
-    this.jokeItem.setAnswer(answer);
+  GetCurrentJoke(){
+    return this.currentJoke;
   }
 
-  getJokeSize(): Observable<number>{
-    return this.http.get<number>(`${this.springUrl}/jokeCount`);
-  }
-
-  SendLike(like: number)
-  {
-    this.jokeRating.SetLikeCount(like);
-  }
-
-  SendDislike(dislike: number)
-  {
-    this.jokeRating.SetDislikeCount(dislike);
+  SetUpvoteCount(newUpvote: number){
+    this.jokeRate.SetLikeCount(newUpvote);
   }
 }

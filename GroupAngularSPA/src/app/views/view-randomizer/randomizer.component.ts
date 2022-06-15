@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { JOKES } from '../../mock-joke';
+import { JokeGetService } from 'src/app/core/services/JokeGET/joke-get.service';
+import { JokeItemComponent } from './components/joke-item/joke-item.component';
+import { RatingsComponent } from 'src/app/shared/components/ratings/ratings.component';
+import { Joke } from 'src/app/models/Joke';
 import { JokeService } from 'src/app/core/services/joke.service';
-
-
 
 @Component({
   selector: 'app-randomizer',
@@ -13,20 +14,19 @@ import { JokeService } from 'src/app/core/services/joke.service';
 export class RandomizerComponent implements OnInit {
   @Output() randomNumberEvent = new EventEmitter<number>();
 
-  id: number;
+  randomId: number;
   lastId: number;
   noRepeat: boolean;
   jokeSize: number;
-  constructor(private jokeService: JokeService) {
+  theJoke: Joke;
+  constructor(private JokeService: JokeService, private JokeGetSer: JokeGetService, private jokeItem: JokeItemComponent, private jokeRating: RatingsComponent) {
       this.lastId = -1;
    }
 
   ngOnInit(): void {
-      this.jokeService.getJokeSize().subscribe(Response => {
-          console.log("Joke size: " + Response.toString());
+      this.JokeGetSer.getJokeSize().subscribe(Response => {
           this.jokeSize = Response;
         });
-
   }
 
   getRandomJoke(){
@@ -34,25 +34,25 @@ export class RandomizerComponent implements OnInit {
     // While loop to ensure that id is not the same as the lastId
     while(this.noRepeat == false)
     {
-      this.id = Math.floor(Math.random() * this.jokeSize) + 1;
-      console.log("Number: " + this.id);
+      this.randomId = Math.floor(Math.random() * this.jokeSize) + 1;
 
-      if(this.lastId == -1 || this.lastId != this.id)
+      if(this.lastId == -1 || this.lastId != this.randomId)
       {
-        this.lastId = this.id;
+        this.lastId = this.randomId;
         this.noRepeat = true;
       }
     }
 
-    this.jokeService.getJokeById(this.id).subscribe(Response => {
-      console.log("Question: " + Response.question);
-      this.jokeService.SendQuestion(Response.question);
-      console.log("Answer: " + Response.answer);
-      this.jokeService.SendAnswer(Response.answer);
-      console.log("Upvotes: " + Response.upvotes);
-      this.jokeService.SendLike(Response.upvotes);
-      console.log("Downvotes: " + Response.downvotes);
-      this.jokeService.SendDislike(Response.downvotes);
+    this.JokeGetSer.getJokeById(this.randomId).subscribe(Response => {
+      // Setter methods to respective component
+      this.jokeItem.SetJoke(Response);
+      this.jokeItem.SetJokeID(Response.id);
+      this.jokeItem.SetQuestion(Response.question);
+      this.jokeItem.SetAnswer(Response.answer);
+      this.jokeItem.SetUpvote(Response.upvotes);
+      this.jokeItem.SetDownvote(Response.downvotes);
+      this.jokeRating.SetLikeCount(Response.upvotes);
+      this.jokeRating.SetDislikeCount(Response.downvotes);
     })
   }
 
