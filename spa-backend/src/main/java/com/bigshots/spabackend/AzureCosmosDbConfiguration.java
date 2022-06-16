@@ -1,6 +1,6 @@
 package com.bigshots.spabackend;
 
-/*import java.lang.System.Logger;
+import java.lang.System.Logger;
 
 import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,11 +13,13 @@ import com.azure.cosmos.DirectConnectionConfig;
 import com.azure.cosmos.GatewayConnectionConfig;
 import com.azure.spring.data.cosmos.config.AbstractCosmosConfiguration;
 import com.azure.spring.data.cosmos.config.CosmosConfig;
+import com.azure.spring.data.cosmos.core.ResponseDiagnostics;
+import com.azure.spring.data.cosmos.core.ResponseDiagnosticsProcessor;
 import com.azure.spring.data.cosmos.repository.config.EnableCosmosRepositories;
-
+import com.bigshots.spabackend.repo.JokeKeywordRepo;
 
 @Configuration
-@EnableCosmosRepositories
+@EnableCosmosRepositories(basePackageClasses =  JokeKeywordRepo.class)
 public class AzureCosmosDbConfiguration extends AbstractCosmosConfiguration {
 
 
@@ -49,7 +51,12 @@ public class AzureCosmosDbConfiguration extends AbstractCosmosConfiguration {
             .directMode(directConnectionConfig, gatewayConnectionConfig);
     }
 
-   
+    @Override
+    public CosmosConfig cosmosConfig() {
+        return CosmosConfig.builder()
+                           .enableQueryMetrics(queryMetricsEnabled)
+                           .build();
+    }
 
     public void switchToSecondaryKey() {
         this.azureKeyCredential.update(secondaryKey);
@@ -60,6 +67,6 @@ public class AzureCosmosDbConfiguration extends AbstractCosmosConfiguration {
         return "Jokes";
     }
 
-    
+   
 
-}*/
+}

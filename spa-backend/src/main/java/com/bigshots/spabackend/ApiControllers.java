@@ -37,6 +37,8 @@ import com.bigshots.spabackend.model.User;
 import com.bigshots.spabackend.service.JokeService;
 import com.bigshots.spabackend.service.UserService;
 
+import reactor.core.publisher.Flux;
+
 @RestController
 public class ApiControllers {
 	
@@ -47,6 +49,9 @@ public class ApiControllers {
 	
 	@Autowired
 	private JokeService jokeService;
+	
+	@Autowired
+	private JokeKeyWordService jokeKeyWordService;
 	
 	@GetMapping("/test")
 	public String hi() {
@@ -111,7 +116,7 @@ public class ApiControllers {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/users/save-new")
+	/*@PostMapping(value = "/users/save-new")
 	public String saveUser(User user) {
 		//userRepo.save(user);
 		//return  "Saved: " + user.getUsername() + " as new user";
@@ -127,5 +132,11 @@ public class ApiControllers {
 	 * @PutMapping
 	 * public ResponseEntity<Joke
 	 */
+	
+	@GetMapping("/keywords")
+	public ResponseEntity<Flux<JokeKeyword>> getKeywords() {
+		Flux<JokeKeyword> listOfKeywords = jokeKeyWordService.findKeywords();
+		return new ResponseEntity<>(listOfKeywords, HttpStatus.OK);
+	}
 	
 }

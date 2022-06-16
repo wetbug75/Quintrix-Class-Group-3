@@ -1,39 +1,52 @@
 package com.bigshots.spabackend.model;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import com.azure.spring.data.cosmos.core.mapping.Container;
+import com.azure.spring.data.cosmos.core.mapping.GeneratedValue;
 import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+import java.util.ArrayList;
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Container(containerName = "jokeKeywords")
 public class JokeKeyword {
 	@Id
-	private Integer id;
+	private String id;
 	@PartitionKey
 	private String word;
-	private Integer[] jokeId;
+	public ArrayList<Integer> jokeId = new ArrayList<Integer>(137);
 	
-	public JokeKeyword(String word, Integer[] jokeId) {
+	public JokeKeyword() {}
+	
+	public String getId() {
+		return this.id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public JokeKeyword(String id, String word) {
+		this.id = id;
 		this.word = word;
-		this.jokeId = jokeId;
 	}
 	
 	public void setWord(String word) {
 		this.word = word;
 	}
 
-	public Integer[] getJokeId() {
+	public ArrayList<Integer> getJokeId() {
 		return jokeId;
 	}
 
-	public void setJokeId(Integer[] jokeId) {
+	public void setJokeId(ArrayList<Integer> jokeId) {
 		this.jokeId = jokeId;
 	}
 	
