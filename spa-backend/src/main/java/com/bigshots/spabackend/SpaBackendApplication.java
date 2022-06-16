@@ -3,6 +3,7 @@ package com.bigshots.spabackend;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+
 //import org.springframework.boot.CommandLineRunner;
 
 
@@ -52,9 +53,12 @@ public class SpaBackendApplication {
 	public static void main(String[] args) {
 		
 		SpringApplication.run(SpaBackendApplication.class, args);
+		/*
+		//this code will add the mysql data to azure cosmos db as keywords
 		
 		//this object is going to initialize the connection to azure portal
 		CosmosClient client;
+		//make sure you change the database and container names unless you name yours exactly the same
 		//name of the database 
 		final String databaseName = "Jokes";
 		//name of the container in the database 
@@ -65,8 +69,10 @@ public class SpaBackendApplication {
 		//credentials to connect to the specific database. link is database, key is the primary key
 		//not sure if it will let you log into mine so if you create your account plug in the values 
 		client = new CosmosClientBuilder()
-				.endpoint("https://jokeproject.documents.azure.com:443/")
-				.key("cewHNUlsbyOe9v6ctfd3Uz2JSMisxG38KH6lqWNwEZPX3WCd8zpfTn8kSKnlzhbmMrYCTHfLEJiOV4uYm5aUyA")
+		//the endpoint will be the datasource link youll find in the overview tab of azure cosmos db
+		 //key youll find on the keys tab and it will be the input from the primary key section 
+				.endpoint("")
+				.key("")
 				.buildClient();
 		
 		//CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
@@ -81,10 +87,10 @@ public class SpaBackendApplication {
 		CosmosContainerProperties containerProperties = new CosmosContainerProperties(containerName, "word");
 		CosmosContainerResponse containerResponse = database.createContainerIfNotExists(containerProperties);
 		container = database.getContainer(containerResponse.getProperties().getId());
-		
+		//make sure you change the mysql link to your local mysql link
 		try {
 			String myUrl = "jdbc:mysql://127.0.0.1:3306/jokes?useSSL=false&serverTimezone=UTC";
-			
+			//change this to your mysql login credentials
 			Connection conn = DriverManager.getConnection(myUrl, "root", "kevinwall5");
 			
 			String query = "SELECT * FROM joke";
@@ -145,7 +151,7 @@ public class SpaBackendApplication {
 			st.close();
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
+			}*/
 	}
 		
 

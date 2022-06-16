@@ -11,25 +11,9 @@ import com.bigshots.spabackend.model.Joke;
 
 @Repository
 public interface JokeRepo extends JpaRepository<Joke, Long>{
-	//@Repository
-	//public interface JokeKeywordRepo extends ReactiveCosmosRepository<jokeKeyword, Integer> {}
-	
+	Joke findById(Integer id);
 
 }
 
 
-/**
- * hashtable set up 
- * ID: id for the keyword 
- * key value pair: keyword, joke id array
- */
-
-//query method 
-/**
- * for every entry in mysql(by id)
- * take the question use the split method to separate into individual words into an array
- * loop through the array checking if the word exists in the dataase 
- * if it does exist , add joke id to existing entry
- * if it does not exist, create new entry and add joke id 
- */
 

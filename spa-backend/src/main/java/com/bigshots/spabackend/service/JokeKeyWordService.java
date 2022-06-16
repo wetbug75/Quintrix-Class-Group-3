@@ -9,6 +9,7 @@ import com.bigshots.spabackend.model.JokeKeyword;
 import com.bigshots.spabackend.repo.JokeKeywordRepo;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class JokeKeyWordService {
@@ -26,6 +27,10 @@ public class JokeKeyWordService {
 	
 	public Flux<JokeKeyword> findKeywords() {
 		return jkr.findAll();
+	}
+	
+	public Mono<JokeKeyword> findAKeyword(String id) {
+		return jkr.findById(id);
 	}
 	
 

@@ -43,6 +43,8 @@ public class Joke {
 		this.author_id = 0;
 		this.created_at = null;
 	}
+	
+	public Joke() {}
 
 	
 	public Integer getId() {
@@ -89,37 +91,6 @@ public class Joke {
 	}
 	
 	
-	/*@Entity
-	@AllArgsConstructor
-	@NoArgsConstructor
-	@Container(containerName = "jokeKeywords")
-	public class jokeKeyword {
-		@Id
-		private Integer id;
-		@PartitionKey
-		private String word;
-		private Integer[] jokeId;
-		
-		public jokeKeyword(String word, Integer[] jokeId) {
-			this.word = word;
-			this.jokeId = jokeId;
-		}
-		
-		public void setWord(String word) {
-			this.word = word;
-		}
-
-		public Integer[] getJokeId() {
-			return jokeId;
-		}
-
-		public void setJokeId(Integer[] jokeId) {
-			this.jokeId = jokeId;
-		}
-		
-		public String getWord() {
-			return word;
-		}
-	}*/
+	
 
 }

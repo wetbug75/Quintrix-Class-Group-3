@@ -39,6 +39,9 @@ public class JokeService {
 	}
 	
  
-	
+	public Joke findThisJoke(Integer id) {
+		Joke thisOne = jokeRepo.findById(id);
+		return thisOne;
+	}
 	
 }

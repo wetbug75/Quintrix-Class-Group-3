@@ -32,12 +32,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bigshots.spabackend.model.Joke;
-import com.bigshots.spabackend.model.User;
 import com.bigshots.spabackend.service.JokeService;
 import com.bigshots.spabackend.service.UserService;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class ApiControllers {
@@ -138,5 +137,29 @@ public class ApiControllers {
 		Flux<JokeKeyword> listOfKeywords = jokeKeyWordService.findKeywords();
 		return new ResponseEntity<>(listOfKeywords, HttpStatus.OK);
 	}
+	
+	@GetMapping("/jokesWith/{keyword}")
+	public ResponseEntity<List<Joke>> getJokeByKeyword(@PathVariable String keyword) {
+		System.out.println("keyword entered is " + keyword);
+		System.out.println("hashcode of keyword entered is " + keyword.hashCode());
+		//hash the keyword 
+		String str = Integer.toString(keyword.toString().hashCode());
+		System.out.println("string equal to postman keyword is " + keyword.toString());
+		System.out.println("string that is equal to keyword entered in postman hashcode value is " + "a".hashCode());
+		
+		//check cosmos repository for this hash
+		Mono<JokeKeyword> search = jokeKeyWordService.findAKeyword(str);
+		//if it exists, 
+		
+		JokeKeyword got = search.block();
+		List<Joke> keywordJokes = new ArrayList<Joke>();
+		for(Integer id : got.jokeId) {
+			Joke joke = jokeService.findThisJoke(id);
+			keywordJokes.add(joke);
+		}
+		return new ResponseEntity<>(keywordJokes, HttpStatus.OK);
+		
+	}
+	
 	
 }
