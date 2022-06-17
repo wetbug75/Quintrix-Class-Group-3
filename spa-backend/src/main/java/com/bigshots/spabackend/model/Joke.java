@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 //import javax.persistence.Id;
 import javax.persistence.*;
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Container(containerName = "jokeKeywords")
 public class Joke {
