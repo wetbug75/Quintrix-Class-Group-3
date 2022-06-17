@@ -55,6 +55,7 @@ export class JokeItemComponent implements OnInit {
 
   SetUpvote(upvoteCount: number){
     this.upvote = upvoteCount;
+
   }
 
   SetDownvote(downvoteCount: number){

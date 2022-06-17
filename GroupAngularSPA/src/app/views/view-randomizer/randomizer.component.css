@@ -1,0 +1,52 @@
+/** Button class styles **/
+.upNotClicked{
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  padding-top: 15px;
+  background-image: linear-gradient(-20deg, #015c0c, #77e868);
+}
+
+.upClicked{
+border-radius: 50%;
+width: 90px;
+height: 90px;
+padding-top: 15px;
+background-image: linear-gradient(-20deg, #00e21a, #77e868);
+}
+
+
+.downNotClicked{
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  padding-top: 20px;
+  background-image: linear-gradient(-20deg, #5c0101, #e86868);
+}
+
+.downClicked{
+border-radius: 50%;
+width: 90px;
+height: 90px;
+padding-top: 20px;
+background-image: linear-gradient(-20deg, #c50000, #e86868);
+}
+
+img{
+  width: 50px;
+  height: 50px;
+  -webkit-filter:invert();
+}
+
+/** Table sytle **/
+td{
+  padding: 15px;
+}
+
+table{
+  width: 30%;
+}
+
+button{
+z-index: 1;
+}

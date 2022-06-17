@@ -52,7 +52,7 @@ const appRoutes: Routes = [
     RatingsComponent,
     JokesPaginateComponent,
     RegisterFormComponent,
-    RegisterBtnComponent
+    RegisterBtnComponent,
   ],
   imports: [
     BrowserModule,

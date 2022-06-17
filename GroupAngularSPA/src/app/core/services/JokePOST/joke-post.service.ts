@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { JokeItemComponent } from 'src/app/views/view-randomizer/components/joke-item/joke-item.component';
 import { Joke } from 'src/app/models/Joke';
 import { Observable } from 'rxjs';
+import { RatingsComponent } from 'src/app/shared/components/ratings/ratings.component';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

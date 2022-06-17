@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import { JokeItemComponent } from '../../views/view-randomizer/components/joke-item/joke-item.component';
-import { RatingsComponent } from 'src/app/shared/components/ratings/ratings.component';
 import { Joke } from 'src/app/models/Joke';
+import { JokeItemComponent } from 'src/app/views/view-randomizer/components/joke-item/joke-item.component';
+import { RatingsComponent } from 'src/app/shared/components/ratings/ratings.component';
+import { JokeGetService } from './JokeGET/joke-get.service';
+import { JokePostService } from './JokePOST/joke-post.service';
+
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -20,23 +23,45 @@ export class JokeService {
   springUrl = `http://localhost:8080`;
   currentJoke: Joke;
 
-  constructor(private http:HttpClient, private jokeItem: JokeItemComponent, private jokeRate: RatingsComponent) { }
-
-
-  // If a joke is displayed, have a variable to store the joke id to reference
-  SendJokeID(jokeID: number){
-    this.jokeItem.SetJokeID(jokeID);
+  constructor(
+    private jokeGetSer: JokeGetService,
+    private jokePostSer: JokePostService,
+    private jokeItem: JokeItemComponent,
+    private jokeRating: RatingsComponent){
   }
 
-  SetCurrentJoke(newJoke: Joke){
-    this.currentJoke = newJoke;
+  UpdateUpvote(joke: Joke, upvote: number, jokeid: number){
+    this.jokePostSer.UpdateLikeCount(joke, jokeid);
+    this.jokeRating.SetLikeCount(upvote);
   }
 
-  GetCurrentJoke(){
-    return this.currentJoke;
+  UpdateDownvote(joke: Joke, downvote:number, jokeid: number){
+    this.jokePostSer.UpdateDislikeCount(joke, jokeid);
+    this.jokeRating.SetDislikeCount(downvote);
   }
 
-  SetUpvoteCount(newUpvote: number){
-    this.jokeRate.SetLikeCount(newUpvote);
+  GetRandomJoke(id: number){
+    this.jokeGetSer.getJokeById(id).subscribe(Response =>{
+      this.jokeItem.SetJoke(Response);
+      this.jokeItem.SetQuestion(Response.question);
+      this.jokeItem.SetAnswer(Response.answer);
+      this.jokeItem.SetUpvote(Response.upvotes);
+      this.jokeItem.SetDownvote(Response.downvotes);
+      this.jokeRating.SetLikeCount(Response.upvotes);
+      this.jokeRating.SetDislikeCount(Response.downvotes);
+    })
   }
+
+  GetJokeDatabaseSize(){
+    return this.jokeGetSer.getJokeSize();
+  }
+
+  GetJoke(){
+    return this.jokeItem.GetJoke();
+  }
+
+  GetJokeID(){
+    return this.jokeItem.GetJokeID();
+  }
+
 }

@@ -12,7 +12,7 @@ export class JokeGetService {
   private apiURL = 'http://localhost:5000/jokes';
   springUrl = 'http://localhost:8080';
 
-  constructor(private http:HttpClient, private jokeItem: JokeItemComponent) { }
+  constructor(private http:HttpClient) { }
 
   getJokesPage(page: number, limit: number):Observable<any>{
     //Spring booot
@@ -29,13 +29,5 @@ export class JokeGetService {
   // Used by randomizer to calculate a random number and prevent index out of bounds error
   getJokeSize(): Observable<number>{
     return this.http.get<number>(`${this.springUrl}/jokeCount`);
-  }
-
-  GetCurrentJokeID(){
-    return this.jokeItem.GetJokeID();
-  }
-
-  GetCurrentJoke(){
-    return this.jokeItem.GetJoke();
   }
 }

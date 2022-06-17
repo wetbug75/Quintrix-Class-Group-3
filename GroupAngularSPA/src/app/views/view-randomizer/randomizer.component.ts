@@ -1,7 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { JokeGetService } from 'src/app/core/services/JokeGET/joke-get.service';
-import { JokeItemComponent } from './components/joke-item/joke-item.component';
-import { RatingsComponent } from 'src/app/shared/components/ratings/ratings.component';
 import { Joke } from 'src/app/models/Joke';
 import { JokeService } from 'src/app/core/services/joke.service';
 
@@ -18,15 +15,27 @@ export class RandomizerComponent implements OnInit {
   lastId: number;
   noRepeat: boolean;
   jokeSize: number;
-  theJoke: Joke;
-  constructor(private JokeService: JokeService, private JokeGetSer: JokeGetService, private jokeItem: JokeItemComponent, private jokeRating: RatingsComponent) {
-      this.lastId = -1;
+
+  likeCount: number;
+  dislikeCount: number;
+  tempJokeID: number = -1;
+  tempJoke: Joke;
+  upclick: boolean;
+  downclick: boolean;
+
+
+
+  constructor(private jokeService: JokeService) {
+
    }
 
   ngOnInit(): void {
-      this.JokeGetSer.getJokeSize().subscribe(Response => {
-          this.jokeSize = Response;
-        });
+    this.lastId = -1;
+    this.upclick = false;
+    this.downclick = false;
+    this.jokeService.GetJokeDatabaseSize().subscribe(Response => {
+      this.jokeSize = Response;
+    });
   }
 
   getRandomJoke(){
@@ -42,19 +51,65 @@ export class RandomizerComponent implements OnInit {
         this.noRepeat = true;
       }
     }
-
-    this.JokeGetSer.getJokeById(this.randomId).subscribe(Response => {
-      // Setter methods to respective component
-      this.jokeItem.SetJoke(Response);
-      this.jokeItem.SetJokeID(Response.id);
-      this.jokeItem.SetQuestion(Response.question);
-      this.jokeItem.SetAnswer(Response.answer);
-      this.jokeItem.SetUpvote(Response.upvotes);
-      this.jokeItem.SetDownvote(Response.downvotes);
-      this.jokeRating.SetLikeCount(Response.upvotes);
-      this.jokeRating.SetDislikeCount(Response.downvotes);
-      this.jokeRating.ResetButtonDisplay();
-    })
+    this.jokeService.GetRandomJoke(this.randomId);
+    this.ResetButtonDisplay();
   }
 
+  UpvoteTapped(){
+    this.tempJoke = this.jokeService.GetJoke();
+    this.tempJokeID = this.tempJoke.id;
+
+    //Toggle HTML Class
+    this.SetLikeClass(!this.GetLikeClass());
+
+    if(this.GetLikeClass() == true){
+      this.likeCount = this.tempJoke.upvotes + 1;
+    }
+    else{
+      this.likeCount = this.tempJoke.upvotes - 1;
+    }
+
+    this.tempJoke.upvotes = this.likeCount;
+    this.jokeService.UpdateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
+  }
+
+  DownvoteTapped(){
+    this.tempJoke = this.jokeService.GetJoke();
+    this.tempJokeID = this.tempJoke.id;
+
+    // Toggle HTML Class
+    this.SetDislikeClass(!this.GetDislikeClass());
+
+    if(this.GetDislikeClass() == true){
+      this.dislikeCount = this.tempJoke.downvotes + 1;
+    }
+
+    else{
+      this.dislikeCount = this.tempJoke.downvotes - 1;
+    }
+    this.tempJoke.downvotes = this.dislikeCount;
+    this.jokeService.UpdateDownvote(this.tempJoke, this.dislikeCount, this.tempJokeID);
+  }
+
+  SetLikeClass(value: boolean){
+    console.log(this.upclick);
+    this.upclick = value;
+  }
+
+  GetLikeClass(){
+    return this.upclick;
+  }
+
+  SetDislikeClass(value: boolean){
+    this.downclick = value;
+  }
+
+  GetDislikeClass(){
+    return this.downclick;
+  }
+
+  ResetButtonDisplay(){
+    this.SetLikeClass(false);
+    this.SetDislikeClass(false);
+  }
 }
