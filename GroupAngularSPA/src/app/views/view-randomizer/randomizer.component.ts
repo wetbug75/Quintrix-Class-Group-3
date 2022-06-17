@@ -53,6 +53,7 @@ export class RandomizerComponent implements OnInit {
       this.jokeItem.SetDownvote(Response.downvotes);
       this.jokeRating.SetLikeCount(Response.upvotes);
       this.jokeRating.SetDislikeCount(Response.downvotes);
+      this.jokeRating.ResetButtonDisplay();
     })
   }
 
