@@ -140,12 +140,8 @@ public class ApiControllers {
 	
 	@GetMapping("/jokesWith/{keyword}")
 	public ResponseEntity<List<Joke>> getJokeByKeyword(@PathVariable String keyword) {
-		System.out.println("keyword entered is " + keyword);
-		System.out.println("hashcode of keyword entered is " + keyword.hashCode());
 		//hash the keyword 
 		String str = Integer.toString(keyword.toString().hashCode());
-		System.out.println("string equal to postman keyword is " + keyword.toString());
-		System.out.println("string that is equal to keyword entered in postman hashcode value is " + "a".hashCode());
 		
 		//check cosmos repository for this hash
 		Mono<JokeKeyword> search = jokeKeyWordService.findAKeyword(str);

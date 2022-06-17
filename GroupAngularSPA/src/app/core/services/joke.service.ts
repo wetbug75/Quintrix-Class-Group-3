@@ -73,4 +73,8 @@ export class JokeService {
     return this.http.get<pageJoke>(`${this.apiURL}?_page=${page}&_limit=${limit}`)
   }
 
+  getJokeByKeyword(word: String): Observable<any>{
+    return this.http.get<any>(`${this.springUrl}/jokesWith/${word}`)
+  }
+
 }
