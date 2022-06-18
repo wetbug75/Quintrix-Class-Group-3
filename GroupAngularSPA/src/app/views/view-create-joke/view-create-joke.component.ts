@@ -1,9 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CreateStateServiceService } from 'src/app/views/view-create-joke/services/create-state-service.service';
-import { Status } from 'src/app/shared/status';
 import { Joke } from 'src/app/models/Joke';
 import { JokePostService } from 'src/app/core/services/JokePOST/joke-post.service';
+import { Status } from 'src/app/models/status';
 @Component({
   selector: 'app-view-create-joke',
   templateUrl: './view-create-joke.component.html',
@@ -29,7 +29,12 @@ export class ViewCreateJokeComponent implements OnInit {
       this.backEndResponseStatus = Status.Success;
     },
     (error: HttpErrorResponse)=>{
-      this.backEndResponseStatus = Status.Fail;
+      if(error.status === 401){
+        this.backEndResponseStatus = Status.IsNotLoggedIn
+      }else{
+        this.backEndResponseStatus = Status.Fail;
+
+      }
     }
     )
   }

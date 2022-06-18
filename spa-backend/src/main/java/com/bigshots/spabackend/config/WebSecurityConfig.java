@@ -43,10 +43,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().
         disable()
             .authorizeRequests()
-            .antMatchers(HttpMethod.OPTIONS, "/**")
-            .permitAll()
+            //.antMatchers(HttpMethod.OPTIONS, "/**")
+           // .permitAll()
+            .antMatchers("/newJoke").authenticated()
             .anyRequest()
-            .authenticated()
+            .permitAll()
             .and()
             .httpBasic();
 

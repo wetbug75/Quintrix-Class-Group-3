@@ -55,7 +55,9 @@ public class ApiControllers {
 	}
 	
 	 @GetMapping(path = "/basicauth")
-	    public AuthenticationBean basicauth() {
+	    public AuthenticationBean basicauth(@RequestHeader(value="authorization") String token) {
+		 System.out.println("Below is the token");
+		 System.out.println(token);
 	        return new AuthenticationBean("You are authenticated");
 	    }
 	@GetMapping(value = "/jokes")

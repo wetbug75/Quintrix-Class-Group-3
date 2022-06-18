@@ -13,9 +13,10 @@ export class ViewLoginComponent implements OnInit {
   onCreateAccountForm:boolean;
 
   errorMessage = 'Invalid Credentials';
-  successMessage: string;
+  
   invalidLogin = false;
-  loginSuccess = false;
+  
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService, public userPost: UserPostService) { 
@@ -30,16 +31,11 @@ export class ViewLoginComponent implements OnInit {
     console.log(userLogin);
     //this is where we will use service to send the user and password
     //TODO
-    this.authenticationService.authenticationService(userLogin.username, userLogin.password).subscribe((result)=> {
+    this.authenticationService.authenticationService(userLogin).subscribe((result)=> {
       this.invalidLogin = false;
-      this.loginSuccess = true;
-      this.successMessage = 'Login Successful.';
-      this.router.navigate(['login']); //navigate to the 
-      console.log("SUCCESS LOGIN");
+      this.router.navigate(['']); //navigate to the 
     }, (error) => {
       this.invalidLogin = true;
-      this.loginSuccess = false;
-      console.log("UNSUCESSFUL LOGIN");
     });  
 
   }

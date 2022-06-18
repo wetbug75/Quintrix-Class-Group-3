@@ -13,7 +13,8 @@
         <a class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">RANDOM JOKES</a>
         <a class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"routerLink="/find" routerLinkActive="active">FIND JOKES</a>
         <a class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"routerLink="/create" routerLinkActive="active">CREATE JOKES</a>
-        <a class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"routerLink="/login" routerLinkActive="active">LOGIN</a>          
+        <a *ngIf="!isLoggedIn"class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"routerLink="/login" routerLinkActive="active">LOGIN</a>   
+        <a (click)="handleLogout()"*ngIf="isLoggedIn" class="nav-item logout" data-toggle="collapse" data-target=".navbar-collapse.show"routerLink="/login" >LOGOUT</a>       
       </div>
     </div>
   </nav>
