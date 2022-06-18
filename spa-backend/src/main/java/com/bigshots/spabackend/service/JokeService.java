@@ -73,10 +73,4 @@ public class JokeService {
 	public int GetUpvote(Long jokeID){
 		return jokeRepo.findById(jokeID).get().getUpvotes();
 	}
-	/* 
-	public void updateDownvote(int dislikeCount, Long jokeID){
-		int newLikeCount = (this.getOneJoke(jokeID).getDownvotes() + dislikeCount);
-		this.getOneJoke(jokeID).setDislikes(newLikeCount);
-	}
-	*/
 }

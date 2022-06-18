@@ -37,7 +37,7 @@ import com.bigshots.spabackend.model.User;
 import com.bigshots.spabackend.service.JokeService;
 import com.bigshots.spabackend.service.UserService;
 
-@RestController
+@RestController	
 public class ApiControllers {
 	
 	private Logger logger = LoggerFactory.getLogger(LoggingController.class);
@@ -88,12 +88,6 @@ public class ApiControllers {
 	@GetMapping(value = "/jokes/pagination/{page_size}/{page_num}")
 	public ResponseEntity<List<Optional<Joke>>> getPaginatedJokes(@PathVariable int page_num, @PathVariable int page_size) {
 		return new ResponseEntity<>(jokeService.getPaginatedJokes(page_num, page_size), HttpStatus.OK);
-	}
-
-	@GetMapping(value = "/jokes/{jokeID}/upvote")
-	public Integer GetUpvoteCount(@PathVariable Long jokeID){
-		return jokeService.GetUpvote(jokeID);
-		
 	}
 
 	@PutMapping(value = "/jokes/{jokeID}/update/upvote")
