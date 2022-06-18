@@ -53,9 +53,11 @@ public class ApiControllers {
 	public String hi() {
 		return "All fixed";
 	}
-	//Please refactor code . 
-	//
 	
+	 @GetMapping(path = "/basicauth")
+	    public AuthenticationBean basicauth() {
+	        return new AuthenticationBean("You are authenticated");
+	    }
 	@GetMapping(value = "/jokes")
 	public ResponseEntity<List<Joke>> getJokes() {
 		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);
