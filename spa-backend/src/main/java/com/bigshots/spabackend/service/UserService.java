@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.bigshots.spabackend.model.Joke;
@@ -26,6 +27,9 @@ public class UserService {
 	public void addUser(Users user) {
 		//public void addUser(String userName, String email, String password) {  <--- previous implementation
 		//	User newUser = new User(userName, email, password);  <--- previous implmenetation
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encodedPassword = encoder.encode(user.getPassword());
+		user.setPassword(encodedPassword);
 		userRepo.save(user);
 	}
 

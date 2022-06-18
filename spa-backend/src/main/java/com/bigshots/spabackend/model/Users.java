@@ -24,7 +24,7 @@ public class Users {
 	@Column
 	private String role;
 	@Column
-	private boolean enabled;
+	private boolean enabled = true;
 	@Column
 	private String created_at; //time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
