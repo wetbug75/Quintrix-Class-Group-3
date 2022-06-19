@@ -41,7 +41,6 @@ public class JokeService {
 		
 	}
 
-
 	public Joke getOneJoke(Long indexID){
 		System.out.println("Finding joke by ID:" + indexID);
 
@@ -52,7 +51,6 @@ public class JokeService {
 		return (int) jokeRepo.count();
 	}
 	
-
 	public List<Optional<Joke>> getPaginatedJokes(int pageNum, int jokesDisplayed) {
 		List<Optional<Joke>> jokeList = new ArrayList<Optional<Joke>>();
 		for(int i = 0; i < jokesDisplayed; i++)
@@ -66,20 +64,24 @@ public class JokeService {
 	public void addJoke(Joke joke) {
 		jokeRepo.save(joke);
 	}
-	
 
- //two methods that find jokes by id didnt want to delete either because theyre tied to different files 
-  //but watch for it if it creates errors in running the file 
-	public Joke findThisJoke(Integer id) {
-		Joke thisOne = jokeRepo.findById(id);
-		return thisOne;
+	public void UpdateUpvote(Joke updateJoke, Long jokeID){
+		System.out.println("Updating joke upvote.");
+		System.out.println("Previous upvote: " + jokeRepo.findById(jokeID).get().getUpvotes().toString());
+		jokeRepo.findById(jokeID).get().setUpvotes(updateJoke.getUpvotes());
+		System.out.println("New upvote count: " + jokeRepo.findById(jokeID).get().getUpvotes().toString());
+		jokeRepo.saveAndFlush(updateJoke);
 	}
-	
 
-	public Optional<Joke> findJokeById(Long id){
-		return jokeRepo.findById(id);
+	public void UpdateDownvote(Joke updateJoke, Long jokeID){
+		System.out.println("Updating joke downvote.");
+		System.out.println("Previous downvote: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
+		jokeRepo.findById(jokeID).get().setDislikes(updateJoke.getDownvotes());
+		System.out.println("New downvote count: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
+		jokeRepo.saveAndFlush(updateJoke);
 	}
-	
-	
 
+	public int GetUpvote(Long jokeID){
+		return jokeRepo.findById(jokeID).get().getUpvotes();
+	}
 }

@@ -10,22 +10,75 @@ import {Joke} from '../../../../models/Joke';
 export class JokeItemComponent implements OnInit {
   @Input() joke: Joke;
 
-
+  jokeID: number;
   question: string;
   answer: string;
+  currentJoke: Joke;
+  upvote: number;
+  downvote: number;
 
-  constructor() { }
+  constructor() {
+    this.jokeID = -1;
+  }
 
   ngOnInit(): void {
   }
 
-  setQuestion(question2: string){
+  SetQuestion(question2: string){
     this.question = question2;
     document.getElementById("jokeQuestion").innerHTML = this.question;
   }
 
-  setAnswer(answer2: string){
+  SetAnswer(answer2: string){
     this.answer = answer2;
     document.getElementById("jokeAnswer").innerHTML = this.answer;
+  }
+
+  SetJokeID(currentJokeID: number){
+    this.jokeID = currentJokeID;
+  }
+
+  GetJokeID(){
+    if(this.jokeID == -1){
+      console.log("No joke available.");
+      return null;
+    }
+    else{
+      console.log("Getting joke ID: " + this.jokeID);
+      return this.jokeID;
+    }
+  }
+
+  SetJoke(cJoke: Joke){
+    this.currentJoke = cJoke;
+  }
+
+  SetUpvote(upvoteCount: number){
+    this.upvote = upvoteCount;
+
+  }
+
+  SetDownvote(downvoteCount: number){
+    this.downvote = downvoteCount;
+  }
+
+  GetJoke(){
+    return this.currentJoke;
+  }
+
+  GetQuestion(){
+    return this.question;
+  }
+
+  GetAnswer(){
+    return this.answer;
+  }
+
+  GetUpvote(){
+    return this.upvote;
+  }
+
+  GetDownvote(){
+    return this.downvote;
   }
 }

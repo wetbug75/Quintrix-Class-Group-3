@@ -53,10 +53,10 @@ const appRoutes: Routes = [
     RatingsComponent,
     JokesPaginateComponent,
     RegisterFormComponent,
-    RegisterBtnComponent
+    RegisterBtnComponent,
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
@@ -66,16 +66,17 @@ const appRoutes: Routes = [
 
   ],
 
-  providers: [JokeItemComponent,
+  providers: [JokeItemComponent,RatingsComponent,
   { 
     provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
   }],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule {
-	
+
 
 }
 

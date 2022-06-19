@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { JOKES } from '../../mock-joke';
+import { Joke } from 'src/app/models/Joke';
 import { JokeService } from 'src/app/core/services/joke.service';
-
-
 
 @Component({
   selector: 'app-randomizer',
@@ -13,20 +11,31 @@ import { JokeService } from 'src/app/core/services/joke.service';
 export class RandomizerComponent implements OnInit {
   @Output() randomNumberEvent = new EventEmitter<number>();
 
-  id: number;
+  randomId: number;
   lastId: number;
   noRepeat: boolean;
   jokeSize: number;
+
+  likeCount: number;
+  dislikeCount: number;
+  tempJokeID: number = -1;
+  tempJoke: Joke;
+  upclick: boolean;
+  downclick: boolean;
+
+
+
   constructor(private jokeService: JokeService) {
-      this.lastId = -1;
+
    }
 
   ngOnInit(): void {
-      this.jokeService.getJokeSize().subscribe(Response => {
-          console.log("Joke size: " + Response.toString());
-          this.jokeSize = Response;
-        });
-
+    this.lastId = -1;
+    this.upclick = false;
+    this.downclick = false;
+    this.jokeService.GetJokeDatabaseSize().subscribe(Response => {
+      this.jokeSize = Response;
+    });
   }
 
   getRandomJoke(){
@@ -34,38 +43,73 @@ export class RandomizerComponent implements OnInit {
     // While loop to ensure that id is not the same as the lastId
     while(this.noRepeat == false)
     {
-      this.id = Math.floor(Math.random() * this.jokeSize) + 1;
-      console.log("Number: " + this.id);
+      this.randomId = Math.floor(Math.random() * this.jokeSize) + 1;
 
-      if(this.lastId == -1 || this.lastId != this.id)
+      if(this.lastId == -1 || this.lastId != this.randomId)
       {
-        this.lastId = this.id;
+        this.lastId = this.randomId;
         this.noRepeat = true;
       }
     }
-
-    this.jokeService.getJokeById(this.id).subscribe(Response => {
-      console.log("Question: " + Response.question);
-      this.jokeService.SendQuestion(Response.question);
-      console.log("Answer: " + Response.answer);
-      this.jokeService.SendAnswer(Response.answer);
-    })
-
-    /*
-    this.jokeService.getJokeAnswer(this.id).subscribe(Response => {
-      this.jokeService.SendAnswer(Response);
-    });
-    */
-
-    /*
-    this.jokeService
-    .getJoke(this.id)
-    .subscribe(Response => {
-      console.log(Response);
-      this.jokeService.SendQuestion(Response.question);
-      this.jokeService.SendAnswer(Response.answer);
-    });
-    */
+    this.jokeService.GetRandomJoke(this.randomId);
+    this.ResetButtonDisplay();
   }
 
+  UpvoteTapped(){
+    this.tempJoke = this.jokeService.GetJoke();
+    this.tempJokeID = this.tempJoke.id;
+
+    //Toggle HTML Class
+    this.SetLikeClass(!this.GetLikeClass());
+
+    if(this.GetLikeClass() == true){
+      this.likeCount = this.tempJoke.upvotes + 1;
+    }
+    else{
+      this.likeCount = this.tempJoke.upvotes - 1;
+    }
+
+    this.tempJoke.upvotes = this.likeCount;
+    this.jokeService.UpdateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
+  }
+
+  DownvoteTapped(){
+    this.tempJoke = this.jokeService.GetJoke();
+    this.tempJokeID = this.tempJoke.id;
+
+    // Toggle HTML Class
+    this.SetDislikeClass(!this.GetDislikeClass());
+
+    if(this.GetDislikeClass() == true){
+      this.dislikeCount = this.tempJoke.downvotes + 1;
+    }
+
+    else{
+      this.dislikeCount = this.tempJoke.downvotes - 1;
+    }
+    this.tempJoke.downvotes = this.dislikeCount;
+    this.jokeService.UpdateDownvote(this.tempJoke, this.dislikeCount, this.tempJokeID);
+  }
+
+  SetLikeClass(value: boolean){
+    console.log(this.upclick);
+    this.upclick = value;
+  }
+
+  GetLikeClass(){
+    return this.upclick;
+  }
+
+  SetDislikeClass(value: boolean){
+    this.downclick = value;
+  }
+
+  GetDislikeClass(){
+    return this.downclick;
+  }
+
+  ResetButtonDisplay(){
+    this.SetLikeClass(false);
+    this.SetDislikeClass(false);
+  }
 }

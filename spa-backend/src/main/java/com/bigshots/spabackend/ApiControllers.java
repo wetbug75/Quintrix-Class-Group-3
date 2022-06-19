@@ -97,12 +97,28 @@ public class ApiControllers {
 		return jokeService.jokeCount();
 	}
 
-
 	@GetMapping(value = "/jokes/pagination/{page_size}/{page_num}")
 	public ResponseEntity<List<Optional<Joke>>> getPaginatedJokes(@PathVariable int page_num, @PathVariable int page_size) {
 		return new ResponseEntity<>(jokeService.getPaginatedJokes(page_num, page_size), HttpStatus.OK);
 	}
 
+	@GetMapping(value = "/jokes/{jokeID}/upvote")
+	public Integer GetUpvoteCount(@PathVariable Long jokeID){
+		return jokeService.GetUpvote(jokeID);
+		
+	}
+
+	@PutMapping(value = "/jokes/{jokeID}/update/upvote")
+	public ResponseEntity<?> updateLike(@RequestBody Joke updateJoke, @PathVariable Long jokeID) throws IOException{
+		jokeService.UpdateUpvote(updateJoke, jokeID);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+	@PutMapping(value = "/jokes/{jokeID}/update/downvote")
+	public ResponseEntity<?> updateDislike(@RequestBody Joke updateJoke, @PathVariable Long jokeID) throws IOException{
+		jokeService.UpdateDownvote(updateJoke, jokeID);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 
 	/**
 	 * return User of specified id
