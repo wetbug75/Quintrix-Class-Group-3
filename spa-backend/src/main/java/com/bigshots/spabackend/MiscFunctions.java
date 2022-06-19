@@ -36,7 +36,7 @@ public class MiscFunctions {
 				System.out.println("Users in DB already, no import needed");
 			}
 			
-			if(jokeService.findJokeById((long)2).isEmpty()) {
+			if(jokeService.getOneJoke((long)2).isEmpty()) {
 				TypeReference<List<Joke>> typeReferenceJoke = new TypeReference<List<Joke>>() {};
 				InputStream inputStreamJoke = TypeReference.class.getResourceAsStream("/json/joke.json");
 				List<Joke> jokes = mapper.readValue(inputStreamJoke,typeReferenceJoke);

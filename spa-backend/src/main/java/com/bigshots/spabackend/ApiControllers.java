@@ -84,7 +84,7 @@ public class ApiControllers {
 
 	@GetMapping(value = "/jokes/find/{joke_id}")
 	public ResponseEntity<Joke> getJoke(@PathVariable("joke_id") Long joke_id) {
-		Joke foundJoke = jokeService.getOneJoke(joke_id);
+		Joke foundJoke = jokeService.getOneJoke(joke_id).get();
 		if(foundJoke == null)
 		{
 			System.out.println(foundJoke);
@@ -206,7 +206,7 @@ public class ApiControllers {
 		JokeKeyword got = search.block();
 		List<Joke> keywordJokes = new ArrayList<Joke>();
 		for(Integer id : got.jokeId) {
-			Joke joke = jokeService.findThisJoke(id);
+			Joke joke = jokeService.getOneJoke((long)id).get();//TODO might error if empty
 			keywordJokes.add(joke);
 		}
 		return new ResponseEntity<>(keywordJokes, HttpStatus.OK);

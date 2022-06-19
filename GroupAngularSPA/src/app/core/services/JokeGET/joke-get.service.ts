@@ -36,7 +36,7 @@ export class JokeGetService {
   }
   // Request backend to get joke database size
   // Used by randomizer to calculate a random number and prevent index out of bounds error
-  getJokeSize(): Observable<number>{
-    return this.http.get<number>(`${this.springUrl}/jokeCount`);
-  }
+  // getJokeSize(): Observable<number>{
+  //   return this.http.get<number>(`${this.springUrl}/jokeCount`);
+  // }
 }

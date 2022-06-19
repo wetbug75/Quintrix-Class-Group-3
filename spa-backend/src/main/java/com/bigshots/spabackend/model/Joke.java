@@ -7,13 +7,10 @@ import javax.persistence.GeneratedValue;
 import com.azure.spring.data.cosmos.core.mapping.Container;
 import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 //import javax.persistence.GenerationType;
 //import javax.persistence.Id;
 import javax.persistence.*;
-@AllArgsConstructor
+
 @Entity
 public class Joke {
 	@Id

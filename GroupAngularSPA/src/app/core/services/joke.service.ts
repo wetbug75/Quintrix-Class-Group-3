@@ -40,6 +40,10 @@ export class JokeService {
     this.jokeRating.SetDislikeCount(downvote);
   }
 
+  // getJokeById(index: number): Observable<Joke>{
+  //   return this.http.get<Joke>(`${this.springUrl}/jokes/find/${index}`, httpOptions);
+  // }
+
   GetRandomJoke(id: number){
     this.jokeGetSer.getJokeById(id).subscribe(Response =>{
       this.jokeItem.SetJoke(Response);
@@ -63,4 +67,10 @@ export class JokeService {
   GetJokeID(){
     return this.jokeItem.GetJokeID();
   }
+
+  // getJokeByKeyword(word: String): Observable<any>{
+  //   return this.http.get<any>(`${this.springUrl}/jokesWith/${word}`)
+  // }
+
 }
+
