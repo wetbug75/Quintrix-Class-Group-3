@@ -31,6 +31,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bigshots.spabackend.service.JokeService;
@@ -125,9 +127,14 @@ public class ApiControllers {
 	 * post method adds a new joke to the repository with optional question and answer strings 
 	 * just in case the user wants to submit one line jokes 
 	 */
+	
 
 	@PostMapping("/newJoke" )
 	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String gimmeMyname = auth.getName();
+		System.out.println(gimmeMyname);
 		jokeService.addJoke(joke);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -157,5 +164,7 @@ public class ApiControllers {
 	 * @PutMapping
 	 * public ResponseEntity<Joke
 	 */
+	
+	
 	
 }
