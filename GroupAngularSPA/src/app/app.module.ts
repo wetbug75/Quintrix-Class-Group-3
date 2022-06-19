@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 
@@ -25,6 +25,7 @@ import { JokesPaginateComponent } from './views/view-find-joke/components/jokes-
 import { RegisterFormComponent } from './views/view-login/components/register-form/register-form.component';
 import { RegisterBtnComponent } from './views/view-login/components/register-btn/register-btn.component';
 
+import { HttpInterceptorService } from './core/services/Interceptor/HttpInterceptorService';
 /*Will come back!*/
 const appRoutes: Routes = [
  {path: '', component:RandomizerComponent},
@@ -65,7 +66,13 @@ const appRoutes: Routes = [
 
   ],
 
-  providers: [JokeItemComponent, RatingsComponent],
+  providers: [JokeItemComponent,RatingsComponent,
+  { 
+    provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+  }],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule {

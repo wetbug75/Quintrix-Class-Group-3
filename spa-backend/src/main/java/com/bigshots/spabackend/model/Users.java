@@ -8,10 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
-public class User {
+@AllArgsConstructor
+public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -22,9 +22,21 @@ public class User {
 	@Column
 	private String password;
 	@Column
+	private String role;
+	@Column
+	private boolean enabled = true;
+	@Column
 	private String created_at; //time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
-	
+	public Users(){
+		
+	}
+	public Users(String userName, String email, String password) {
+		this.username = userName;
+		this.email = email;
+		this.password = password;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -72,10 +84,20 @@ public class User {
 	//may have to add an instance to (eventual) joke model that verifies if a specific user 
 	//liked the joke already? (maybe)
 	
-	public User(String userName, String email, String password) {
-		this.username = userName;
-		this.email = email;
-		this.password = password;
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 	

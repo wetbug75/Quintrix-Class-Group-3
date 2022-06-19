@@ -1,9 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Joke } from 'src/app/models/Joke';
 import { JokeItemComponent } from 'src/app/views/view-randomizer/components/joke-item/joke-item.component';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +21,14 @@ export class JokeGetService {
 
   getJokesPage(page: number, limit: number):Observable<any>{
     //Spring booot
-    return this.http.get<any>(`${this.springUrl}/jokes/pagination/${limit}/${page}`);
+    return this.http.get<any>(`${this.springUrl}/jokes/pagination/${limit}/${page}`,httpOptions);
     //json server
     //return this.http.get<pageJoke>(`${this.apiURL}?_page=${page}&_limit=${limit}`)
   }
+  getJokeSize(): Observable<number>{
+    return this.http.get<number>(`${this.springUrl}/jokeCount`, httpOptions);
+  }
+
 
   // Request backend to get a joke using a joke id
   getJokeById(index: number): Observable<Joke>{

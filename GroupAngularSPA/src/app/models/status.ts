@@ -1,5 +1,6 @@
 export enum Status{
     Success,
     Fail,
-    None
+    None,
+    IsNotLoggedIn
 }

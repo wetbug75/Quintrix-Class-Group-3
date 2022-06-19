@@ -1,4 +1,8 @@
 <div class="container">
+    <div class="alert alert-warning" *ngIf='invalidLoginAlert'>{{errorMessage}}</div>
+    <div class="alert alert-success" *ngIf='successRegisterAlert' >{{registerSuccessMessage}}</div>
+    <div class="alert alert-danger" *ngIf='notsuccessRegisterAlert' >{{registerFailMessage}}</div>
+
     <app-login-form 
         *ngIf="!onCreateAccountForm"
         (onUserFormGroupSubmit)="onUserFormGroupSubmit($event)"></app-login-form>

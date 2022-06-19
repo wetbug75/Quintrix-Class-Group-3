@@ -15,6 +15,9 @@
 	<description>Angular SPA </description>
 	<properties>
 		<java.version>17</java.version>
+		
+    	<version.spring.cloud.azure>4.2.0</version.spring.cloud.azure>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -71,10 +74,23 @@
 		</dependency> 
 		
 		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-spring-data-cosmos</artifactId>
+		    <version>3.21.0</version>
+		</dependency>
+				
+		<dependency>
+  			<groupId>com.azure.spring</groupId>
+  			<artifactId>spring-cloud-azure-starter</artifactId>
+  			<version>4.2.0</version>
+		</dependency>
+		
+		<dependency>
   			<groupId>com.azure.spring</groupId>
   			<artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
   			<version>4.2.0</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -87,11 +103,27 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		 <dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-devtools</artifactId>
-		<optional>true</optional>
-	     </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+	    </dependency>
+	    
+	    <!-- Dependencies for OAuth-->
+	    
+	    <dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency> 
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

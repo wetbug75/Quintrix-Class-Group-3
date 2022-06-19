@@ -4,6 +4,7 @@ import java.io.File;  // Import the File class
 
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -30,12 +31,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bigshots.spabackend.model.Joke;
-import com.bigshots.spabackend.model.User;
 import com.bigshots.spabackend.service.JokeService;
 import com.bigshots.spabackend.service.UserService;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class ApiControllers {
@@ -48,14 +54,20 @@ public class ApiControllers {
 	@Autowired
 	private JokeService jokeService;
 	
+	@Autowired
+	private JokeKeyWordService jokeKeyWordService;
+	
 	@GetMapping("/test")
 	public String hi() {
 		return "All fixed";
 	}
-	//Please refactor code . 
-	//
 	
-	
+	 @GetMapping(path = "/basicauth")
+	    public AuthenticationBean basicauth(@RequestHeader(value="authorization") String token) {
+		 System.out.println("Below is the token");
+		 System.out.println(token);
+	        return new AuthenticationBean("You are authenticated");
+	    }
 	@GetMapping(value = "/jokes")
 	public ResponseEntity<List<Joke>> getJokes() {
 		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);
@@ -64,7 +76,7 @@ public class ApiControllers {
 	}
 	
 	@GetMapping(value = "/users")
-	public ResponseEntity<List<User>> getUsers() {
+	public ResponseEntity<List<Users>> getUsers() {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 		//return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
 	}
@@ -137,9 +149,14 @@ public class ApiControllers {
 	 * post method adds a new joke to the repository with optional question and answer strings 
 	 * just in case the user wants to submit one line jokes 
 	 */
+	
 
 	@PostMapping("/newJoke" )
 	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String gimmeMyname = auth.getName();
+		System.out.println(gimmeMyname);
 		jokeService.addJoke(joke);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -152,16 +169,49 @@ public class ApiControllers {
 	}*/
 
 	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@RequestBody User user) {
+	public ResponseEntity<?> newUser(@RequestBody Users user) {
 		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
 		// userService.addUser(userName, email, password);  <--------- previous implementation
 		userService.addUser(user);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	
+	@PostMapping("/loginUser")
+	public ResponseEntity<?> loginUser(@RequestBody Users user) {
+		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
+		// userService.addUser(userName, email, password);  <--------- previous implementation
+		System.out.println("hi there");
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
 	/*
 	 * @PutMapping
 	 * public ResponseEntity<Joke
 	 */
+	
+
+	@GetMapping("/keywords")
+	public ResponseEntity<Flux<JokeKeyword>> getKeywords() {
+		Flux<JokeKeyword> listOfKeywords = jokeKeyWordService.findKeywords();
+		return new ResponseEntity<>(listOfKeywords, HttpStatus.OK);
+	}
+	
+	@GetMapping("/jokesWith/{keyword}")
+	public ResponseEntity<List<Joke>> getJokeByKeyword(@PathVariable String keyword) {
+		//hash the keyword 
+		String str = Integer.toString(keyword.toString().hashCode());
+		
+		//check cosmos repository for this hash
+		Mono<JokeKeyword> search = jokeKeyWordService.findAKeyword(str);
+		//if it exists, 
+		
+		JokeKeyword got = search.block();
+		List<Joke> keywordJokes = new ArrayList<Joke>();
+		for(Integer id : got.jokeId) {
+			Joke joke = jokeService.findThisJoke(id);
+			keywordJokes.add(joke);
+		}
+		return new ResponseEntity<>(keywordJokes, HttpStatus.OK);
+		
+	}
+	
 	
 }
