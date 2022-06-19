@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/User';
+import { UserPostService } from 'src/app/core/services/UserPOST/user-post.service';
+import { Users } from 'src/app/models/User';
 
 @Component({
   selector: 'app-view-login',
@@ -9,7 +10,7 @@ import { User } from 'src/app/models/User';
 })
 export class ViewLoginComponent implements OnInit {
   onCreateAccountForm:boolean;
-  constructor() { 
+  constructor(public userPost: UserPostService) { 
     this.onCreateAccountForm = false;
   }
 
@@ -17,7 +18,7 @@ export class ViewLoginComponent implements OnInit {
   }
 
   //submit login credentials to backend
-  onUserFormGroupSubmit(userLogin : User){
+  onUserFormGroupSubmit(userLogin : Users){
     console.log(userLogin);
     //this is where we will use service to send the user and password
     //TODO
@@ -29,11 +30,15 @@ export class ViewLoginComponent implements OnInit {
     this.onCreateAccountForm = true;
   }
 
-  onRegisterFormGroupSubmit(userRegisterInfo: User){
+  //create new user 
+  onRegisterFormGroupSubmit(userRegisterInfo: Users){
     console.log(userRegisterInfo)
-   
+     console.log("INSIDE NEW USER");
     //this is where we will use service to send to backend
     //for registration
+    this.userPost.registerUser(userRegisterInfo).subscribe(result=>{
+      console.log(result);
+    })
   }
   
 }

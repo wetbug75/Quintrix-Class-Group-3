@@ -1,15 +1,15 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { User } from 'src/app/models/User';
+import { Users } from 'src/app/models/User';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
-  @Output() public onRegisterFormGroupSubmit = new EventEmitter<User>();
+  @Output() public onRegisterFormGroupSubmit = new EventEmitter<Users>();
   userRegisterForm?: FormGroup;
-  userRegisterData: User;
+  userRegisterData: Users;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -17,16 +17,17 @@ export class RegisterFormComponent implements OnInit {
   }
   initializeForm():void{
     this.userRegisterForm = this.fb.group({
-      userName: '',
+      username: '',
       password:'',
-      email:''
+      email:'',
     });
   }
 
   onSubmit():void{
-    this.userRegisterData = {userName: this.userRegisterForm.value.userName,
+    this.userRegisterData = {username: this.userRegisterForm.value.username,
                           password: this.userRegisterForm.value.password,
-                          email: this.userRegisterForm.value.email }
+                          email: this.userRegisterForm.value.email,
+                           id: 0 } //set id to 0 because backend will auto generate new key. constructor hasn't been implemented yet to handle null
     this.onRegisterFormGroupSubmit.emit(this.userRegisterData);
   }
 }

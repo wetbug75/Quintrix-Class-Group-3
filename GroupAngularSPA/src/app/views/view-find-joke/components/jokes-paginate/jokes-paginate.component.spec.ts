@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { JokesPaginateComponent } from './jokes-paginate.component';
 
@@ -8,7 +10,8 @@ describe('JokesPaginateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JokesPaginateComponent ]
+      declarations: [ JokesPaginateComponent ],
+      imports: [HttpClientModule, NgxPaginationModule]
     })
     .compileComponents();
   });

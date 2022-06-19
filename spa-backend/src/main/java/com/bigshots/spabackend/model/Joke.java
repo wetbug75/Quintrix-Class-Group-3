@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class Joke {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	@Column
 	//@PartitionKey
 	private String question;
@@ -34,7 +34,9 @@ public class Joke {
 	@Column
 	private String created_at;//time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
-	
+	public Joke() {
+		
+	}
 	public Joke(String question, String answer) {
 		this.question = question;
 		this.answer = answer;
@@ -47,10 +49,10 @@ public class Joke {
 	public Joke() {}
 
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getQuestion() {

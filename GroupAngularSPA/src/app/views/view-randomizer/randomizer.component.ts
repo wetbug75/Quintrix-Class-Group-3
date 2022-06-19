@@ -12,24 +12,31 @@ import { JokeService } from 'src/app/core/services/joke.service';
 
 export class RandomizerComponent implements OnInit {
   @Output() randomNumberEvent = new EventEmitter<number>();
-  
+
   id: number;
   lastId: number;
   noRepeat: boolean;
+  jokeSize: number;
   constructor(private jokeService: JokeService) {
       this.lastId = -1;
    }
 
   ngOnInit(): void {
+      this.jokeService.getJokeSize().subscribe(Response => {
+          console.log("Joke size: " + Response.toString());
+          this.jokeSize = Response;
+        });
+
   }
 
   getRandomJoke(){
     this.noRepeat = false;
-    // Checks if the random number is the same as the last number
+    // While loop to ensure that id is not the same as the lastId
     while(this.noRepeat == false)
     {
-      this.id = Math.floor(Math.random() * JOKES.length);
+      this.id = Math.floor(Math.random() * this.jokeSize) + 1;
       console.log("Number: " + this.id);
+
       if(this.lastId == -1 || this.lastId != this.id)
       {
         this.lastId = this.id;
@@ -37,26 +44,28 @@ export class RandomizerComponent implements OnInit {
       }
     }
 
-
-    /*
-    this.jokeService.getJokeQuestion(this.id).subscribe(Response => {
-      console.log(Response);
-      this.jokeService.SendQuestion(Response);
+    this.jokeService.getJokeById(this.id).subscribe(Response => {
+      console.log("Question: " + Response.question);
+      this.jokeService.SendQuestion(Response.question);
+      console.log("Answer: " + Response.answer);
+      this.jokeService.SendAnswer(Response.answer);
     })
 
+    /*
     this.jokeService.getJokeAnswer(this.id).subscribe(Response => {
       this.jokeService.SendAnswer(Response);
     });
     */
-    
+
+    /*
     this.jokeService
     .getJoke(this.id)
     .subscribe(Response => {
       console.log(Response);
-      this.jokeService.SendQuestion(Response.question); 
+      this.jokeService.SendQuestion(Response.question);
       this.jokeService.SendAnswer(Response.answer);
     });
-    
+    */
   }
 
 }

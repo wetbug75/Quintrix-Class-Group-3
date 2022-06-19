@@ -4,6 +4,7 @@ import java.io.File;  // Import the File class
 
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bigshots.spabackend.service.JokeService;
 import com.bigshots.spabackend.service.UserService;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -59,7 +62,6 @@ public class ApiControllers {
 	//Please refactor code . 
 	//
 	
-	
 	@GetMapping(value = "/jokes")
 	public ResponseEntity<List<Joke>> getJokes() {
 		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);
@@ -68,16 +70,34 @@ public class ApiControllers {
 	}
 	
 	@GetMapping(value = "/users")
-	public ResponseEntity<List<User>> getUsers() {
+	public ResponseEntity<List<Users>> getUsers() {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 		//return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
 	}
-	/*
-	@GetMapping(value = "/jokes/{joke_id}")
-	public ResponseEntity<Optional<Joke>> getJoke(@PathVariable long joke_id) {
-		//return new ResponseEntity<>(jokeRepo.findById(joke_id), HttpStatus.OK);
+	
+
+	@GetMapping(value = "/jokes/find/{joke_id}")
+	public ResponseEntity<Joke> getJoke(@PathVariable("joke_id") Long joke_id) {
+		Joke foundJoke = jokeService.getOneJoke(joke_id);
+		if(foundJoke == null)
+		{
+			System.out.println(foundJoke);
+		}
+		return new ResponseEntity<>(foundJoke, HttpStatus.OK);
 	}
-	*/
+	
+	@GetMapping(value = "/jokeCount")
+	public Integer getJokeCount() {
+		return jokeService.jokeCount();
+	}
+
+
+	@GetMapping(value = "/jokes/pagination/{page_size}/{page_num}")
+	public ResponseEntity<List<Optional<Joke>>> getPaginatedJokes(@PathVariable int page_num, @PathVariable int page_size) {
+		return new ResponseEntity<>(jokeService.getPaginatedJokes(page_num, page_size), HttpStatus.OK);
+	}
+
+
 	/**
 	 * return User of specified id
 	 * @param user_id
@@ -122,11 +142,19 @@ public class ApiControllers {
 	}*/
 
 	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {
-		userService.addUser(userName, email, password);
+	public ResponseEntity<?> newUser(@RequestBody Users user) {
+		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
+		// userService.addUser(userName, email, password);  <--------- previous implementation
+		userService.addUser(user);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	
+	@PostMapping("/loginUser")
+	public ResponseEntity<?> loginUser(@RequestBody Users user) {
+		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
+		// userService.addUser(userName, email, password);  <--------- previous implementation
+		System.out.println("hi there");
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
 	/*
 	 * @PutMapping
 	 * public ResponseEntity<Joke

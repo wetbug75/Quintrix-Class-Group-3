@@ -16,11 +16,15 @@ export class FindJokeFormComponent implements OnInit {
   }
   onSubmit(){
     this.keyWord.emit(this.inputKeyword);
+
     
     this.jokeService.getJokeByKeyword(this.inputKeyword).subscribe(
       Response => {
         console.log(Response);
       });
+
+
+
   }
   
 
