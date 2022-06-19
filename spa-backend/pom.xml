@@ -92,13 +92,6 @@
 		<artifactId>spring-boot-devtools</artifactId>
 		<optional>true</optional>
 	     </dependency>
-
-		<!-- Dependencies for spring boot security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-
 	</dependencies>
 
 	<build>
