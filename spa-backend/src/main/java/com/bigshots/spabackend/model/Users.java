@@ -4,13 +4,9 @@ package com.bigshots.spabackend.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
-@AllArgsConstructor
 public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

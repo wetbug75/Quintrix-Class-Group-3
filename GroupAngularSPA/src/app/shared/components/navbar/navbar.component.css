@@ -1,3 +1,16 @@
+.css-btn {
+    font-size: 28px;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    padding: 0;
+    text-align: center;
+}
+
+.css-btn:hover {
+    text-decoration: none;
+}
+
 .nav-item{
 	font-weight: 600;
 	text-decoration: none;	
@@ -7,6 +20,7 @@
 	overflow:  hidden;
 	background-color: #9ADCFF;
     background-image: linear-gradient(0deg, #38b8fd, #b6e5ff);
+    box-shadow: 0 1px 20px;
 	width:fixed;
 	padding: 0;
 }	
@@ -35,25 +49,32 @@
 	font-weight: bold;
 	float:left;
 	font-size: 20px;
-	pointer-events: none;
+	/*pointer-events: none;*/
 	text-decoration: none;
 }
 
 
-  .hamburger{
-	  margin-right: 1.5rem;
-  }
-  .meat {
-	
-	width: 35px;
-	height: 5px;
-	background-color: black;
-	margin: 6px 0;
-  }
-
-  .hamburger:hover{
+.hamburger {
+    margin-right: 1.5rem;
+}
+.meat {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+.hamburger:hover {
     cursor:pointer;
-  }
+}
+
+.css-dark .navigationBar {
+    box-shadow: 0 1px 20px #0B0C10;
+	background-image: linear-gradient(0deg, #0B0C10, #0B0C10) !important;
+}
+.css-dark .navigationBar .active {
+	background-image: linear-gradient(0deg, #45A29E, #45A29E);
+}
+
 @media(min-width:576px){
     .navigationBar a.title{
 		font-size: 30px;

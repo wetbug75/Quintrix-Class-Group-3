@@ -6,13 +6,13 @@
 	margin: 0;
 	font-size:16px;
 }
-body{
-	background-color: #FFFDE1;
+
+body {
 	background-image:linear-gradient(to right, #fff677, #FFFDE1, #FFFDE1, #FFFDE1, #fff677);
 }
 
 button{
-	border-radius: 25px;
+	border-radius: 10px;
 	width: 15rem;
 	border: 2px solid black;
 	padding: 15px;
@@ -26,8 +26,18 @@ button{
 	margin: 0 auto;
 	justify-content: center;
 	display:flex;
+	box-shadow: 3px 3px 5px;
 }
 
+button:hover {
+	cursor:pointer;
+	box-shadow: 6px 6px 5px;
+	text-decoration: underline;
+}
+
+button:focus {
+	outline: none;
+}
 	
 .jokeText{
 	color:white;
@@ -59,4 +69,81 @@ h3{
 .cartoonletter{
 	font-size:1.5rem;
 	font-weight:700;
+}
+
+.css-dark {
+	background-image: linear-gradient(to right, #1F2833, #1F2833, #1F2833, #1F2833, #1F2833);
+	color: #C5C6C7;
+}
+.css-dark button {
+	background-image: linear-gradient(0deg, #66FCF1, #66FCF1);
+}
+
+.css-artsy {
+	background-image: linear-gradient(0deg, #EFE2BA, #EFE2BA);
+}
+.css-artsy button {
+	background-image: linear-gradient(0deg, #F13C20, #F13C20);
+}
+
+.css-blue-purple {
+	background-image: linear-gradient(0deg, #C1C8E4, #C1C8E4);
+	color: white;
+}
+.css-blue-purple button {
+	background-image: linear-gradient(0deg, #5680E9, #5680E9);
+}
+
+/* Below should ideally go elswhere*/
+.css-dark nav {
+	box-shadow: 0 1px 20px #0B0C10 !important;;
+	background-image: linear-gradient(0deg, #0B0C10, #0B0C10) !important;
+}
+.css-dark .active {
+	background-image: linear-gradient(0deg, #45A29E, #45A29E) !important;
+}
+.css-dark nav a, .css-dark h2 {
+	color: #C5C6C7 !important;
+}
+.css-dark #jokeBox {
+	background-image: linear-gradient(180deg, #0B0C10, #0B0C10) !important;
+}
+.css-dark #jokeBox div {
+	color: #66FCF1 !important; 
+}
+
+.css-artsy nav {
+	box-shadow: 0 1px 20px #4056A1;
+	background-image: linear-gradient(0deg, #4056A1, #4056A1) !important;
+}
+.css-artsy .active {
+	background-image: linear-gradient(0deg, #C5CBE3, #C5CBE3) !important;
+}
+.css-artsy nav a, .css-artsy h2 {
+	color: black !important;
+}
+.css-artsy #jokeBox {
+	background-image: linear-gradient(180deg, #D79922, #D79922) !important;
+}
+.css-artsy #jokeBox div {
+	color: #F13C20 !important; 
+	text-shadow: 2px 2px #3b1009 !important;;
+}
+
+.css-blue-purple nav {
+	box-shadow: 0 1px 20px #5680E9 !important;;
+	background-image: linear-gradient(0deg, #5680E9, #5680E9) !important;
+}
+.css-blue-purple .active {
+	background-image: linear-gradient(0deg, #5AB9EA, #5AB9EA) !important;
+}
+.css-blue-purple nav a, .css-blue-purple h2 {
+	color: white !important;
+}
+.css-blue-purple #jokeBox {
+	background-image: linear-gradient(180deg, #8860D0, #8860D0) !important;
+}
+.css-blue-purple #jokeBox div {
+	color: #C1C8E4 !important; 
+	text-shadow: 2px 2px #000000 !important;;
 }

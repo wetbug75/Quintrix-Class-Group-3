@@ -18,10 +18,10 @@ export class FindJokeFormComponent implements OnInit {
     this.keyWord.emit(this.inputKeyword);
 
     
-    this.jokeService.getJokeByKeyword(this.inputKeyword).subscribe(
-      Response => {
-        console.log(Response);
-      });
+    // this.jokeService.getJokeByKeyword(this.inputKeyword).subscribe(
+    //   Response => {
+    //     console.log(Response);
+    //   });
 
 
 
