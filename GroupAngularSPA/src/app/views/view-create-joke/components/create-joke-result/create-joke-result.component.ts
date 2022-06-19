@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CreateStateServiceService } from 'src/app/views/view-create-joke/services/create-state-service.service';
-import { Status } from 'src/app/shared/status';
-
+import { Status } from 'src/app/models/status';
 @Component({
   selector: 'app-create-joke-result',
   templateUrl: './create-joke-result.component.html',
@@ -19,6 +18,8 @@ export class CreateJokeResultComponent implements OnChanges {
       console.log(this.backEndResponseStatus);
     }else if(this.backEndResponseStatus.valueOf()===Status.Fail){
       this.statusResult="Unfortunately, the joke was not added. There was an error. Try again next time";
+    }else if(this.backEndResponseStatus.valueOf() === Status.IsNotLoggedIn){
+      this.statusResult="You're not logged in! Please log in to create a new joke";
     }
 
     

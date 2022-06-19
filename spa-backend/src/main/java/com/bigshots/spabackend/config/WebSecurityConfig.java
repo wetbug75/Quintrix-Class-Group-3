@@ -1,4 +1,5 @@
 package com.bigshots.spabackend.config;
+import org.springframework.http.HttpMethod;
 
 import javax.sql.DataSource;
  
@@ -23,23 +24,38 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
     @Autowired
     private DataSource dataSource;
-     
+   
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
     	System.out.println("Tryna hack this thing");
     	
-        auth.jdbcAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+    	//method looks into DB , encodes the password from front end and compares to db
+    	//
+       auth.jdbcAuthentication().passwordEncoder(new BCryptPasswordEncoder())
             .dataSource(dataSource)
             .usersByUsernameQuery("select username, password, enabled from users where username=?")
-            .authoritiesByUsernameQuery("select username, role from users where username=?")
+            .authoritiesByUsernameQuery("select username, role from users where username=?")//??? role is null
         ;
         System.out.println("this working?");
+    		
     }
  
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	//antiMatchers for the route you would like to protect
-        http.cors()
+        http.cors().and().csrf().
+        disable()
+            .authorizeRequests()
+            //.antMatchers(HttpMethod.OPTIONS, "/**")
+           // .permitAll()
+            .antMatchers("/newJoke").authenticated()
+            
+            .anyRequest()
+            .permitAll()
+            .and()
+            .httpBasic();
+
+     /*   http.cors()
         		.and()
         	.authorizeRequests()
         		//.antMatchers("/newJoke").authenticated()
@@ -51,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
             	.permitAll()
             	.and()
-            .csrf().disable(); //csrf protects from PUT requests
+            .csrf().disable(); //csrf protects from PUT requests*/
     }
   
 
