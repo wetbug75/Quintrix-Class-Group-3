@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.bigshots.spabackend.model.Joke;
 //User is the name of the model class in Devin local code not sure if the file was changed in main
-import com.bigshots.spabackend.model.User;
+import com.bigshots.spabackend.model.Users;
 //import com.bigshots.spabackend.repo.JokeKeywordRepo;
 
 import com.bigshots.spabackend.model.Users;
