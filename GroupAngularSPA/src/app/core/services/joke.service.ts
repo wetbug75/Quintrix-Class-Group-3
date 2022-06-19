@@ -37,4 +37,8 @@ export class JokeService {
   }
 
 
+  getJokeByKeyword(word: String): Observable<any>{
+    return this.http.get<any>(`${this.springUrl}/jokesWith/${word}`)
+  }
+
 }

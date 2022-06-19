@@ -9,7 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bigshots.spabackend.model.Joke;
+//User is the name of the model class in Devin local code not sure if the file was changed in main
+import com.bigshots.spabackend.model.User;
+//import com.bigshots.spabackend.repo.JokeKeywordRepo;
+
 import com.bigshots.spabackend.model.Users;
+
 import com.bigshots.spabackend.repo.JokeRepo;
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -17,9 +22,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 public class JokeService {
 	
 	private JokeRepo jokeRepo;
+	
+	//private JokeKeywordRepo jkRepo;
+	
 	@Autowired
 	public JokeService(JokeRepo jokeRepo) {
 		this.jokeRepo = jokeRepo;
+		
 	}
 	
 	public List<Joke> getAllJokes(){
@@ -58,9 +67,19 @@ public class JokeService {
 		jokeRepo.save(joke);
 	}
 	
+
+ //two methods that find jokes by id didnt want to delete either because theyre tied to different files 
+  //but watch for it if it creates errors in running the file 
+	public Joke findThisJoke(Integer id) {
+		Joke thisOne = jokeRepo.findById(id);
+		return thisOne;
+	}
+	
+
 	public Optional<Joke> findJokeById(Long id){
 		return jokeRepo.findById(id);
 	}
 	
 	
+
 }

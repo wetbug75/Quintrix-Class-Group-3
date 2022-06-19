@@ -16,13 +16,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Container(containerName = "jokeKeywords")
 public class Joke {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
-	@PartitionKey
+	//@PartitionKey
 	private String question;
 	@Column
 	private String answer;
@@ -46,6 +45,8 @@ public class Joke {
 		this.author_id = 0;
 		this.created_at = null;
 	}
+	
+	public Joke() {}
 
 	
 	public Long getId() {
@@ -90,5 +91,8 @@ public class Joke {
 	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
+	
+	
+	
 
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { JokeService } from 'src/app/core/services/joke.service';
 
 @Component({
   selector: 'app-find-joke-form',
@@ -8,7 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class FindJokeFormComponent implements OnInit {
   @Output() keyWord = new EventEmitter<string>();
   inputKeyword: string;
-  constructor() { }
+  constructor(private jokeService: JokeService) { }
 
   ngOnInit(): void {
     
@@ -16,6 +17,16 @@ export class FindJokeFormComponent implements OnInit {
   onSubmit(){
     this.keyWord.emit(this.inputKeyword);
 
+    
+    this.jokeService.getJokeByKeyword(this.inputKeyword).subscribe(
+      Response => {
+        console.log(Response);
+      });
+
+
+
   }
+  
 
 }
+
