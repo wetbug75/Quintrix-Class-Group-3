@@ -40,6 +40,9 @@ import com.bigshots.spabackend.service.UserService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 @RestController
 public class ApiControllers {
 	
@@ -50,6 +53,9 @@ public class ApiControllers {
 	
 	@Autowired
 	private JokeService jokeService;
+	
+	@Autowired
+	private JokeKeyWordService jokeKeyWordService;
 	
 	@GetMapping("/test")
 	public String hi() {
@@ -165,6 +171,31 @@ public class ApiControllers {
 	 * public ResponseEntity<Joke
 	 */
 	
+
+	@GetMapping("/keywords")
+	public ResponseEntity<Flux<JokeKeyword>> getKeywords() {
+		Flux<JokeKeyword> listOfKeywords = jokeKeyWordService.findKeywords();
+		return new ResponseEntity<>(listOfKeywords, HttpStatus.OK);
+	}
+	
+	@GetMapping("/jokesWith/{keyword}")
+	public ResponseEntity<List<Joke>> getJokeByKeyword(@PathVariable String keyword) {
+		//hash the keyword 
+		String str = Integer.toString(keyword.toString().hashCode());
+		
+		//check cosmos repository for this hash
+		Mono<JokeKeyword> search = jokeKeyWordService.findAKeyword(str);
+		//if it exists, 
+		
+		JokeKeyword got = search.block();
+		List<Joke> keywordJokes = new ArrayList<Joke>();
+		for(Integer id : got.jokeId) {
+			Joke joke = jokeService.findThisJoke(id);
+			keywordJokes.add(joke);
+		}
+		return new ResponseEntity<>(keywordJokes, HttpStatus.OK);
+		
+	}
 	
 	
 }
