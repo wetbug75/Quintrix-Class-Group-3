@@ -38,9 +38,6 @@ export class JokeService {
   UpdateDownvote(joke: Joke, downvote:number, jokeid: number){
     this.jokePostSer.UpdateDislikeCount(joke, jokeid);
     this.jokeRating.SetDislikeCount(downvote);
-
-  getJokeById(index: number): Observable<Joke>{
-    return this.http.get<Joke>(`${this.springUrl}/jokes/find/${index}`, httpOptions);
   }
 
   GetRandomJoke(id: number){
@@ -61,14 +58,9 @@ export class JokeService {
 
   GetJoke(){
     return this.jokeItem.GetJoke();
-
+  }
 
   GetJokeID(){
     return this.jokeItem.GetJokeID();
   }
-
-  getJokeByKeyword(word: String): Observable<any>{
-    return this.http.get<any>(`${this.springUrl}/jokesWith/${word}`)
-  }
-
 }
