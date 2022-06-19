@@ -12,9 +12,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Container(containerName = "jokeKeywords")
 public class JokeKeyword {
 	@Id

@@ -44,8 +44,6 @@ public class Joke {
 		this.author_id = 0;
 		this.created_at = null;
 	}
-	
-	public Joke() {}
 
 	
 	public Long getId() {

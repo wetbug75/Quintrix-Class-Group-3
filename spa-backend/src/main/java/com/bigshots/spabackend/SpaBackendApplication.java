@@ -1,8 +1,7 @@
 package com.bigshots.spabackend;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.springframework.boot.CommandLineRunner;
 
 //import org.springframework.boot.CommandLineRunner;
 
@@ -183,9 +182,6 @@ public class SpaBackendApplication {
 			}*/
 	}
 		
-
-
-	}
 	
 	//function that will insert all the data from JSON files to Database.
 	//JSON files located in resources folder. 
