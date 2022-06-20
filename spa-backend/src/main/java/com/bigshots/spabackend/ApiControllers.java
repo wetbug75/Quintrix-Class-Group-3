@@ -182,10 +182,7 @@ public class ApiControllers {
 		System.out.println("hi there");
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	/*
-	 * @PutMapping
-	 * public ResponseEntity<Joke
-	 */
+	
 	
 
 	@GetMapping("/keywords")
@@ -194,8 +191,9 @@ public class ApiControllers {
 		return new ResponseEntity<>(listOfKeywords, HttpStatus.OK);
 	}
 	
-	@GetMapping("/jokesWith/{keyword}")
-	public ResponseEntity<List<Joke>> getJokeByKeyword(@PathVariable String keyword) {
+	@GetMapping("/jokesWith/{keyword}/{page}/{pageSize}")
+	public ResponseEntity<List<Joke>> getJokeByKeyword(@PathVariable String keyword, @PathVariable int page, 
+			@PathVariable int pageSize) {
 		//hash the keyword 
 		String str = Integer.toString(keyword.toString().hashCode());
 		
@@ -205,12 +203,31 @@ public class ApiControllers {
 		
 		JokeKeyword got = search.block();
 		List<Joke> keywordJokes = new ArrayList<Joke>();
-		for(Integer id : got.jokeId) {
-			Joke joke = jokeService.getOneJoke((long)id).get();//TODO might error if empty
+		
+		/*for(int x = 0; x < pageSize; x++) {
+			
+			Joke joke = jokeService.getOneJoke((long) got.jokeId.get(page * x));
 			keywordJokes.add(joke);
-		}
+			
+		}*/
+			for(int x = 0; x < pageSize; x++) {
+				Joke joke = jokeService.getOneJoke((long)got.getJokeId().get(page * pageSize - pageSize + x)).get();//TODO might error if empty
+				keywordJokes.add(joke);
+			}
+		
 		return new ResponseEntity<>(keywordJokes, HttpStatus.OK);
 		
+	}
+	
+	@GetMapping("/jokesWithKeywordCount")
+	public int keywordCount(@PathVariable String keyword) {
+		String str = Integer.toString(keyword.toString().hashCode());
+		
+		Mono<JokeKeyword> search = jokeKeyWordService.findAKeyword(str);
+		
+		JokeKeyword got = search.block();
+		
+		return got.jokeId.size();
 	}
 	
 	
