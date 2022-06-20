@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JokeService } from 'src/app/core/services/joke.service';
 import { JokeGetService } from 'src/app/core/services/JokeGET/joke-get.service';
+import { Joke } from 'src/app/models/Joke';
 import { pageJoke } from 'src/app/models/pageJoke';
 
 @Component({
@@ -33,30 +34,40 @@ export class JokesPaginateComponent implements OnInit {
      console.log(this.keyword); //keyword will be required to differentiate between getting with keyword or getting all jokes. 
      this.currentPage = updatedPageNumber;
      //find and retrieve all jokes. 
-     this.jokeGetService.getJokesPage(this.currentPage,this.pageSize).subscribe(result=>{ 
-        console.log(result);
-        this.JOKES =result.filter(joke=> joke !== null);
-      })
-      this.jokeGetService.getJokeSize().subscribe(count=>{
-        this.totalJokesDB = count;
-      })
+     if(this.keyword == null) {
+      this.jokeGetService.getJokesPage(this.currentPage,this.pageSize).subscribe(result=>{ 
+          console.log(result);
+          this.JOKES =result.filter(joke=> joke !== null);
+        })
+        this.jokeGetService.getJokeSize().subscribe(count=>{
+          this.totalJokesDB = count;
+        })
+     } else {
+       this.jokeGetService.getJokeByKeyword(this.keyword, this.currentPage, this.pageSize).subscribe(
+        result => {
+          console.log(result);
+          this.JOKES = result.filter((joke: Joke)=> joke!=null); //found jokes with the key word
+          
+        })
+     }
    }
 
-   //search keyword still in rogress
+   //search keyword still in progress
    onSubmitSearch($event){
     this.keyword = $event; //required - this is from the search bar. 
     console.log(this.keyword) 
     this.currentPage = 1; //required - sets to first page of results when user clicks on search
-    this.totalJokesDB = 3;
-    this.pageSize = 1; //remove - i think i can remove this function after the backend search keyword is enabled. 
+    this.pageSize = 3; //remove - i think i can remove this function after the backend search keyword is enabled. 
 
      //search by key word
-    this.jokeGetService.getJokesPage(this.currentPage,this.pageSize).subscribe(result=>{
-        console.log(result);
-        this.JOKES = result.filter(joke=> joke!=null); //found jokes with the key word
-      })
-   
-   }
-
-   
+     this.jokeGetService.getJokeByKeyword(this.keyword, this.currentPage, this.pageSize).subscribe(
+       result => {
+         console.log(result);
+         this.JOKES = result.filter((joke: Joke)=> joke!=null); //found jokes with the key word
+         
+       })
+       this.jokeGetService.getKeywordSize(this.keyword).subscribe(count => {
+         this.totalJokesDB = count;
+       })
+   }  
 }

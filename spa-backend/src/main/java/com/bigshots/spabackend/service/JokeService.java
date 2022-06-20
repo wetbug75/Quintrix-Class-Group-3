@@ -84,4 +84,8 @@ public class JokeService {
 	public int GetUpvote(Long jokeID){
 		return jokeRepo.findById(jokeID).get().getUpvotes();
 	}
+
+	public Joke findById(Integer integer) {
+		return jokeRepo.findById(integer);
+	}
 }

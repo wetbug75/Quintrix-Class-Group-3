@@ -1,6 +1,7 @@
 package com.bigshots.spabackend.config;
 import org.springframework.http.HttpMethod;
 
+
 import javax.sql.DataSource;
  
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-
 import com.azure.cosmos.implementation.guava25.collect.ImmutableList;
 
 
