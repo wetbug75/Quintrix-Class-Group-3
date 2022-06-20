@@ -98,11 +98,11 @@
 		</dependency>
 		<!--YOU MUST GO TO MAVEN DEPENDENCIES  EITHER UNDER LOMBOK or PROJECTLOMBOK
 		YOU HAVE TO RIGHT CLICK IT , RUN AS JAVA, INSTALL !!!-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
