@@ -34,7 +34,7 @@ export class JokesPaginateComponent implements OnInit {
      console.log(this.keyword); //keyword will be required to differentiate between getting with keyword or getting all jokes. 
      this.currentPage = updatedPageNumber;
      //find and retrieve all jokes. 
-     if(this.keyword == null) {
+     if(this.keyword == "") {
       this.jokeGetService.getJokesPage(this.currentPage,this.pageSize).subscribe(result=>{ 
           console.log(result);
           this.JOKES =result.filter(joke=> joke !== null);
@@ -58,7 +58,9 @@ export class JokesPaginateComponent implements OnInit {
     console.log(this.keyword) 
     this.currentPage = 1; //required - sets to first page of results when user clicks on search
     this.pageSize = 3; //remove - i think i can remove this function after the backend search keyword is enabled. 
-
+    if(this.keyword = ""){
+      
+    }
      //search by key word
      this.jokeGetService.getJokeByKeyword(this.keyword, this.currentPage, this.pageSize).subscribe(
        result => {
