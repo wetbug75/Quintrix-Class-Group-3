@@ -26,6 +26,7 @@ import { RegisterFormComponent } from './views/view-login/components/register-fo
 import { RegisterBtnComponent } from './views/view-login/components/register-btn/register-btn.component';
 
 import { HttpInterceptorService } from './core/services/Interceptor/HttpInterceptorService';
+import { FooterComponent } from './shared/components/footer/footer.component';
 /*Will come back!*/
 const appRoutes: Routes = [
  {path: '', component:RandomizerComponent},
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     JokesPaginateComponent,
     RegisterFormComponent,
     RegisterBtnComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
