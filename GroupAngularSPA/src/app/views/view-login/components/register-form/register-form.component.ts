@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Users } from 'src/app/models/User';
 @Component({
   selector: 'app-register-form',
@@ -17,8 +17,10 @@ export class RegisterFormComponent implements OnInit {
   }
   initializeForm():void{
     this.userRegisterForm = this.fb.group({
-      username: '',
-      password:'',
+      //username: '',
+      username: new FormControl('', Validators.required),
+      //password:'',
+      password: new FormControl('', Validators.required),
       email:'',
     });
   }

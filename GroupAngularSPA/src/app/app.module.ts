@@ -69,13 +69,13 @@ const appRoutes: Routes = [
   ],
 
   providers: [JokeItemComponent,RatingsComponent,
-  { 
+  {
     provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
   }],
-  
-  bootstrap: [AppComponent]
+
+  bootstrap: [AppComponent, FooterComponent]
 })
 export class AppModule {
 

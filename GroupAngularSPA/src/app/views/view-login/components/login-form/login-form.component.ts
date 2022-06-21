@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Users } from 'src/app/models/User';
-
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -13,6 +13,7 @@ export class LoginFormComponent implements OnInit {
 
   userLoginForm?: FormGroup;
   userLoginData: Users;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
