@@ -39,21 +39,21 @@ export class AuthenticationService {
 }
 
   registerSuccessfulLogin(user:Users) {
-    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, user.username)
-    sessionStorage.setItem(this.AUTH_TOKEN, this.createBasicAuthTokenNoHeader(user));
+    localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, user.username)
+    localStorage.setItem(this.AUTH_TOKEN, this.createBasicAuthTokenNoHeader(user));
     this.isLoggedIn.emit(true);
   }
 
   logout() {
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    sessionStorage.removeItem(this.AUTH_TOKEN);
+    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    localStorage.removeItem(this.AUTH_TOKEN);
     this.username = null;
     this.password = null;
     this.isLoggedIn.emit(false);
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem(this.AUTH_TOKEN)
+    let user = localStorage.getItem(this.AUTH_TOKEN)
     if (user === null){
       this.isLoggedIn.emit(false);
       return false;
@@ -65,6 +65,6 @@ export class AuthenticationService {
   }
 
   getAuthToken(){
-    return sessionStorage.getItem(this.AUTH_TOKEN);
+    return localStorage.getItem(this.AUTH_TOKEN);
   }
 }
