@@ -13,6 +13,7 @@
              <span class="bold">Question:  </span><span [innerHTML]= "joke.question | boldKeyWord : this.keyword"></span> <br>
             <!--   <span class="bold">Answer:</span> {{joke.answer}} <br> -->
             <span class="bold">Answer:  </span><span [innerHTML]= "joke.answer | boldKeyWord : this.keyword"></span> <br>
+            <span class="bold">Author: </span>{{joke.author_name}}<br>
            <td class="like bold">{{joke.upvotes}}</td>
            <td class="dislike bold">{{joke.downvotes}}</td>
         </tr>
