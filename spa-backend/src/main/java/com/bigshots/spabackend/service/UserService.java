@@ -36,7 +36,6 @@ public class UserService {
 	public void saveJson(List<Users> users) {
 		// TODO Auto-generated method stub
 		userRepo.saveAll(users);
-		
 	}
 	
 	public Optional<Users> findUserById(Long id) {

@@ -51,12 +51,13 @@ public class JokeService {
 		return (int) jokeRepo.count();
 	}
 	
+	//TODO if a joke is deleted, there will be an empty space in the front end
 	public List<Optional<Joke>> getPaginatedJokes(int pageNum, int jokesDisplayed) {
 		List<Optional<Joke>> jokeList = new ArrayList<Optional<Joke>>();
 		for(int i = 0; i < jokesDisplayed; i++)
 		{
 			jokeList.add(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)));
-			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)).toString());
+			//System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)).toString());
 		}
 		return jokeList; 
 	}
