@@ -16,6 +16,7 @@ export class JokesPaginateComponent implements OnInit {
    totalJokesDB: number = 0;//need this from backend. This only updates the pagination controls. 
    keyword: string; //user keyword
    constructor(public jokeGetService: JokeGetService){
+   
       this.jokeGetService.getJokesPage(this.currentPage,this.pageSize).subscribe(jokes=>{ 
         this.JOKES = jokes.filter(index => index !== null); //need joke array from backend. 
         this.keyword = "";
@@ -55,21 +56,35 @@ export class JokesPaginateComponent implements OnInit {
    //search keyword still in progress
    onSubmitSearch($event){
     this.keyword = $event; //required - this is from the search bar. 
-    console.log(this.keyword) 
     this.currentPage = 1; //required - sets to first page of results when user clicks on search
-    this.pageSize = 3; //remove - i think i can remove this function after the backend search keyword is enabled. 
-    if(this.keyword = ""){
-      
-    }
+
      //search by key word
-     this.jokeGetService.getJokeByKeyword(this.keyword, this.currentPage, this.pageSize).subscribe(
-       result => {
-         console.log(result);
-         this.JOKES = result.filter((joke: Joke)=> joke!=null); //found jokes with the key word
-         
-       })
-       this.jokeGetService.getKeywordSize(this.keyword).subscribe(count => {
-         this.totalJokesDB = count;
-       })
-   }  
+     if(this.keyword==""  || this.keyword === undefined){
+      //repeated code
+      this.jokeGetService.getJokesPage(this.currentPage,this.pageSize).subscribe(jokes=>{ 
+        this.JOKES = jokes.filter(index => index !== null); //need joke array from backend. 
+        this.keyword = "";
+      })
+      this.jokeGetService.getJokeSize().subscribe(count=>{
+        this.totalJokesDB = count;
+      })
+
+     }else{
+      console.log()
+        this.jokeGetService.getJokeByKeyword(this.keyword, this.currentPage, this.pageSize).subscribe(
+        result => {
+          console.log(result);
+          this.JOKES = result.filter((joke: Joke)=> joke!=null); //found jokes with the key word
+          
+        })
+        this.jokeGetService.getKeywordSize(this.keyword).subscribe(count => {
+          console.log("this is from backend getkeywordzie : " + count);
+          this.totalJokesDB = count;
+        }, error =>{
+          console.log("this shit don't work");
+        })
+     }
+    
+   } 
+    
 }
