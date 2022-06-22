@@ -17,7 +17,6 @@ public class Joke {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
-	//@PartitionKey
 	private String question;
 	@Column
 	private String answer;
@@ -26,14 +25,10 @@ public class Joke {
 	@Column
 	private Integer downvotes;
 	@Column
-	/*private Integer author_id;//this will eventually be unnecessary
-	@Column*/
 	private String created_at;//time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
-	
 	@ManyToOne
 	private Users author;
-	
 	
 	public Joke() {
 	}
@@ -48,8 +43,6 @@ public class Joke {
 		this.author = author;
 		this.created_at = null;
 	}
-	
-
 	
 	public Long getId() {
 		return id;
@@ -81,12 +74,6 @@ public class Joke {
 	public void setDislikes(Integer downvotes) {
 		this.downvotes = downvotes;
 	}
-//	public Integer getAuthor_id() {
-//		return author_id;
-//	}
-//	public void setAuthor_id(Integer author_id) {
-//		this.author_id = author_id;
-//	}
 	public String getCreated_at() {
 		return this.created_at;
 	}
@@ -102,8 +89,4 @@ public class Joke {
 	public void setDownvotes(Integer downvotes) {
 		this.downvotes = downvotes;
 	}
-	
-	
-	
-
 }
