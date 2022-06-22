@@ -81,7 +81,7 @@ public class SpaBackendApplication {
 		
 		SpringApplication.run(SpaBackendApplication.class, args);
 
-		/*
+		
 		//this code will add the mysql data to azure cosmos db as keywords
 		
 		//this object is going to initialize the connection to azure portal
@@ -97,10 +97,9 @@ public class SpaBackendApplication {
 		//credentials to connect to the specific database. link is database, key is the primary key
 		//not sure if it will let you log into mine so if you create your account plug in the values 
 		client = new CosmosClientBuilder()
-		//the endpoint will be the datasource link youll find in the overview tab of azure cosmos db
-		 //key youll find on the keys tab and it will be the input from the primary key section 
-				.endpoint("")
-				.key("")
+		
+				.endpoint("https://jokeproject.documents.azure.com:443/")
+				.key("fhhgtoLtsLNkHw7DBEoBZt1YYNHdwk3dYiDbRujEpO1S6BhfXrNoFgZnnDqXSnoWWJKp5S7te7ofQ8KdWCPZRw==")
 				.buildClient();
 		
 		//CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
@@ -126,12 +125,13 @@ public class SpaBackendApplication {
 			Statement st = conn.createStatement();
 			
 			ResultSet rs = st.executeQuery(query);
-			
+			//figure out how to separate the question mark from the question
 			while(rs.next())  {
-				String parse = rs.getString("question");
+				String parse = rs.getString("answer").replaceAll("\\p{Punct}", "").toLowerCase();
+				//String parse = rs.getString("question").replaceAll("\\p{Punct}", "").toLowerCase();
 				Integer jokeIndex = rs.getInt("id");
 				String[] arr = parse.split(" ");
-				for(String a : arr) {
+				for(String a : arr) { 
 					
 					
 					JokeKeyword jk = new JokeKeyword(Integer.toString(a.hashCode()), a);
@@ -160,16 +160,17 @@ public class SpaBackendApplication {
 						
 						int count = 1;
 						
-						 
+						 if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
 						
-						CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
-		
-						patchOps.add("/jokeId/" + count, jokeIndex);
-					
-						//step 3 
-						container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
+							CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
+			
+							patchOps.add("/jokeId/" + count, jokeIndex);
 						
-						count++;
+							//step 3 
+							container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
+							
+							count++;
+						 }
 				
 					}
 
@@ -179,7 +180,7 @@ public class SpaBackendApplication {
 			st.close();
 			} catch (Exception e) {
 				e.printStackTrace();
-			}*/
+			}
 	}
 		
 	
