@@ -1,5 +1,7 @@
 package com.bigshots.spabackend.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +32,8 @@ public class UserService {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String encodedPassword = encoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
+		user.setCreated_at(LocalDateTime.now()
+			       .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 		userRepo.save(user);
 	}
 

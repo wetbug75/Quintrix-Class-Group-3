@@ -51,7 +51,9 @@ public class JokeKeyWordService {
 			int maxSizeResult = retrievedFromCosmos.getJokeId().size();
 			for (int i = start ; i <= end;i++) {
 				if(i < maxSizeResult) {
-					keywordJokes.add(jokeRepo.findById((long)retrievedFromCosmos.getJokeId().get(i)));
+					Optional<Joke> joke = jokeRepo.findById((long)retrievedFromCosmos.getJokeId().get(i));
+					joke.get().setAuthor_name(joke.get().getAuthor().getUsername());
+					keywordJokes.add(joke);
 				}	
 			}	
 			return keywordJokes;

@@ -1,6 +1,8 @@
 package com.bigshots.spabackend.service;
 
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -55,17 +57,23 @@ public class JokeService {
 		for(int i = 0; i < jokesDisplayed; i++)
 		{
 			Optional<Joke> joke = jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1));
-			if(joke.isPresent() && (Long)joke.get().getAuthor().getId() != null) { //makes sure author id exists
-				Optional<Users> user = userRepo.findById((long)joke.get().getAuthor().getId());
-				joke.get().setAuthor_name(user.get().getUsername());
+			if(joke.isPresent()) {
+				joke.get().setAuthor_name(joke.get().getAuthor().getUsername());
 			}
+			
 			jokeList.add(joke);
 			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)).toString());
 		}
 		return jokeList; 
 	}
 	
-	public void addJoke(Joke joke) {
+	public void addJoke(Joke joke, String authorName) {
+		
+		joke.setAuthor(userRepo.findByUsername(authorName));
+		joke.setDownvotes(0);
+		joke.setUpvotes(0);
+		joke.setCreated_at(LocalDateTime.now()
+			       .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 		jokeRepo.save(joke);
 	}
 

@@ -158,9 +158,8 @@ public class ApiControllers {
 	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String gimmeMyname = auth.getName();
-		System.out.println(gimmeMyname);
-		jokeService.addJoke(joke);
+		String authorName = auth.getName();
+		jokeService.addJoke(joke, authorName);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

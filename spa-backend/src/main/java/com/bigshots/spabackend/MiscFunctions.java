@@ -59,7 +59,7 @@ public class MiscFunctions {
 		Users user = new Users("creator", "email", encodedPassword);
 		user.setPassword(encodedPassword);
 		user.setUsername("creator");
-		user.setId((long) 1);
+		user.setId((long) 2);
 		user.setEnabled(true);
 		userService.addUser(user);
 		System.out.println("overwritten id 1 user, with user: creator, password: creator");
