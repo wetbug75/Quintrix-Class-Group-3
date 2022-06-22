@@ -99,8 +99,8 @@ public class SpaBackendApplication {
 		client = new CosmosClientBuilder()
 		//the endpoint will be the datasource link youll find in the overview tab of azure cosmos db
 		 //key youll find on the keys tab and it will be the input from the primary key section 
-				.endpoint("")
-				.key("")
+				.endpoint("https://wetbug75.documents.azure.com:443/")
+				.key("CH4TODOJdbeC3xuFIUEMgKOIaDyz6yYK2fwhFc6ifk477TPI15vvYvYoTGV6unVynV6s604akoJVHGLcvoAVSw==")
 				.buildClient();
 		
 		//CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
@@ -117,9 +117,9 @@ public class SpaBackendApplication {
 		container = database.getContainer(containerResponse.getProperties().getId());
 		//make sure you change the mysql link to your local mysql link
 		try {
-			String myUrl = "jdbc:mysql://127.0.0.1:3306/jokes?useSSL=false&serverTimezone=UTC";
+			String myUrl = "jdbc:mysql://127.0.0.1:3306/jokeschema?useSSL=false&serverTimezone=UTC";
 			//change this to your mysql login credentials
-			Connection conn = DriverManager.getConnection(myUrl, "root", "kevinwall5");
+			Connection conn = DriverManager.getConnection(myUrl, "root", "javaroot");
 			
 			String query = "SELECT * FROM joke";
 			

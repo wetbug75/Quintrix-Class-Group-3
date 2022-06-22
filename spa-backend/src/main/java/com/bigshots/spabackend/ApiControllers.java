@@ -57,6 +57,9 @@ public class ApiControllers {
 	@Autowired
 	private JokeKeyWordService jokeKeyWordService;
 	
+	@Autowired
+	private JokeVoteService jokeVoteService;
+	
 	@GetMapping("/test")
 	public String hi() {
 		return "All fixed";
@@ -237,6 +240,26 @@ public class ApiControllers {
 		return got.jokeId.size();
 		*/
 		return new ResponseEntity<Integer>(jokeKeyWordService.getJokeByKeywordCount(keywordHashCode), HttpStatus.OK);
+	}
+	
+	//TODO we shouldn't need to include {user_id} since we should have access to which user is currently logged in
+	@GetMapping("/voteStatus/{user_id}/{joke_id}")
+	public ResponseEntity<VoteStatus> getVoteStatus(@PathVariable long user_id, @PathVariable long joke_id) {
+		Users user = (userService.findUserById(user_id)).orElse(null);
+		Joke joke = (jokeService.getOneJoke(user_id)).orElse(null);
+		if(user == null || joke == null)
+			return new ResponseEntity<>(VoteStatus.NONE, HttpStatus.NO_CONTENT);
+		JokeVoteId theId = new JokeVoteId(user, joke);
+		if(!jokeVoteService.jokeVoteExists(theId))
+			return new ResponseEntity<>(VoteStatus.NONE, HttpStatus.OK);
+		return new ResponseEntity<>(jokeVoteService.getJokeVoteStatus(theId), HttpStatus.OK);
+	}
+	
+	//adds new entries and modifies old ones
+	@PostMapping("changeVoteStatus")
+	public ResponseEntity<?> changeVoteStatus(@RequestBody JokeVote jokeVote) {
+		jokeVoteService.modifyJokeVote(jokeVote);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	
