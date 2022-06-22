@@ -55,8 +55,8 @@ public class JokeService {
 		for(int i = 0; i < jokesDisplayed; i++)
 		{
 			Optional<Joke> joke = jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1));
-			if(joke.isPresent() && joke.get().getAuthor_id() != null) { //makes sure author id exists
-				Optional<Users> user = userRepo.findById((long)joke.get().getAuthor_id());
+			if(joke.isPresent() && (Long)joke.get().getAuthor().getId() != null) { //makes sure author id exists
+				Optional<Users> user = userRepo.findById((long)joke.get().getAuthor().getId());
 				joke.get().setAuthor_name(user.get().getUsername());
 			}
 			jokeList.add(joke);
