@@ -40,7 +40,9 @@ public class UserService {
 			userRepo.save(user);
 			return 1;
 		}
-		
+		if(findByEmail.isPresent() && findByUsername.isPresent()) {
+			return 4;
+		}
 		if(findByEmail.isPresent()) {
 			return 2;
 		}

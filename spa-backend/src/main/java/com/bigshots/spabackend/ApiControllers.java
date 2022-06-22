@@ -147,6 +147,8 @@ public class ApiControllers {
 		}else if (userCreate == 3) {
 			//username already exists in db
 			return new ResponseEntity<HttpStatus>(HttpStatus.CONFLICT); //409
+		}else if (userCreate == 4) {
+			return new ResponseEntity<HttpStatus>(HttpStatus.FAILED_DEPENDENCY); // 424
 		}
 		
 		return new ResponseEntity<HttpStatus>(HttpStatus.EXPECTATION_FAILED); //417
