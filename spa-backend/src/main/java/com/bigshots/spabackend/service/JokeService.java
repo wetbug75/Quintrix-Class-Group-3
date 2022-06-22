@@ -16,20 +16,18 @@ import com.bigshots.spabackend.model.Users;
 import com.bigshots.spabackend.model.Users;
 
 import com.bigshots.spabackend.repo.JokeRepo;
+import com.bigshots.spabackend.repo.UserRepo;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 @Service
 public class JokeService {
-	
+	@Autowired
 	private JokeRepo jokeRepo;
-	
+	@Autowired
+	private UserRepo userRepo;
 	//private JokeKeywordRepo jkRepo;
 	
-	@Autowired
-	public JokeService(JokeRepo jokeRepo) {
-		this.jokeRepo = jokeRepo;
-		
-	}
+
 	
 	public List<Joke> getAllJokes(){
 		return jokeRepo.findAll();
@@ -55,7 +53,12 @@ public class JokeService {
 		List<Optional<Joke>> jokeList = new ArrayList<Optional<Joke>>();
 		for(int i = 0; i < jokesDisplayed; i++)
 		{
-			jokeList.add(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)));
+			Optional<Joke> joke = jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1));
+			if(joke.isPresent() && joke.get().getAuthor_id() != null) { //makes sure author id exists
+				Optional<Users> user = userRepo.findById((long)joke.get().getAuthor_id());
+				joke.get().setAuthor_name(user.get().getUsername());
+			}
+			jokeList.add(joke);
 			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)).toString());
 		}
 		return jokeList; 
@@ -83,5 +86,9 @@ public class JokeService {
 
 	public int GetUpvote(Long jokeID){
 		return jokeRepo.findById(jokeID).get().getUpvotes();
+	}
+
+	public Joke findById(Integer integer) {
+		return jokeRepo.findById(integer);
 	}
 }

@@ -30,6 +30,8 @@ public class Joke {
 	@Column
 	private String created_at;//time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
+	@Transient
+	private String author_name;
 	public Joke() {
 		
 	}
@@ -84,6 +86,18 @@ public class Joke {
 	}
 	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
+	}
+	/**
+	 * @return the author_name
+	 */
+	public String getAuthor_name() {
+		return author_name;
+	}
+	/**
+	 * @param author_name the author_name to set
+	 */
+	public void setAuthor_name(String author_name) {
+		this.author_name = author_name;
 	}
 	
 	

@@ -5,6 +5,7 @@
 *{
 	margin: 0;
 	font-size:16px;
+	box-sizing: border-box;
 }
 
 html{
@@ -15,8 +16,14 @@ html{
 body {
 	background-image:linear-gradient(to right, #fff677, #FFFDE1, #FFFDE1, #FFFDE1, #fff677);
   margin-bottom: 200px;
-}
+	-ms-overflow-style: none; /* for Internet Explorer, Edge */
+	scrollbar-width: none; /* for Firefox */
+	overflow-y: scroll; 
 
+}
+body::-webkit-scrollbar {
+	display: none; /* for Chrome, Safari, and Opera */
+  }
 button{
 	border-radius: 10px;
 	width: 15rem;

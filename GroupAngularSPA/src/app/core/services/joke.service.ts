@@ -6,6 +6,7 @@ import { JokeItemComponent } from 'src/app/views/view-randomizer/components/joke
 import { RatingsComponent } from 'src/app/shared/components/ratings/ratings.component';
 import { JokeGetService } from './JokeGET/joke-get.service';
 import { JokePostService } from './JokePOST/joke-post.service';
+import { Observable } from 'rxjs';
 
 
 const httpOptions = {
@@ -27,7 +28,8 @@ export class JokeService {
     private jokeGetSer: JokeGetService,
     private jokePostSer: JokePostService,
     private jokeItem: JokeItemComponent,
-    private jokeRating: RatingsComponent){
+    private jokeRating: RatingsComponent,
+    private http: HttpClient){
   }
 
   UpdateUpvote(joke: Joke, upvote: number, jokeid: number){
@@ -68,9 +70,9 @@ export class JokeService {
     return this.jokeItem.GetJokeID();
   }
 
-  // getJokeByKeyword(word: String): Observable<any>{
-  //   return this.http.get<any>(`${this.springUrl}/jokesWith/${word}`)
-  // }
+   //getJokeByKeyword(word: String): Observable<any>{
+     //return this.http.get<any>(`${this.springUrl}/jokesWith/${word}`)
+   //}
 
 }
 

@@ -25,6 +25,7 @@ import { JokesPaginateComponent } from './views/view-find-joke/components/jokes-
 import { RegisterFormComponent } from './views/view-login/components/register-form/register-form.component';
 import { RegisterBtnComponent } from './views/view-login/components/register-btn/register-btn.component';
 
+import { BoldKeyWordPipe } from './pipes/BoldKeyWordPipe.pipe';
 import { HttpInterceptorService } from './core/services/Interceptor/HttpInterceptorService';
 import { FooterComponent } from './shared/components/footer/footer.component';
 /*Will come back!*/
@@ -56,6 +57,7 @@ const appRoutes: Routes = [
     RegisterFormComponent,
     RegisterBtnComponent,
     FooterComponent,
+    BoldKeyWordPipe
   ],
   imports: [
     BrowserModule,
@@ -68,8 +70,10 @@ const appRoutes: Routes = [
 
   ],
 
-  providers: [JokeItemComponent,RatingsComponent,
-  {
+
+  providers: [JokeItemComponent,RatingsComponent, BoldKeyWordPipe,
+  { 
+
     provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true

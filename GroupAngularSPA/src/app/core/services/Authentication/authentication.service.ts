@@ -11,18 +11,19 @@ export class AuthenticationService {
 
   // BASE_PATH: 'http://localhost:8080'
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
-  
+  AUTH_TOKEN : string = 'authenticationToken'
+
   public username: String;
   public password: String;
   public isLoggedIn :EventEmitter<boolean> = new EventEmitter();
 
   constructor(private http: HttpClient) {
-    this.isLoggedIn.emit(false);
+    this.isUserLoggedIn();
   }
 
   authenticationService(user: Users) {
     return this.http.get(`http://localhost:8080/basicauth`,
-      { headers: { authorization: this.createBasicAuthToken(user) } }).pipe(map((res) => {
+      { headers: { Authorization: this.createBasicAuthToken(user) } }).pipe(map((res) => {
         this.username = user.username;
         this.password = user.password;
         this.registerSuccessfulLogin(user);
@@ -31,34 +32,39 @@ export class AuthenticationService {
   }
 
   createBasicAuthToken(user:Users) {
-      console.log("Creating token");
     return 'Basic ' + window.btoa(user.username + ":" + user.password)
   }
+  createBasicAuthTokenNoHeader(user:Users) {
+  return window.btoa(user.username + ":" + user.password)
+}
 
   registerSuccessfulLogin(user:Users) {
-      console.log("session item set , save user name");
-    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, user.username)
+    localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, user.username)
+    localStorage.setItem(this.AUTH_TOKEN, this.createBasicAuthTokenNoHeader(user));
     this.isLoggedIn.emit(true);
   }
 
   logout() {
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    localStorage.removeItem(this.AUTH_TOKEN);
     this.username = null;
     this.password = null;
     this.isLoggedIn.emit(false);
   }
 
   isUserLoggedIn() {
-      console.log("Checking is is logged in");
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
-    if (user === null) return false
-    return true
+    let user = localStorage.getItem(this.AUTH_TOKEN)
+    if (user === null){
+      this.isLoggedIn.emit(false);
+      return false;
+    }else{
+      this.isLoggedIn.emit(true);
+      return true;
+    }
+    
   }
 
-  getLoggedInUserName() {
-      console.log("get loggedin user name")
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
-    if (user === null) return ''
-    return user
+  getAuthToken(){
+    return localStorage.getItem(this.AUTH_TOKEN);
   }
 }

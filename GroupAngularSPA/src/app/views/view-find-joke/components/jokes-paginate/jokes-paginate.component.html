@@ -7,9 +7,13 @@
             <th class="like">LIKES</th>
             <th class="dislike">DISLIKES</th>
         </thead>
-        <tr *ngFor="let joke of JOKES | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalJokesDB }">
-           <td><span class="bold">Question:  </span>{{joke.question}} <br>
-               <span class="bold">Answer:</span> {{joke.answer}}
+        <tr class="table-row" *ngFor="let joke of JOKES | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalJokesDB }">
+           <td>
+             <!--<span class="bold">Question:  </span>{{joke.question}} <br> -->
+             <span class="bold">Question:  </span><span [innerHTML]= "joke.question | boldKeyWord : this.keyword"></span> <br>
+            <!--   <span class="bold">Answer:</span> {{joke.answer}} <br> -->
+            <span class="bold">Answer:  </span><span [innerHTML]= "joke.answer | boldKeyWord : this.keyword"></span> <br>
+            <span class="bold">Author: </span>{{joke.author_name}}<br>
            <td class="like bold">{{joke.upvotes}}</td>
            <td class="dislike bold">{{joke.downvotes}}</td>
         </tr>
