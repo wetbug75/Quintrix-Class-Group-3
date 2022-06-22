@@ -69,7 +69,7 @@ public class JokeService {
 	
 	public void addJoke(Joke joke, String authorName) {
 		
-		joke.setAuthor(userRepo.findByUsername(authorName));
+		joke.setAuthor(userRepo.findByUsername(authorName).get());
 		joke.setDownvotes(0);
 		joke.setUpvotes(0);
 		joke.setCreated_at(LocalDateTime.now()
