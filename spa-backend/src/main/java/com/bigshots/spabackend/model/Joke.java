@@ -27,9 +27,13 @@ public class Joke {
 	@Column
 	private String created_at;//time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
+
 	@ManyToOne
 	private Users author;
-	
+
+	@Transient
+	private String author_name;
+
 	public Joke() {
 	}
 	public Joke(String question, String answer) {
@@ -88,5 +92,17 @@ public class Joke {
 	}
 	public void setDownvotes(Integer downvotes) {
 		this.downvotes = downvotes;
+	}
+	/**
+	 * @return the author_name
+	 */
+	public String getAuthor_name() {
+		return author_name;
+	}
+	/**
+	 * @param author_name the author_name to set
+	 */
+	public void setAuthor_name(String author_name) {
+		this.author_name = author_name;
 	}
 }

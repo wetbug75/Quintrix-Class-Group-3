@@ -1,5 +1,5 @@
 .borderless td, .borderless th {
-    border: none;
+    border: 1px solid black;
 }
 
 
@@ -27,3 +27,8 @@ th{
 .bold{
     font-weight: 1000;
 }
+
+.table-row:hover{
+    cursor:pointer;
+}
+

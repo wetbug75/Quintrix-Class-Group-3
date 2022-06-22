@@ -9,7 +9,13 @@ import { JokeService } from 'src/app/core/services/joke.service';
 export class FindJokeFormComponent implements OnInit {
   @Output() keyWord = new EventEmitter<string>();
   inputKeyword: string;
-  constructor(private jokeService: JokeService) { }
+  constructor(private jokeService: JokeService) { 
+    document.addEventListener('keydown', (e)=>{
+      if(e.key=='Enter'){
+        this.onSubmit();
+      }
+     });
+  }
 
   ngOnInit(): void {
     
@@ -18,10 +24,10 @@ export class FindJokeFormComponent implements OnInit {
     this.keyWord.emit(this.inputKeyword);
 
     
-    // this.jokeService.getJokeByKeyword(this.inputKeyword).subscribe(
-    //   Response => {
-    //     console.log(Response);
-    //   });
+     //this.jokeService.getJokeByKeyword(this.inputKeyword).subscribe(
+       //Response => {
+         //console.log(Response);
+       //});
 
 
 

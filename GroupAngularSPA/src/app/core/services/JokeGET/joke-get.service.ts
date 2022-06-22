@@ -25,6 +25,7 @@ export class JokeGetService {
     //json server
     //return this.http.get<pageJoke>(`${this.apiURL}?_page=${page}&_limit=${limit}`)
   }
+
   getJokeSize(): Observable<number>{
     return this.http.get<number>(`${this.springUrl}/jokeCount`, httpOptions);
   }
@@ -39,4 +40,12 @@ export class JokeGetService {
   // getJokeSize(): Observable<number>{
   //   return this.http.get<number>(`${this.springUrl}/jokeCount`);
   // }
+
+   getJokeByKeyword(word: String, page: number, pageSize: number): Observable<any>{
+     return this.http.get<any>(`${this.springUrl}/jokesWith/${word}/${page}/${pageSize}`)
+   }
+
+   getKeywordSize(word:String): Observable<any>{
+     return this.http.get<any>(`${this.springUrl}/jokesWithKeywordCount/${word}` )
+   }
 }

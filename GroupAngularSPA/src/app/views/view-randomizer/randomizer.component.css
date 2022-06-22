@@ -1,40 +1,29 @@
 /** Button class styles **/
 .upNotClicked{
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
-  padding-top: 15px;
+  padding-top: 12%;
   background-image: linear-gradient(-20deg, #015c0c, #77e868);
 }
 
 .upClicked{
 border-radius: 50%;
-width: 90px;
-height: 90px;
-padding-top: 15px;
+padding-top: 12%;
 background-image: linear-gradient(-20deg, #00e21a, #77e868);
 }
 
-
 .downNotClicked{
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
-  padding-top: 20px;
+  padding-top: 15%;
   background-image: linear-gradient(-20deg, #5c0101, #e86868);
 }
 
 .downClicked{
 border-radius: 50%;
-width: 90px;
-height: 90px;
-padding-top: 20px;
+padding-top: 15%;
 background-image: linear-gradient(-20deg, #c50000, #e86868);
 }
 
 img{
-  width: 50px;
-  height: 50px;
   -webkit-filter:invert();
 }
 
@@ -49,4 +38,68 @@ table{
 
 button{
 z-index: 1;
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  img{
+    width: 15px;
+    height: 15px;
+  }
+  button{
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px)  {
+  img{
+    width: 25px;
+    height: 25px;
+  }
+
+  button{
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+  img{
+    width: 40px;
+    height: 40px;
+  }
+
+  button{
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+  img{
+    width: 45px;
+    height: 45px;
+  }
+
+  button{
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  img{
+    width: 50px;
+    height: 50px;
+  }
+
+  button{
+    width: 90px;
+    height: 90px;
+  }
 }
