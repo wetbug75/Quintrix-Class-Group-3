@@ -99,9 +99,9 @@ public class SpaBackendApplication {
 		client = new CosmosClientBuilder()
 
 		
+
 				.endpoint("")
 				.key("")
-
 				.buildClient();
 		
 		//CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
@@ -130,9 +130,10 @@ public class SpaBackendApplication {
 			//figure out how to separate the question mark from the question
 			while(rs.next())  {
 				String parse = rs.getString("answer").replaceAll("\\p{Punct}", "").toLowerCase();
-				//String parse = rs.getString("question").replaceAll("\\p{Punct}", "").toLowerCase();
+				String parsed = rs.getString("question").replaceAll("\\p{Punct}", "").toLowerCase();
 				Integer jokeIndex = rs.getInt("id");
 				String[] arr = parse.split(" ");
+				String[] arrs = parsed.split(" ");
 				for(String a : arr) { 
 					
 					
@@ -175,15 +176,60 @@ public class SpaBackendApplication {
 						 }
 				
 					}
+					
 
 				}
+				for(String b : arrs) { 
+					
+					
+					JokeKeyword jk = new JokeKeyword(Integer.toString(b.hashCode()), b);
+					jk.jokeId.add(jokeIndex);
+					
+					
+					CosmosItemResponse<JokeKeyword> item = null;
+			
+					try {
+			
+						 item = container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class);
+						
+						
+					}  catch (CosmosException ex) {}
+					
+					if(item == null) {	
+						//System.out.println(jk.jokeId);
+						container.createItem(jk, new CosmosItemRequestOptions());
+						//jk.jokeId.add(jokeIndex);
+
+						
+						
+
+						
+					} if(item != null) {
+						
+						int count = 1;
+						
+						 if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
+						
+							CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
+			
+							patchOps.add("/jokeId/" + count, jokeIndex);
+						
+							//step 3 
+							container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
+							
+							count++;
+						 }
+				
+					}
 			}
+		}
 			
 			st.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 	}
+	
 		
 	
 	//function that will insert all the data from JSON files to Database.
