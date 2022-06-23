@@ -101,6 +101,11 @@ public class JokeService {
 	}
 
 	public Joke findById(Integer integer) {
-		return jokeRepo.findById(integer);
+		return jokeRepo.findById((long)integer).orElse(null);
+	}
+	
+	public Optional<Joke> findById(Long thelong) {
+		System.out.println(jokeRepo.findById(thelong).orElse(null).getAnswer());
+		return jokeRepo.findById(thelong);
 	}
 }

@@ -171,13 +171,20 @@ h3{
 
 /* Below should ideally go elswhere*/
 .css-dark nav {
-	box-shadow: 0 1px 20px #0B0C10 !important;;
+	box-shadow: 0 1px 20px #0B0C10 !important;
 	background-image: linear-gradient(0deg, #0B0C10, #0B0C10) !important;
 }
-.css-dark .active {
+.css-dark nav .meat {
+	background-color: #C5C6C7 !important;
+}
+.css-dark footer {
+	background-image: linear-gradient(0deg, #0B0C10, #0B0C10) !important;
+	box-shadow: 0 1px 10px #0B0C10 !important;
+}
+.css-dark nav .active {
 	background-image: linear-gradient(0deg, #45A29E, #45A29E) !important;
 }
-.css-dark nav a, .css-dark h2 {
+.css-dark nav a, .css-dark h2, .css-dark footer a {
 	color: #C5C6C7 !important;
 }
 .css-dark #jokeBox {
@@ -186,15 +193,21 @@ h3{
 .css-dark #jokeBox div {
 	color: #66FCF1 !important;
 }
+.css-dark .ngx-pagination .current {
+	background-image: linear-gradient(0deg, #45A29E, #45A29E);
+}
 
 .css-artsy nav {
 	box-shadow: 0 1px 20px #4056A1;
 	background-image: linear-gradient(0deg, #4056A1, #4056A1) !important;
 }
-.css-artsy .active {
+.css-artsy footer {
+	background-image: linear-gradient(0deg, #4056A1, #4056A1) !important;
+}
+.css-artsy nav .active {
 	background-image: linear-gradient(0deg, #C5CBE3, #C5CBE3) !important;
 }
-.css-artsy nav a, .css-artsy h2 {
+.css-artsy nav a, .css-artsy h2, .css-artsy footer a {
 	color: black !important;
 }
 .css-artsy #jokeBox {
@@ -202,17 +215,26 @@ h3{
 }
 .css-artsy #jokeBox div {
 	color: #F13C20 !important;
-	text-shadow: 2px 2px #3b1009 !important;;
+	text-shadow: 2px 2px #3b1009 !important;
+}
+.css-artsy .ngx-pagination .current {
+	background-image: linear-gradient(0deg, #C5CBE3, #C5CBE3);
 }
 
 .css-blue-purple nav {
-	box-shadow: 0 1px 20px #5680E9 !important;;
+	box-shadow: 0 1px 20px #5680E9 !important;
 	background-image: linear-gradient(0deg, #5680E9, #5680E9) !important;
 }
-.css-blue-purple .active {
+.css-blue-purple nav .meat {
+	background-color: white !important;
+}
+.css-blue-purple footer {
+	background-image: linear-gradient(0deg, #5680E9, #5680E9) !important;
+}
+.css-blue-purple nav .active {
 	background-image: linear-gradient(0deg, #5AB9EA, #5AB9EA) !important;
 }
-.css-blue-purple nav a, .css-blue-purple h2 {
+.css-blue-purple nav a, .css-blue-purple h2, .css-blue-purple footer a {
 	color: white !important;
 }
 .css-blue-purple #jokeBox {
@@ -220,5 +242,8 @@ h3{
 }
 .css-blue-purple #jokeBox div {
 	color: #C1C8E4 !important;
-	text-shadow: 2px 2px #000000 !important;;
+	text-shadow: 2px 2px #000000 !important;
+}
+.css-blue-purple .ngx-pagination .current {
+	background-image: linear-gradient(0deg, #5AB9EA, #5AB9EA);
 }
