@@ -35,7 +35,9 @@ export class JokesPaginateComponent implements OnInit {
      console.log(this.keyword); //keyword will be required to differentiate between getting with keyword or getting all jokes. 
      this.currentPage = updatedPageNumber;
      //find and retrieve all jokes. 
+
      if(this.keyword == "") {
+
       this.jokeGetService.getJokesPage(this.currentPage,this.pageSize).subscribe(result=>{ 
           console.log(result);
           this.JOKES =result.filter(joke=> joke !== null);
@@ -57,6 +59,8 @@ export class JokesPaginateComponent implements OnInit {
    onSubmitSearch($event){
     this.keyword = $event; //required - this is from the search bar. 
     this.currentPage = 1; //required - sets to first page of results when user clicks on search
+
+
 
      //search by key word
      if(this.keyword==""  || this.keyword === undefined){

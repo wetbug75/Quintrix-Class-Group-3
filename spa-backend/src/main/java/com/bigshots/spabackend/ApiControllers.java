@@ -168,7 +168,7 @@ public class ApiControllers {
 		Flux<JokeKeyword> listOfKeywords = jokeKeyWordService.findKeywords();
 		return new ResponseEntity<>(listOfKeywords, HttpStatus.OK);
 	}
-	
+	//make it case insensitive
 	@GetMapping("/jokesWith/{keyword}/{page}/{pageSize}")
 	public ResponseEntity<Object> getJokeByKeyword(@PathVariable String keyword, @PathVariable int page, 
 			@PathVariable int pageSize) {
