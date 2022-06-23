@@ -10,7 +10,7 @@ export class BoldKeyWordPipe implements PipeTransform{
         if(regex == ""){
             return value;
         }else{
-            this.begin = regex+ " ";
+            this.begin = regex;
             return value.replace(this.begin, '<b>' + this.begin + '</b>')
             
         }

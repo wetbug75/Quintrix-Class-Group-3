@@ -28,7 +28,18 @@ th{
     font-weight: 1000;
 }
 
-.table-row:hover{
-    cursor:pointer;
+
+
+
+.loading{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.sorry{
+    text-align: center;
+    margin-top: 5rem;
+    letter-spacing: 1px;
+}
