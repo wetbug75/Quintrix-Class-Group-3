@@ -55,8 +55,8 @@ public class JokeService {
 		for(int i = 0; i < jokesDisplayed; i++)
 		{
 			Optional<Joke> joke = jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1));
-			if(joke.isPresent() && joke.get().getAuthor_id() != null) { //makes sure author id exists
-				Optional<Users> user = userRepo.findById((long)joke.get().getAuthor_id());
+			if(joke.isPresent() && (Long)joke.get().getAuthor().getId() != null) { //makes sure author id exists
+				Optional<Users> user = userRepo.findById((long)joke.get().getAuthor().getId());
 				joke.get().setAuthor_name(user.get().getUsername());
 			}
 			jokeList.add(joke);
@@ -90,6 +90,11 @@ public class JokeService {
 	}
 
 	public Joke findById(Integer integer) {
-		return jokeRepo.findById(integer);
+		return jokeRepo.findById((long)integer).orElse(null);
+	}
+	
+	public Optional<Joke> findById(Long thelong) {
+		System.out.println(jokeRepo.findById(thelong).orElse(null).getAnswer());
+		return jokeRepo.findById(thelong);
 	}
 }

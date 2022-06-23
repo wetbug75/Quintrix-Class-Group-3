@@ -15,7 +15,9 @@ public class JokeVote {
 	@Column
 	private VoteStatus voteStatus;
 
-	public JokeVote() { }
+	public JokeVote() {
+		System.out.println("JokeVote empty constructor");
+	}
 	public JokeVote(JokeVoteId jokeVoteId, VoteStatus voteStatus) {
 		this(jokeVoteId.getUser(), jokeVoteId.getJoke(), voteStatus);
 	}

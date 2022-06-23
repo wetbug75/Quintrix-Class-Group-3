@@ -162,7 +162,7 @@ public class ApiControllers {
 		System.out.println(gimmeMyname);
 		jokeService.addJoke(joke);
 		
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
 	/*@PostMapping(value = "/users/save-new")
@@ -242,7 +242,7 @@ public class ApiControllers {
 		return new ResponseEntity<Integer>(jokeKeyWordService.getJokeByKeywordCount(keywordHashCode), HttpStatus.OK);
 	}
 	
-	//TODO we shouldn't need to include {user_id} since we should have access to which user is currently logged in
+	//TODO we shouldn't need to include {user_id} since we should have access to which user is currently logged in, look at /newJoke
 	@GetMapping("/voteStatus/{user_id}/{joke_id}")
 	public ResponseEntity<VoteStatus> getVoteStatus(@PathVariable long user_id, @PathVariable long joke_id) {
 		Users user = (userService.findUserById(user_id)).orElse(null);
@@ -256,11 +256,21 @@ public class ApiControllers {
 	}
 	
 	//adds new entries and modifies old ones
-	@PostMapping("changeVoteStatus")
+	@PostMapping("/changeVoteStatus")
 	public ResponseEntity<?> changeVoteStatus(@RequestBody JokeVote jokeVote) {
 		jokeVoteService.modifyJokeVote(jokeVote);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
+	@PostMapping("/vstest")
+	public ResponseEntity<?> changeVoteStatus(@RequestBody String userId) {
+		Users theuser = userService.findUserById((long)2).orElse(null);
+		Joke thejoke = jokeService.findById((long)5).orElse(null);
+		JokeVoteId theId = new JokeVoteId(theuser, thejoke);
+		System.out.println("pre-creation");
+		jokeVoteService.modifyJokeVote(theId, VoteStatus.UPVOTE);
+		System.out.println("post-creation");
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
 	
 }
