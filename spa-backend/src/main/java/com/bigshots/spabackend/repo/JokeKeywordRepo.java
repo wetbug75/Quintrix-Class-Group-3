@@ -12,4 +12,5 @@ import com.bigshots.spabackend.model.JokeKeyword;
 @Repository
 public interface JokeKeywordRepo extends ReactiveCosmosRepository<JokeKeyword, String>{
 	
+	
 }

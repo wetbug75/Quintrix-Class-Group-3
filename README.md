@@ -3,9 +3,15 @@
 
 The application's purpose is to let users view, create, and search for programming jokes.
 
-This application was created and worked on by Andrew, Devin, Leon, and Simon
-
+This application was created and worked on by Andrew, Devin, Leon, and Simon.<br><br>
 The purpose for the project was to allow us to learn and grow our skills in team work. 
+
+## Contributions
+<strong>Andrew</strong> worked on styling (toggle between styles), database schema, user votes backend, pagination backend, and generate jokes backend<br><br>
+<strong>Devin</strong> worked on data models, keyword lookup table, cosmosdb setup and preprocessing "tags", create jokes backend.<br><br>
+<strong>Leon</strong> worked on styling, generate joke front end, upvoting and downvoting front end.<br><br>
+<strong>Simon</strong> worked on project structure, login, registration, pagination frontend and keyword search front end. <br>
+
 
 ## Technologies
 

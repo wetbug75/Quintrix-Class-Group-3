@@ -1,27 +1,41 @@
 <app-find-joke-form (keyWord)="onSubmitSearch($event)"></app-find-joke-form>
 
 <div class="container page-joke-container">
-    <table class="table table-borderless ">
+    <div class="loading" *ngIf="loadingService.isLoading$ | async">
+        <div class="lds-heart"><div></div></div>  
+    </div>
+    
+    <div class="sorry" *ngIf="!(loadingService.isLoading$ | async) && totalJokesDB ==0" >
+         <p class="cartoonletter">Sorry, No Jokes Found</p>
+    </div>
+     
+    <table *ngIf="!(loadingService.isLoading$ | async) && totalJokesDB !=0" class="table table-borderless table-hover"> 
         <thead class="wow">
             <th>JOKE</th>
             <th class="like">LIKES</th>
             <th class="dislike">DISLIKES</th>
         </thead>
-        <tr class="table-row" *ngFor="let joke of JOKES | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalJokesDB }">
-           <td>
-             <!--<span class="bold">Question:  </span>{{joke.question}} <br> -->
-             <span class="bold">Question:  </span><span [innerHTML]= "joke.question | boldKeyWord : this.keyword"></span> <br>
-            <!--   <span class="bold">Answer:</span> {{joke.answer}} <br> -->
-            <span class="bold">Answer:  </span><span [innerHTML]= "joke.answer | boldKeyWord : this.keyword"></span> <br>
-            <span class="bold">Author: </span>{{joke.author_name}}<br>
-           <td class="like bold">{{joke.upvotes}}</td>
-           <td class="dislike bold">{{joke.downvotes}}</td>
-        </tr>
+        <tbody>
+          <tr class="table-row"*ngFor="let joke of JOKES | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalJokesDB }">
+            <td>
+            
+              <!-- <span class="bold">Question:  </span><span [innerHTML]= "joke.question | boldKeyWord : this.keyword"></span> <br> -->
+              <span class="bold">Question:  </span>{{joke.question}} <br>
+             
+              <!-- <span class="bold">Answer:  </span><span [innerHTML]= "joke.answer | boldKeyWord : this.keyword"></span> <br> -->
+              <span class="bold">Answer:  </span> {{joke.answer}} <br>
+              <span class="bold">Author: </span>{{joke.author_name}}<br>
+            <td class="like bold">{{joke.upvotes}}</td>
+            <td class="dislike bold">{{joke.downvotes}}</td>
+          </tr>
+        </tbody>
+       
     </table>  
-    <div class="page-control">
+
+    <div  *ngIf="!(loadingService.isLoading$ | async) && totalJokesDB !=0" class="page-control">
       <pagination-controls 
-         (pageChange)="pageChanged($event)"
-         >
+        (pageChange)="pageChanged($event)"
+        >
       </pagination-controls>
     </div>
 </div>

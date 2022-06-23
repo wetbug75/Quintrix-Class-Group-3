@@ -1,6 +1,8 @@
 package com.bigshots.spabackend.service;
 
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -9,12 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bigshots.spabackend.model.Joke;
+import com.bigshots.spabackend.model.JokeKeyword;
 //User is the name of the model class in Devin local code not sure if the file was changed in main
 import com.bigshots.spabackend.model.Users;
 //import com.bigshots.spabackend.repo.JokeKeywordRepo;
 
 import com.bigshots.spabackend.model.Users;
-
+import com.bigshots.spabackend.repo.JokeKeywordRepo;
 import com.bigshots.spabackend.repo.JokeRepo;
 import com.bigshots.spabackend.repo.UserRepo;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -25,7 +28,8 @@ public class JokeService {
 	private JokeRepo jokeRepo;
 	@Autowired
 	private UserRepo userRepo;
-	//private JokeKeywordRepo jkRepo;
+	@Autowired
+	private JokeKeywordRepo jkRepo;
 	
 
 	
@@ -55,18 +59,25 @@ public class JokeService {
 		for(int i = 0; i < jokesDisplayed; i++)
 		{
 			Optional<Joke> joke = jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1));
-			if(joke.isPresent() && (Long)joke.get().getAuthor().getId() != null) { //makes sure author id exists
-				Optional<Users> user = userRepo.findById((long)joke.get().getAuthor().getId());
-				joke.get().setAuthor_name(user.get().getUsername());
+			if(joke.isPresent()) {
+				joke.get().setAuthor_name(joke.get().getAuthor().getUsername());
 			}
+			
 			jokeList.add(joke);
 			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)).toString());
 		}
 		return jokeList; 
 	}
 	
-	public void addJoke(Joke joke) {
-		jokeRepo.save(joke);
+	public void addJoke(Joke joke, String authorName) {
+		//set joke for mysql
+		joke.setAuthor(userRepo.findByUsername(authorName).get());
+		joke.setDownvotes(0);
+		joke.setUpvotes(0);
+		joke.setCreated_at(LocalDateTime.now()
+			       .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+		Integer jokeId = Integer.valueOf(jokeRepo.save(joke).getId().intValue()); 
+		//add joke to nosql
 	}
 
 	public void UpdateUpvote(Joke updateJoke, Long jokeID){

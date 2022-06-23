@@ -84,7 +84,7 @@ public class SpaBackendApplication {
 		
 		SpringApplication.run(SpaBackendApplication.class, args);
 
-		/*
+		
 		//this code will add the mysql data to azure cosmos db as keywords
 		
 		//this object is going to initialize the connection to azure portal
@@ -100,10 +100,11 @@ public class SpaBackendApplication {
 		//credentials to connect to the specific database. link is database, key is the primary key
 		//not sure if it will let you log into mine so if you create your account plug in the values 
 		client = new CosmosClientBuilder()
-		//the endpoint will be the datasource link youll find in the overview tab of azure cosmos db
-		 //key youll find on the keys tab and it will be the input from the primary key section 
-				.endpoint("https://wetbug75.documents.azure.com:443/")
-				.key("CH4TODOJdbeC3xuFIUEMgKOIaDyz6yYK2fwhFc6ifk477TPI15vvYvYoTGV6unVynV6s604akoJVHGLcvoAVSw==")
+
+		
+
+				.endpoint("")
+				.key("")
 				.buildClient();
 		
 		//CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
@@ -129,12 +130,14 @@ public class SpaBackendApplication {
 			Statement st = conn.createStatement();
 			
 			ResultSet rs = st.executeQuery(query);
-			
+			//figure out how to separate the question mark from the question
 			while(rs.next())  {
-				String parse = rs.getString("question");
+				String parse = rs.getString("answer").replaceAll("\\p{Punct}", "").toLowerCase();
+				String parsed = rs.getString("question").replaceAll("\\p{Punct}", "").toLowerCase();
 				Integer jokeIndex = rs.getInt("id");
 				String[] arr = parse.split(" ");
-				for(String a : arr) {
+				String[] arrs = parsed.split(" ");
+				for(String a : arr) { 
 					
 					
 					JokeKeyword jk = new JokeKeyword(Integer.toString(a.hashCode()), a);
@@ -163,27 +166,73 @@ public class SpaBackendApplication {
 						
 						int count = 1;
 						
-						 
+						 if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
 						
-						CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
-		
-						patchOps.add("/jokeId/" + count, jokeIndex);
-					
-						//step 3 
-						container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
+							CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
+			
+							patchOps.add("/jokeId/" + count, jokeIndex);
 						
-						count++;
+							//step 3 
+							container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
+							
+							count++;
+						 }
 				
 					}
+					
 
 				}
+				for(String b : arrs) { 
+					
+					
+					JokeKeyword jk = new JokeKeyword(Integer.toString(b.hashCode()), b);
+					jk.jokeId.add(jokeIndex);
+					
+					
+					CosmosItemResponse<JokeKeyword> item = null;
+			
+					try {
+			
+						 item = container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class);
+						
+						
+					}  catch (CosmosException ex) {}
+					
+					if(item == null) {	
+						//System.out.println(jk.jokeId);
+						container.createItem(jk, new CosmosItemRequestOptions());
+						//jk.jokeId.add(jokeIndex);
+
+						
+						
+
+						
+					} if(item != null) {
+						
+						int count = 1;
+						
+						 if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
+						
+							CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
+			
+							patchOps.add("/jokeId/" + count, jokeIndex);
+						
+							//step 3 
+							container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
+							
+							count++;
+						 }
+				
+					}
 			}
+		}
 			
 			st.close();
 			} catch (Exception e) {
 				e.printStackTrace();
-			}*/
+			}
 	}
+	
 		
 	
 	//function that will insert all the data from JSON files to Database.
