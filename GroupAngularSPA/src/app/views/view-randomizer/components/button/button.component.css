@@ -1,0 +1,44 @@
+button{
+  max-width: 40%;
+  max-height: 20%;
+	border-radius: 10px;
+	border: 2px solid black;
+  font-weight: bold;
+	background-color: #9ADCFF;
+	background-image: linear-gradient(180deg, rgb(190, 245, 255), #4dc1ff);
+	text-align:center;
+  font-size: 100%;
+	justify-content: center;
+	display:flex;
+	box-shadow: 3px 3px 5px;
+}
+
+
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+
+}
+
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  button{
+
+    font-size: 20px;
+  }
+}

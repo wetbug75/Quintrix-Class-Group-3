@@ -57,6 +57,9 @@ public class ApiControllers {
 	@Autowired
 	private JokeKeyWordService jokeKeyWordService;
 	
+	@Autowired
+	private JokeVoteService jokeVoteService;
+	
 	@GetMapping("/test")
 	public String hi() {
 		return "All fixed";
@@ -120,65 +123,40 @@ public class ApiControllers {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	/**
-	 * return User of specified id
-	 * @param user_id
-	 * @return null if no such User id
-	 */
-	
-	/*
-	@GetMapping(value = "/users/{user_id}")
-	public ResponseEntity<Optional<User>> getUser(@PathVariable long user_id) {
-		return new ResponseEntity<>(userRepo.findById(user_id), HttpStatus.OK);
-	}
-	
-	@GetMapping(value = "/")
-	public String getPage() {
-		return "Welcome the the backend, try localhost:4200 if you'd like a UI";
-	}
-	
-	*/
-
-	/**
-	 * 
-	 * @param question
-	 * @param answer
-	 * @return
-	 * @throws IOException
-	 * 
-	 * post method adds a new joke to the repository with optional question and answer strings 
-	 * just in case the user wants to submit one line jokes 
-	 */
-	
-
 	@PostMapping("/newJoke" )
 	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String gimmeMyname = auth.getName();
-		System.out.println(gimmeMyname);
-		jokeService.addJoke(joke);
+		String authorName = auth.getName();
+		jokeService.addJoke(joke, authorName);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	/*@PostMapping(value = "/users/save-new")
-	public String saveUser(User user) {
-		//userRepo.save(user);
-		//return  "Saved: " + user.getUsername() + " as new user";
-	}*/
 
 	@PostMapping("/newUser")
-	public ResponseEntity<?> newUser(@RequestBody Users user) {
+	public ResponseEntity<HttpStatus> newUser(@RequestBody Users user) {
 		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
 		// userService.addUser(userName, email, password);  <--------- previous implementation
-		userService.addUser(user);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+		int userCreate = userService.addUser(user);
+		if(userCreate == 1) {
+			return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
+		}else if(userCreate == 2) {
+			//email already exists in db
+			return new ResponseEntity<HttpStatus>(HttpStatus.BAD_REQUEST); //400
+		}else if (userCreate == 3) {
+			//username already exists in db
+			return new ResponseEntity<HttpStatus>(HttpStatus.CONFLICT); //409
+		}else if (userCreate == 4) {
+			return new ResponseEntity<HttpStatus>(HttpStatus.FAILED_DEPENDENCY); // 424
+		}
+		
+		return new ResponseEntity<HttpStatus>(HttpStatus.EXPECTATION_FAILED); //417
+		
+		
 	}
 	@PostMapping("/loginUser")
 	public ResponseEntity<?> loginUser(@RequestBody Users user) {
-		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
-		// userService.addUser(userName, email, password);  <--------- previous implementation
 		System.out.println("hi there");
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
@@ -192,42 +170,37 @@ public class ApiControllers {
 	}
 	//make it case insensitive
 	@GetMapping("/jokesWith/{keyword}/{page}/{pageSize}")
-	public ResponseEntity<List<Joke>> getJokeByKeyword(@PathVariable String keyword, @PathVariable int page, 
+	public ResponseEntity<Object> getJokeByKeyword(@PathVariable String keyword, @PathVariable int page, 
 			@PathVariable int pageSize) {
-		//hash the keyword 
-		String str = Integer.toString(keyword.toString().hashCode());
-		
-		//check cosmos repository for this hash
-		Mono<JokeKeyword> search = jokeKeyWordService.findAKeyword(str);
-		//if it exists, 
-		
-		JokeKeyword got = search.block();
-		List<Joke> keywordJokes = new ArrayList<Joke>();
-		
-		/*for(int x = 0; x < pageSize; x++) {
-			
-			Joke joke = jokeService.getOneJoke((long) got.jokeId.get(page * x));
-			keywordJokes.add(joke);
-			
-		}*/
-			for(int x = 0; x < pageSize; x++) {
-				Joke joke = jokeService.getOneJoke((long)got.getJokeId().get(page * pageSize - pageSize + x)).get();//TODO might error if empty
-				keywordJokes.add(joke);
-			}
-		
-		return new ResponseEntity<>(keywordJokes, HttpStatus.OK);
+		String keywordHashCode = Integer.toString(keyword.hashCode());
+		return new ResponseEntity<Object>(jokeKeyWordService.getJokeByKeyword(keywordHashCode,page,pageSize), HttpStatus.OK);
 		
 	}
 	
-	@GetMapping("/jokesWithKeywordCount")
-	public int keywordCount(@PathVariable String keyword) {
-		String str = Integer.toString(keyword.toString().hashCode());
-		
-		Mono<JokeKeyword> search = jokeKeyWordService.findAKeyword(str);
-		
-		JokeKeyword got = search.block();
-		
-		return got.jokeId.size();
+	@GetMapping("/jokesWithKeywordCount/{keyword}")
+	public ResponseEntity<Integer> keywordCount(@PathVariable String keyword) {
+		String keywordHashCode = Integer.toString(keyword.hashCode());
+		return new ResponseEntity<Integer>(jokeKeyWordService.getJokeByKeywordCount(keywordHashCode), HttpStatus.OK);
+	}
+	
+	//TODO we shouldn't need to include {user_id} since we should have access to which user is currently logged in
+	@GetMapping("/voteStatus/{user_id}/{joke_id}")
+	public ResponseEntity<VoteStatus> getVoteStatus(@PathVariable long user_id, @PathVariable long joke_id) {
+		Users user = (userService.findUserById(user_id)).orElse(null);
+		Joke joke = (jokeService.getOneJoke(user_id)).orElse(null);
+		if(user == null || joke == null)
+			return new ResponseEntity<>(VoteStatus.NONE, HttpStatus.NO_CONTENT);
+		JokeVoteId theId = new JokeVoteId(user, joke);
+		if(!jokeVoteService.jokeVoteExists(theId))
+			return new ResponseEntity<>(VoteStatus.NONE, HttpStatus.OK);
+		return new ResponseEntity<>(jokeVoteService.getJokeVoteStatus(theId), HttpStatus.OK);
+	}
+	
+	//adds new entries and modifies old ones
+	@PostMapping("changeVoteStatus")
+	public ResponseEntity<?> changeVoteStatus(@RequestBody JokeVote jokeVote) {
+		jokeVoteService.modifyJokeVote(jokeVote);
+		return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
 	}
 	
 	

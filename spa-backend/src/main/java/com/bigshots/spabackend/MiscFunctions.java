@@ -54,14 +54,14 @@ public class MiscFunctions {
 	
 	public void bcryptexample() {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String rawPassword = "tommy";
+		String rawPassword = "creator";
 		String encodedPassword = encoder.encode(rawPassword);
-		Users user = new Users("tommy", "email", encodedPassword);
+		Users user = new Users("creator", "email", encodedPassword);
 		user.setPassword(encodedPassword);
-		user.setUsername("tommy");
-		user.setId((long) 1);
+		user.setUsername("creator");
+		user.setId((long) 2);
 		user.setEnabled(true);
 		userService.addUser(user);
-		System.out.println("overwritten id 1 user, with user: tommy, password: tommy");
+		System.out.println("overwritten id 1 user, with user: creator, password: creator");
 	}
 }

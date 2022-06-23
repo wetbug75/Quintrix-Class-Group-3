@@ -4,7 +4,7 @@
     "upvotes": 136,
     "downvotes": 26,
     "id": 1,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -13,7 +13,7 @@
     "upvotes": 87,
     "downvotes": 34,
     "id": 2,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -22,7 +22,7 @@
     "upvotes": 3,
     "downvotes": 112,
     "id": 3,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -31,7 +31,7 @@
     "upvotes": 81,
     "downvotes": 179,
     "id": 4,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -40,7 +40,7 @@
     "upvotes": 136,
     "downvotes": 177,
     "id": 5,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -49,7 +49,7 @@
     "upvotes": 106,
     "downvotes": 129,
     "id": 6,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -58,7 +58,7 @@
     "upvotes": 107,
     "downvotes": 145,
     "id": 7,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -67,7 +67,7 @@
     "upvotes": 8,
     "downvotes": 179,
     "id": 8,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -76,7 +76,7 @@
     "upvotes": 86,
     "downvotes": 29,
     "id": 9,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -85,7 +85,7 @@
     "upvotes": 96,
     "downvotes": 8,
     "id": 10,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -94,7 +94,7 @@
     "upvotes": 156,
     "downvotes": 45,
     "id": 11,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -103,7 +103,7 @@
     "upvotes": 56,
     "downvotes": 102,
     "id": 12,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -112,7 +112,7 @@
     "upvotes": 78,
     "downvotes": 81,
     "id": 13,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -121,7 +121,7 @@
     "upvotes": 174,
     "downvotes": 96,
     "id": 14,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -130,7 +130,7 @@
     "upvotes": 56,
     "downvotes": 169,
     "id": 15,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -139,7 +139,7 @@
     "upvotes": 138,
     "downvotes": 187,
     "id": 16,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -148,7 +148,7 @@
     "upvotes": 67,
     "downvotes": 125,
     "id": 17,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -157,7 +157,7 @@
     "upvotes": 56,
     "downvotes": 46,
     "id": 18,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -166,7 +166,7 @@
     "upvotes": 27,
     "downvotes": 38,
     "id": 19,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -175,7 +175,7 @@
     "upvotes": 159,
     "downvotes": 64,
     "id": 20,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -184,7 +184,7 @@
     "upvotes": 51,
     "downvotes": 55,
     "id": 21,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -193,7 +193,7 @@
     "upvotes": 118,
     "downvotes": 97,
     "id": 22,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -202,7 +202,7 @@
     "upvotes": 172,
     "downvotes": 95,
     "id": 23,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -211,7 +211,7 @@
     "upvotes": 121,
     "downvotes": 193,
     "id": 24,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -220,7 +220,7 @@
     "upvotes": 126,
     "downvotes": 112,
     "id": 25,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -229,7 +229,7 @@
     "upvotes": 111,
     "downvotes": 75,
     "id": 26,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -238,7 +238,7 @@
     "upvotes": 25,
     "downvotes": 184,
     "id": 27,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -247,7 +247,7 @@
     "upvotes": 124,
     "downvotes": 133,
     "id": 28,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -256,7 +256,7 @@
     "upvotes": 94,
     "downvotes": 39,
     "id": 29,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -265,7 +265,7 @@
     "upvotes": 137,
     "downvotes": 176,
     "id": 30,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -274,7 +274,7 @@
     "upvotes": 146,
     "downvotes": 175,
     "id": 31,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -283,7 +283,7 @@
     "upvotes": 122,
     "downvotes": 113,
     "id": 32,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -292,7 +292,7 @@
     "upvotes": 87,
     "downvotes": 195,
     "id": 33,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -301,7 +301,7 @@
     "upvotes": 105,
     "downvotes": 13,
     "id": 34,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -310,7 +310,7 @@
     "upvotes": 154,
     "downvotes": 87,
     "id": 35,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -319,7 +319,7 @@
     "upvotes": 121,
     "downvotes": 140,
     "id": 36,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -328,7 +328,7 @@
     "upvotes": 19,
     "downvotes": 99,
     "id": 37,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -337,7 +337,7 @@
     "upvotes": 117,
     "downvotes": 144,
     "id": 38,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -346,7 +346,7 @@
     "upvotes": 13,
     "downvotes": 18,
     "id": 39,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -355,7 +355,7 @@
     "upvotes": 55,
     "downvotes": 40,
     "id": 40,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -364,7 +364,7 @@
     "upvotes": 141,
     "downvotes": 58,
     "id": 41,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -373,7 +373,7 @@
     "upvotes": 109,
     "downvotes": 31,
     "id": 42,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -382,7 +382,7 @@
     "upvotes": 109,
     "downvotes": 127,
     "id": 43,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -391,7 +391,7 @@
     "upvotes": 87,
     "downvotes": 70,
     "id": 44,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -400,7 +400,7 @@
     "upvotes": 61,
     "downvotes": 91,
     "id": 45,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -409,7 +409,7 @@
     "upvotes": 184,
     "downvotes": 176,
     "id": 46,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -418,7 +418,7 @@
     "upvotes": 130,
     "downvotes": 115,
     "id": 47,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -427,7 +427,7 @@
     "upvotes": 48,
     "downvotes": 61,
     "id": 48,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -436,7 +436,7 @@
     "upvotes": 100,
     "downvotes": 175,
     "id": 49,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -445,7 +445,7 @@
     "upvotes": 44,
     "downvotes": 132,
     "id": 50,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -454,7 +454,7 @@
     "upvotes": 122,
     "downvotes": 83,
     "id": 51,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -463,7 +463,7 @@
     "upvotes": 40,
     "downvotes": 25,
     "id": 52,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -472,7 +472,7 @@
     "upvotes": 79,
     "downvotes": 70,
     "id": 53,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -481,7 +481,7 @@
     "upvotes": 171,
     "downvotes": 140,
     "id": 54,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -490,7 +490,7 @@
     "upvotes": 148,
     "downvotes": 87,
     "id": 55,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -499,7 +499,7 @@
     "upvotes": 48,
     "downvotes": 23,
     "id": 56,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -508,7 +508,7 @@
     "upvotes": 116,
     "downvotes": 155,
     "id": 57,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -517,7 +517,7 @@
     "upvotes": 88,
     "downvotes": 45,
     "id": 58,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -526,7 +526,7 @@
     "upvotes": 83,
     "downvotes": 187,
     "id": 59,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -535,7 +535,7 @@
     "upvotes": 125,
     "downvotes": 71,
     "id": 60,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -544,7 +544,7 @@
     "upvotes": 178,
     "downvotes": 88,
     "id": 61,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -553,7 +553,7 @@
     "upvotes": 70,
     "downvotes": 126,
     "id": 62,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -562,7 +562,7 @@
     "upvotes": 112,
     "downvotes": 14,
     "id": 63,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -571,7 +571,7 @@
     "upvotes": 165,
     "downvotes": 123,
     "id": 64,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -580,7 +580,7 @@
     "upvotes": 149,
     "downvotes": 169,
     "id": 65,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -589,7 +589,7 @@
     "upvotes": 84,
     "downvotes": 44,
     "id": 66,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -598,7 +598,7 @@
     "upvotes": 50,
     "downvotes": 167,
     "id": 67,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -607,7 +607,7 @@
     "upvotes": 128,
     "downvotes": 57,
     "id": 68,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -616,7 +616,7 @@
     "upvotes": 37,
     "downvotes": 130,
     "id": 69,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -625,7 +625,7 @@
     "upvotes": 123,
     "downvotes": 31,
     "id": 70,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -634,7 +634,7 @@
     "upvotes": 64,
     "downvotes": 62,
     "id": 71,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -643,7 +643,7 @@
     "upvotes": 8,
     "downvotes": 62,
     "id": 72,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -652,7 +652,7 @@
     "upvotes": 29,
     "downvotes": 132,
     "id": 73,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -661,7 +661,7 @@
     "upvotes": 96,
     "downvotes": 89,
     "id": 74,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -670,7 +670,7 @@
     "upvotes": 44,
     "downvotes": 93,
     "id": 75,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -679,7 +679,7 @@
     "upvotes": 13,
     "downvotes": 78,
     "id": 76,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -688,7 +688,7 @@
     "upvotes": 191,
     "downvotes": 50,
     "id": 77,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -697,7 +697,7 @@
     "upvotes": 135,
     "downvotes": 139,
     "id": 78,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -706,7 +706,7 @@
     "upvotes": 120,
     "downvotes": 53,
     "id": 79,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -715,7 +715,7 @@
     "upvotes": 50,
     "downvotes": 110,
     "id": 80,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -724,7 +724,7 @@
     "upvotes": 141,
     "downvotes": 44,
     "id": 81,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -733,7 +733,7 @@
     "upvotes": 73,
     "downvotes": 98,
     "id": 82,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -742,7 +742,7 @@
     "upvotes": 85,
     "downvotes": 175,
     "id": 83,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -751,7 +751,7 @@
     "upvotes": 59,
     "downvotes": 106,
     "id": 84,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -760,7 +760,7 @@
     "upvotes": 16,
     "downvotes": 102,
     "id": 85,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -769,7 +769,7 @@
     "upvotes": 36,
     "downvotes": 15,
     "id": 86,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -778,7 +778,7 @@
     "upvotes": 88,
     "downvotes": 53,
     "id": 87,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -787,7 +787,7 @@
     "upvotes": 89,
     "downvotes": 39,
     "id": 88,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -796,7 +796,7 @@
     "upvotes": 24,
     "downvotes": 100,
     "id": 89,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -805,7 +805,7 @@
     "upvotes": 0,
     "downvotes": 38,
     "id": 90,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -814,7 +814,7 @@
     "upvotes": 49,
     "downvotes": 127,
     "id": 91,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -823,7 +823,7 @@
     "upvotes": 89,
     "downvotes": 23,
     "id": 92,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -832,7 +832,7 @@
     "upvotes": 170,
     "downvotes": 154,
     "id": 93,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -841,7 +841,7 @@
     "upvotes": 27,
     "downvotes": 147,
     "id": 94,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -850,7 +850,7 @@
     "upvotes": 61,
     "downvotes": 43,
     "id": 95,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -859,7 +859,7 @@
     "upvotes": 125,
     "downvotes": 134,
     "id": 96,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -868,7 +868,7 @@
     "upvotes": 144,
     "downvotes": 41,
     "id": 97,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -877,7 +877,7 @@
     "upvotes": 45,
     "downvotes": 182,
     "id": 98,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -886,7 +886,7 @@
     "upvotes": 94,
     "downvotes": 115,
     "id": 99,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -895,7 +895,7 @@
     "upvotes": 81,
     "downvotes": 124,
     "id": 100,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -904,7 +904,7 @@
     "upvotes": 46,
     "downvotes": 47,
     "id": 101,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -913,7 +913,7 @@
     "upvotes": 94,
     "downvotes": 86,
     "id": 102,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -922,7 +922,7 @@
     "upvotes": 87,
     "downvotes": 28,
     "id": 103,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -931,7 +931,7 @@
     "upvotes": 198,
     "downvotes": 28,
     "id": 104,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -940,7 +940,7 @@
     "upvotes": 189,
     "downvotes": 57,
     "id": 105,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -949,7 +949,7 @@
     "upvotes": 1,
     "downvotes": 132,
     "id": 106,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -958,7 +958,7 @@
     "upvotes": 27,
     "downvotes": 41,
     "id": 107,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -967,7 +967,7 @@
     "upvotes": 171,
     "downvotes": 161,
     "id": 108,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -976,7 +976,7 @@
     "upvotes": 125,
     "downvotes": 165,
     "id": 109,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -985,7 +985,7 @@
     "upvotes": 13,
     "downvotes": 10,
     "id": 110,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -994,7 +994,7 @@
     "upvotes": 156,
     "downvotes": 184,
     "id": 111,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1003,7 +1003,7 @@
     "upvotes": 171,
     "downvotes": 163,
     "id": 112,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1012,7 +1012,7 @@
     "upvotes": 8,
     "downvotes": 12,
     "id": 113,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1021,7 +1021,7 @@
     "upvotes": 3,
     "downvotes": 190,
     "id": 114,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1030,7 +1030,7 @@
     "upvotes": 158,
     "downvotes": 199,
     "id": 115,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1039,7 +1039,7 @@
     "upvotes": 108,
     "downvotes": 91,
     "id": 116,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1048,7 +1048,7 @@
     "upvotes": 133,
     "downvotes": 141,
     "id": 117,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1057,7 +1057,7 @@
     "upvotes": 4,
     "downvotes": 162,
     "id": 118,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1066,7 +1066,7 @@
     "upvotes": 68,
     "downvotes": 62,
     "id": 119,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1075,7 +1075,7 @@
     "upvotes": 78,
     "downvotes": 38,
     "id": 120,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1084,7 +1084,7 @@
     "upvotes": 156,
     "downvotes": 30,
     "id": 121,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1093,7 +1093,7 @@
     "upvotes": 72,
     "downvotes": 190,
     "id": 122,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1102,7 +1102,7 @@
     "upvotes": 136,
     "downvotes": 65,
     "id": 123,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1111,7 +1111,7 @@
     "upvotes": 147,
     "downvotes": 120,
     "id": 124,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1120,7 +1120,7 @@
     "upvotes": 89,
     "downvotes": 27,
     "id": 125,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1129,7 +1129,7 @@
     "upvotes": 137,
     "downvotes": 70,
     "id": 126,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1138,7 +1138,7 @@
     "upvotes": 67,
     "downvotes": 57,
     "id": 127,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1147,7 +1147,7 @@
     "upvotes": 107,
     "downvotes": 137,
     "id": 128,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1156,7 +1156,7 @@
     "upvotes": 186,
     "downvotes": 159,
     "id": 129,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1165,7 +1165,7 @@
     "upvotes": 115,
     "downvotes": 58,
     "id": 130,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1174,7 +1174,7 @@
     "upvotes": 106,
     "downvotes": 128,
     "id": 131,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1183,7 +1183,7 @@
     "upvotes": 159,
     "downvotes": 109,
     "id": 132,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1192,7 +1192,7 @@
     "upvotes": 141,
     "downvotes": 170,
     "id": 133,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1201,7 +1201,7 @@
     "upvotes": 49,
     "downvotes": 133,
     "id": 134,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1210,7 +1210,7 @@
     "upvotes": 53,
     "downvotes": 192,
     "id": 135,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1219,7 +1219,7 @@
     "upvotes": 75,
     "downvotes": 118,
     "id": 136,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 },
 {
@@ -1228,7 +1228,7 @@
     "upvotes": 157,
     "downvotes": 90,
     "id": 137,
-    "author_id": 1,
+    "author": {"username": "creator", "password":"main", "email": "main@mmm.com", "id": 2, "created_at": "2019-02-03 10:08:02"},
     "created_at": "2019-02-03 10:08:02"
 }
 ]

@@ -22,9 +22,7 @@ export class RandomizerComponent implements OnInit {
   tempJoke: Joke;
   upclick: boolean;
   downclick: boolean;
-
-
-
+  hasVoted: boolean;
   constructor(private jokeService: JokeService) {
 
    }
@@ -33,6 +31,7 @@ export class RandomizerComponent implements OnInit {
     this.lastId = -1;
     this.upclick = false;
     this.downclick = false;
+    this.hasVoted = false;
     this.jokeService.GetJokeDatabaseSize().subscribe(Response => {
       this.jokeSize = Response;
     });
@@ -56,11 +55,18 @@ export class RandomizerComponent implements OnInit {
   }
 
   UpvoteTapped(){
+    if(this.GetDislikeClass() == true)
+    {
+      this.DownvoteTapped();
+    }
+
     this.tempJoke = this.jokeService.GetJoke();
     this.tempJokeID = this.tempJoke.id;
 
     //Toggle HTML Class
     this.SetLikeClass(!this.GetLikeClass());
+
+
 
     if(this.GetLikeClass() == true){
       this.likeCount = this.tempJoke.upvotes + 1;
@@ -74,11 +80,18 @@ export class RandomizerComponent implements OnInit {
   }
 
   DownvoteTapped(){
+
+    if(this.GetLikeClass() == true)
+    {
+      this.UpvoteTapped();
+    }
+
     this.tempJoke = this.jokeService.GetJoke();
     this.tempJokeID = this.tempJoke.id;
 
     // Toggle HTML Class
     this.SetDislikeClass(!this.GetDislikeClass());
+
 
     if(this.GetDislikeClass() == true){
       this.dislikeCount = this.tempJoke.downvotes + 1;

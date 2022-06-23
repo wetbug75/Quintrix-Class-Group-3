@@ -1,0 +1,186 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width:100%;
+	background-color: #9ADCFF;
+  background-image: linear-gradient(180deg, #d9e6fa, #98c1ff);
+  box-shadow: 0 1px 10px;
+
+}
+
+#sections{
+  text-align: center;
+  gap: 10px;
+}
+#sections > div{
+  /* Change the denominator if there are more div section in the footer */
+  width: calc(100% / 3);
+  display: inline-block;
+  vertical-align: top;
+}
+
+#sections:after{
+  content:"";
+  width: 100%;
+  display: inline-block;
+}
+
+p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+p.title{
+  text-decoration: underline;
+}
+
+a{
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-weight: bold;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+#copyright{
+  text-align: left;
+  padding-top: 30px;
+}
+
+#quickLink{
+  padding-bottom: 0px;
+}
+
+#authorlist > p{
+  font-weight: normal;
+}
+
+/*
+div{
+  border-color: black;
+  border-style: solid;
+  text-align: center;
+}
+*/
+
+/* BREAKPOINTS */
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+  footer{
+
+  }
+  p{
+    font-size: 12px;
+  }
+
+  p.title{
+    font-size: 14px;
+  }
+
+  a{
+    font-size: 13px;
+  }
+
+
+  #copyright{
+    font-size: 11px;
+  }
+}
+
+/* Small screen devices (600px and above) */
+@media only screen and (min-width: 600px) {
+  footer{
+
+  }
+
+  p{
+    font-size: 12px;
+  }
+
+  p.title{
+    font-size: 15px;
+  }
+
+  a{
+    font-size: 13px;
+  }
+
+  #copyright{
+    font-size: 11px;
+  }
+}
+
+/* Medium screen devices (768px and above) */
+@media only screen and (min-width: 768px) {
+  footer{
+
+  }
+
+  p{
+    font-size: 13px;
+  }
+
+  p.title{
+    font-size: 16px;
+  }
+
+  a{
+    font-size: 14px;
+  }
+
+  #copyright{
+    font-size: 12px;
+  }
+}
+
+/* Big screen devices (889px and above) */
+@media only screen and (min-width: 889px) {
+  footer{
+
+  }
+
+  p{
+    font-size: 15px;
+  }
+
+  p.title{
+    font-size: 18px;
+  }
+
+  a{
+    font-size: 16px;
+  }
+
+  #copyright{
+    font-size: 14px;
+  }
+}
+
+/* Extra big screen devices (1200px and above) */
+@media only screen and (min-width: 1200px) {
+  footer{
+  }
+
+  p{
+    font-size: 18px;
+  }
+
+  p.title{
+    font-size: 22px;
+  }
+
+  a{
+    font-size: 19px;
+  }
+
+  #copyright{
+    font-size: 17px;
+  }
+}
