@@ -6,4 +6,5 @@ export interface Joke {
     downvotes?: number;
     author_id?: number;
     created_by?: string;
+    author_name?: string;
 }

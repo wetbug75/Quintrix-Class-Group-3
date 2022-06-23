@@ -11,7 +11,7 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class NavbarComponent implements OnInit {
 
-  isLoggedIn;
+  isLoggedIn: boolean;
   subscription: Subscription = new Subscription;
   constructor(private route: ActivatedRoute,
     private router: Router,
