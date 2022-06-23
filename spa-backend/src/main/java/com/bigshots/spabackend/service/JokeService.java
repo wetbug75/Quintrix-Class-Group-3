@@ -11,12 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bigshots.spabackend.model.Joke;
+import com.bigshots.spabackend.model.JokeKeyword;
 //User is the name of the model class in Devin local code not sure if the file was changed in main
 import com.bigshots.spabackend.model.Users;
 //import com.bigshots.spabackend.repo.JokeKeywordRepo;
 
 import com.bigshots.spabackend.model.Users;
-
+import com.bigshots.spabackend.repo.JokeKeywordRepo;
 import com.bigshots.spabackend.repo.JokeRepo;
 import com.bigshots.spabackend.repo.UserRepo;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -27,7 +28,8 @@ public class JokeService {
 	private JokeRepo jokeRepo;
 	@Autowired
 	private UserRepo userRepo;
-	//private JokeKeywordRepo jkRepo;
+	@Autowired
+	private JokeKeywordRepo jkRepo;
 	
 
 	
@@ -68,13 +70,14 @@ public class JokeService {
 	}
 	
 	public void addJoke(Joke joke, String authorName) {
-		
+		//set joke for mysql
 		joke.setAuthor(userRepo.findByUsername(authorName).get());
 		joke.setDownvotes(0);
 		joke.setUpvotes(0);
 		joke.setCreated_at(LocalDateTime.now()
 			       .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-		jokeRepo.save(joke);
+		Integer jokeId = Integer.valueOf(jokeRepo.save(joke).getId().intValue()); 
+		//add joke to nosql
 	}
 
 	public void UpdateUpvote(Joke updateJoke, Long jokeID){
