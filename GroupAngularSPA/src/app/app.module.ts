@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 
+
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './views/view-randomizer/components/button/button.component';
 import { JokeComponent } from './views/view-randomizer/components/joke/joke.component';
@@ -25,7 +26,11 @@ import { JokesPaginateComponent } from './views/view-find-joke/components/jokes-
 import { RegisterFormComponent } from './views/view-login/components/register-form/register-form.component';
 import { RegisterBtnComponent } from './views/view-login/components/register-btn/register-btn.component';
 
+import { BoldKeyWordPipe } from './pipes/BoldKeyWordPipe.pipe';
 import { HttpInterceptorService } from './core/services/Interceptor/HttpInterceptorService';
+import { LoadingService } from './core/services/Loading/loading.service';
+import { LoadingInterceptor } from './core/services/Interceptor/LoadingInterceptorService';
+import { FooterComponent } from './shared/components/footer/footer.component';
 /*Will come back!*/
 const appRoutes: Routes = [
  {path: '', component:RandomizerComponent},
@@ -54,6 +59,8 @@ const appRoutes: Routes = [
     JokesPaginateComponent,
     RegisterFormComponent,
     RegisterBtnComponent,
+    FooterComponent,
+    BoldKeyWordPipe
   ],
   imports: [
     BrowserModule,
@@ -66,14 +73,23 @@ const appRoutes: Routes = [
 
   ],
 
-  providers: [JokeItemComponent,RatingsComponent,
+
+  providers: [JokeItemComponent,RatingsComponent, BoldKeyWordPipe, LoadingService,
   { 
+
     provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
-  }],
-  
-  bootstrap: [AppComponent]
+  },
+  { 
+
+    provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true
+  }
+],
+
+  bootstrap: [AppComponent, FooterComponent]
 })
 export class AppModule {
 

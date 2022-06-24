@@ -17,7 +17,6 @@ public class Joke {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
-	//@PartitionKey
 	private String question;
 	@Column
 	private String answer;
@@ -26,22 +25,28 @@ public class Joke {
 	@Column
 	private Integer downvotes;
 	@Column
-	private Integer author_id;
-	@Column
 	private String created_at;//time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
+
+	@ManyToOne
+	private Users author;
+
+	@Transient
+	private String author_name;
+
 	public Joke() {
-		
 	}
 	public Joke(String question, String answer) {
+		this(question, answer, null);
+	}
+	public Joke(String question, String answer, Users author) {
 		this.question = question;
 		this.answer = answer;
 		this.upvotes = 0;
-		this. downvotes = 0;
-		this.author_id = 0;
+		this.downvotes = 0;
+		this.author = author;
 		this.created_at = null;
 	}
-
 	
 	public Long getId() {
 		return id;
@@ -73,20 +78,31 @@ public class Joke {
 	public void setDislikes(Integer downvotes) {
 		this.downvotes = downvotes;
 	}
-	public Integer getAuthor_id() {
-		return author_id;
-	}
-	public void setAuthor_id(Integer author_id) {
-		this.author_id = author_id;
-	}
 	public String getCreated_at() {
 		return this.created_at;
 	}
 	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
-	
-	
-	
-
+	public Users getAuthor() {
+		return author;
+	}
+	public void setAuthor(Users author) {
+		this.author = author;
+	}
+	public void setDownvotes(Integer downvotes) {
+		this.downvotes = downvotes;
+	}
+	/**
+	 * @return the author_name
+	 */
+	public String getAuthor_name() {
+		return author_name;
+	}
+	/**
+	 * @param author_name the author_name to set
+	 */
+	public void setAuthor_name(String author_name) {
+		this.author_name = author_name;
+	}
 }

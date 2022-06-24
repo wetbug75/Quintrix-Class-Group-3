@@ -18,11 +18,12 @@ export class ViewLoginComponent implements OnInit {
   errorMessage : string= 'Invalid Credentials';
   registerSuccessMessage: string = 'Account created. Please login';
   registerFailMessage: string = 'Something went wrong, try again or try later';
-  
+  registrationDuplicate: boolean;
+
   invalidLoginAlert : boolean= false;
   successRegisterAlert : boolean = false;
   notsuccessRegisterAlert: boolean = false;
-
+  duplicateMessage : string;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -63,8 +64,27 @@ export class ViewLoginComponent implements OnInit {
       this.successRegisterAlert = true;
       setTimeout(() => {this.successRegisterAlert=false},3000);
     },(error)=>{
-      this.notsuccessRegisterAlert = true;
-      setTimeout(() => {this.notsuccessRegisterAlert=false},3000);
+      console.log(error.status);
+      console.log("------------");
+      if(error.status == 400){
+
+        this.registrationDuplicate = true;
+        this.duplicateMessage= "Emailed already registered. Use another email";
+        setTimeout(()=>{this.registrationDuplicate=false},3000);
+      }else if(error.status == 409){
+        this.registrationDuplicate = true;
+        this.duplicateMessage= "Username already registered. Use another username";
+        setTimeout(()=>{this.registrationDuplicate=false},3000);
+      }else if(error.status == 424){
+        this.registrationDuplicate = true;
+        this.duplicateMessage= "You must've already registered, because both email and username has been used already!";
+        setTimeout(()=>{this.registrationDuplicate=false},3000);
+      }
+      else{
+        this.notsuccessRegisterAlert = true;
+        setTimeout(() => {this.notsuccessRegisterAlert=false},3000);
+      }
+      
     })
   }
   

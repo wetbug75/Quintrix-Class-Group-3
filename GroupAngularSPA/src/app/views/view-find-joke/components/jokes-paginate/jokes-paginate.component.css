@@ -1,5 +1,5 @@
 .borderless td, .borderless th {
-    border: none;
+    border: 1px solid black;
 }
 
 
@@ -26,4 +26,20 @@ th{
 
 .bold{
     font-weight: 1000;
+}
+
+
+
+
+.loading{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sorry{
+    text-align: center;
+    margin-top: 5rem;
+    letter-spacing: 1px;
 }

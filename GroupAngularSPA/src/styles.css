@@ -5,12 +5,25 @@
 *{
 	margin: 0;
 	font-size:16px;
+	box-sizing: border-box;
+}
+
+html{
+  position: relative;
+  min-height: 100%;
 }
 
 body {
 	background-image:linear-gradient(to right, #fff677, #FFFDE1, #FFFDE1, #FFFDE1, #fff677);
-}
+  margin-bottom: 200px;
+	-ms-overflow-style: none; /* for Internet Explorer, Edge */
+	scrollbar-width: none; /* for Firefox */
+	overflow-y: scroll; 
 
+}
+body::-webkit-scrollbar {
+	display: none; /* for Chrome, Safari, and Opera */
+  }
 button{
 	border-radius: 10px;
 	width: 15rem;
@@ -38,7 +51,7 @@ button:hover {
 button:focus {
 	outline: none;
 }
-	
+
 .jokeText{
 	color:white;
 	font-size: 40px;
@@ -71,6 +84,68 @@ h3{
 	font-weight:700;
 }
 
+/* loading icon for loading -begin -  */
+.lds-heart {
+	
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+	transform: rotate(45deg);
+	transform-origin: 40px 40px;
+  }
+  .lds-heart div {
+	top: 32px;
+	left: 32px;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	
+	background: #4dc1ff;
+	animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .lds-heart div:after,
+  .lds-heart div:before {
+	content: " ";
+	position: absolute;
+	display: block;
+	width: 32px;
+	height: 32px;
+
+	background: #4dc1ff;
+
+	
+  }
+  .lds-heart div:before {
+	left: -24px;
+	border-radius: 50% 0 0 50%;
+  }
+  .lds-heart div:after {
+	top: -24px;
+	border-radius: 50% 50% 0 0;
+  }
+  @keyframes lds-heart {
+	0% {
+	  transform: scale(0.95);
+	}
+	5% {
+	  transform: scale(1.1);
+	}
+	39% {
+	  transform: scale(0.85);
+	}
+	45% {
+	  transform: scale(1);
+	}
+	60% {
+	  transform: scale(0.95);
+	}
+	100% {
+	  transform: scale(0.9);
+	}
+  }
+  /* loading icon - end - */
+
 .css-dark {
 	background-image: linear-gradient(to right, #1F2833, #1F2833, #1F2833, #1F2833, #1F2833);
 	color: #C5C6C7;
@@ -96,54 +171,79 @@ h3{
 
 /* Below should ideally go elswhere*/
 .css-dark nav {
-	box-shadow: 0 1px 20px #0B0C10 !important;;
+	box-shadow: 0 1px 20px #0B0C10 !important;
 	background-image: linear-gradient(0deg, #0B0C10, #0B0C10) !important;
 }
-.css-dark .active {
+.css-dark nav .meat {
+	background-color: #C5C6C7 !important;
+}
+.css-dark footer {
+	background-image: linear-gradient(0deg, #0B0C10, #0B0C10) !important;
+	box-shadow: 0 1px 10px #0B0C10 !important;
+}
+.css-dark nav .active {
 	background-image: linear-gradient(0deg, #45A29E, #45A29E) !important;
 }
-.css-dark nav a, .css-dark h2 {
+.css-dark nav a, .css-dark h2, .css-dark footer a {
 	color: #C5C6C7 !important;
 }
 .css-dark #jokeBox {
 	background-image: linear-gradient(180deg, #0B0C10, #0B0C10) !important;
 }
 .css-dark #jokeBox div {
-	color: #66FCF1 !important; 
+	color: #66FCF1 !important;
+}
+.css-dark .ngx-pagination .current {
+	background-image: linear-gradient(0deg, #45A29E, #45A29E);
 }
 
 .css-artsy nav {
 	box-shadow: 0 1px 20px #4056A1;
 	background-image: linear-gradient(0deg, #4056A1, #4056A1) !important;
 }
-.css-artsy .active {
+.css-artsy footer {
+	background-image: linear-gradient(0deg, #4056A1, #4056A1) !important;
+}
+.css-artsy nav .active {
 	background-image: linear-gradient(0deg, #C5CBE3, #C5CBE3) !important;
 }
-.css-artsy nav a, .css-artsy h2 {
+.css-artsy nav a, .css-artsy h2, .css-artsy footer a {
 	color: black !important;
 }
 .css-artsy #jokeBox {
 	background-image: linear-gradient(180deg, #D79922, #D79922) !important;
 }
 .css-artsy #jokeBox div {
-	color: #F13C20 !important; 
-	text-shadow: 2px 2px #3b1009 !important;;
+	color: #F13C20 !important;
+	text-shadow: 2px 2px #3b1009 !important;
+}
+.css-artsy .ngx-pagination .current {
+	background-image: linear-gradient(0deg, #C5CBE3, #C5CBE3);
 }
 
 .css-blue-purple nav {
-	box-shadow: 0 1px 20px #5680E9 !important;;
+	box-shadow: 0 1px 20px #5680E9 !important;
 	background-image: linear-gradient(0deg, #5680E9, #5680E9) !important;
 }
-.css-blue-purple .active {
+.css-blue-purple nav .meat {
+	background-color: white !important;
+}
+.css-blue-purple footer {
+	background-image: linear-gradient(0deg, #5680E9, #5680E9) !important;
+}
+.css-blue-purple nav .active {
 	background-image: linear-gradient(0deg, #5AB9EA, #5AB9EA) !important;
 }
-.css-blue-purple nav a, .css-blue-purple h2 {
+.css-blue-purple nav a, .css-blue-purple h2, .css-blue-purple footer a {
 	color: white !important;
 }
 .css-blue-purple #jokeBox {
 	background-image: linear-gradient(180deg, #8860D0, #8860D0) !important;
 }
 .css-blue-purple #jokeBox div {
-	color: #C1C8E4 !important; 
-	text-shadow: 2px 2px #000000 !important;;
+	color: #C1C8E4 !important;
+	text-shadow: 2px 2px #000000 !important;
+}
+.css-blue-purple .ngx-pagination .current {
+	background-image: linear-gradient(0deg, #5AB9EA, #5AB9EA);
 }

@@ -1,9 +1,13 @@
 package com.bigshots.spabackend.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -24,19 +28,34 @@ public class UserService {
 		return userRepo.findAll();
 	}
 	
-	public void addUser(Users user) {
-		//public void addUser(String userName, String email, String password) {  <--- previous implementation
-		//	User newUser = new User(userName, email, password);  <--- previous implmenetation
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String encodedPassword = encoder.encode(user.getPassword());
-		user.setPassword(encodedPassword);
-		userRepo.save(user);
+	public int addUser(Users user) {
+		Optional<Users> findByEmail = userRepo.findByEmail(user.getEmail());
+		Optional<Users> findByUsername = userRepo.findByUsername(user.getUsername());
+		if(findByEmail.isEmpty() && findByUsername.isEmpty()) {
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			String encodedPassword = encoder.encode(user.getPassword());
+			user.setPassword(encodedPassword);
+			user.setCreated_at(LocalDateTime.now()
+				       .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+			userRepo.save(user);
+			return 1;
+		}
+		if(findByEmail.isPresent() && findByUsername.isPresent()) {
+			return 4;
+		}
+		if(findByEmail.isPresent()) {
+			return 2;
+		}
+		if(findByUsername.isPresent()) {
+			return 3;
+		}
+		
+		return 0; //nothing happens
 	}
 
 	public void saveJson(List<Users> users) {
 		// TODO Auto-generated method stub
 		userRepo.saveAll(users);
-		
 	}
 	
 	public Optional<Users> findUserById(Long id) {

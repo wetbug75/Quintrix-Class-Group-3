@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.serializer.DefaultDeserializer;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -43,17 +43,20 @@ import com.azure.cosmos.util.CosmosPagedIterable;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.Base64;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
-
+import java.util.Set;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.filter.CorsFilter;
 
+import com.bigshots.spabackend.config.LongToJokeConverter;
 import com.bigshots.spabackend.model.Joke;
 import com.bigshots.spabackend.model.Users;
 import com.bigshots.spabackend.repo.JokeRepo;
@@ -97,7 +100,6 @@ public class SpaBackendApplication {
 		//credentials to connect to the specific database. link is database, key is the primary key
 		//not sure if it will let you log into mine so if you create your account plug in the values 
 		client = new CosmosClientBuilder()
-		
 				.endpoint("https://jokeproject.documents.azure.com:443/")
 				.key("sqlMrvo8PY91y1I94mncw9hZeocwniD49mr3Rb3b3EqBbW4qmumYVDemy4UuEH4HNAm4q9qjlCVJptLNANMH8Q==")
 				.buildClient();
@@ -116,9 +118,9 @@ public class SpaBackendApplication {
 		container = database.getContainer(containerResponse.getProperties().getId());
 		//make sure you change the mysql link to your local mysql link
 		try {
-			String myUrl = "jdbc:mysql://127.0.0.1:3306/jokes?useSSL=false&serverTimezone=UTC";
+			String myUrl = "jdbc:mysql://127.0.0.1:3306/jokeschema?useSSL=false&serverTimezone=UTC";
 			//change this to your mysql login credentials
-			Connection conn = DriverManager.getConnection(myUrl, "root", "kevinwall5");
+			Connection conn = DriverManager.getConnection(myUrl, "root", "javaroot");
 			
 			String query = "SELECT * FROM joke";
 			
