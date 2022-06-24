@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.azure.cosmos.CosmosClient;
 import com.azure.cosmos.CosmosClientBuilder;
 import com.azure.cosmos.CosmosContainer;
@@ -19,8 +21,11 @@ import com.azure.cosmos.models.CosmosPatchOperations;
 import com.azure.cosmos.models.PartitionKey;
 import com.bigshots.spabackend.model.Joke;
 import com.bigshots.spabackend.model.JokeKeyword;
+import com.bigshots.spabackend.repo.JokeKeywordRepo;
 
 public class CosmosBuilder {
+	
+	//private JokeKeywordRepo keywordRepo;
 	
 	CosmosClient client = new CosmosClientBuilder()
 			.endpoint("https://jokeproject.documents.azure.com:443/")
@@ -40,12 +45,45 @@ public class CosmosBuilder {
 	
 	
 	
-	public void writeToCosmos(Joke joke) {
-		//joke question break it down into the array
-		//joke answer break it down into the array 
-		//make sure it goes into lowercase and splits question marks 
-		//container create item if it doesnt exist 
-		//if it does exist take the id from this joke object and put it into the array of the item that already exists
+	public void writeToCosmos(Joke joke, Integer jokeIndex) {
+		
+		String[] arr = ArrayUtils.addAll(joke.getQuestion().replaceAll("\\p{Punct}", "").toLowerCase().split(" "), joke.getAnswer().replaceAll("\\p{Punct}", "").toLowerCase().split(" "));
+		//Integer jokeIndex = Long.valueOf(joke.getId()).intValue();
+		for(String a: arr) {
+			JokeKeyword jk = new JokeKeyword(Integer.toString(a.hashCode()), a);
+			jk.jokeId.add(jokeIndex);
+			
+			CosmosItemResponse<JokeKeyword> item = null;
+						 
+			 try {
+				//check the database for the exact item
+				 item = container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class);
+				
+				
+			}  catch (CosmosException ex) {}
+			//if the container read didnt return an item create a new one 
+			if(item == null) {	
+				container.createItem(jk, new CosmosItemRequestOptions());
+			//if the container read did return an item then just add this items joke id to the array of the one that already exists
+			} if(item != null) {
+				
+				int count = 1;
+				//while(item.getItem().jokeId.get(count) != null) {
+					//count++;
+				//}
+				
+				 if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
+				
+					CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
+	
+					patchOps.add("/jokeId/" + count, jokeIndex);
+				
+					container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
+					
+					count++;
+				 }
+			}
+		}
 	}
 	
 

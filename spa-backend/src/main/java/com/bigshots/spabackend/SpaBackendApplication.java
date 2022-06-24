@@ -118,9 +118,9 @@ public class SpaBackendApplication {
 		container = database.getContainer(containerResponse.getProperties().getId());
 		//make sure you change the mysql link to your local mysql link
 		try {
-			String myUrl = "jdbc:mysql://127.0.0.1:3306/jokeschema?useSSL=false&serverTimezone=UTC";
+			String myUrl = "jdbc:mysql://127.0.0.1:3306/jokes?useSSL=false&serverTimezone=UTC";
 			//change this to your mysql login credentials
-			Connection conn = DriverManager.getConnection(myUrl, "root", "javaroot");
+			Connection conn = DriverManager.getConnection(myUrl, "root", "kevinwall5");
 			
 			String query = "SELECT * FROM joke";
 			
