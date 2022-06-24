@@ -63,6 +63,17 @@ Double click src/main/resrouces
 Double click application.properties - this is where you must put in your configurations for MySQL/Azure
 and you must create or already created a schema called jokeschema in your MySQL. 
 
+In the SpaBackendApplication.java file under com.bigshots.spabackend
+At line 106 , put in your azure url inside .endpoint()
+At line 107 , put in your azure key inside .key()
+At line 124 , put in correct SQL url inside String myUrl
+At line 126 , put in your MySQL credentials inside DriverManager.getConnection()
+
+In the CosmosBuilder.java file under com.bigshots.spabackend
+At line 38 , put in your azure url inside .endpoint()
+At line 40 , put in your azure key inside .key()
+At line 56 , put in correct SQL url inside String myUrl
+At line 58 , put in your MySQL credentials inside DriverManager.getConnection()
 
 ```
 
