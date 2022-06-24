@@ -99,7 +99,7 @@ public class SpaBackendApplication {
 		client = new CosmosClientBuilder()
 		
 				.endpoint("https://jokeproject.documents.azure.com:443/")
-				.key("sqlMrvo8PY91y1I94mncw9hZeocwniD49mr3Rb3b3EqBbW4qmumYVDemy4UuEH4HNAm4q9qjlCVJptLNANMH8Q====")
+				.key("sqlMrvo8PY91y1I94mncw9hZeocwniD49mr3Rb3b3EqBbW4qmumYVDemy4UuEH4HNAm4q9qjlCVJptLNANMH8Q==")
 				.buildClient();
 		
 		//CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);

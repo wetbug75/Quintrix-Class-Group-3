@@ -159,9 +159,6 @@ public class ApiControllers {
 		System.out.println(gimmeMyname);
 		jokeService.addJoke(joke);
 		
-		CosmosBuilder cosmos = new CosmosBuilder();
-		cosmos.writeToCosmos();
-		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
