@@ -130,10 +130,9 @@ public class ApiControllers {
 		String authorName = auth.getName();
 		jokeService.addJoke(joke, authorName);
 		
-		CosmosBuilder cosmos = new CosmosBuilder();
-		cosmos.writeToCosmos();
 		
 		return new ResponseEntity<>(HttpStatus.CREATED);
+
 	}
 
 
