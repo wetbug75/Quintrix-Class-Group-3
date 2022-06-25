@@ -27,6 +27,15 @@ public class Users {
 	public Users(){
 		
 	}
+	public Users (Users user) {
+		this.id = user.id;
+		this.username = user.username;
+		this.email = user.email;
+		this.password = user.password;
+		this.role = "";
+		this.enabled = true;
+		this.created_at= user.created_at;
+	}
 	public Users(String userName, String email, String password) {
 		this.username = userName;
 		this.email = email;

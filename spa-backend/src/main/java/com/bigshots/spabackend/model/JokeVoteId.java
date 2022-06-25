@@ -3,44 +3,38 @@ package com.bigshots.spabackend.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Embeddable;
+@Embeddable
 public class JokeVoteId implements Serializable {
-	private Users user;
-	private Joke joke;
-	
+	private static final long serialVersionUID = 1L;
+	private Long userId;
+	private Long jokeId;
 	public JokeVoteId() {}
-	public JokeVoteId(Users user, Joke joke) {
-		this.user = user;
-		this.joke = joke;
+	
+	public JokeVoteId(Users user, Joke joke){
+		this.userId = user.getId();
+		this.jokeId = joke.getId();
+	}
+	public JokeVoteId(Long userId,Long jokeId) {
+		this.userId = userId;
+		this.jokeId = jokeId;
 	}
 	
-	public Users getUser() {
-		return user;
+	public Long getUser() {
+		return userId;
 	}
 
-	public void setUser(Users user) {
-		this.user = user;
+	public void setUser(Long userId) {
+		this.userId = userId;
 	}
 
-	public Joke getJoke() {
-		return joke;
+	public Long getJoke() {
+		return jokeId;
 	}
 
-	public void setJoke(Joke joke) {
-		this.joke = joke;
+	public void setJoke(Long jokeId) {
+		this.jokeId = jokeId;
 	}
 	
-	//below 2 overrides might not be necessary
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        JokeVoteId jvId = (JokeVoteId) o;
-        return user.equals(jvId.user) &&
-                joke.equals(jvId.joke);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(user, joke);
-    }
+	
 }

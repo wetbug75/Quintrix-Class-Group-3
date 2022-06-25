@@ -204,7 +204,9 @@ public class ApiControllers {
 	//adds new entries and modifies old ones
 	@PostMapping("/changeVoteStatus")
 	public ResponseEntity<?> changeVoteStatus(@RequestBody JokeVote jokeVote) {
+		System.out.println("shit");
 		jokeVoteService.modifyJokeVote(jokeVote);
+		
 		return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
 	}
 	

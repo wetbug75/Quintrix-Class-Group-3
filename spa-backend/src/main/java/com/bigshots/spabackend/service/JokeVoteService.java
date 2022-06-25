@@ -40,11 +40,24 @@ public class JokeVoteService {
 	}
 	
 	public void modifyJokeVote(JokeVote jokeVote) {
+		//joveVoteId takes in a user and joke. 
+		
 		JokeVoteId jokeVoteId = new JokeVoteId(jokeVote.getUser(), jokeVote.getJoke());
+		
 		if(jokeVoteRepo.existsById(jokeVoteId))
 			jokeVoteRepo.deleteById(jokeVoteId);
+		System.out.println("Below is the vote");
+	    System.out.println(jokeVoteId.getJoke());
+	    System.out.println(jokeVoteId.getUser());
+	    System.out.println("------------");
 		JokeVote newJokeVote = new JokeVote(jokeVoteId, jokeVote.getVoteStatus());
+		System.out.println(newJokeVote.getUser().getId());
+		System.out.println(newJokeVote.getJoke().getId());
+		System.out.println(newJokeVote.getVoteStatus());
+		System.out.println("-----+++____=+++");
+	
 		jokeVoteRepo.save(newJokeVote);
+		System.out.println("save");
 	}
 	public void modifyJokeVote(JokeVoteId jokeVoteId, VoteStatus voteStatus) {
 		if(jokeVoteRepo.existsById(jokeVoteId))
@@ -56,10 +69,10 @@ public class JokeVoteService {
 		System.out.println("right after save");
 	}
 	public void modifyJokeVote(Users user, Joke joke, VoteStatus voteStatus) {
-		JokeVoteId theId = new JokeVoteId(user, joke);
-		if(jokeVoteRepo.existsById(theId))
-			jokeVoteRepo.deleteById(theId);
-		JokeVote newJokeVote = new JokeVote(theId, voteStatus);
+		JokeVoteId JokeVote = new JokeVoteId(user, joke);
+		if(jokeVoteRepo.existsById(JokeVote))
+			jokeVoteRepo.deleteById(JokeVote);
+		JokeVote newJokeVote = new JokeVote(JokeVote, voteStatus);
 		jokeVoteRepo.save(newJokeVote);
 	}
 	// please delete this temporary solution later

@@ -33,7 +33,14 @@ public class Joke {
 
 	@Transient
 	private String author_name;
-
+	public Joke(Joke joke) {
+		this.id = joke.id;
+		this.question = joke.question;
+		this.answer = joke.answer;
+		this.upvotes = joke.upvotes;
+		this.downvotes = joke.downvotes;
+		this.created_at = joke.created_at;
+	}
 	public Joke() {
 	}
 	public Joke(String question, String answer) {

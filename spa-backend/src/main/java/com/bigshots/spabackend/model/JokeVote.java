@@ -4,19 +4,22 @@ import javax.persistence.*;
 import com.bigshots.spabackend.service.VoteStatus;
 
 @Entity
-@IdClass(JokeVoteId.class)
 public class JokeVote {
-	@Id
+	@EmbeddedId
+	private JokeVoteId id = new JokeVoteId();
+	@MapsId("userId")
 	@ManyToOne
-	private Users user;
-	@Id
+	private Users user = new Users();
+	@MapsId("jokeId")
 	@ManyToOne
-	private Joke joke;
+	private Joke joke = new Joke();
 	@Column
 	private VoteStatus voteStatus;
 
-	public JokeVote() {
-		System.out.println("JokeVote empty constructor");
+	public JokeVote(Long user, Long id, VoteStatus voteStatus2) {
+		this.user.setId(user);
+		this.joke.setId(id);
+		this.voteStatus = voteStatus2;
 	}
 	public JokeVote(JokeVoteId jokeVoteId, VoteStatus voteStatus) {
 		this(jokeVoteId.getUser(), jokeVoteId.getJoke(), voteStatus);
@@ -25,6 +28,15 @@ public class JokeVote {
 		this.user = user;
 		this.joke = joke;
 		this.voteStatus = voteStatus;
+	}
+	
+	public JokeVote(Users user, Joke joke) {
+		this.user = user;
+		this.joke =joke;
+	}
+	
+	public JokeVote() {
+		
 	}
 	
 	public Users getUser() {
