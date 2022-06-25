@@ -40,24 +40,19 @@ public class JokeVoteService {
 	}
 	
 	public void modifyJokeVote(JokeVote jokeVote) {
+		System.out.println("we inside");
 		//joveVoteId takes in a user and joke. 
 		
-		JokeVoteId jokeVoteId = new JokeVoteId(jokeVote.getUser(), jokeVote.getJoke());
+		//JokeVoteId obtains the IDs 
+		JokeVoteId jokeVoteId = new JokeVoteId(jokeVote);
 		
+		//this checks the database if the composite key exists
+		//composite key is a key that is associated with two columns
 		if(jokeVoteRepo.existsById(jokeVoteId))
 			jokeVoteRepo.deleteById(jokeVoteId);
-		System.out.println("Below is the vote");
-	    System.out.println(jokeVoteId.getJoke());
-	    System.out.println(jokeVoteId.getUser());
-	    System.out.println("------------");
-		JokeVote newJokeVote = new JokeVote(jokeVoteId, jokeVote.getVoteStatus());
-		System.out.println(newJokeVote.getUser().getId());
-		System.out.println(newJokeVote.getJoke().getId());
-		System.out.println(newJokeVote.getVoteStatus());
-		System.out.println("-----+++____=+++");
-	
-		jokeVoteRepo.save(newJokeVote);
-		System.out.println("save");
+				
+		jokeVoteRepo.save(jokeVote);
+		
 	}
 	public void modifyJokeVote(JokeVoteId jokeVoteId, VoteStatus voteStatus) {
 		if(jokeVoteRepo.existsById(jokeVoteId))

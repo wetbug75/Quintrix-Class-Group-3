@@ -2,6 +2,7 @@ package com.bigshots.spabackend.model;
 
 import javax.persistence.*;
 import com.bigshots.spabackend.service.VoteStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class JokeVote {
@@ -13,13 +14,15 @@ public class JokeVote {
 	@MapsId("jokeId")
 	@ManyToOne
 	private Joke joke = new Joke();
+	@JsonProperty("vote_status")
 	@Column
 	private VoteStatus voteStatus;
-
-	public JokeVote(Long user, Long id, VoteStatus voteStatus2) {
+	
+	//
+	public JokeVote(Long user, Long joke, VoteStatus voteStatus) {
 		this.user.setId(user);
-		this.joke.setId(id);
-		this.voteStatus = voteStatus2;
+		this.joke.setId(joke);
+		this.voteStatus = voteStatus;
 	}
 	public JokeVote(JokeVoteId jokeVoteId, VoteStatus voteStatus) {
 		this(jokeVoteId.getUser(), jokeVoteId.getJoke(), voteStatus);

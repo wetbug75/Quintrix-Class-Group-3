@@ -4,20 +4,23 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Embeddable;
+
+import com.bigshots.spabackend.service.VoteStatus;
 @Embeddable
 public class JokeVoteId implements Serializable {
-	private static final long serialVersionUID = 1L;
 	private Long userId;
 	private Long jokeId;
+	
 	public JokeVoteId() {}
 	
 	public JokeVoteId(Users user, Joke joke){
 		this.userId = user.getId();
 		this.jokeId = joke.getId();
 	}
-	public JokeVoteId(Long userId,Long jokeId) {
-		this.userId = userId;
-		this.jokeId = jokeId;
+	
+	public JokeVoteId(JokeVote jokeVote) {
+		this.userId = jokeVote.getUser().getId();
+		this.jokeId = jokeVote.getJoke().getId();
 	}
 	
 	public Long getUser() {
@@ -35,6 +38,8 @@ public class JokeVoteId implements Serializable {
 	public void setJoke(Long jokeId) {
 		this.jokeId = jokeId;
 	}
+
+	
 	
 	
 }
