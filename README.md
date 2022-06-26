@@ -3,15 +3,19 @@
 
 The application's purpose is to let users view, create, and search for programming jokes.
 
-This application was created and worked on by Andrew, Devin, Leon, and Simon.<br><br>
-The purpose for the project was to allow us to learn and grow our skills in team work and coding.
+This application was created and worked on by Andrew, Devin, Leon, and Simon.
+
+The project's purpose was to allow us to learn and grow our skills in team work and coding.
 
 ## Contributions
-<strong>[Andrew Krause](https://github.com/wetbug75)</strong> worked on styling (toggle between styles), database schema, user votes backend, pagination backend, and generate jokes backend<br><br>
-<strong>[Devin Lewis](https://github.com/wolfpackdev5)</strong> worked on data models, keyword lookup table, cosmosdb setup and preprocessing "tags", create jokes backend.<br><br>
-<strong>[Leon Lu](https://github.com/IceDragoon064)</strong> worked on styling, generate joke front end, upvoting and downvoting front end.<br><br>
-<strong>[Simon Kuang](https://github.com/simonsimon9)</strong> worked on project structure, login, registration, pagination frontend and keyword search front end. <br>
+<strong>[Andrew Krause](https://github.com/wetbug75)</strong> worked on styling (toggle between styles), database schema, user votes backend, pagination backend, and generate jokes backend.
 
+<strong>[Devin Lewis](https://github.com/wolfpackdev5)</strong> worked on data models, keyword lookup table, cosmosdb setup and preprocessing "tags", create jokes backend.
+
+<strong>[Leon Lu](https://github.com/IceDragoon064)</strong> worked on styling, generate joke front end, upvoting and downvoting front end.
+
+<strong>[Simon Kuang](https://github.com/simonsimon9)</strong> worked on project management, login, registration, pagination frontend and keyword search front end. 
+<br>
 
 ## Technologies
 
