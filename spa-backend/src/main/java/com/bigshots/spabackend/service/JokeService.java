@@ -10,6 +10,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bigshots.spabackend.CosmosBuilder;
 import com.bigshots.spabackend.model.Joke;
 import com.bigshots.spabackend.model.JokeKeyword;
 //User is the name of the model class in Devin local code not sure if the file was changed in main
@@ -76,6 +77,8 @@ public class JokeService {
 			       .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 		Integer jokeId = Integer.valueOf(jokeRepo.save(joke).getId().intValue()); 
 		//add joke to nosql
+		CosmosBuilder cosmos = new CosmosBuilder();
+		cosmos.writeToCosmos(joke, jokeId);
 	}
 
 	public void UpdateUpvote(Joke updateJoke, Long jokeID){
@@ -99,6 +102,11 @@ public class JokeService {
 	}
 
 	public Joke findById(Integer integer) {
-		return jokeRepo.findById(integer);
+		return jokeRepo.findById((long)integer).orElse(null);
+	}
+	
+	public Optional<Joke> findById(Long thelong) {
+		System.out.println(jokeRepo.findById(thelong).orElse(null).getAnswer());
+		return jokeRepo.findById(thelong);
 	}
 }

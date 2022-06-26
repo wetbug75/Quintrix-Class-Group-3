@@ -14,6 +14,7 @@ input{
     width:5rem;
     border-left:none;
     color: black;
+    box-shadow: none;
 }
 
 @media(min-width:768px){

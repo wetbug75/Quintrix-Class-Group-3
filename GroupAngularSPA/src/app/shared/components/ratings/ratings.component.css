@@ -26,7 +26,9 @@
 table{
   width: 30%;
 }
-
+td {
+  width: 50%;
+}
 
 
 

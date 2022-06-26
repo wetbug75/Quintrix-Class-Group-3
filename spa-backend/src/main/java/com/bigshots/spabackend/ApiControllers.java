@@ -130,7 +130,9 @@ public class ApiControllers {
 		String authorName = auth.getName();
 		jokeService.addJoke(joke, authorName);
 		
-		return new ResponseEntity<>(HttpStatus.OK);
+		
+		return new ResponseEntity<>(HttpStatus.CREATED);
+
 	}
 
 
@@ -185,7 +187,7 @@ public class ApiControllers {
 		return new ResponseEntity<Integer>(jokeKeyWordService.getJokeByKeywordCount(keywordHashCode), HttpStatus.OK);
 	}
 	
-	//TODO we shouldn't need to include {user_id} since we should have access to which user is currently logged in
+	//TODO we shouldn't need to include {user_id} since we should have access to which user is currently logged in, look at /newJoke
 	@GetMapping("/voteStatus/{user_id}/{joke_id}")
 	public ResponseEntity<VoteStatus> getVoteStatus(@PathVariable long user_id, @PathVariable long joke_id) {
 		Users user = (userService.findUserById(user_id)).orElse(null);
@@ -213,7 +215,5 @@ public class ApiControllers {
 	@GetMapping("/getUserID/{name}")
 	public ResponseEntity<Long> getUserIDByUName(@PathVariable String name) {
 		return new ResponseEntity<>(userService.getUserIDByName(name), HttpStatus.OK);
-	}
-	
-	
+  }
 }

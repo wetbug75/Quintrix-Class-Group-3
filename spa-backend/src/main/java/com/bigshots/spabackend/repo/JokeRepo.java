@@ -11,7 +11,7 @@ import com.bigshots.spabackend.model.Joke;
 
 @Repository
 public interface JokeRepo extends JpaRepository<Joke, Long>{
-	Joke findById(Integer id);
+	//Joke findById(Integer id);
 
 }
 

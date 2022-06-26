@@ -38,21 +38,10 @@ public class JokeVoteService {
 		else
 			jokeVoteRepo.save(jokeVote);
 	}
-	/* 
-	public void modifyJokeVote(JokeVote jokeVote) {
-		JokeVoteId jokeVoteId = new JokeVoteId(jokeVote.getUser(), jokeVote.getJoke());
-		jokeVoteRepo.deleteById(jokeVoteId);
-		JokeVote newJokeVote = new JokeVote(jokeVoteId, jokeVote.getVoteStatus());
-		jokeVoteRepo.save(newJokeVote);
-	}
-	public void modifyJokeVote(JokeVoteId jokeVoteId, VoteStatus voteStatus) {
-		jokeVoteRepo.deleteById(jokeVoteId);
-		JokeVote newJokeVote = new JokeVote(jokeVoteId, voteStatus);
-		jokeVoteRepo.save(newJokeVote);
-	}
-	*/
+
 	public void modifyJokeVote(Users user, Joke joke, VoteStatus voteStatus) {
 		JokeVoteId theId = new JokeVoteId(user, joke);
+  
 		//Check if JokeVoteId exists
 		if(jokeVoteExists(theId) == true) {
 			System.out.println("Joke Vote ID found!");
@@ -67,13 +56,6 @@ public class JokeVoteService {
 			jokeVoteRepo.save(jokevoter);
 		}
 	}
-	/* 
-	public boolean jokeVoteExists(JokeVote jokeVote)
-	{
-		JokeVoteId jokeVoteId = new JokeVoteId(jokeVote.getUser(), jokeVote.getJoke());
-		return jokeVoteExists(jokeVoteId);
-	}
-	*/
 	public boolean jokeVoteExists(JokeVoteId jokeVoteId)
 	{
 		if(jokeVoteRepo.findById(jokeVoteId).orElse(null) == null)
