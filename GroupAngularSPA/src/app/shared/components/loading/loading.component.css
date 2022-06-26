@@ -1,0 +1,17 @@
+
+.loading{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loading-font{
+    display:block;
+}
+
+.cartoonletter{
+    display:block;
+    color: #4dc1ff;
+}

@@ -1,10 +1,11 @@
 <div>
-    <app-create-joke-form *ngIf = "createFormService.state"
+    <app-loading [message]="loadingMessage" *ngIf="loadingService.isLoading$ | async"></app-loading>
+    <app-create-joke-form *ngIf = "createFormService.state && !(loadingService.isLoading$ | async)"
     (onFormGroupSubmit)="onSubmitCreateJoke($event)"
     >
     </app-create-joke-form>
 
-    <app-create-joke-result *ngIf = "!createFormService.state" 
+    <app-create-joke-result *ngIf = "!createFormService.state && !(loadingService.isLoading$ | async)" 
     [backEndResponseStatus]="backEndResponseStatus"
     ></app-create-joke-result>
 </div>
