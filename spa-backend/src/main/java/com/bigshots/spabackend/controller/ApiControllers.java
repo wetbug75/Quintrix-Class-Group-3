@@ -1,4 +1,4 @@
-package com.bigshots.spabackend;
+package com.bigshots.spabackend.controller;
 
 import java.io.File;  // Import the File class
 
@@ -14,7 +14,6 @@ import java.util.Random; // Random number generator
 import java.util.Scanner; // Import the Scanner class to read text files
 
 import org.springframework.web.bind.annotation.*;
-
 
 import com.bigshots.spabackend.model.*;
 import com.bigshots.spabackend.service.*;

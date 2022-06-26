@@ -1,4 +1,4 @@
-package com.bigshots.spabackend;
+package com.bigshots.spabackend.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

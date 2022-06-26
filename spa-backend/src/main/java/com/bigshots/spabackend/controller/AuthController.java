@@ -1,4 +1,4 @@
-package com.bigshots.spabackend;
+package com.bigshots.spabackend.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

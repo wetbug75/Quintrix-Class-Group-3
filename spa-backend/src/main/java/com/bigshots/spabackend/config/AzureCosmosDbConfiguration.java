@@ -1,4 +1,4 @@
-package com.bigshots.spabackend;
+package com.bigshots.spabackend.config;
 
 import java.lang.System.Logger;
 
