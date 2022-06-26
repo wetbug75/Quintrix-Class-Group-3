@@ -18,7 +18,7 @@ export class JokeItemComponent implements OnInit {
   downvote: number;
 
   constructor() {
-    this.jokeID = -1;
+    this.jokeID = null;
   }
 
   ngOnInit(): void {
@@ -39,12 +39,10 @@ export class JokeItemComponent implements OnInit {
   }
 
   GetJokeID(){
-    if(this.jokeID == -1){
-      console.log("No joke available.");
+    if(this.jokeID == null){
       return null;
     }
     else{
-      console.log("Getting joke ID: " + this.jokeID);
       return this.jokeID;
     }
   }

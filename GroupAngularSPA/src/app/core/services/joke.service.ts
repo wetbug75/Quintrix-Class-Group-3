@@ -52,6 +52,7 @@ export class JokeService {
   GetRandomJoke(id: number){
     this.jokeGetSer.getJokeById(id).subscribe(Response =>{
       this.jokeItem.SetJoke(Response);
+      this.jokeItem.SetJokeID(Response.id);
       this.jokeItem.SetQuestion(Response.question);
       this.jokeItem.SetAnswer(Response.answer);
       this.jokeItem.SetUpvote(Response.upvotes);

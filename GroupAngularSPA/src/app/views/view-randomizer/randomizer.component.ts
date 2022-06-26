@@ -40,6 +40,9 @@ export class RandomizerComponent implements OnInit {
       this.jokeSize = Response;
     });
     this.userLoggedIn = this.authService.isUserLoggedIn();
+    if(this.userLoggedIn == true){
+      document.getElementById("loginMsg").style.visibility = "hidden";
+    }
   }
 
   getRandomJoke(){
@@ -77,15 +80,14 @@ export class RandomizerComponent implements OnInit {
   UpvoteTapped(){
     // If statement to catch if the user has logged in
     if(this.authService.isUserLoggedIn() == false){
-      console.log("Upvote button clicked, but no user is logged in.");
       document.getElementById("loginMsg").style.visibility = "visible";
-    } else{
+    }
+    else if(this.jokeService.GetJokeID() != null){
         /**
          *  Check if the user has an active downvote.
          *  If true, toggle the downvote off and update the database before proceeding
          **/
         if(this.GetDislikeClass() == true && this.GetHasVoted() == true){
-          console.log("User has an existing downvote. Undoing downvote first");
           this.UndoDownvote();
         }
         /**
@@ -105,21 +107,18 @@ export class RandomizerComponent implements OnInit {
           this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
         }
         else {
-          console.log("Undoing upvote");
           this.UndoUpvote();
         }
-     }
+    }
   }
 
   UndoUpvote() {
-    if(this.authService.isUserLoggedIn() == false){
-      console.log("Upvote button clicked, but no user is logged in.");
+    if(this.jokeService.GetJokeID() != null){
       document.getElementById("loginMsg").style.visibility = "visible";
-    } else {
+    } else if(this.jokeService.GetJokeID() != -1){
         //Toggle HTML Class
         this.SetLikeClass(false);
         if(this.GetLikeClass() == false && this.GetDislikeClass() == false){
-          console.log("UndoUpvote sees no vote now.");
           this.SetHasVoted(false);
         }
         this.tempJoke = this.jokeService.GetJoke();
@@ -135,15 +134,13 @@ export class RandomizerComponent implements OnInit {
   DownvoteTapped(){
     // If statement to catch if the user has logged in
     if(this.authService.isUserLoggedIn() == false){
-      console.log("Downvote button clicked, but no user is logged in.");
       document.getElementById("loginMsg").style.visibility = "visible";
-    } else {
+    } else if(this.jokeService.GetJokeID() != null){
         /**
          *  Check if the user has an active upvote.
          *  If true, toggle the upvote off and update the database before proceeding
          **/
         if(this.GetLikeClass() == true && this.GetHasVoted() == true) {
-          console.log("User has an existing upvote. Undoing upvote first.");
           this.UndoUpvote();
         }
         /**
@@ -162,7 +159,6 @@ export class RandomizerComponent implements OnInit {
           this.jokeService.UpdateDownvote(this.tempJoke, this.dislikeCount, this.tempJokeID);
           this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
         } else {
-            console.log("Undoing downvote");
             this.UndoDownvote();
         }
 
@@ -171,13 +167,11 @@ export class RandomizerComponent implements OnInit {
 
   UndoDownvote() {
     if(this.authService.isUserLoggedIn() == false){
-      console.log("Upvote button clicked, but no user is logged in.");
       document.getElementById("loginMsg").style.visibility = "visible";
     }
-    else {
+    else if(this.jokeService.GetJokeID() != null){
       this.SetDislikeClass(false);
       if(this.GetLikeClass() == false && this.GetDislikeClass() == false){
-        console.log("UndoDownvote sees no vote now.");
         this.SetHasVoted(false);
       }
       this.tempJoke = this.jokeService.GetJoke();
@@ -189,7 +183,6 @@ export class RandomizerComponent implements OnInit {
       this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
     }
   }
-
 
   SetLikeClass(value: boolean) {
     this.upclick = value;
