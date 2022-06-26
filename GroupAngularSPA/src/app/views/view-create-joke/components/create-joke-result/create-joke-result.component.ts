@@ -7,19 +7,24 @@ import { Status } from 'src/app/models/status';
   styleUrls: ['./create-joke-result.component.css']
 })
 export class CreateJokeResultComponent implements OnChanges {
+  dogeImage: boolean;
+  happyDogeImage:boolean;
   statusResult!: String;
   @Input() backEndResponseStatus= Status.None;
-  constructor(public createForm: CreateStateServiceService) { }
+  constructor(public createForm: CreateStateServiceService) {
+    this.dogeImage=false;
+    this.happyDogeImage = false;
+   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(this.backEndResponseStatus.valueOf() === Status.Success){
       this.statusResult="Congrats! The new Joke was added to our vault of jokes";
-      console.log("response")
-      console.log(this.backEndResponseStatus);
+      this.happyDogeImage = true;
     }else if(this.backEndResponseStatus.valueOf()===Status.Fail){
       this.statusResult="Unfortunately, the joke was not added. There was an error. Try again next time";
     }else if(this.backEndResponseStatus.valueOf() === Status.IsNotLoggedIn){
-      this.statusResult="You're not logged in! Please log in to create a new joke";
+      this.statusResult="You're not logged in! Please log in to create a new jokes";
+      this.dogeImage = true;
     }
 
     
