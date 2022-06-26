@@ -38,55 +38,28 @@ public class JokeVoteService {
 		else
 			jokeVoteRepo.save(jokeVote);
 	}
-	
-	public void modifyJokeVote(JokeVote jokeVote) {
-		JokeVoteId jokeVoteId = new JokeVoteId(jokeVote.getUser(), jokeVote.getJoke());
-		if(jokeVoteRepo.existsById(jokeVoteId))
-			jokeVoteRepo.deleteById(jokeVoteId);
-		JokeVote newJokeVote = new JokeVote(jokeVoteId, jokeVote.getVoteStatus());
-		jokeVoteRepo.save(newJokeVote);
-	}
-	public void modifyJokeVote(JokeVoteId jokeVoteId, VoteStatus voteStatus) {
-		if(jokeVoteRepo.existsById(jokeVoteId))
-			jokeVoteRepo.deleteById(jokeVoteId);
-		JokeVote newJokeVote = new JokeVote(jokeVoteId, voteStatus);
-		System.out.println("Joke Id: " + newJokeVote.getJoke().getId());
-		System.out.println("right before save");
-		jokeVoteRepo.save(newJokeVote);//this is the problem
-		System.out.println("right after save");
-	}
+
 	public void modifyJokeVote(Users user, Joke joke, VoteStatus voteStatus) {
 		JokeVoteId theId = new JokeVoteId(user, joke);
-		if(jokeVoteRepo.existsById(theId))
-			jokeVoteRepo.deleteById(theId);
-		JokeVote newJokeVote = new JokeVote(theId, voteStatus);
-		jokeVoteRepo.save(newJokeVote);
-	}
-	// please delete this temporary solution later
-	public void modifyJokeVote(Users user, Joke joke, String voteStatus) {
-		System.out.println("AM I EVEN GETTING HERE?");
-		JokeVoteId theId = new JokeVoteId(user, joke);
-		if(jokeVoteRepo.existsById(theId))
-			jokeVoteRepo.deleteById(theId);
-		VoteStatus realStatus = VoteStatus.NONE;
-		if(voteStatus == "0")
-			realStatus = VoteStatus.UPVOTE;
-		else if(voteStatus == "1")
-			realStatus = VoteStatus.DOWNVOTE;
-		JokeVote newJokeVote = new JokeVote(theId, realStatus);
-		jokeVoteRepo.save(newJokeVote);
-	}
-	
-	public boolean jokeVoteExists(JokeVote jokeVote)
-	{
-		JokeVoteId jokeVoteId = new JokeVoteId(jokeVote.getUser(), jokeVote.getJoke());
-		return jokeVoteExists(jokeVoteId);
+  
+		//Check if JokeVoteId exists
+		if(jokeVoteExists(theId) == true) {
+			System.out.println("Joke Vote ID found!");
+			//jokeVoteRepo.deleteById(theId);
+			jokeVoteRepo.findById(theId).get().setVoteStatus(voteStatus);
+			
+			//JokeVote newJokeVote = new JokeVote(theId, voteStatus);
+			//jokeVoteRepo.save(newJokeVote);
+		} else {
+			System.out.println("No joke vote ID found. Creating a new one.");
+			JokeVote jokevoter = new JokeVote(user, joke, voteStatus);
+			jokeVoteRepo.save(jokevoter);
+		}
 	}
 	public boolean jokeVoteExists(JokeVoteId jokeVoteId)
 	{
 		if(jokeVoteRepo.findById(jokeVoteId).orElse(null) == null)
 			return false;
 		return true;
-	}
-	
+	}	
 }

@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Joke } from 'src/app/models/Joke';
 import { Users } from 'src/app/models/User';
-
+import { JokeService } from '../joke.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +17,11 @@ export class AuthenticationService {
 
   public username: String;
   public password: String;
+  private userid: number;
   public isLoggedIn :EventEmitter<boolean> = new EventEmitter();
+  springUrl = 'http://localhost:8080';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private jokeSer: JokeService) {
     this.isUserLoggedIn();
   }
 
@@ -27,7 +31,6 @@ export class AuthenticationService {
         this.username = user.username;
         this.password = user.password;
         this.registerSuccessfulLogin(user);
-        
       }));
   }
 
@@ -42,6 +45,10 @@ export class AuthenticationService {
     localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, user.username)
     localStorage.setItem(this.AUTH_TOKEN, this.createBasicAuthTokenNoHeader(user));
     this.isLoggedIn.emit(true);
+    this.getUserIDwithName(user.username).subscribe(Response =>{
+      this.userid = Response;
+      this.jokeSer.SetUserID(this.userid);
+    });
   }
 
   logout() {
@@ -50,6 +57,7 @@ export class AuthenticationService {
     this.username = null;
     this.password = null;
     this.isLoggedIn.emit(false);
+    this.jokeSer.SetUserID(-1);
   }
 
   isUserLoggedIn() {
@@ -61,10 +69,13 @@ export class AuthenticationService {
       this.isLoggedIn.emit(true);
       return true;
     }
-    
   }
 
   getAuthToken(){
     return localStorage.getItem(this.AUTH_TOKEN);
+  }
+
+  getUserIDwithName(name: String): Observable<any>{
+    return this.http.get<any>(`${this.springUrl}/getUserID/${name}`);
   }
 }

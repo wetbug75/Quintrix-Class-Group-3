@@ -47,6 +47,19 @@ public class Joke {
 		this.author = author;
 		this.created_at = null;
 	}
+
+	/*
+	 * Simon's solution 
+	 */
+	public Joke(Joke joke){
+		this.id = joke.id;
+		this.question = joke.question;
+		this.answer = joke.answer;
+		this.upvotes = joke.upvotes;
+		this.downvotes = joke.downvotes;
+		this.created_at = joke.created_at;
+	}
+
 	
 	public Long getId() {
 		return id;

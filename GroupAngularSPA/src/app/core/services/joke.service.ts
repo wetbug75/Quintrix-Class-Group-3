@@ -23,6 +23,7 @@ export class JokeService {
   private apiURL = `http://127.0.0.1:3306`;
   springUrl = `http://localhost:8080`;
   currentJoke: Joke;
+  currentUserID: number;
 
   constructor(
     private jokeGetSer: JokeGetService,
@@ -33,11 +34,13 @@ export class JokeService {
   }
 
   UpdateUpvote(joke: Joke, upvote: number, jokeid: number){
+    console.log("Updating upvote");
     this.jokePostSer.UpdateLikeCount(joke, jokeid);
     this.jokeRating.SetLikeCount(upvote);
   }
 
   UpdateDownvote(joke: Joke, downvote:number, jokeid: number){
+    console.log("Updating downvote");
     this.jokePostSer.UpdateDislikeCount(joke, jokeid);
     this.jokeRating.SetDislikeCount(downvote);
   }
@@ -58,6 +61,10 @@ export class JokeService {
     })
   }
 
+  GetUserVote(userID: number, jokeID: number){
+    return this.jokeGetSer.getUserVote(userID, jokeID);
+  }
+
   GetJokeDatabaseSize(){
     return this.jokeGetSer.getJokeSize();
   }
@@ -68,6 +75,19 @@ export class JokeService {
 
   GetJokeID(){
     return this.jokeItem.GetJokeID();
+  }
+
+  SetUserID(id: number){
+    this.currentUserID = id;
+  }
+
+  GetUserID(){
+    return this.currentUserID;
+  }
+
+  UpdateUserJokeVote(user_id: number, joke_id: number, jokeVote: String){
+    this.jokePostSer.UpdateUserJokeVote(user_id, joke_id, jokeVote);
+
   }
 
    //getJokeByKeyword(word: String): Observable<any>{

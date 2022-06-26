@@ -191,7 +191,7 @@ public class ApiControllers {
 	@GetMapping("/voteStatus/{user_id}/{joke_id}")
 	public ResponseEntity<VoteStatus> getVoteStatus(@PathVariable long user_id, @PathVariable long joke_id) {
 		Users user = (userService.findUserById(user_id)).orElse(null);
-		Joke joke = (jokeService.getOneJoke(user_id)).orElse(null);
+		Joke joke = (jokeService.getOneJoke(joke_id)).orElse(null);
 		if(user == null || joke == null)
 			return new ResponseEntity<>(VoteStatus.NONE, HttpStatus.NO_CONTENT);
 		JokeVoteId theId = new JokeVoteId(user, joke);
@@ -199,23 +199,21 @@ public class ApiControllers {
 			return new ResponseEntity<>(VoteStatus.NONE, HttpStatus.OK);
 		return new ResponseEntity<>(jokeVoteService.getJokeVoteStatus(theId), HttpStatus.OK);
 	}
-	
+
 	//adds new entries and modifies old ones
-	@PostMapping("/changeVoteStatus")
-	public ResponseEntity<?> changeVoteStatus(@RequestBody JokeVote jokeVote) {
-		jokeVoteService.modifyJokeVote(jokeVote);
-		return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
+	@PutMapping("/voteStatus/update/{user_id}/{joke_id}")
+	public ResponseEntity<?> changeVoteStatus(@RequestBody String jokeVote, @PathVariable long user_id, @PathVariable long joke_id) {
+		VoteStatus tempVoteStat = VoteStatus.valueOf(jokeVote);	
+		jokeVoteService.modifyJokeVote(
+			userService.findUserById(user_id).get(),
+			jokeService.getOneJoke(joke_id).get(), 
+			tempVoteStat);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
-	@PostMapping("/vstest")
-	public ResponseEntity<?> changeVoteStatus(@RequestBody String userId) {
-		Users theuser = userService.findUserById((long)2).orElse(null);
-		Joke thejoke = jokeService.findById((long)5).orElse(null);
-		JokeVoteId theId = new JokeVoteId(theuser, thejoke);
-		System.out.println("pre-creation");
-		jokeVoteService.modifyJokeVote(theId, VoteStatus.UPVOTE);
-		System.out.println("post-creation");
-		return new ResponseEntity<>(HttpStatus.CREATED);
-	}
-	
+
+
+	@GetMapping("/getUserID/{name}")
+	public ResponseEntity<Long> getUserIDByUName(@PathVariable String name) {
+		return new ResponseEntity<>(userService.getUserIDByName(name), HttpStatus.OK);
+  }
 }

@@ -24,13 +24,24 @@ public class Users {
 	@Column
 	private String created_at; //time stamp   "yyyy.MM.dd hh:mm:ss"
 	// https://www.youtube.com/watch?v=CyWQVYLiupc
-	public Users(){
-		
-	}
+	public Users(){ }
 	public Users(String userName, String email, String password) {
 		this.username = userName;
 		this.email = email;
 		this.password = password;
+	}
+
+	/*
+	 * Simon's solution to java.lang.Long cannot be converted
+	 */
+	public Users (Users user) {
+		this.id = user.id;
+		this.username = user.username;
+		this.email = user.email;
+		this.password = user.password;
+		this.role = "";
+		this.enabled = true;
+		this.created_at = user.created_at;
 	}
 
 	public long getId() {

@@ -46,6 +46,10 @@ export class JokeGetService {
    }
 
    getKeywordSize(word:String): Observable<any>{
-     return this.http.get<any>(`${this.springUrl}/jokesWithKeywordCount/${word}` )
+     return this.http.get<any>(`${this.springUrl}/jokesWithKeywordCount/${word}`)
+   }
+
+   getUserVote(user_id: number, joke_id: number){
+    return this.http.get<any>(`${this.springUrl}/voteStatus/${user_id}/${joke_id}`);
    }
 }
