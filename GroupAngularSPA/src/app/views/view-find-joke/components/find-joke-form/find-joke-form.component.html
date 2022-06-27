@@ -6,5 +6,5 @@
                 <button (click)="onSubmit()"type="button" class="search">Search</button>
             </div>
         </div>
-    
+        <app-red-message *ngIf="showError"[redmessage]="redmessage"></app-red-message>
 </div>

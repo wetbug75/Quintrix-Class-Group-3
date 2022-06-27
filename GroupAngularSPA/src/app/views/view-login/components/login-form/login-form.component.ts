@@ -19,8 +19,12 @@ export class LoginFormComponent implements OnInit {
     this.redmessage="Required";
    }
 
-  ngOnInit(): void {
-     this.initializeForm();
+   get userName(){
+    return this.userLoginForm.get('userName');
+  }
+
+  get password(){
+    return this.userLoginForm.get('password');
   }
 
   initializeForm():void{
@@ -29,13 +33,9 @@ export class LoginFormComponent implements OnInit {
       password: ['',Validators.required]
     });
   }
-
-  get userName(){
-    return this.userLoginForm.get('userName');
-  }
-
-  get password(){
-    return this.userLoginForm.get('password');
+  
+  ngOnInit(): void {
+     this.initializeForm();
   }
 
   onSubmit():void{

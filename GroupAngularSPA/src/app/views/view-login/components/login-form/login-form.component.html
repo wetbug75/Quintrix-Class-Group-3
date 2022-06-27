@@ -20,7 +20,7 @@
         <app-red-message [redmessage]="redmessage" *ngIf="submitted && userName?.errors?.['required']"></app-red-message>
       </div>
     
-
+      
       <label class="cartoonletter"> Password: </label>
       <input class="form-control cartoonbox" type="password" formControlName="password" placeholder="Your password must be 1234" >
       <app-red-message [redmessage]="redmessage" *ngIf="submitted && password?.errors?.['required']"></app-red-message>
