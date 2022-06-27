@@ -14,9 +14,11 @@ import { LoadingService } from 'src/app/core/services/Loading/loading.service';
 export class ViewCreateJokeComponent implements OnInit {
   loadingMessage: string = "Saving..."
   backEndResponseStatus!:Status;
-  
+  alertMessage: boolean ;
   SubmittedForm!: boolean;
-  constructor(private jokePostService : JokePostService, public createFormService: CreateStateServiceService , public authenticationService: AuthenticationService,  public loadingService: LoadingService) { }
+  constructor(private jokePostService : JokePostService, public createFormService: CreateStateServiceService , public authenticationService: AuthenticationService,  public loadingService: LoadingService) { 
+    this.alertMessage =false;
+  }
 
   ngOnInit(): void {
     this.backEndResponseStatus = Status.None;
@@ -25,7 +27,19 @@ export class ViewCreateJokeComponent implements OnInit {
   }
 
   onSubmitCreateJoke(newJokeData : Joke ){
+    if(!newJokeData.question.trim() && !newJokeData.answer.trim()){
+      this.showAlertMessage();
+      return;
+    }
     this.createFormService.needForm = false;
+    this.createJoke(newJokeData)
+  }
+
+  showAlertMessage(){
+    this.alertMessage = true;
+    setTimeout(()=> this.alertMessage = false,3000);
+  }
+  createJoke(newJokeData: Joke){
     this.jokePostService.postJoke(newJokeData).subscribe((response)=>{
       console.log("insisde response");
       console.log(response);

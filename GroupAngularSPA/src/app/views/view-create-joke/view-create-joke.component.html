@@ -1,4 +1,7 @@
 <div>
+    <div *ngIf="alertMessage" class="alert alert-danger cartoonletters" role="alert">
+        Sorry, the joke form has to be filled! You can fill out both lines or just one!
+      </div>
     <app-loading [message]="loadingMessage" *ngIf="loadingService.isLoading$ | async"></app-loading>
     <app-create-joke-form *ngIf = "createFormService.state && !(loadingService.isLoading$ | async)"
     (onFormGroupSubmit)="onSubmitCreateJoke($event)"
