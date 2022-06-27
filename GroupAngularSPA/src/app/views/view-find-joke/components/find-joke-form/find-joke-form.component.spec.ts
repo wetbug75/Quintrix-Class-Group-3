@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FindJokeFormComponent } from './find-joke-form.component';
@@ -19,7 +21,8 @@ describe('FindJokeFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('THIS SHOULD BE TRUEEEEEEEEEE', () => {
+    //expect(component).toBeTruthy();
+    expect(false).toBeTruthy();
   });
 });

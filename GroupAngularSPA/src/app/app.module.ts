@@ -32,6 +32,7 @@ import { LoadingService } from './core/services/Loading/loading.service';
 import { LoadingInterceptor } from './core/services/Interceptor/LoadingInterceptorService';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoadingComponent } from './shared/components/loading/loading.component';
+import { RedMessageComponent } from './shared/components/red-message/red-message.component';
 /*Will come back!*/
 const appRoutes: Routes = [
  {path: '', component:RandomizerComponent},
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
     RegisterBtnComponent,
     FooterComponent,
     BoldKeyWordPipe,
-    LoadingComponent
+    LoadingComponent,
+    RedMessageComponent
   ],
   imports: [
     BrowserModule,

@@ -10,11 +10,14 @@ import { Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   @Output() public onUserFormGroupSubmit = new EventEmitter<Users>();
-
+  submitted: boolean;
   userLoginForm?: FormGroup;
   userLoginData: Users;
-
-  constructor(private fb: FormBuilder) { }
+  redmessage: string;
+  constructor(private fb: FormBuilder) {
+    this.submitted= false;
+    this.redmessage="Required";
+   }
 
   ngOnInit(): void {
      this.initializeForm();
@@ -22,14 +25,29 @@ export class LoginFormComponent implements OnInit {
 
   initializeForm():void{
     this.userLoginForm = this.fb.group({
-      userName: '',
-      password:''
+      userName: ['',Validators.required],
+      password: ['',Validators.required]
     });
   }
 
+  get userName(){
+    return this.userLoginForm.get('userName');
+  }
+
+  get password(){
+    return this.userLoginForm.get('password');
+  }
+
   onSubmit():void{
+    if(this.userLoginForm.invalid){
+      this.submitted=true;
+      console.log(this.submitted);
+      
+       return;
+    }
     this.userLoginData = {username: this.userLoginForm.value.userName,
                           password: this.userLoginForm.value.password }
+   
     this.onUserFormGroupSubmit.emit(this.userLoginData);
   }
 
