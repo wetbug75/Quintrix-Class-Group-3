@@ -97,6 +97,11 @@ Another Pop will show up, find and click Java Application
 ## Trouble Shoot
 
 <ol>
+   <li>
+    <strong>Error:</strong> Spring says it cannot create bean in general, like a service.<br>
+      <strong>Solution:</strong> Drop the MySQL tables, and try again. 
+  </li>
+  <br>
   <li>
     <strong>Error:</strong> Public Key Retrieval is not allowed <br>
       <strong>Solution:</strong> You have to configure your application.properties and make sure the username and password are correct with your local MySQL

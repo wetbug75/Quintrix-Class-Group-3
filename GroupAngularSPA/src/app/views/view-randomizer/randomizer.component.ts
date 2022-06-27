@@ -81,41 +81,40 @@ export class RandomizerComponent implements OnInit {
     // If statement to catch if the user has logged in
     if(this.authService.isUserLoggedIn() == false){
       document.getElementById("loginMsg").style.visibility = "visible";
-    }
-    else if(this.jokeService.GetJokeID() != null){
-        /**
-         *  Check if the user has an active downvote.
-         *  If true, toggle the downvote off and update the database before proceeding
-         **/
-        if(this.GetDislikeClass() == true && this.GetHasVoted() == true){
-          this.UndoDownvote();
-        }
-        /**
-         * Toggle the upvote status
-         * If new status is true, user has upvoted
-         * If new status is false, user undo the upvote
-         */
-        this.SetLikeClass(!this.GetLikeClass());
-        if(this.GetLikeClass() == true) {
-          this.tempJoke = this.jokeService.GetJoke();
-          this.tempJokeID = this.tempJoke.id;
-          this.voteStat = this.CheckVoteStat();
-          this.likeCount = this.tempJoke.upvotes + 1;
-          this.SetHasVoted(true);
-          this.tempJoke.upvotes = this.likeCount;
-          this.jokeService.UpdateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
-          this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
-        }
-        else {
-          this.UndoUpvote();
-        }
+    } else if(this.jokeService.GetJokeID() != null){
+      /**
+       *  Check if the user has an active downvote.
+       *  If true, toggle the downvote off and update the database before proceeding
+       **/
+      if(this.GetDislikeClass() == true && this.GetHasVoted() == true){
+        this.UndoDownvote();
+      }
+      /**
+       * Toggle the upvote status
+       * If new status is true, user has upvoted
+       * If new status is false, user undo the upvote
+       **/
+      this.SetLikeClass(!this.GetLikeClass());
+      if(this.GetLikeClass() == true) {
+        this.tempJoke = this.jokeService.GetJoke();
+        this.tempJokeID = this.tempJoke.id;
+        this.voteStat = this.CheckVoteStat();
+        this.likeCount = this.tempJoke.upvotes + 1;
+        this.SetHasVoted(true);
+        this.tempJoke.upvotes = this.likeCount;
+        this.jokeService.UpdateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
+        this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
+      } else {
+        this.UndoUpvote();
+      }
     }
   }
 
   UndoUpvote() {
-    if(this.jokeService.GetJokeID() != null){
+    if(this.authService.isUserLoggedIn() == false){
       document.getElementById("loginMsg").style.visibility = "visible";
-    } else if(this.jokeService.GetJokeID() != -1){
+    }
+    else if(this.jokeService.GetJokeID() != null){
         //Toggle HTML Class
         this.SetLikeClass(false);
         if(this.GetLikeClass() == false && this.GetDislikeClass() == false){
@@ -128,7 +127,7 @@ export class RandomizerComponent implements OnInit {
         this.tempJoke.upvotes = this.likeCount;
         this.jokeService.UpdateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
         this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
-    }
+      }
   }
 
   DownvoteTapped(){
