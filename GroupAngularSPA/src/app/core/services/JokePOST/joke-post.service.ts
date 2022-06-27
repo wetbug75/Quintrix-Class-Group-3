@@ -34,16 +34,17 @@ export class JokePostService {
   }
 
   UpdateLikeCount(updateJoke: Joke, jokeID: number){
-    this.http.put(`${this.springUrl}/jokes/${jokeID}/update/upvote`,updateJoke,httpOptions).
-    subscribe(data => {
-      console.log(data);
-    });
+    this.http.put(`${this.springUrl}/jokes/${jokeID}/update/upvote`,updateJoke,httpOptions);
   }
 
   UpdateDislikeCount(updateJoke: Joke, jokeID: number){
-    this.http.put(`${this.springUrl}/jokes/${jokeID}/update/downvote`,updateJoke,httpOptions).
-    subscribe(data => {
+    this.http.put(`${this.springUrl}/jokes/${jokeID}/update/downvote`,updateJoke,httpOptions);
+  }
+
+  UpdateUserJokeVote(user_id: number, joke_id: number, jokeVote: String){
+    this.http.put(`${this.springUrl}/voteStatus/update/${user_id}/${joke_id}`, jokeVote, httpOptions).subscribe(data => {
       console.log(data);
     });
   }
 }
+

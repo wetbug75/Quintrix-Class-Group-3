@@ -1,15 +1,31 @@
 <form  [formGroup]="userRegisterForm" (ngSubmit)="onSubmit()" >
+    <div *ngIf="alertMessage" class="alert alert-danger cartoonletters" role="alert">
+       Must fill the form properly!
+      </div>
     <div class="container">
         <label class="cartoonletter"> Email: </label>
-        <input class="form-control mb-3 cartoonbox" type="email" formControlName="email" placeholder="Your email" >
-
-        <label class="cartoonletter">Username:</label>
-        <input class="form-control mb-3 cartoonbox"type="text " formControlName="username" placeholder="Your new user name?">
-    
-        <label class="cartoonletter"> Password: </label>
-        <input class="form-control mb-5 cartoonbox" type="password" formControlName="password" placeholder="Your password must be 1234" >
-
-        <button class=""id="btn-submit-joke">Register</button>
+        <input class="form-control cartoonbox" type="email" formControlName="email" placeholder="Your email" >
+        <div *ngIf="email.invalid && email.touched || email.dirty">
+            <app-red-message *ngIf="email.errors?.['email']"  [redmessage]="invalidEmailMessage"></app-red-message>
+            <app-red-message *ngIf="email.errors?.['required']"  [redmessage]="requiredInput"></app-red-message>
+        </div>
+        
+        <div class="mt-2">
+            <label class="cartoonletter">Username:</label>
+            <input class="form-control cartoonbox"type="text " formControlName="username" placeholder="Your new user name?">
+            <app-red-message *ngIf="username?.touched && username?.errors?.['required']" [redmessage]="requiredInput"></app-red-message>
+            <app-red-message *ngIf="username?.touched && username?.errors?.['minlength']" [redmessage]="minLength"></app-red-message>
+        </div>
+        
+        <div class="mt-2">
+            <label class="cartoonletter"> Password: </label>
+            <input class="form-control cartoonbox" type="password" formControlName="password" placeholder="Your password must be 1234" >
+            <app-red-message *ngIf="password?.touched && password?.errors?.['required']" [redmessage]="requiredInput"></app-red-message>
+            <app-red-message *ngIf="password?.touched && password?.errors?.['minlength']" [redmessage]="minLength"></app-red-message>       
+        </div>
+     
+        
+        <button class="mt-5"id="btn-submit-joke">Register</button>
         
     </div>
     

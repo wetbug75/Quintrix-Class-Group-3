@@ -10,26 +10,44 @@ import { Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   @Output() public onUserFormGroupSubmit = new EventEmitter<Users>();
-
+  submitted: boolean;
   userLoginForm?: FormGroup;
   userLoginData: Users;
+  redmessage: string;
+  constructor(private fb: FormBuilder) {
+    this.submitted= false;
+    this.redmessage="Required";
+   }
 
-  constructor(private fb: FormBuilder) { }
+   get userName(){
+    return this.userLoginForm.get('userName');
+  }
 
-  ngOnInit(): void {
-     this.initializeForm();
+  get password(){
+    return this.userLoginForm.get('password');
   }
 
   initializeForm():void{
     this.userLoginForm = this.fb.group({
-      userName: '',
-      password:''
+      userName: ['',Validators.required],
+      password: ['',Validators.required]
     });
+  }
+  
+  ngOnInit(): void {
+     this.initializeForm();
   }
 
   onSubmit():void{
+    if(this.userLoginForm.invalid){
+      this.submitted=true;
+      console.log(this.submitted);
+      
+       return;
+    }
     this.userLoginData = {username: this.userLoginForm.value.userName,
                           password: this.userLoginForm.value.password }
+   
     this.onUserFormGroupSubmit.emit(this.userLoginData);
   }
 

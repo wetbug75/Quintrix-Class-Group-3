@@ -2,3 +2,5 @@
 <button (click)="onSubmit()" *ngIf="this.backEndResponseStatus.valueOf() === 0 || 
  this.backEndResponseStatus.valueOf() === 1  ">
     Create New Joke</button>
+<img *ngIf="this.dogeImage" class="center" src="../../../../assets/images/doge.png"/>
+<img *ngIf="this.happyDogeImage" class="center" src="../../../../assets/images/happydoge.png"/>

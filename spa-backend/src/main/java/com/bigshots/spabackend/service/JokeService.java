@@ -45,8 +45,6 @@ public class JokeService {
 	}
 
 	public Optional<Joke> getOneJoke(Long indexID){
-		System.out.println("Finding joke by ID:" + indexID);
-
 		return jokeRepo.findById(indexID);
 	}
 

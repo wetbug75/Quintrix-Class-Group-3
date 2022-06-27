@@ -2,31 +2,42 @@ package com.bigshots.spabackend.model;
 
 import javax.persistence.*;
 import com.bigshots.spabackend.service.VoteStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@IdClass(JokeVoteId.class)
+//@IdClass(JokeVoteId.class)
 public class JokeVote {
-	@Id
+	@EmbeddedId
+	private JokeVoteId id = new JokeVoteId();
+	@MapsId("userId")
 	@ManyToOne
-	private Users user;
-	@Id
+	private Users user = new Users();
+	@MapsId("jokeId")
 	@ManyToOne
-	private Joke joke;
+	private Joke joke = new Joke();
+	@JsonProperty("vote_status")
 	@Column
 	private VoteStatus voteStatus;
 
-	public JokeVote() {
-		System.out.println("JokeVote empty constructor");
+
+	public JokeVote() { }
+
+	public JokeVote(Long user, Long joke, VoteStatus voteStatus) {
+		this.user.setId(user);
+		this.joke.setId(joke);
+		this.voteStatus = voteStatus;
 	}
+
 	public JokeVote(JokeVoteId jokeVoteId, VoteStatus voteStatus) {
 		this(jokeVoteId.getUser(), jokeVoteId.getJoke(), voteStatus);
 	}
+
 	public JokeVote(Users user, Joke joke, VoteStatus voteStatus) {
 		this.user = user;
 		this.joke = joke;
 		this.voteStatus = voteStatus;
 	}
-	
+
 	public Users getUser() {
 		return user;
 	}

@@ -83,164 +83,21 @@ public class SpaBackendApplication {
 	public static void main(String[] args) {
 		
 		SpringApplication.run(SpaBackendApplication.class, args);
-
 		
-		//this code will add the mysql data to azure cosmos db as keywords
-		
-		//this object is going to initialize the connection to azure portal
-		CosmosClient client;
-		//make sure you change the database and container names unless you name yours exactly the same
-		//name of the database 
-		final String databaseName = "Jokes";
-		//name of the container in the database 
-		final String containerName = "jokeKeywords";
-		
-		CosmosDatabase database;
-		CosmosContainer container;
-		//credentials to connect to the specific database. link is database, key is the primary key
-		//not sure if it will let you log into mine so if you create your account plug in the values 
-		client = new CosmosClientBuilder()
-				.endpoint("https://jokeproject.documents.azure.com:443/")
-				.key("sqlMrvo8PY91y1I94mncw9hZeocwniD49mr3Rb3b3EqBbW4qmumYVDemy4UuEH4HNAm4q9qjlCVJptLNANMH8Q==")
-				.buildClient();
-		
-		//CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
-        //database = client.getDatabase(databaseResponse.getProperties().getId());
-		CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
-		database = client.getDatabase(databaseResponse.getProperties().getId());
-		 //CosmosContainerProperties containerProperties =
-		            //new CosmosContainerProperties(containerName, "/partitionKey");
-
-		        //CosmosContainerResponse containerResponse = database.createContainerIfNotExists(containerProperties);
-		   //container = database.getContainer(containerResponse.getProperties().getId());
-		CosmosContainerProperties containerProperties = new CosmosContainerProperties(containerName, "word");
-		CosmosContainerResponse containerResponse = database.createContainerIfNotExists(containerProperties);
-		container = database.getContainer(containerResponse.getProperties().getId());
-		//make sure you change the mysql link to your local mysql link
-		try {
-			String myUrl = "jdbc:mysql://127.0.0.1:3306/jokes?useSSL=false&serverTimezone=UTC";
-			//change this to your mysql login credentials
-			Connection conn = DriverManager.getConnection(myUrl, "root", "kevinwall5");
-			
-			String query = "SELECT * FROM joke";
-			
-			Statement st = conn.createStatement();
-			
-			ResultSet rs = st.executeQuery(query);
-			//figure out how to separate the question mark from the question
-			while(rs.next())  {
-				String parse = rs.getString("answer").replaceAll("\\p{Punct}", "").toLowerCase();
-				String parsed = rs.getString("question").replaceAll("\\p{Punct}", "").toLowerCase();
-				Integer jokeIndex = rs.getInt("id");
-				String[] arr = parse.split(" ");
-				String[] arrs = parsed.split(" ");
-				for(String a : arr) { 
-					
-					
-					JokeKeyword jk = new JokeKeyword(Integer.toString(a.hashCode()), a);
-					jk.jokeId.add(jokeIndex);
-					
-					
-					CosmosItemResponse<JokeKeyword> item = null;
-			
-					try {
-			
-						 item = container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class);
-						
-						
-					}  catch (CosmosException ex) {}
-					
-					if(item == null) {	
-						//System.out.println(jk.jokeId);
-						container.createItem(jk, new CosmosItemRequestOptions());
-						//jk.jokeId.add(jokeIndex);
-
-						
-						
-
-						
-					} if(item != null) {
-						
-						int count = 1;
-						
-						 if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
-						
-							CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
-			
-							patchOps.add("/jokeId/" + count, jokeIndex);
-						
-							//step 3 
-							container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
-							
-							count++;
-						 }
-				
-					}
-					
-
-				}
-				for(String b : arrs) { 
-					
-					
-					JokeKeyword jk = new JokeKeyword(Integer.toString(b.hashCode()), b);
-					jk.jokeId.add(jokeIndex);
-					
-					
-					CosmosItemResponse<JokeKeyword> item = null;
-			
-					try {
-			
-						 item = container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class);
-						
-						
-					}  catch (CosmosException ex) {}
-					
-					if(item == null) {	
-						//System.out.println(jk.jokeId);
-						container.createItem(jk, new CosmosItemRequestOptions());
-						//jk.jokeId.add(jokeIndex);
-
-						
-						
-
-						
-					} if(item != null) {
-						
-						int count = 1;
-						
-						 if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
-						
-							CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
-			
-							patchOps.add("/jokeId/" + count, jokeIndex);
-						
-							//step 3 
-							container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
-							
-							count++;
-						 }
-				
-					}
-			}
-		}
-			
-			st.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 	}
 	
-		
-	
-	//function that will insert all the data from JSON files to Database.
-	//JSON files located in resources folder. 
-	//comment this function out if you do not need. 
-	//JAVA 1.8 
 	@Bean
-	CommandLineRunner runner(MiscFunctions miscfunctions) {
+	CommandLineRunner runner(MiscFunctions miscfunctions , CosmosScript cosmosScript) {
 		  return args -> {
-			  		miscfunctions.jsonToDB();
-					miscfunctions.bcryptexample();
+			  		miscfunctions.jsonToDB(); //imports jokes to DB
+					miscfunctions.bcryptexample(); //creates an example bcrypt
+				    
+					//this imports the mysql jokes into azure
+					//comment code below code if not needed. Exit the program
+					//rerun to stop officially. Can't just resave to stop
+					
+					//cosmosScript.buildTableOverCloud();
+					
 		  };
 	}
 

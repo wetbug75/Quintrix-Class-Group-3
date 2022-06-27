@@ -8,8 +8,13 @@ import { JokeService } from 'src/app/core/services/joke.service';
 })
 export class FindJokeFormComponent implements OnInit {
   @Output() keyWord = new EventEmitter<string>();
+  redmessage: string;
   inputKeyword: string;
-  constructor(private jokeService: JokeService) { 
+  showError: boolean;
+  constructor() { 
+    this.inputKeyword = ""
+    this.redmessage = "One word or No input"
+    this.showError = false;
     document.addEventListener('keydown', (e)=>{
       if(e.key=='Enter'){
         this.onSubmit();
@@ -21,16 +26,20 @@ export class FindJokeFormComponent implements OnInit {
     
   }
   onSubmit(){
-    this.keyWord.emit(this.inputKeyword);
-
     
-     //this.jokeService.getJokeByKeyword(this.inputKeyword).subscribe(
-       //Response => {
-         //console.log(Response);
-       //});
-
-
-
+    //valid for empty 
+    if(this.inputKeyword== ""){
+      this.showError = false;
+      this.keyWord.emit(this.inputKeyword);
+    }else{
+      let checkSentence =  this.inputKeyword.trim().split(" ");
+      if(checkSentence.length == 1){ 
+        this.showError = false;
+        this.keyWord.emit(this.inputKeyword.trim());
+      }else{
+        this.showError = true;
+      }
+    }
   }
   
 

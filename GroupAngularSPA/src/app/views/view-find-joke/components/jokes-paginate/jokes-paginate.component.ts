@@ -5,12 +5,14 @@ import { LoadingService } from 'src/app/core/services/Loading/loading.service';
 import { Joke } from 'src/app/models/Joke';
 import { pageJoke } from 'src/app/models/pageJoke';
 import { BoldKeyWordPipe } from 'src/app/pipes/BoldKeyWordPipe.pipe';
+import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
 @Component({
   selector: 'app-jokes-paginate',
   styleUrls: ['./jokes-paginate.component.css'],
   templateUrl: './jokes-paginate.component.html'
 })
 export class JokesPaginateComponent implements OnInit {
+   loadingMessage: string = "Loading...";
    JOKES: pageJoke[] = []; //recieved array of jokes from backend. 
    currentPage: number = 1; // the current (active) page 
    pageSize: number= 6; //sets how many results per page

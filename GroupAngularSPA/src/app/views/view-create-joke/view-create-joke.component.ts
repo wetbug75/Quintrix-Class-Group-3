@@ -5,16 +5,20 @@ import { Joke } from 'src/app/models/Joke';
 import { JokePostService } from 'src/app/core/services/JokePOST/joke-post.service';
 import { Status } from 'src/app/models/status';
 import { AuthenticationService } from 'src/app/core/services/Authentication/authentication.service';
+import { LoadingService } from 'src/app/core/services/Loading/loading.service';
 @Component({
   selector: 'app-view-create-joke',
   templateUrl: './view-create-joke.component.html',
   styleUrls: ['./view-create-joke.component.css']
 })
 export class ViewCreateJokeComponent implements OnInit {
+  loadingMessage: string = "Saving..."
   backEndResponseStatus!:Status;
-  
+  alertMessage: boolean ;
   SubmittedForm!: boolean;
-  constructor(private jokePostService : JokePostService, public createFormService: CreateStateServiceService , public authenticationService: AuthenticationService) { }
+  constructor(private jokePostService : JokePostService, public createFormService: CreateStateServiceService , public authenticationService: AuthenticationService,  public loadingService: LoadingService) { 
+    this.alertMessage =false;
+  }
 
   ngOnInit(): void {
     this.backEndResponseStatus = Status.None;
@@ -23,7 +27,19 @@ export class ViewCreateJokeComponent implements OnInit {
   }
 
   onSubmitCreateJoke(newJokeData : Joke ){
+    if(!newJokeData.question.trim() && !newJokeData.answer.trim()){
+      this.showAlertMessage();
+      return;
+    }
     this.createFormService.needForm = false;
+    this.createJoke(newJokeData)
+  }
+
+  showAlertMessage(){
+    this.alertMessage = true;
+    setTimeout(()=> this.alertMessage = false,3000);
+  }
+  createJoke(newJokeData: Joke){
     this.jokePostService.postJoke(newJokeData).subscribe((response)=>{
       console.log("insisde response");
       console.log(response);

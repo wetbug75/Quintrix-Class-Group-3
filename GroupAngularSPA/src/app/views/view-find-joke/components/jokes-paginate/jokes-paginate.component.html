@@ -1,9 +1,8 @@
 <app-find-joke-form (keyWord)="onSubmitSearch($event)"></app-find-joke-form>
 
 <div class="container page-joke-container">
-    <div class="loading" *ngIf="loadingService.isLoading$ | async">
-        <div class="lds-heart"><div></div></div>  
-    </div>
+  
+    <app-loading [message]="'Loading'" *ngIf="loadingService.isLoading$ | async"></app-loading>
     
     <div class="sorry" *ngIf="!(loadingService.isLoading$ | async) && totalJokesDB ==0" >
          <p class="cartoonletter">Sorry, No Jokes Found</p>
@@ -18,12 +17,17 @@
         <tbody>
           <tr class="table-row"*ngFor="let joke of JOKES | paginate: { itemsPerPage: pageSize, currentPage: currentPage, totalItems: totalJokesDB }">
             <td>
-            
-              <!-- <span class="bold">Question:  </span><span [innerHTML]= "joke.question | boldKeyWord : this.keyword"></span> <br> -->
-              <span class="bold">Question:  </span>{{joke.question}} <br>
-             
-              <!-- <span class="bold">Answer:  </span><span [innerHTML]= "joke.answer | boldKeyWord : this.keyword"></span> <br> -->
-              <span class="bold">Answer:  </span> {{joke.answer}} <br>
+              <div *ngIf="joke.question != '' && joke.answer == ''">
+                <span class="bold">One Liner: </span>{{joke.question}} <br>
+              </div>
+              <div *ngIf="joke.question == '' && joke.answer != ''">
+                <span class="bold">One Liner: </span>{{joke.answer}} <br>
+              </div>
+              <div *ngIf="joke.question != '' && joke.answer != ''">
+                <span class="bold">Question:  </span>{{joke.question}} <br>
+                <span class="bold">Answer:  </span> {{joke.answer}} <br>
+              </div>
+              
               <span class="bold">Author: </span>{{joke.author_name}}<br>
             <td class="like bold">{{joke.upvotes}}</td>
             <td class="dislike bold">{{joke.downvotes}}</td>

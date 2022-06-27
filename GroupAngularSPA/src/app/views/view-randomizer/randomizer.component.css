@@ -27,6 +27,13 @@ img{
   -webkit-filter:invert();
 }
 
+.loginError{
+  color:red;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 /** Table sytle **/
 td{
   padding: 15px;
@@ -50,6 +57,10 @@ z-index: 1;
     width: 40px;
     height: 40px;
   }
+
+  .loginError{
+    font-size: 20px;
+  }
 }
 
 /* Small screen devices (600px and above) */
@@ -62,6 +73,10 @@ z-index: 1;
   button{
     width: 40px;
     height: 40px;
+  }
+
+  .loginError{
+    font-size: 20px;
   }
 }
 
@@ -76,6 +91,10 @@ z-index: 1;
     width: 70px;
     height: 70px;
   }
+
+  .loginError{
+    font-size: 25px;
+  }
 }
 
 /* Big screen devices (889px and above) */
@@ -89,6 +108,10 @@ z-index: 1;
     width: 80px;
     height: 80px;
   }
+
+  .loginError{
+    font-size: 30px;
+  }
 }
 
 /* Extra big screen devices (1200px and above) */
@@ -101,5 +124,9 @@ z-index: 1;
   button{
     width: 90px;
     height: 90px;
+  }
+
+  .loginError{
+    font-size: 35px;
   }
 }

@@ -6,7 +6,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 bin/
-
+logs/
 ### STS ###
 .apt_generated
 .classpath
