@@ -53,6 +53,15 @@ class SpaBackendApplicationTests {
 	/**
 	 * same test as above but for user
 	 */
+	public void post_user() {
+		Response response = given()
+				.contentType(ContentType.JSON)
+				.accept(ContentType.JSON)
+				.body("/*user parameters*/")
+				.when()
+				.post(rootUrl + "/newUser");
+			response.then().body("", equalTo(""));
+	}
 	
 	/**
 	 * Test to make sure question is being assigned to question 
