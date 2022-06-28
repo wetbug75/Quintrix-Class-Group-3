@@ -13,9 +13,22 @@ export class ButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.keyPress();
   }
 
   onClick(){
     this.btnClick.emit();
+  }
+
+  keyPress(){
+    document.addEventListener('keydown', (e)=>{ 
+      console.log(e.key);
+      switch(e.key){
+        case 'Enter':
+        case 'ArrowRight':
+        case 'ArrowLeft':
+          this.onClick();
+      }
+    })
   }
 }
