@@ -87,7 +87,7 @@ public class SpaBackendApplication {
 	}
 	
 	@Bean
-	CommandLineRunner runner(MiscFunctions miscfunctions , CosmosScript cosmosScript) {
+	CommandLineRunner runner(MiscFunctions miscfunctions /*, CosmosScript cosmosScript*/) {
 		  return args -> {
 			  		miscfunctions.jsonToDB(); //imports jokes to DB
 					miscfunctions.bcryptexample(); //creates an example bcrypt

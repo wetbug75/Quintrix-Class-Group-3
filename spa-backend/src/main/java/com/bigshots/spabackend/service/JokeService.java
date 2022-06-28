@@ -68,15 +68,21 @@ public class JokeService {
 		return jokeList; 
 	}
 	
-	public void addJoke(Joke joke, String authorName) {
-		//set joke for mysql
+	public void addJokeToCosmosAndMySQL(Joke joke, String authorName) {
+		addJokeToMySQL(joke, authorName);
+		addJokeToCosmos(joke, Integer.valueOf(joke.getId().intValue()));
+	}
+	
+	private void addJokeToMySQL(Joke joke, String authorName) {
 		joke.setAuthor(userRepo.findByUsername(authorName).get());
 		joke.setDownvotes(0);
 		joke.setUpvotes(0);
 		joke.setCreated_at(LocalDateTime.now()
 			       .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-		Integer jokeId = Integer.valueOf(jokeRepo.save(joke).getId().intValue()); 
-		//add joke to nosql
+		jokeRepo.save(joke);
+	}
+	
+	private void addJokeToCosmos(Joke joke, Integer jokeId) {
 		CosmosBuilder cosmos = new CosmosBuilder();
 		cosmos.writeToCosmos(joke, jokeId);
 	}
@@ -93,8 +99,38 @@ public class JokeService {
 		System.out.println("Updating joke downvote.");
 		System.out.println("Previous downvote: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
 		jokeRepo.findById(jokeID).get().setDislikes(updateJoke.getDownvotes());
-		System.out.println("New downvote count: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
+		//System.out.println("New downvote count: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
 		jokeRepo.saveAndFlush(updateJoke);
+	}
+	
+	public void upvoteOnce(Long jokeId) {
+		Joke joke = jokeRepo.findById(jokeId).get();
+		joke.setUpvotes(joke.getUpvotes() + 1);
+		jokeRepo.save(joke);
+	}
+	
+	public void downvoteOnce(Long jokeId) {
+		Joke joke = jokeRepo.findById(jokeId).get();
+		joke.setDownvotes(joke.getDownvotes() + 1);
+		jokeRepo.save(joke);
+	}
+	
+	public void removeOneUpvote(Long jokeId) {
+		Joke joke = jokeRepo.findById(jokeId).get();
+		if(joke.getUpvotes() > 0)
+		{
+			joke.setUpvotes(joke.getUpvotes() - 1);
+			jokeRepo.save(joke);
+		}
+	}
+	
+	public void removeOneDownvote(Long jokeId) {
+		Joke joke = jokeRepo.findById(jokeId).get();
+		if(joke.getDownvotes() > 0)
+		{
+			joke.setDownvotes(joke.getDownvotes() - 1);
+			jokeRepo.save(joke);
+		}
 	}
 
 	public int GetUpvote(Long jokeID){

@@ -24,6 +24,7 @@ public class CorsConfiguration implements WebMvcConfigurer{
 	  @Override
 	  public void addFormatters(FormatterRegistry registry) {
 	        registry.addConverter(new LongToJokeConverter());
+	        registry.addConverter(new LongToUserConverter());
 	  }
 }
 

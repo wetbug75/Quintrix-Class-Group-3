@@ -45,7 +45,7 @@ import reactor.core.publisher.Mono;
 @RestController
 public class ApiControllers {
 	
-	private Logger logger = LoggerFactory.getLogger(LoggingController.class);
+	private Logger logger = LoggerFactory.getLogger(ApiControllers.class);
 	
 	@Autowired
 	private UserService userService;
@@ -64,12 +64,13 @@ public class ApiControllers {
 		return "All fixed";
 	}
 	
-	 @GetMapping(path = "/basicauth")
-	    public AuthenticationBean basicauth(@RequestHeader(value="authorization") String token) {
-		 System.out.println("Below is the token");
-		 System.out.println(token);
-	        return new AuthenticationBean("You are authenticated");
-	    }
+	@GetMapping(path = "/basicauth")
+	public AuthenticationBean basicauth(@RequestHeader(value="authorization") String token) {
+		System.out.println("Below is the token");
+		System.out.println(token);
+		return new AuthenticationBean("You are authenticated");
+	}
+	 
 	@GetMapping(value = "/jokes")
 	public ResponseEntity<List<Joke>> getJokes() {
 		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);
@@ -115,10 +116,27 @@ public class ApiControllers {
 		jokeService.UpdateUpvote(updateJoke, jokeID);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
+	
 	@PutMapping(value = "/jokes/{jokeID}/update/downvote")
 	public ResponseEntity<?> updateDislike(@RequestBody Joke updateJoke, @PathVariable Long jokeID) throws IOException{
 		jokeService.UpdateDownvote(updateJoke, jokeID);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	//Andrew's new upvote function
+	@PutMapping(value = "/jokes/upvote/{jokeID}")
+	public ResponseEntity<?> upvote(@PathVariable Long jokeID) throws IOException{
+		jokeService.upvoteOnce(jokeID);
+		System.out.println("joke upvoted");
+		//TODO add changeVoteStatus logic here to make front end work simpler?
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	//Andrew's new downvote function
+	@PutMapping(value = "/jokes/downvote/{jokeID}")
+	public ResponseEntity<?> downvote(@PathVariable Long jokeID) throws IOException{
+		jokeService.downvoteOnce(jokeID);
+		//TODO add changeVoteStatus(below) logic here to make front end work simpler?
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
@@ -127,7 +145,7 @@ public class ApiControllers {
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String authorName = auth.getName();
-		jokeService.addJoke(joke, authorName);
+		jokeService.addJokeToCosmosAndMySQL(joke, authorName);
 		
 		
 		return new ResponseEntity<>(HttpStatus.CREATED);
@@ -209,7 +227,6 @@ public class ApiControllers {
 			tempVoteStat);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
 
 	@GetMapping("/getUserID/{name}")
 	public ResponseEntity<Long> getUserIDByUName(@PathVariable String name) {
