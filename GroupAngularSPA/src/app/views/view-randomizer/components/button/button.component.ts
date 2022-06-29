@@ -20,10 +20,10 @@ export class ButtonComponent implements OnInit {
     this.btnClick.emit();
   }
 
-  keyPress(){
-    document.addEventListener('keydown', (e)=>{ 
+  keyPress() {
+    document.addEventListener('keydown', (e)=>{
       console.log(e.key);
-      switch(e.key){
+      switch(e.key) {
         case 'Enter':
         case 'ArrowRight':
         case 'ArrowLeft':

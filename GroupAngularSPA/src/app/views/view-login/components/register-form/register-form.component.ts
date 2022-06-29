@@ -20,7 +20,7 @@ export class RegisterFormComponent implements OnInit {
     this.initializeForm();
     this.alertMessage=false;
   }
-  initializeForm():void{
+  initializeForm():void {
     this.userRegisterForm = this.fb.group({
       //username: '',
       username: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -30,30 +30,30 @@ export class RegisterFormComponent implements OnInit {
     });
   }
 
-  onSubmit():void{
+  onSubmit():void {
     if(this.email.invalid || this.username.invalid || this.password.invalid){
       this.showAlertInvalidForm();
       return;
     }
-    
     this.userRegisterData = {username: this.userRegisterForm.value.username,
                           password: this.userRegisterForm.value.password,
                           email: this.userRegisterForm.value.email,
                            id: 0 } //set id to 0 because backend will auto generate new key. constructor hasn't been implemented yet to handle null
     this.onRegisterFormGroupSubmit.emit(this.userRegisterData);
   }
-  showAlertInvalidForm(){
+
+  showAlertInvalidForm() {
     this.alertMessage = true;
     setTimeout(()=>this.alertMessage=false,4000);
   }
-  
-  get username(){
+
+  get username() {
     return this.userRegisterForm.get('username');
   }
-  get password(){
+  get password() {
     return this.userRegisterForm.get('password');
   }
-  get email(){
+  get email() {
     return this.userRegisterForm.get('email');
   }
 }

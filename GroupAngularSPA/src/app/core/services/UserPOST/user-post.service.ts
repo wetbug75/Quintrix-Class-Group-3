@@ -16,7 +16,7 @@ export class UserPostService {
 
   constructor(private http: HttpClient) { }
 
-  registerUser(newUser : Users):Observable<any>{
+  registerUser(newUser : Users):Observable<any> {
     //const user = {id: 0, username:"oo",email:"lsdjf",password:"sdkfjksd" };
     //const myJSON = JSON.stringify(user);
     //console.log(myJSON);

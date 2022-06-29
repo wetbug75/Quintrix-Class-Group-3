@@ -24,200 +24,171 @@ export class RandomizerComponent implements OnInit {
   upclick: boolean;
   downclick: boolean;
   hasVoted: boolean;
-
   voteStat: string;
 
-  constructor(private jokeService: JokeService, private authService: AuthenticationService) {
-
-   }
+  constructor(private jokeService: JokeService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.lastId = -1;
     this.upclick = false;
     this.downclick = false;
     this.hasVoted = false;
-    this.jokeService.GetJokeDatabaseSize().subscribe(Response => {
+    this.jokeService.getJokeDatabaseSize().subscribe(Response => {
       this.jokeSize = Response;
     });
     this.userLoggedIn = this.authService.isUserLoggedIn();
-    if(this.userLoggedIn == true){
+    if(this.userLoggedIn == true) {
       document.getElementById("loginMsg").style.visibility = "hidden";
     }
   }
 
-  getRandomJoke(){
+  getRandomJoke() {
     this.noRepeat = false;
     // While loop to ensure that id is not the same as the lastId
     while(this.noRepeat == false)
     {
       this.randomId = Math.floor(Math.random() * this.jokeSize) + 1;
-
-      if(this.lastId == -1 || this.lastId != this.randomId)
-      {
+      if(this.lastId == -1 || this.lastId != this.randomId) {
         this.lastId = this.randomId;
         this.noRepeat = true;
       }
     }
-    this.jokeService.GetRandomJoke(this.randomId);
-    this.jokeService.GetUserVote(this.jokeService.GetUserID(), this.randomId).subscribe(Response =>{
-      if(Response == "NONE")
-      {
-        this.SetHasVoted(false);
-        this.SetLikeClass(false);
-        this.SetDislikeClass(false);
-      } else if(Response == "UPVOTE"){
-          this.SetHasVoted(true);
-          this.SetLikeClass(true);
-          this.SetDislikeClass(false);
-      } else if (Response == "DOWNVOTE"){
-          this.SetHasVoted(true);
-          this.SetLikeClass(false);
-          this.SetDislikeClass(true);
+    this.jokeService.getRandomJoke(this.randomId);
+    this.jokeService.getUserVote(this.jokeService.getUserID(), this.randomId).subscribe(Response =>{
+      if(Response == "NONE") {
+          this.setHasVoted(false);
+          this.setLikeClass(false);
+          this.setDislikeClass(false);
+      } else if(Response == "UPVOTE") {
+          this.setHasVoted(true);
+          this.setLikeClass(true);
+          this.setDislikeClass(false);
+      } else if (Response == "DOWNVOTE") {
+          this.setHasVoted(true);
+          this.setLikeClass(false);
+          this.setDislikeClass(true);
       }
     });
   }
 
-  UpvoteTapped(){
+  upvoteTapped() {
     // If statement to catch if the user has logged in
     if(this.authService.isUserLoggedIn() == false){
-      document.getElementById("loginMsg").style.visibility = "visible";
-    } else if(this.jokeService.GetJokeID() != null){
-      /**
-       *  Check if the user has an active downvote.
-       *  If true, toggle the downvote off and update the database before proceeding
-       **/
-      if(this.GetDislikeClass() == true && this.GetHasVoted() == true){
-        this.UndoDownvote();
-      }
-      /**
-       * Toggle the upvote status
-       * If new status is true, user has upvoted
-       * If new status is false, user undo the upvote
-       **/
-      this.SetLikeClass(!this.GetLikeClass());
-      if(this.GetLikeClass() == true) {
-        this.tempJoke = this.jokeService.GetJoke();
-        this.tempJokeID = this.tempJoke.id;
-        this.voteStat = this.CheckVoteStat();
-        this.likeCount = this.tempJoke.upvotes + 1;
-        this.SetHasVoted(true);
-        this.tempJoke.upvotes = this.likeCount;
-        this.jokeService.UpdateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
-        this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
-      } else {
-        this.UndoUpvote();
+        document.getElementById("loginMsg").style.visibility = "visible";
+    } else if(this.jokeService.getJokeID() != null) {
+        if(this.getDislikeClass() == true && this.getHasVoted() == true) {
+          this.undoDownvote();
+        }
+        this.setLikeClass(!this.getLikeClass());
+        if(this.getLikeClass() == true) {
+            this.tempJoke = this.jokeService.getJoke();
+            this.tempJokeID = this.tempJoke.id;
+            this.voteStat = this.checkVoteStat();
+            this.likeCount = this.tempJoke.upvotes + 1;
+            this.setHasVoted(true);
+            this.tempJoke.upvotes = this.likeCount;
+            this.jokeService.updateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
+            this.jokeService.updateUserJokeVote(this.jokeService.getUserID(), this.tempJokeID, this.voteStat);
+        } else {
+            this.undoUpvote();
       }
     }
   }
 
-  UndoUpvote() {
+  undoUpvote() {
     if(this.authService.isUserLoggedIn() == false){
       document.getElementById("loginMsg").style.visibility = "visible";
-    }
-    else if(this.jokeService.GetJokeID() != null){
-        //Toggle HTML Class
-        this.SetLikeClass(false);
-        if(this.GetLikeClass() == false && this.GetDislikeClass() == false){
-          this.SetHasVoted(false);
+    } else if(this.jokeService.getJokeID() != null) {
+        this.setLikeClass(false);
+        if(this.getLikeClass() == false && this.getDislikeClass() == false) {
+            this.setHasVoted(false);
         }
-        this.tempJoke = this.jokeService.GetJoke();
+        this.tempJoke = this.jokeService.getJoke();
         this.tempJokeID = this.tempJoke.id;
-        this.voteStat = this.CheckVoteStat();
+        this.voteStat = this.checkVoteStat();
         this.likeCount = this.tempJoke.upvotes - 1;
         this.tempJoke.upvotes = this.likeCount;
-        this.jokeService.UpdateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
-        this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
-      }
+        this.jokeService.updateUpvote(this.tempJoke, this.likeCount, this.tempJokeID);
+        this.jokeService.updateUserJokeVote(this.jokeService.getUserID(), this.tempJokeID, this.voteStat);
+    }
   }
 
-  DownvoteTapped(){
+  downvoteTapped() {
     // If statement to catch if the user has logged in
     if(this.authService.isUserLoggedIn() == false){
       document.getElementById("loginMsg").style.visibility = "visible";
-    } else if(this.jokeService.GetJokeID() != null){
-        /**
-         *  Check if the user has an active upvote.
-         *  If true, toggle the upvote off and update the database before proceeding
-         **/
-        if(this.GetLikeClass() == true && this.GetHasVoted() == true) {
-          this.UndoUpvote();
+    } else if(this.jokeService.getJokeID() != null){
+        if(this.getLikeClass() == true && this.getHasVoted() == true) {
+          this.undoUpvote();
         }
-        /**
-         * Toggle the upvote status
-         * If new status is true, user has upvoted
-         * If new status is false, user undo the upvote
-         */
-        this.SetDislikeClass(!this.GetDislikeClass());
-        if(this.GetDislikeClass() == true) {
-          this.tempJoke = this.jokeService.GetJoke();
+        this.setDislikeClass(!this.getDislikeClass());
+        if(this.getDislikeClass() == true) {
+          this.tempJoke = this.jokeService.getJoke();
           this.tempJokeID = this.tempJoke.id;
-          this.voteStat = this.CheckVoteStat();
+          this.voteStat = this.checkVoteStat();
           this.dislikeCount = this.tempJoke.downvotes + 1;
-          this.SetHasVoted(true);
+          this.setHasVoted(true);
           this.tempJoke.downvotes = this.dislikeCount;
-          this.jokeService.UpdateDownvote(this.tempJoke, this.dislikeCount, this.tempJokeID);
-          this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
+          this.jokeService.updateDownvote(this.tempJoke, this.dislikeCount, this.tempJokeID);
+          this.jokeService.updateUserJokeVote(this.jokeService.getUserID(), this.tempJokeID, this.voteStat);
         } else {
-            this.UndoDownvote();
+            this.undoDownvote();
         }
-
     }
   }
 
-  UndoDownvote() {
+  undoDownvote() {
     if(this.authService.isUserLoggedIn() == false){
       document.getElementById("loginMsg").style.visibility = "visible";
-    }
-    else if(this.jokeService.GetJokeID() != null){
-      this.SetDislikeClass(false);
-      if(this.GetLikeClass() == false && this.GetDislikeClass() == false){
-        this.SetHasVoted(false);
-      }
-      this.tempJoke = this.jokeService.GetJoke();
-      this.tempJokeID = this.tempJoke.id;
-      this.voteStat = this.CheckVoteStat();
-      this.dislikeCount = this.tempJoke.downvotes - 1;
-      this.tempJoke.downvotes = this.dislikeCount;
-      this.jokeService.UpdateDownvote(this.tempJoke, this.dislikeCount, this.tempJokeID);
-      this.jokeService.UpdateUserJokeVote(this.jokeService.GetUserID(), this.tempJokeID, this.voteStat);
+    } else if(this.jokeService.getJokeID() != null){
+        this.setDislikeClass(false);
+        if(this.getLikeClass() == false && this.getDislikeClass() == false){
+          this.setHasVoted(false);
+        }
+        this.tempJoke = this.jokeService.getJoke();
+        this.tempJokeID = this.tempJoke.id;
+        this.voteStat = this.checkVoteStat();
+        this.dislikeCount = this.tempJoke.downvotes - 1;
+        this.tempJoke.downvotes = this.dislikeCount;
+        this.jokeService.updateDownvote(this.tempJoke, this.dislikeCount, this.tempJokeID);
+        this.jokeService.updateUserJokeVote(this.jokeService.getUserID(), this.tempJokeID, this.voteStat);
     }
   }
 
-  SetLikeClass(value: boolean) {
+  setLikeClass(value: boolean) {
     this.upclick = value;
   }
 
-  GetLikeClass() {
+  getLikeClass() {
     return this.upclick;
   }
 
-  SetDislikeClass(value: boolean) {
+  setDislikeClass(value: boolean) {
     this.downclick = value;
   }
 
-  GetDislikeClass() {
+  getDislikeClass() {
     return this.downclick;
   }
 
-  SetHasVoted(value: boolean) {
+  setHasVoted(value: boolean) {
     this.hasVoted = value;
   }
 
-  GetHasVoted() {
+  getHasVoted() {
     return this.hasVoted;
   }
 
-  CheckVoteStat() {
-    if(this.GetLikeClass() == true && this.GetDislikeClass() == false) {
+  checkVoteStat() {
+    if(this.getLikeClass() == true && this.getDislikeClass() == false) {
       return "UPVOTE";
-    } else if (this.GetLikeClass() == false && this.GetDislikeClass() == true) {
+    } else if (this.getLikeClass() == false && this.getDislikeClass() == true) {
       return "DOWNVOTE";
-    } else if (this.GetLikeClass() == false && this.GetDislikeClass() == false) {
+    } else if (this.getLikeClass() == false && this.getDislikeClass() == false) {
       return "NONE";
     } else {
       console.log("Unexpected error: Both upvote and downvote are pressed?");
       return null;
     }
   }
-
 }

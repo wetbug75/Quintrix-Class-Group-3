@@ -11,37 +11,34 @@ export class FindJokeFormComponent implements OnInit {
   redmessage: string;
   inputKeyword: string;
   showError: boolean;
-  constructor() { 
+  constructor() {
     this.inputKeyword = ""
     this.redmessage = "One word or No input"
     this.showError = false;
     document.addEventListener('keydown', (e)=>{
-      if(e.key=='Enter'){
+      if(e.key=='Enter') {
         this.onSubmit();
       }
      });
   }
 
-  ngOnInit(): void {
-    
-  }
-  onSubmit(){
-    
-    //valid for empty 
-    if(this.inputKeyword== ""){
+  ngOnInit(): void { }
+
+  onSubmit() {
+    //valid for empty
+    if(this.inputKeyword== "") {
       this.showError = false;
       this.keyWord.emit(this.inputKeyword);
-    }else{
-      let checkSentence =  this.inputKeyword.trim().split(" ");
-      if(checkSentence.length == 1){ 
-        this.showError = false;
-        this.keyWord.emit(this.inputKeyword.trim());
-      }else{
-        this.showError = true;
-      }
+    } else {
+        let checkSentence =  this.inputKeyword.trim().split(" ");
+
+        if(checkSentence.length == 1) {
+          this.showError = false;
+          this.keyWord.emit(this.inputKeyword.trim());
+        } else {
+          this.showError = true;
+        }
     }
   }
-  
-
 }
 

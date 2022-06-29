@@ -17,23 +17,18 @@ export class CreateJokeResultComponent implements OnChanges {
    }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.backEndResponseStatus.valueOf() === Status.Success){
-      this.statusResult="Congrats! The new Joke was added to our vault of jokes";
-      this.happyDogeImage = true;
-    }else if(this.backEndResponseStatus.valueOf()===Status.Fail){
-      this.statusResult="Unfortunately, the joke was not added. There was an error. Try again next time";
-    }else if(this.backEndResponseStatus.valueOf() === Status.IsNotLoggedIn){
-      this.statusResult="You're not logged in! Please log in to create a new jokes";
-      this.dogeImage = true;
+    if(this.backEndResponseStatus.valueOf() === Status.Success) {
+        this.statusResult="Congrats! The new Joke was added to our vault of jokes";
+        this.happyDogeImage = true;
+    } else if(this.backEndResponseStatus.valueOf()===Status.Fail) {
+        this.statusResult="Unfortunately, the joke was not added. There was an error. Try again next time";
+    } else if(this.backEndResponseStatus.valueOf() === Status.IsNotLoggedIn) {
+        this.statusResult="You're not logged in! Please log in to create a new jokes";
+        this.dogeImage = true;
     }
-
-    
   }
 
- 
-    onSubmit(){
-       this.createForm.state = true;
-    }
-  
-
+  onSubmit(){
+    this.createForm.state = true;
+  }
 }

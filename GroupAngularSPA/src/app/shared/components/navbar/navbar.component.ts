@@ -9,6 +9,7 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
 
   isLoggedIn: boolean;
@@ -16,15 +17,14 @@ export class NavbarComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private appComponent: AppComponent) { 
-      
-    }
+    private appComponent: AppComponent) { }
 
   ngOnInit(): void {
     this.subscription = this.authenticationService.isLoggedIn.subscribe((result)=>{
       this.isLoggedIn = result;
     })
   }
+
   handleLogout() {
    this.authenticationService.logout();
   }

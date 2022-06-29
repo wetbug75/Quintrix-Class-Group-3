@@ -16,7 +16,7 @@ export class ViewCreateJokeComponent implements OnInit {
   backEndResponseStatus!:Status;
   alertMessage: boolean ;
   SubmittedForm!: boolean;
-  constructor(private jokePostService : JokePostService, public createFormService: CreateStateServiceService , public authenticationService: AuthenticationService,  public loadingService: LoadingService) { 
+  constructor(private jokePostService : JokePostService, public createFormService: CreateStateServiceService , public authenticationService: AuthenticationService,  public loadingService: LoadingService) {
     this.alertMessage =false;
   }
 
@@ -26,33 +26,32 @@ export class ViewCreateJokeComponent implements OnInit {
     this.authenticationService.isUserLoggedIn();
   }
 
-  onSubmitCreateJoke(newJokeData : Joke ){
-    if(!newJokeData.question.trim() && !newJokeData.answer.trim()){
+  onSubmitCreateJoke(newJokeData : Joke ) {
+    if(!newJokeData.question.trim() && !newJokeData.answer.trim()) {
       this.showAlertMessage();
       return;
     }
     this.createFormService.needForm = false;
-    this.createJoke(newJokeData)
+    this.createJoke(newJokeData);
   }
 
-  showAlertMessage(){
+  showAlertMessage() {
     this.alertMessage = true;
     setTimeout(()=> this.alertMessage = false,3000);
   }
-  createJoke(newJokeData: Joke){
+
+  createJoke(newJokeData: Joke) {
     this.jokePostService.postJoke(newJokeData).subscribe((response)=>{
       console.log("insisde response");
       console.log(response);
       this.backEndResponseStatus = Status.Success;
     },
-    (error: HttpErrorResponse)=>{
-      if(error.status === 401){
-        this.backEndResponseStatus = Status.IsNotLoggedIn
-      }else{
-        this.backEndResponseStatus = Status.Fail;
-
+    (error: HttpErrorResponse)=> {
+      if(error.status === 401) {
+          this.backEndResponseStatus = Status.IsNotLoggedIn
+      } else {
+          this.backEndResponseStatus = Status.Fail;
       }
-    }
-    )
+    })
   }
 }

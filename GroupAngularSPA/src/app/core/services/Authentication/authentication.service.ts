@@ -35,19 +35,19 @@ export class AuthenticationService {
   }
 
   createBasicAuthToken(user:Users) {
-    return 'Basic ' + window.btoa(user.username + ":" + user.password)
+    return 'Basic ' + window.btoa(user.username + ":" + user.password);
   }
   createBasicAuthTokenNoHeader(user:Users) {
-  return window.btoa(user.username + ":" + user.password)
-}
+    return window.btoa(user.username + ":" + user.password);
+  }
 
   registerSuccessfulLogin(user:Users) {
     localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, user.username)
     localStorage.setItem(this.AUTH_TOKEN, this.createBasicAuthTokenNoHeader(user));
     this.isLoggedIn.emit(true);
-    this.getUserIDwithName(user.username).subscribe(Response =>{
+    this.getUserIDwithName(user.username).subscribe(Response => {
       this.userid = Response;
-      this.jokeSer.SetUserID(this.userid);
+      this.jokeSer.setUserID(this.userid);
     });
   }
 
@@ -57,25 +57,25 @@ export class AuthenticationService {
     this.username = null;
     this.password = null;
     this.isLoggedIn.emit(false);
-    this.jokeSer.SetUserID(-1);
+    this.jokeSer.setUserID(-1);
   }
 
   isUserLoggedIn() {
-    let user = localStorage.getItem(this.AUTH_TOKEN)
-    if (user === null){
-      this.isLoggedIn.emit(false);
-      return false;
-    }else{
-      this.isLoggedIn.emit(true);
-      return true;
+    let user = localStorage.getItem(this.AUTH_TOKEN);
+    if (user === null) {
+        this.isLoggedIn.emit(false);
+        return false;
+    } else {
+        this.isLoggedIn.emit(true);
+        return true;
     }
   }
 
-  getAuthToken(){
+  getAuthToken() {
     return localStorage.getItem(this.AUTH_TOKEN);
   }
 
-  getUserIDwithName(name: String): Observable<any>{
+  getUserIDwithName(name: String): Observable<any> {
     return this.http.get<any>(`${this.springUrl}/getUserID/${name}`);
   }
 }

@@ -11,7 +11,7 @@ export class CreateStateServiceService {
     return this.needForm;
   }
 
-  set state(data:boolean){
+  set state(data:boolean) {
     this.needForm= data;
   }
 }

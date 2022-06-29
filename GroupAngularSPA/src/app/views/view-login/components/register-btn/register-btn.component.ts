@@ -7,12 +7,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./register-btn.component.css']
 })
 export class RegisterBtnComponent implements OnInit {
-  @Output() public onUserWantsNewAccount = new EventEmitter<boolean>(); 
+  @Output() public onUserWantsNewAccount = new EventEmitter<boolean>();
   constructor() { }
 
-  ngOnInit(): void {
-  }
-  onRegisterSubmit(){
+  ngOnInit(): void { }
+
+  onRegisterSubmit() {
     this.onUserWantsNewAccount.emit(true);
   }
 }
