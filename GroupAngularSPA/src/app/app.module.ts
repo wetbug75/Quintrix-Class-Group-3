@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from "@angular/router/testing";
 
 
 import { AppComponent } from './app.component';
@@ -26,13 +27,13 @@ import { JokesPaginateComponent } from './views/view-find-joke/components/jokes-
 import { RegisterFormComponent } from './views/view-login/components/register-form/register-form.component';
 import { RegisterBtnComponent } from './views/view-login/components/register-btn/register-btn.component';
 
-import { BoldKeyWordPipe } from './pipes/BoldKeyWordPipe.pipe';
 import { HttpInterceptorService } from './core/services/Interceptor/HttpInterceptorService';
 import { LoadingService } from './core/services/Loading/loading.service';
 import { LoadingInterceptor } from './core/services/Interceptor/LoadingInterceptorService';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { RedMessageComponent } from './shared/components/red-message/red-message.component';
+import { AuthenticationService } from './core/services/Authentication/authentication.service';
 /*Will come back!*/
 const appRoutes: Routes = [
  {path: '', component:RandomizerComponent},
@@ -62,23 +63,26 @@ const appRoutes: Routes = [
     RegisterFormComponent,
     RegisterBtnComponent,
     FooterComponent,
-    BoldKeyWordPipe,
     LoadingComponent,
     RedMessageComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    RouterTestingModule,
     NgxPaginationModule,
     FormsModule,
+    
     RouterModule.forRoot(appRoutes, {enableTracing: false})
 
 
   ],
 
 
-  providers: [JokeItemComponent,RatingsComponent, BoldKeyWordPipe, LoadingService,
+  providers: [
+     LoadingService,
+    AuthenticationService,
   { 
 
     provide: HTTP_INTERCEPTORS,

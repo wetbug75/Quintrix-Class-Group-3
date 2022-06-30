@@ -1,5 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/services/Authentication/authentication.service';
 import { AppComponent } from 'src/app/app.component';
@@ -14,8 +13,7 @@ export class NavbarComponent implements OnInit {
 
   isLoggedIn: boolean;
   subscription: Subscription = new Subscription;
-  constructor(private route: ActivatedRoute,
-    private router: Router,
+  constructor(
     private authenticationService: AuthenticationService,
     private appComponent: AppComponent) { }
 

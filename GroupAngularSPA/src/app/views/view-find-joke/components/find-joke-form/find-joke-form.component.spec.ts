@@ -21,8 +21,8 @@ describe('FindJokeFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('THIS SHOULD BE TRUEEEEEEEEEE', () => {
-    //expect(component).toBeTruthy();
-    expect(false).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeTruthy();
+    
   });
 });

@@ -4,7 +4,6 @@ import { JokeGetService } from 'src/app/core/services/JokeGET/joke-get.service';
 import { LoadingService } from 'src/app/core/services/Loading/loading.service';
 import { Joke } from 'src/app/models/Joke';
 import { pageJoke } from 'src/app/models/pageJoke';
-import { BoldKeyWordPipe } from 'src/app/pipes/BoldKeyWordPipe.pipe';
 import { LoadingComponent } from 'src/app/shared/components/loading/loading.component';
 @Component({
   selector: 'app-jokes-paginate',
@@ -18,7 +17,7 @@ export class JokesPaginateComponent implements OnInit {
    pageSize: number= 6; //sets how many results per page
    totalJokesDB: number = 0;//need this from backend. This only updates the pagination controls.
    keyword: string; //user keyword
-   constructor(public jokeGetService: JokeGetService, public boldKeyword: BoldKeyWordPipe, public loadingService: LoadingService){
+   constructor(public jokeGetService: JokeGetService, public loadingService: LoadingService){
 
       this.jokeGetService.getJokesPage(this.currentPage,this.pageSize).subscribe(jokes=>{
         this.JOKES = jokes.filter(index => index !== null); //need joke array from backend.

@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { JokeItemComponent } from './components/joke-item/joke-item.component';
+import { AuthenticationService } from 'src/app/core/services/Authentication/authentication.service';
+import { JokeService } from 'src/app/core/services/joke.service';
 
 import { RandomizerComponent } from './randomizer.component';
 
@@ -12,7 +13,7 @@ describe('RandomizerComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [ RandomizerComponent ],
-      providers: [JokeItemComponent]
+      providers: [ JokeService, AuthenticationService]
     })
     .compileComponents();
   });
