@@ -1,10 +1,10 @@
-import { ThisReceiver } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { UserPostService } from 'src/app/core/services/UserPOST/user-post.service';
 import { Users } from 'src/app/models/User';
 import { AuthenticationService } from 'src/app/core/services/Authentication/authentication.service';
-import { Status } from 'src/app/models/status';
+
 @Component({
   selector: 'app-view-login',
   templateUrl: './view-login.component.html',
@@ -25,7 +25,7 @@ export class ViewLoginComponent implements OnInit {
   notsuccessRegisterAlert: boolean = false;
   duplicateMessage : string;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
     private router: Router,
     private authenticationService: AuthenticationService, public userPost: UserPostService) {
     this.onCreateAccountForm = false;

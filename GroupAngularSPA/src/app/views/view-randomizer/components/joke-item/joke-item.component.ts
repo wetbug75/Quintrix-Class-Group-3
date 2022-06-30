@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import {Joke} from '../../../../models/Joke';
-
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-joke-item',
   templateUrl: './joke-item.component.html',

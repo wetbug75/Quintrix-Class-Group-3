@@ -26,20 +26,5 @@ describe('CreateJokeFormComponent', () => {
   });
 });
 
-describe('onSubmit', ()=>{
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      providers: [FormBuilder]
-    })
-    .compileComponents();
-  });
-  it('should save form data in newJoke object and emit joke', ()=>{
-      const fixture = TestBed.createComponent(CreateJokeFormComponent);
-      const component = fixture.componentInstance;
-      const btn = fixture.debugElement.nativeElement.querySelector("label");
-    
-    //  expect(component.newJokeForm.value.answer).toBe(newJoker._answer);
-     // expect(component.newJokeForm.value.question).toBe(newJoker._question);
 
-  })
-});
+  

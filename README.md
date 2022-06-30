@@ -114,7 +114,7 @@ Another Pop will show up, find and click Java Application
    <br>
    <li>
      <strong> Why:</strong> After the buildTableOverCloud is ran, I attempted to search for a keyword that exists on MySQL. The search doesn't show any jokes <br>
-     <strong>Solution:</strong> The script takes a few minutes to build out the entire look up table on Azure. Devin built this script to scan the MySQL database for all the jokes. The script will then create tags for each word in each joke and add them to the look up table. Since we are running free tier on Microsoft Azure, it will take some time. Also this script runs O(n) time. But we have a function in this program that adds new keywords everytime there is a new joke is created. That function is O(1) time. The wait is due to response speed by Microsoft Azure Free Tier subscription, so it will be a little slow. 
+     <strong>Solution:</strong> The script takes a few minutes to build out the entire look up table on Azure. Devin built this script to scan the MySQL database for all the jokes. The script will then create tags for each word in each joke and add them to the look up table. Since the script is requesting and waiting for a response from Azure for each joke entry, it will take some time. Also this script runs O(n) time. But we have a function in this program that adds new keywords everytime there is a new joke is created. That function is O(1) time. The wait is due to response speed by Microsoft Azure Free Tier subscription, so it will be a little slow. 
   </li>
 </ol>
 
