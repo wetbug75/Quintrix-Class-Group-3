@@ -21,7 +21,6 @@ import { ViewFindJokeComponent } from './views/view-find-joke/view-find-joke.com
 import { ViewLoginComponent } from './views/view-login/view-login.component';
 import { FindJokeFormComponent } from './views/view-find-joke/components/find-joke-form/find-joke-form.component';
 import { LoginFormComponent } from './views/view-login/components/login-form/login-form.component';
-import { JokeListComponent } from './views/view-find-joke/components/joke-list/joke-list.component';
 import { RatingsComponent } from './shared/components/ratings/ratings.component';
 import { JokesPaginateComponent } from './views/view-find-joke/components/jokes-paginate/jokes-paginate.component';
 import { RegisterFormComponent } from './views/view-login/components/register-form/register-form.component';
@@ -57,7 +56,6 @@ const appRoutes: Routes = [
     ViewLoginComponent,
     FindJokeFormComponent,
     LoginFormComponent,
-    JokeListComponent,
     RatingsComponent,
     JokesPaginateComponent,
     RegisterFormComponent,
