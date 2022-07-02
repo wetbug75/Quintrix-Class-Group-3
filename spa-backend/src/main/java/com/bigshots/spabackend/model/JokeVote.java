@@ -5,7 +5,6 @@ import com.bigshots.spabackend.service.VoteStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-//@IdClass(JokeVoteId.class)
 public class JokeVote {
 	@EmbeddedId
 	private JokeVoteId id = new JokeVoteId();

@@ -66,17 +66,14 @@ public class CosmosBuilder {
 				
 			}  catch (CosmosException ex) {}
 			//if the container read didnt return an item create a new one 
-			if(item == null) {	
+			if(item == null)	
 				container.createItem(jk, new CosmosItemRequestOptions());
 			//if the container read did return an item then just add this items joke id to the array of the one that already exists
-			} if(item != null) {
+			if(item != null) {
 				
 				int count = 1;
-				//while(item.getItem().jokeId.get(count) != null) {
-					//count++;
-				//}
 				
-				 if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
+				if(!container.readItem(jk.getId(), new PartitionKey(jk.getWord()), JokeKeyword.class).getItem().jokeId.contains(jokeIndex)) {
 				
 					CosmosPatchOperations patchOps = CosmosPatchOperations.create();//.add("/jokeId", rs.getInt("id"));
 	
@@ -85,7 +82,7 @@ public class CosmosBuilder {
 					container.patchItem(jk.getId(), new PartitionKey(jk.getWord()), patchOps, JokeKeyword.class);
 					
 					count++;
-				 }
+				}
 			}
 		}
 	}

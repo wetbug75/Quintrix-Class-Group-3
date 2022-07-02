@@ -34,11 +34,11 @@ public class JokeKeyword {
 	public void setWord(String word) {
 		this.word = word;
 	}
-
+	
 	public ArrayList<Integer> getJokeId() {
 		return jokeId;
 	}
-
+	
 	public void setJokeId(ArrayList<Integer> jokeId) {
 		this.jokeId = jokeId;
 	}

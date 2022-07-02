@@ -37,20 +37,4 @@ public class JokeVoteId implements Serializable {
 	public void setJoke(Long jokeId) {
 		this.jokeId = jokeId;
 	}
-  /*
-	//below 2 overrides might not be necessary
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        JokeVoteId jvId = (JokeVoteId) o;
-        return user.equals(jvId.user) &&
-                joke.equals(jvId.joke);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(user, joke);
-    }
-    */
 }

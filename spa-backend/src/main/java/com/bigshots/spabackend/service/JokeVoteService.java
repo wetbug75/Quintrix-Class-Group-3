@@ -43,19 +43,14 @@ public class JokeVoteService {
 		JokeVoteId theId = new JokeVoteId(user, joke);
   
 		//Check if JokeVoteId exists
-		if(jokeVoteExists(theId) == true) {
-			System.out.println("Joke Vote ID found!");
-			//jokeVoteRepo.deleteById(theId);
+		if(jokeVoteExists(theId) == true)
 			jokeVoteRepo.findById(theId).get().setVoteStatus(voteStatus);
-			
-			//JokeVote newJokeVote = new JokeVote(theId, voteStatus);
-			//jokeVoteRepo.save(newJokeVote);
-		} else {
-			System.out.println("No joke vote ID found. Creating a new one.");
+		else {
 			JokeVote jokevoter = new JokeVote(user, joke, voteStatus);
 			jokeVoteRepo.save(jokevoter);
 		}
 	}
+	
 	public boolean jokeVoteExists(JokeVoteId jokeVoteId)
 	{
 		if(jokeVoteRepo.findById(jokeVoteId).orElse(null) == null)

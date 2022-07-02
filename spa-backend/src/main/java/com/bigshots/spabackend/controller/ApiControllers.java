@@ -45,7 +45,7 @@ import reactor.core.publisher.Mono;
 @RestController
 public class ApiControllers {
 	
-	private Logger logger = LoggerFactory.getLogger(LoggingController.class);
+	private Logger logger = LoggerFactory.getLogger(ApiControllers.class);
 	
 	@Autowired
 	private UserService userService;
@@ -64,33 +64,25 @@ public class ApiControllers {
 		return "All fixed";
 	}
 	
-	 @GetMapping(path = "/basicauth")
-	    public AuthenticationBean basicauth(@RequestHeader(value="authorization") String token) {
-		 System.out.println("Below is the token");
-		 System.out.println(token);
-	        return new AuthenticationBean("You are authenticated");
-	    }
+	@GetMapping(path = "/basicauth")
+	public AuthenticationBean basicauth(@RequestHeader(value="authorization") String token) {
+		return new AuthenticationBean("You are authenticated");
+	}
+	 
 	@GetMapping(value = "/jokes")
 	public ResponseEntity<List<Joke>> getJokes() {
-		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);
-		//return new ResponseEntity<>(jokeRepo.findAll(), HttpStatus.OK);
-		
+		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);	
 	}
 	
 	@GetMapping(value = "/users")
 	public ResponseEntity<List<Users>> getUsers() {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
-		//return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
 	}
 	
 
 	@GetMapping(value = "/jokes/find/{joke_id}")
 	public ResponseEntity<Joke> getJoke(@PathVariable("joke_id") Long joke_id) {
 		Joke foundJoke = jokeService.getOneJoke(joke_id).get();
-		if(foundJoke == null)
-		{
-			System.out.println(foundJoke);
-		}
 		return new ResponseEntity<>(foundJoke, HttpStatus.OK);
 	}
 	
@@ -115,7 +107,7 @@ public class ApiControllers {
 		jokeService.UpdateUpvote(updateJoke, jokeID);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
+	
 	@PutMapping(value = "/jokes/{jokeID}/update/downvote")
 	public ResponseEntity<?> updateDislike(@RequestBody Joke updateJoke, @PathVariable Long jokeID) throws IOException{
 		jokeService.UpdateDownvote(updateJoke, jokeID);
@@ -124,21 +116,15 @@ public class ApiControllers {
 
 	@PostMapping("/newJoke" )
 	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
-		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String authorName = auth.getName();
-		jokeService.addJoke(joke, authorName);
-		
-		
+		jokeService.addJokeToCosmosAndMySQL(joke, authorName);
 		return new ResponseEntity<>(HttpStatus.CREATED);
-
 	}
 
 
 	@PostMapping("/newUser")
 	public ResponseEntity<HttpStatus> newUser(@RequestBody Users user) {
-		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
-		// userService.addUser(userName, email, password);  <--------- previous implementation
 		int userCreate = userService.addUser(user);
 		if(userCreate == 1) {
 			return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
@@ -153,12 +139,10 @@ public class ApiControllers {
 		}
 		
 		return new ResponseEntity<HttpStatus>(HttpStatus.EXPECTATION_FAILED); //417
-		
-		
 	}
+	
 	@PostMapping("/loginUser")
 	public ResponseEntity<?> loginUser(@RequestBody Users user) {
-		System.out.println("hi there");
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
@@ -169,12 +153,11 @@ public class ApiControllers {
 		Flux<JokeKeyword> listOfKeywords = jokeKeyWordService.findKeywords();
 		return new ResponseEntity<>(listOfKeywords, HttpStatus.OK);
 	}
-	//make it case insensitive
+	
 	@GetMapping("/jokesWith/{keyword}/{page}/{pageSize}")
 	public ResponseEntity<Object> getJokeByKeyword(@PathVariable String keyword, @PathVariable int page, 
 			@PathVariable int pageSize) {
 		String lowerCasedKeyword = keyword.toLowerCase();
-		System.out.println(lowerCasedKeyword);
 		String keywordHashCode = Integer.toString(lowerCasedKeyword.hashCode());
 		return new ResponseEntity<Object>(jokeKeyWordService.getJokeByKeyword(keywordHashCode,page,pageSize), HttpStatus.OK);
 		
@@ -209,7 +192,6 @@ public class ApiControllers {
 			tempVoteStat);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-
 
 	@GetMapping("/getUserID/{name}")
 	public ResponseEntity<Long> getUserIDByUName(@PathVariable String name) {

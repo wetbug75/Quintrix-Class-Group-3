@@ -56,7 +56,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.filter.CorsFilter;
 
-import com.bigshots.spabackend.config.LongToJokeConverter;
 import com.bigshots.spabackend.model.Joke;
 import com.bigshots.spabackend.model.Users;
 import com.bigshots.spabackend.repo.JokeRepo;
@@ -87,17 +86,10 @@ public class SpaBackendApplication {
 	}
 	
 	@Bean
-	CommandLineRunner runner(MiscFunctions miscfunctions , CosmosScript cosmosScript) {
+	CommandLineRunner runner(MiscFunctions miscfunctions) {
 		  return args -> {
 			  		miscfunctions.jsonToDB(); //imports jokes to DB
-					miscfunctions.bcryptexample(); //creates an example bcrypt
-				    
-					//this imports the mysql jokes into azure
-					//comment code below code if not needed. Exit the program
-					//rerun to stop officially. Can't just resave to stop
-					
-					//cosmosScript.buildTableOverCloud();
-					
+					miscfunctions.bcryptexample(); //creates an example bcrypt					
 		  };
 	}
 

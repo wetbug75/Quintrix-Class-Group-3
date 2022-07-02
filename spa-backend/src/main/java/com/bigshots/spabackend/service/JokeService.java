@@ -32,16 +32,12 @@ public class JokeService {
 	@Autowired
 	private JokeKeywordRepo jkRepo;
 	
-
-	
 	public List<Joke> getAllJokes(){
 		return jokeRepo.findAll();
 	}
 	
 	public void saveJson(List<Joke> jokes) {
-		// TODO Auto-generated method stub
 		jokeRepo.saveAll(jokes);
-		
 	}
 
 	public Optional<Joke> getOneJoke(Long indexID){
@@ -63,38 +59,67 @@ public class JokeService {
 			}
 			
 			jokeList.add(joke);
-			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)).toString());
 		}
 		return jokeList; 
 	}
 	
-	public void addJoke(Joke joke, String authorName) {
-		//set joke for mysql
+	public void addJokeToCosmosAndMySQL(Joke joke, String authorName) {
+		addJokeToMySQL(joke, authorName);
+		addJokeToCosmos(joke, Integer.valueOf(joke.getId().intValue()));
+	}
+	
+	private void addJokeToMySQL(Joke joke, String authorName) {
 		joke.setAuthor(userRepo.findByUsername(authorName).get());
 		joke.setDownvotes(0);
 		joke.setUpvotes(0);
 		joke.setCreated_at(LocalDateTime.now()
 			       .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-		Integer jokeId = Integer.valueOf(jokeRepo.save(joke).getId().intValue()); 
-		//add joke to nosql
+		jokeRepo.save(joke);
+	}
+	
+	private void addJokeToCosmos(Joke joke, Integer jokeId) {
 		CosmosBuilder cosmos = new CosmosBuilder();
 		cosmos.writeToCosmos(joke, jokeId);
 	}
 
 	public void UpdateUpvote(Joke updateJoke, Long jokeID){
-		System.out.println("Updating joke upvote.");
-		System.out.println("Previous upvote: " + jokeRepo.findById(jokeID).get().getUpvotes().toString());
 		jokeRepo.findById(jokeID).get().setUpvotes(updateJoke.getUpvotes());
-		System.out.println("New upvote count: " + jokeRepo.findById(jokeID).get().getUpvotes().toString());
 		jokeRepo.saveAndFlush(updateJoke);
 	}
 
 	public void UpdateDownvote(Joke updateJoke, Long jokeID){
-		System.out.println("Updating joke downvote.");
-		System.out.println("Previous downvote: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
 		jokeRepo.findById(jokeID).get().setDislikes(updateJoke.getDownvotes());
-		System.out.println("New downvote count: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
 		jokeRepo.saveAndFlush(updateJoke);
+	}
+	
+	public void upvoteOnce(Long jokeId) {
+		Joke joke = jokeRepo.findById(jokeId).get();
+		joke.setUpvotes(joke.getUpvotes() + 1);
+		jokeRepo.save(joke);
+	}
+	
+	public void downvoteOnce(Long jokeId) {
+		Joke joke = jokeRepo.findById(jokeId).get();
+		joke.setDownvotes(joke.getDownvotes() + 1);
+		jokeRepo.save(joke);
+	}
+	
+	public void removeOneUpvote(Long jokeId) {
+		Joke joke = jokeRepo.findById(jokeId).get();
+		if(joke.getUpvotes() > 0)
+		{
+			joke.setUpvotes(joke.getUpvotes() - 1);
+			jokeRepo.save(joke);
+		}
+	}
+	
+	public void removeOneDownvote(Long jokeId) {
+		Joke joke = jokeRepo.findById(jokeId).get();
+		if(joke.getDownvotes() > 0)
+		{
+			joke.setDownvotes(joke.getDownvotes() - 1);
+			jokeRepo.save(joke);
+		}
 	}
 
 	public int GetUpvote(Long jokeID){
@@ -106,7 +131,6 @@ public class JokeService {
 	}
 	
 	public Optional<Joke> findById(Long thelong) {
-		System.out.println(jokeRepo.findById(thelong).orElse(null).getAnswer());
 		return jokeRepo.findById(thelong);
 	}
 }

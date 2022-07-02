@@ -54,7 +54,6 @@ public class UserService {
 	}
 
 	public void saveJson(List<Users> users) {
-		// TODO Auto-generated method stub
 		userRepo.saveAll(users);
 	}
 	
@@ -64,7 +63,6 @@ public class UserService {
 	
 	public long getUserIDByName(String username){
 		Optional<Users> findByUserName = userRepo.findByUsername(username);
-		System.out.println(findByUserName.get().getId());
 		return findByUserName.get().getId();
 	}
 }
