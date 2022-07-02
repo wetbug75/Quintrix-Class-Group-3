@@ -1,10 +1,10 @@
-import { ThisReceiver } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { UserPostService } from 'src/app/core/services/UserPOST/user-post.service';
 import { Users } from 'src/app/models/User';
 import { AuthenticationService } from 'src/app/core/services/Authentication/authentication.service';
-import { Status } from 'src/app/models/status';
+
 @Component({
   selector: 'app-view-login',
   templateUrl: './view-login.component.html',
@@ -25,38 +25,35 @@ export class ViewLoginComponent implements OnInit {
   notsuccessRegisterAlert: boolean = false;
   duplicateMessage : string;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
     private router: Router,
-    private authenticationService: AuthenticationService, public userPost: UserPostService) { 
+    private authenticationService: AuthenticationService, public userPost: UserPostService) {
     this.onCreateAccountForm = false;
-
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   //submit login credentials to backend
-  onUserFormGroupSubmit(userLogin : Users){
+  onUserFormGroupSubmit(userLogin : Users) {
     console.log(userLogin);
     //this is where we will use service to send the user and password
     //TODO
     this.authenticationService.authenticationService(userLogin).subscribe((result)=> {
       this.invalidLoginAlert = false;
-      this.router.navigate(['']); //navigate to the 
+      this.router.navigate(['']); //navigate to the
     }, (error) => {
       this.invalidLoginAlert = true;
       setTimeout(() => {this.invalidLoginAlert=false},3000);
-    });  
-
+    });
   }
 
   //determines whether login form or register form displays
-  onWantsNewAccount(userWantsNewAccount: boolean){
+  onWantsNewAccount(userWantsNewAccount: boolean) {
     this.onCreateAccountForm = true;
   }
 
-  //create new user 
-  onRegisterFormGroupSubmit(userRegisterInfo: Users){
+  //create new user
+  onRegisterFormGroupSubmit(userRegisterInfo: Users) {
     //this is where we will use service to send to backend
     //for registration
     this.userPost.registerUser(userRegisterInfo).subscribe(result=>{
@@ -66,26 +63,22 @@ export class ViewLoginComponent implements OnInit {
     },(error)=>{
       console.log(error.status);
       console.log("------------");
-      if(error.status == 400){
-
-        this.registrationDuplicate = true;
-        this.duplicateMessage= "Emailed already registered. Use another email";
-        setTimeout(()=>{this.registrationDuplicate=false},3000);
-      }else if(error.status == 409){
-        this.registrationDuplicate = true;
-        this.duplicateMessage= "Username already registered. Use another username";
-        setTimeout(()=>{this.registrationDuplicate=false},3000);
-      }else if(error.status == 424){
-        this.registrationDuplicate = true;
-        this.duplicateMessage= "You must've already registered, because both email and username has been used already!";
-        setTimeout(()=>{this.registrationDuplicate=false},3000);
+      if(error.status == 400) {
+          this.registrationDuplicate = true;
+          this.duplicateMessage= "Emailed already registered. Use another email";
+          setTimeout(()=>{this.registrationDuplicate=false},3000);
+      } else if(error.status == 409) {
+          this.registrationDuplicate = true;
+          this.duplicateMessage= "Username already registered. Use another username";
+          setTimeout(()=>{this.registrationDuplicate=false},3000);
+      } else if(error.status == 424) {
+          this.registrationDuplicate = true;
+          this.duplicateMessage= "You must've already registered, because both email and username has been used already!";
+          setTimeout(()=>{this.registrationDuplicate=false},3000);
+      } else {
+          this.notsuccessRegisterAlert = true;
+          setTimeout(() => {this.notsuccessRegisterAlert=false},3000);
       }
-      else{
-        this.notsuccessRegisterAlert = true;
-        setTimeout(() => {this.notsuccessRegisterAlert=false},3000);
-      }
-      
     })
   }
-  
 }

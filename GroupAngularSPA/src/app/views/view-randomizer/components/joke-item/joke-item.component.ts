@@ -1,12 +1,14 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import {Joke} from '../../../../models/Joke';
-
-
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-joke-item',
   templateUrl: './joke-item.component.html',
   styleUrls: ['./joke-item.component.css']
 })
+
 export class JokeItemComponent implements OnInit {
   @Input() joke: Joke;
 
@@ -21,62 +23,59 @@ export class JokeItemComponent implements OnInit {
     this.jokeID = null;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  SetQuestion(question2: string){
+  setQuestion(question2: string) {
     this.question = question2;
     document.getElementById("jokeQuestion").innerHTML = this.question;
   }
 
-  SetAnswer(answer2: string){
+  setAnswer(answer2: string) {
     this.answer = answer2;
     document.getElementById("jokeAnswer").innerHTML = this.answer;
   }
 
-  SetJokeID(currentJokeID: number){
+  setJokeID(currentJokeID: number) {
     this.jokeID = currentJokeID;
   }
 
-  GetJokeID(){
-    if(this.jokeID == null){
-      return null;
-    }
-    else{
-      return this.jokeID;
+  getJokeID() {
+    if(this.jokeID == null) {
+        return null;
+    } else {
+        return this.jokeID;
     }
   }
 
-  SetJoke(cJoke: Joke){
+  setJoke(cJoke: Joke) {
     this.currentJoke = cJoke;
   }
 
-  SetUpvote(upvoteCount: number){
+  setUpvote(upvoteCount: number) {
     this.upvote = upvoteCount;
-
   }
 
-  SetDownvote(downvoteCount: number){
+  setDownvote(downvoteCount: number) {
     this.downvote = downvoteCount;
   }
 
-  GetJoke(){
+  getJoke() {
     return this.currentJoke;
   }
 
-  GetQuestion(){
+  getQuestion() {
     return this.question;
   }
 
-  GetAnswer(){
+  getAnswer() {
     return this.answer;
   }
 
-  GetUpvote(){
+  getUpvote() {
     return this.upvote;
   }
 
-  GetDownvote(){
+  getDownvote() {
     return this.downvote;
   }
 }

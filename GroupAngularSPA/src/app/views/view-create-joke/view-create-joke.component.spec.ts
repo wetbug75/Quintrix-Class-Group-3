@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LoadingService } from 'src/app/core/services/Loading/loading.service';
 import { JokeItemComponent } from '../view-randomizer/components/joke-item/joke-item.component';
 import { ViewCreateJokeComponent } from './view-create-joke.component';
 
@@ -11,7 +12,7 @@ describe('ViewCreateJokeComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [ ViewCreateJokeComponent],
-      providers: [JokeItemComponent ]
+      providers: [JokeItemComponent , LoadingService]
     })
     .compileComponents();
   });

@@ -10,7 +10,5 @@ export class LoadingComponent implements OnInit {
   @Input() message : String;
   constructor(loadingService: LoadingService) { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

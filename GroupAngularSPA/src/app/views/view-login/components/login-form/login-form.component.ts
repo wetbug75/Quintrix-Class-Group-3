@@ -19,36 +19,34 @@ export class LoginFormComponent implements OnInit {
     this.redmessage="Required";
    }
 
-   get userName(){
+   get userName() {
     return this.userLoginForm.get('userName');
   }
 
-  get password(){
+  get password() {
     return this.userLoginForm.get('password');
   }
 
-  initializeForm():void{
+  initializeForm():void {
     this.userLoginForm = this.fb.group({
       userName: ['',Validators.required],
       password: ['',Validators.required]
     });
   }
-  
-  ngOnInit(): void {
+
+  ngOnInit():void {
      this.initializeForm();
   }
 
-  onSubmit():void{
+  onSubmit():void {
     if(this.userLoginForm.invalid){
       this.submitted=true;
       console.log(this.submitted);
-      
-       return;
+      return;
     }
     this.userLoginData = {username: this.userLoginForm.value.userName,
                           password: this.userLoginForm.value.password }
-   
+
     this.onUserFormGroupSubmit.emit(this.userLoginData);
   }
-
 }

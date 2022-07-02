@@ -10,27 +10,22 @@ export class CreateJokeFormComponent implements OnInit {
   @Output() public onFormGroupSubmit = new EventEmitter<Joke>();
   newJokeForm!: FormGroup;
   newJokeData: Joke;
-  
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.initializeForm();
-    
   }
-  
-  initializeForm(): void{
+
+  initializeForm(): void {
     this.newJokeForm = this.fb.group({
       question: '',
       answer: ''
     });
   }
 
-  onSubmit():void{
+  onSubmit():void {
     this.newJokeData = {answer:this.newJokeForm.value.answer, question: this.newJokeForm.value.question}
-    
     this.onFormGroupSubmit.emit(this.newJokeData);
-
   }
-  
-
 }

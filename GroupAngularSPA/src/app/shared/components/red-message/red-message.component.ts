@@ -6,10 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./red-message.component.css']
 })
 export class RedMessageComponent implements OnInit {
-  @Input() redmessage: string = ''; 
+  @Input() redmessage: string = '';
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

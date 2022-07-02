@@ -29,71 +29,58 @@ export class JokeService {
     private jokeGetSer: JokeGetService,
     private jokePostSer: JokePostService,
     private jokeItem: JokeItemComponent,
-    private jokeRating: RatingsComponent,
-    private http: HttpClient){
+    private jokeRating: RatingsComponent)
+    { }
+
+  updateUpvote(joke: Joke, upvote: number, jokeid: number) {
+    this.jokePostSer.updateLikeCount(joke, jokeid);
+    this.jokeRating.setLikeCount(upvote);
   }
 
-  UpdateUpvote(joke: Joke, upvote: number, jokeid: number){
-    console.log("Updating upvote");
-    this.jokePostSer.UpdateLikeCount(joke, jokeid);
-    this.jokeRating.SetLikeCount(upvote);
+  updateDownvote(joke: Joke, downvote:number, jokeid: number) {
+    this.jokePostSer.updateDislikeCount(joke, jokeid);
+    this.jokeRating.setDislikeCount(downvote);
   }
 
-  UpdateDownvote(joke: Joke, downvote:number, jokeid: number){
-    console.log("Updating downvote");
-    this.jokePostSer.UpdateDislikeCount(joke, jokeid);
-    this.jokeRating.SetDislikeCount(downvote);
-  }
-
-  // getJokeById(index: number): Observable<Joke>{
-  //   return this.http.get<Joke>(`${this.springUrl}/jokes/find/${index}`, httpOptions);
-  // }
-
-  GetRandomJoke(id: number){
+  getRandomJoke(id: number) {
     this.jokeGetSer.getJokeById(id).subscribe(Response =>{
-      this.jokeItem.SetJoke(Response);
-      this.jokeItem.SetJokeID(Response.id);
-      this.jokeItem.SetQuestion(Response.question);
-      this.jokeItem.SetAnswer(Response.answer);
-      this.jokeItem.SetUpvote(Response.upvotes);
-      this.jokeItem.SetDownvote(Response.downvotes);
-      this.jokeRating.SetLikeCount(Response.upvotes);
-      this.jokeRating.SetDislikeCount(Response.downvotes);
+      this.jokeItem.setJoke(Response);
+      this.jokeItem.setJokeID(Response.id);
+      this.jokeItem.setQuestion(Response.question);
+      this.jokeItem.setAnswer(Response.answer);
+      this.jokeItem.setUpvote(Response.upvotes);
+      this.jokeItem.setDownvote(Response.downvotes);
+      this.jokeRating.setLikeCount(Response.upvotes);
+      this.jokeRating.setDislikeCount(Response.downvotes);
     })
   }
 
-  GetUserVote(userID: number, jokeID: number){
+  getUserVote(userID: number, jokeID: number) {
     return this.jokeGetSer.getUserVote(userID, jokeID);
   }
 
-  GetJokeDatabaseSize(){
+  getJokeDatabaseSize() {
     return this.jokeGetSer.getJokeSize();
   }
 
-  GetJoke(){
-    return this.jokeItem.GetJoke();
+  getJoke() {
+    return this.jokeItem.getJoke();
   }
 
-  GetJokeID(){
-    return this.jokeItem.GetJokeID();
+  getJokeID() {
+    return this.jokeItem.getJokeID();
   }
 
-  SetUserID(id: number){
+  setUserID(id: number) {
     this.currentUserID = id;
   }
 
-  GetUserID(){
+  getUserID() {
     return this.currentUserID;
   }
 
-  UpdateUserJokeVote(user_id: number, joke_id: number, jokeVote: String){
-    this.jokePostSer.UpdateUserJokeVote(user_id, joke_id, jokeVote);
-
+  updateUserJokeVote(user_id: number, joke_id: number, jokeVote: String) {
+    this.jokePostSer.updateUserJokeVote(user_id, joke_id, jokeVote);
   }
-
-   //getJokeByKeyword(word: String): Observable<any>{
-     //return this.http.get<any>(`${this.springUrl}/jokesWith/${word}`)
-   //}
-
 }
 

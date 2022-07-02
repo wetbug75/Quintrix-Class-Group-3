@@ -1,5 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/services/Authentication/authentication.service';
 import { AppComponent } from 'src/app/app.component';
@@ -9,22 +8,21 @@ import { AppComponent } from 'src/app/app.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent implements OnInit {
 
   isLoggedIn: boolean;
   subscription: Subscription = new Subscription;
-  constructor(private route: ActivatedRoute,
-    private router: Router,
+  constructor(
     private authenticationService: AuthenticationService,
-    private appComponent: AppComponent) { 
-      
-    }
+    private appComponent: AppComponent) { }
 
   ngOnInit(): void {
     this.subscription = this.authenticationService.isLoggedIn.subscribe((result)=>{
       this.isLoggedIn = result;
     })
   }
+
   handleLogout() {
    this.authenticationService.logout();
   }

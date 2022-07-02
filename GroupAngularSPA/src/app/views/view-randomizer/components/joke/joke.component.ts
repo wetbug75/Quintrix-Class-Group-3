@@ -1,7 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { JokeService } from '../../../../core/services/joke.service';
-import { Joke } from 'src/app/models/Joke';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-joke',
@@ -9,16 +6,8 @@ import { Joke } from 'src/app/models/Joke';
   styleUrls: ['./joke.component.css']
 })
 export class JokeComponent implements OnInit {
-  @Output() onGetRandom: EventEmitter<Joke> = new EventEmitter();
 
+  constructor() { }
 
-  jokes: Joke[] = [];
-
-
-  constructor(private jokeService: JokeService) { }
-
-  ngOnInit(): void {
-  }
-
-  
+  ngOnInit(): void { }
 }

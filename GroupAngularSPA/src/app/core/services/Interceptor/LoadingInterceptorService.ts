@@ -13,7 +13,7 @@ import { of } from 'rxjs';
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
   loadingCutoff: number = 80; //determines what is the cut off before loading kicks in
-  loadingTime : number = 500; //determines how long the loader will last on screen. 
+  loadingTime : number = 500; //determines how long the loader will last on screen.
   timer: NodeJS.Timeout;
   constructor(private loadingService: LoadingService) { }
 
@@ -22,7 +22,7 @@ export class LoadingInterceptor implements HttpInterceptor {
         clearTimeout(this.timer);
     }
 
-    //cut off limit before loading kicks in. 
+    //cut off limit before loading kicks in.
     this.timer = setTimeout(()=>this.loadingService.setLoading(true), this.loadingCutoff);
 
     return next.handle(request).pipe(
@@ -33,10 +33,10 @@ export class LoadingInterceptor implements HttpInterceptor {
                     this.loadingService.setLoading(false);
                 },this.loadingTime);
 
-                if(this.timer){
-                    clearTimeout(this.timer);
-                  }
-           
+                if(this.timer) {
+                  clearTimeout(this.timer);
+                }
+
       })
     );
   }
