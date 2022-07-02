@@ -16,15 +16,9 @@ public class CorsConfiguration implements WebMvcConfigurer{
 	    registry.addMapping("/**")
 	        .allowedMethods("*")
 	        .allowedHeaders("*")
-	        .allowedOrigins("*") //.allowedOrigins("http://localhost:4200")
-	        .allowCredentials(false) //this will be investigated later. 
+	        .allowedOrigins("*")
+	        .allowCredentials(false)
 	        .maxAge(-1);
-	  }
-	  
-	  @Override
-	  public void addFormatters(FormatterRegistry registry) {
-	        registry.addConverter(new LongToJokeConverter());
-	        registry.addConverter(new LongToUserConverter());
 	  }
 }
 

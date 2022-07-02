@@ -66,32 +66,23 @@ public class ApiControllers {
 	
 	@GetMapping(path = "/basicauth")
 	public AuthenticationBean basicauth(@RequestHeader(value="authorization") String token) {
-		System.out.println("Below is the token");
-		System.out.println(token);
 		return new AuthenticationBean("You are authenticated");
 	}
 	 
 	@GetMapping(value = "/jokes")
 	public ResponseEntity<List<Joke>> getJokes() {
-		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);
-		//return new ResponseEntity<>(jokeRepo.findAll(), HttpStatus.OK);
-		
+		return new ResponseEntity<>(jokeService.getAllJokes(), HttpStatus.OK);	
 	}
 	
 	@GetMapping(value = "/users")
 	public ResponseEntity<List<Users>> getUsers() {
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
-		//return new ResponseEntity<>(userRepo.findAll(), HttpStatus.OK);
 	}
 	
 
 	@GetMapping(value = "/jokes/find/{joke_id}")
 	public ResponseEntity<Joke> getJoke(@PathVariable("joke_id") Long joke_id) {
 		Joke foundJoke = jokeService.getOneJoke(joke_id).get();
-		if(foundJoke == null)
-		{
-			System.out.println(foundJoke);
-		}
 		return new ResponseEntity<>(foundJoke, HttpStatus.OK);
 	}
 	
@@ -122,41 +113,18 @@ public class ApiControllers {
 		jokeService.UpdateDownvote(updateJoke, jokeID);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
-	//Andrew's new upvote function
-	@PutMapping(value = "/jokes/upvote/{jokeID}")
-	public ResponseEntity<?> upvote(@PathVariable Long jokeID) throws IOException{
-		jokeService.upvoteOnce(jokeID);
-		System.out.println("joke upvoted");
-		//TODO add changeVoteStatus logic here to make front end work simpler?
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
-	//Andrew's new downvote function
-	@PutMapping(value = "/jokes/downvote/{jokeID}")
-	public ResponseEntity<?> downvote(@PathVariable Long jokeID) throws IOException{
-		jokeService.downvoteOnce(jokeID);
-		//TODO add changeVoteStatus(below) logic here to make front end work simpler?
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
 
 	@PostMapping("/newJoke" )
 	public ResponseEntity<?> newJoke(@RequestBody Joke joke) throws IOException {
-		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String authorName = auth.getName();
 		jokeService.addJokeToCosmosAndMySQL(joke, authorName);
-		
-		
 		return new ResponseEntity<>(HttpStatus.CREATED);
-
 	}
 
 
 	@PostMapping("/newUser")
 	public ResponseEntity<HttpStatus> newUser(@RequestBody Users user) {
-		//public ResponseEntity<?> newUser(@RequestBody String userName, @RequestBody String email, @RequestBody String password) {   <---- previous implementation
-		// userService.addUser(userName, email, password);  <--------- previous implementation
 		int userCreate = userService.addUser(user);
 		if(userCreate == 1) {
 			return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
@@ -171,12 +139,10 @@ public class ApiControllers {
 		}
 		
 		return new ResponseEntity<HttpStatus>(HttpStatus.EXPECTATION_FAILED); //417
-		
-		
 	}
+	
 	@PostMapping("/loginUser")
 	public ResponseEntity<?> loginUser(@RequestBody Users user) {
-		System.out.println("hi there");
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
@@ -187,12 +153,11 @@ public class ApiControllers {
 		Flux<JokeKeyword> listOfKeywords = jokeKeyWordService.findKeywords();
 		return new ResponseEntity<>(listOfKeywords, HttpStatus.OK);
 	}
-	//make it case insensitive
+	
 	@GetMapping("/jokesWith/{keyword}/{page}/{pageSize}")
 	public ResponseEntity<Object> getJokeByKeyword(@PathVariable String keyword, @PathVariable int page, 
 			@PathVariable int pageSize) {
 		String lowerCasedKeyword = keyword.toLowerCase();
-		System.out.println(lowerCasedKeyword);
 		String keywordHashCode = Integer.toString(lowerCasedKeyword.hashCode());
 		return new ResponseEntity<Object>(jokeKeyWordService.getJokeByKeyword(keywordHashCode,page,pageSize), HttpStatus.OK);
 		

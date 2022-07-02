@@ -32,16 +32,12 @@ public class JokeService {
 	@Autowired
 	private JokeKeywordRepo jkRepo;
 	
-
-	
 	public List<Joke> getAllJokes(){
 		return jokeRepo.findAll();
 	}
 	
 	public void saveJson(List<Joke> jokes) {
-		// TODO Auto-generated method stub
 		jokeRepo.saveAll(jokes);
-		
 	}
 
 	public Optional<Joke> getOneJoke(Long indexID){
@@ -63,7 +59,6 @@ public class JokeService {
 			}
 			
 			jokeList.add(joke);
-			System.out.println(jokeRepo.findById((long) ((pageNum*jokesDisplayed) - jokesDisplayed + i + 1)).toString());
 		}
 		return jokeList; 
 	}
@@ -88,18 +83,12 @@ public class JokeService {
 	}
 
 	public void UpdateUpvote(Joke updateJoke, Long jokeID){
-		System.out.println("Updating joke upvote.");
-		System.out.println("Previous upvote: " + jokeRepo.findById(jokeID).get().getUpvotes().toString());
 		jokeRepo.findById(jokeID).get().setUpvotes(updateJoke.getUpvotes());
-		System.out.println("New upvote count: " + jokeRepo.findById(jokeID).get().getUpvotes().toString());
 		jokeRepo.saveAndFlush(updateJoke);
 	}
 
 	public void UpdateDownvote(Joke updateJoke, Long jokeID){
-		System.out.println("Updating joke downvote.");
-		System.out.println("Previous downvote: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
 		jokeRepo.findById(jokeID).get().setDislikes(updateJoke.getDownvotes());
-		//System.out.println("New downvote count: " + jokeRepo.findById(jokeID).get().getDownvotes().toString());
 		jokeRepo.saveAndFlush(updateJoke);
 	}
 	
@@ -142,7 +131,6 @@ public class JokeService {
 	}
 	
 	public Optional<Joke> findById(Long thelong) {
-		System.out.println(jokeRepo.findById(thelong).orElse(null).getAnswer());
 		return jokeRepo.findById(thelong);
 	}
 }

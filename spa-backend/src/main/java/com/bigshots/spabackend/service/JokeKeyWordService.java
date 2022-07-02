@@ -39,7 +39,6 @@ public class JokeKeyWordService {
 	
 
 	public List<Optional<Joke>> getJokeByKeyword(String keywordHashCode, Integer pageNum, Integer jokesDisplayed){
-		//if anyone knows how to use optionals , please refactor. thanks
 		Mono<JokeKeyword> searchCosmos = jkr.findById(keywordHashCode);
 		JokeKeyword retrievedFromCosmos = searchCosmos.block();
 		List<Optional<Joke>> keywordJokes = new ArrayList<Optional<Joke>>();

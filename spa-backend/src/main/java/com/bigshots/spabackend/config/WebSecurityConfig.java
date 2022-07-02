@@ -30,8 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	System.out.println("Tryna hack this thing");
     	
     	//method looks into DB , encodes the password from front end and compares to db
-    	//
-       auth.jdbcAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+    	auth.jdbcAuthentication().passwordEncoder(new BCryptPasswordEncoder())
             .dataSource(dataSource)
             .usersByUsernameQuery("select username, password, enabled from users where username=?")
             .authoritiesByUsernameQuery("select username, role from users where username=?")//??? role is null
@@ -46,29 +45,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().
         disable()
             .authorizeRequests()
-            //.antMatchers(HttpMethod.OPTIONS, "/**")
-           // .permitAll()
             .antMatchers("/newJoke").authenticated()
-            
             .anyRequest()
             .permitAll()
             .and()
             .httpBasic();
-
-     /*   http.cors()
-        		.and()
-        	.authorizeRequests()
-        		//.antMatchers("/newJoke").authenticated()
-	            .anyRequest().permitAll()
-	            .and()
-            .formLogin()
-            	.permitAll()
-            	.and()
-            .logout()
-            	.permitAll()
-            	.and()
-            .csrf().disable(); //csrf protects from PUT requests*/
     }
-  
-
 } 
