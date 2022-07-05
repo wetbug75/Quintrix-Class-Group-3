@@ -26,8 +26,8 @@ import com.bigshots.spabackend.repo.JokeKeywordRepo;
 public class CosmosBuilder {
 	
 	//You must change the strings below----------------------------
-	String azureEndpoint = "https://quintrixsolo.documents.azure.com:443/";
-	String azurePrimaryKey = "Qm3LKpe5kRyRhpVGyjtXQxzRcAmuS7J9fuSguR5IrF2UlWFO0LvEyZQsqoMifntnrrljrhW9zAcrDhXGYjBdHA==";
+	String azureEndpoint = "https://jokeproject.documents.azure.com:443/";
+	String azurePrimaryKey = "sqlMrvo8PY91y1I94mncw9hZeocwniD49mr3Rb3b3EqBbW4qmumYVDemy4UuEH4HNAm4q9qjlCVJptLNANMH8Q==";
 	
 	//you must change the strings above -------------------------
 	

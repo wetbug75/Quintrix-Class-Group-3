@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Service;
 
 import com.bigshots.spabackend.model.Joke;
@@ -19,6 +20,8 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class JokeKeyWordService {
+	
+	
 	@Autowired
 	private JokeKeywordRepo jkr;
 	@Autowired

@@ -174,7 +174,6 @@ public class ApiControllers {
 	public ResponseEntity<Object> getJokeByKeyword(@PathVariable String keyword, @PathVariable int page, 
 			@PathVariable int pageSize) {
 		String lowerCasedKeyword = keyword.toLowerCase();
-		System.out.println(lowerCasedKeyword);
 		String keywordHashCode = Integer.toString(lowerCasedKeyword.hashCode());
 		return new ResponseEntity<Object>(jokeKeyWordService.getJokeByKeyword(keywordHashCode,page,pageSize), HttpStatus.OK);
 		

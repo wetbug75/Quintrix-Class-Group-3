@@ -17,7 +17,10 @@ public class JokeKeyword {
 	public ArrayList<Integer> jokeId = new ArrayList<Integer>(137);
 	
 	public JokeKeyword() {}
-	
+	public JokeKeyword(String id, String word) {
+		this.id = id;
+		this.word = word;
+	}
 	public String getId() {
 		return this.id;
 	}
@@ -26,10 +29,7 @@ public class JokeKeyword {
 		this.id = id;
 	}
 	
-	public JokeKeyword(String id, String word) {
-		this.id = id;
-		this.word = word;
-	}
+	
 	
 	public void setWord(String word) {
 		this.word = word;
