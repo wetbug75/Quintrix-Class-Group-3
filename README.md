@@ -2,6 +2,8 @@
 
 DEMO LINK: https://youtu.be/s1o0qMeg5RI
 
+FIGMA LINK: https://www.figma.com/file/ML4WlEmVfsY5UocIkmdx0b/Jokes?node-id=0%3A1
+
 The application's purpose is to let users view, create, and search for programming jokes.
 
 This application was created and worked on by Andrew, Devin, Leon, and Simon.
